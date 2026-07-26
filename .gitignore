@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# Claude Code local tooling (dev-server config specific to this machine)
+.claude/
+
+# Build artifacts (regenerated from source files, not tracked)
+*.zip
+
+# Unrelated nested projects (each has its own git repo)
+Dahabia/
+DahabiaIntel/
+
+# Reference documents not served by the site
+*.pdf
+
+# Superseded duplicate
+ai-visibility-audit 2.html

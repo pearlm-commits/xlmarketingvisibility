@@ -1,0 +1,48 @@
+# XL Marketing Services — robots.txt
+# Everything on this site is meant to be found — by search engines and by AI
+# answer engines alike. No sections are blocked.
+
+User-agent: *
+Allow: /
+
+# Search / AI crawlers — explicitly allowed rather than left to default
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+Sitemap: https://xluxemarketing.com/sitemap.xml

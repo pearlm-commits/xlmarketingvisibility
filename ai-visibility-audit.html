@@ -1,0 +1,2799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Marketing Diagnostics — XL Marketing Services</title>
+  <meta name="description" content="Two free 12-question diagnostics: find out where AI can — and cannot — find your business, and whether your marketing setup is ready to DIY or needs expert help." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://xluxemarketing.com/ai-visibility-audit.html" />
+
+  <!-- Open Graph / Twitter — DEVELOPER: add a real og:image once a brand share-image asset exists -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="XL Marketing Services" />
+  <meta property="og:title" content="Free Marketing Diagnostics — XL Marketing Services" />
+  <meta property="og:description" content="Two free 12-question diagnostics: find out where AI can — and cannot — find your business, and whether your marketing setup is ready to DIY or needs expert help." />
+  <meta property="og:url" content="https://xluxemarketing.com/ai-visibility-audit.html" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Free Marketing Diagnostics — XL Marketing Services" />
+  <meta name="twitter:description" content="Two free 12-question diagnostics: find out where AI can — and cannot — find your business, and whether your marketing setup is ready to DIY or needs expert help." />
+
+  <!-- =====================================================================
+    DEVELOPER NOTES
+    =====================================================================
+    This is a self-contained single-file tool hosting TWO diagnostics.
+    No framework required. Hosted as a static HTML file on any platform
+    (Netlify, Vercel, GitHub Pages).
+
+      Diagnostic 1 — "AI Visibility Audit"       (mode: visibility)
+      Diagnostic 2 — "Consultant vs DIY Readiness" (mode: readiness)
+
+    Visitors land on a mode-select screen and pick one. Both share the
+    same quiz/scoring/print engine (see the TOOLS registry in <script>)
+    but have separate intake forms and separate results screens.
+
+    INTEGRATION POINTS — search for "DEVELOPER:" to find all of them:
+
+    1. FORM SUBMISSION (function startAudit / startReadiness)
+       Both intake forms POST to the same placeholder endpoint. Replace
+       with your webhook URL.
+       Recommended: Zapier Webhook → Google Sheets / Notion / your CRM
+       Alternative: Formspree (formspree.io) for zero-backend email delivery
+
+    2. EMAIL DELIVERY
+       Optional: fire a second POST to your email service (Mailchimp, SendGrid)
+       to trigger an automated follow-up sequence on form submit — for the
+       readiness tool this should be the "Marketing Efficiency & Effectiveness"
+       tips sequence referenced in its guide-notice and tips-note copy.
+
+    3. RESULTS EMAIL (function buildResults / buildResultsReadiness)
+       Optional: POST the scored results JSON to your backend so the
+       client receives a formatted email copy of their report.
+
+    4. ANALYTICS
+       Drop your Google Analytics / GTM snippet here.
+
+    5. BRANDING
+       All colours are CSS variables at the top of the <style> block.
+       Swap the logo wordmark in the .site-logo div if needed.
+  ===================================================================== -->
+
+  <!-- DEVELOPER: Drop your Google Analytics / GTM snippet here -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Brand tokens ─────────────────────────────────────────── */
+    :root {
+      --cream:       #FFFBF1;
+      --cream-mid:   #F5EFE0;
+      --gold:        #C9B07A;
+      --gold-light:  #DDD0A8;
+      --gold-dark:   #A08B52;
+      --navy:        #050A30;
+      --navy-mid:    #0D1650;
+      --oxblood:     #3D1200;
+      --muted:       #7A7469;
+      --muted-light: #B5AFA4;
+      --border:      rgba(201,176,122,0.22);
+      --border-mid:  rgba(201,176,122,0.45);
+      --shadow:      0 2px 24px rgba(5,10,48,0.08);
+      --shadow-lg:   0 8px 48px rgba(5,10,48,0.14);
+      --radius:      6px;
+      --radius-lg:   12px;
+    }
+
+    /* ── Reset ────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter Tight', sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Typography ───────────────────────────────────────────── */
+    .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+    /* ── Layout ───────────────────────────────────────────────── */
+    .page-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Navigation ───────────────────────────────────────────── */
+    .site-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .site-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    .site-logo span {
+      color: var(--gold-dark);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 12px 24px;
+    }
+
+    .nav-links > a {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.15s;
+    }
+
+    .nav-links > a:hover { color: var(--navy); }
+
+    .nav-cta {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--cream);
+      background: var(--navy);
+      border: none;
+      padding: 9px 20px;
+      border-radius: 999px;
+      white-space: nowrap;
+      cursor: pointer;
+      text-decoration: none;
+      font-family: 'Inter Tight', sans-serif;
+      transition: opacity 0.15s;
+    }
+
+    .nav-cta:hover { opacity: 0.82; }
+
+    /* ── Hero ─────────────────────────────────────────────────── */
+    .hero {
+      padding: 64px 0 48px;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 18px;
+    }
+
+    /* Shared visual style for the hero heading — only the mode-select
+       screen's heading is a true <h1>; the other two screens use <h2>
+       since they're only reachable after a user interaction, not on
+       initial load. All three share this class so styling stays identical. */
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 6vw, 52px);
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--navy);
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-dark);
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto 32px;
+      font-weight: 300;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat .hs-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .hero-stat .hs-label {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+      font-weight: 300;
+    }
+
+    .divider {
+      width: 1px;
+      height: 36px;
+      background: var(--border-mid);
+      align-self: center;
+    }
+
+    /* ── Cards ────────────────────────────────────────────────── */
+    .card {
+      background: #fff;
+      border: 0.5px solid var(--border-mid);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .card + .card {
+      margin-top: 16px;
+    }
+
+    /* ── Screens ──────────────────────────────────────────────── */
+    .screen { display: none; }
+    .screen.active { display: block; }
+
+    /* ── Intake form ──────────────────────────────────────────── */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    @media (max-width: 520px) {
+      .form-grid { grid-template-columns: 1fr; }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group.full { grid-column: 1 / -1; }
+
+    label {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    input, select {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 14px;
+      color: var(--navy);
+      background: var(--cream);
+      border: 0.5px solid var(--border-mid);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      outline: none;
+      transition: border-color 0.15s;
+      width: 100%;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--gold);
+    }
+
+    input::placeholder {
+      color: var(--muted-light);
+    }
+
+    select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A7469' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+
+    .consent-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 18px 0 24px;
+    }
+
+    .consent-row input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      accent-color: var(--gold-dark);
+      cursor: pointer;
+    }
+
+    .consent-text {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── Buttons ──────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 13px 28px;
+      border-radius: 999px;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.1s;
+      border: none;
+      text-decoration: none;
+    }
+
+    .btn:active { transform: scale(0.98); }
+
+    .btn-primary {
+      background: var(--navy);
+      color: var(--cream);
+    }
+
+    .btn-primary:hover { opacity: 0.88; }
+
+    .btn-gold {
+      background: var(--gold-dark);
+      color: #fff;
+    }
+
+    .btn-gold:hover { opacity: 0.88; }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--muted);
+      border: 0.5px solid var(--border-mid);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--gold);
+      color: var(--navy);
+    }
+
+    .btn-full { width: 100%; justify-content: center; }
+
+    .btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    /* ── Progress ─────────────────────────────────────────────── */
+    .progress-wrap {
+      margin-bottom: 28px;
+    }
+
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .progress-track {
+      height: 2px;
+      background: var(--cream-mid);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: width 0.4s ease;
+    }
+
+    /* ── Lever pill ───────────────────────────────────────────── */
+    .lever-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--cream-mid);
+      border: 0.5px solid var(--border-mid);
+      border-radius: 100px;
+      padding: 5px 14px 5px 5px;
+      margin-bottom: 20px;
+    }
+
+    .lever-dot {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .lever-pill span {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* ── Question ─────────────────────────────────────────────── */
+    .question-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+
+    .question-hint {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+      padding-left: 14px;
+      border-left: 2px solid var(--gold-light);
+      font-weight: 300;
+    }
+
+    /* ── Answer options ───────────────────────────────────────── */
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .opt-btn {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      background: var(--cream);
+      border: 0.5px solid var(--border-mid);
+      border-radius: var(--radius);
+      cursor: pointer;
+      text-align: left;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 14px;
+      color: var(--navy);
+      line-height: 1.5;
+      transition: border-color 0.15s, background 0.15s;
+      width: 100%;
+    }
+
+    .opt-btn:hover {
+      border-color: var(--gold);
+      background: #fff;
+    }
+
+    .opt-btn.selected {
+      border-color: var(--gold-dark);
+      background: #fff;
+    }
+
+    .opt-indicator {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border-mid);
+      flex-shrink: 0;
+      margin-top: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .opt-btn.selected .opt-indicator {
+      background: var(--gold-dark);
+      border-color: var(--gold-dark);
+    }
+
+    .opt-btn.selected .opt-indicator::after {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    /* ── Nav row ──────────────────────────────────────────────── */
+    .nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* ── Results ──────────────────────────────────────────────── */
+    .results-hero {
+      text-align: center;
+      padding: 32px 0 24px;
+      border-bottom: 0.5px solid var(--border);
+      margin-bottom: 28px;
+    }
+
+    .score-ring-wrap {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .score-ring {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .score-ring .s-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 34px;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .score-ring .s-den {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .score-verdict {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .score-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 460px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    /* ── Lever grid ───────────────────────────────────────────── */
+    .lever-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    @media (max-width: 520px) {
+      .lever-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .lever-card {
+      background: var(--cream);
+      border: 0.5px solid var(--border-mid);
+      border-radius: var(--radius);
+      padding: 14px;
+    }
+
+    .lever-card .lc-name {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .lever-card .lc-pct {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .lever-bar {
+      height: 3px;
+      background: var(--cream-mid);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .lever-bar-fill {
+      height: 100%;
+      border-radius: 2px;
+    }
+
+    /* ── Priority blocks ──────────────────────────────────────── */
+    .priority-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .priority-item {
+      padding: 18px 20px;
+      background: #fff;
+      border: 0.5px solid var(--border-mid);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin-bottom: 12px;
+    }
+
+    .pi-meta {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .pi-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .pi-rec {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* ── Client summary block ─────────────────────────────────── */
+    .client-summary {
+      background: var(--navy);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .cs-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--gold-dark);
+      color: #fff;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .cs-body .cs-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--cream);
+      margin-bottom: 2px;
+    }
+
+    .cs-body .cs-company {
+      font-size: 13px;
+      color: var(--gold-light);
+      font-weight: 300;
+    }
+
+    /* ── CTA block ────────────────────────────────────────────── */
+    .cta-block {
+      background: var(--cream-mid);
+      border: 0.5px solid var(--border-mid);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      text-align: center;
+      margin-top: 24px;
+    }
+
+    .cta-block h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .cta-block p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    .cta-btn-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── Footer ───────────────────────────────────────────────── */
+    .site-footer {
+      border-top: 0.5px solid var(--border);
+      margin-top: 64px;
+      padding: 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover { color: var(--navy); }
+
+    /* ── Intro lever overview ─────────────────────────────────── */
+    .lever-overview {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 24px 0 32px;
+    }
+
+    @media (max-width: 480px) {
+      .lever-overview { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .lo-chip {
+      background: var(--cream);
+      border: 0.5px solid var(--border-mid);
+      border-radius: var(--radius);
+      padding: 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+      position: relative;
+    }
+
+    .lo-chip:hover {
+      border-color: var(--gold);
+      background: #fff;
+    }
+
+    .lo-chip.open {
+      border-color: var(--gold-dark);
+      background: #fff;
+    }
+
+    .lo-chip .loc-num {
+      font-size: 10px;
+      color: var(--gold-dark);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .lo-chip .loc-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    .lo-chip .loc-toggle {
+      font-size: 16px;
+      color: var(--gold-dark);
+      line-height: 1;
+      margin-top: 6px;
+      transition: transform 0.2s;
+      display: block;
+    }
+
+    .lo-chip.open .loc-toggle {
+      transform: rotate(45deg);
+    }
+
+    /* ── Lever question drawer ────────────────────────────────── */
+    .lever-drawer {
+      display: none;
+      grid-column: 1 / -1;
+      background: #fff;
+      border: 0.5px solid var(--border-mid);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      animation: fadeUp 0.2s ease both;
+    }
+
+    .lever-drawer.open { display: block; }
+
+    .ld-title {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+
+    .ld-question {
+      padding: 12px 14px;
+      background: var(--cream);
+      border: 0.5px solid var(--border-mid);
+      border-radius: var(--radius);
+      margin-bottom: 8px;
+    }
+
+    .ld-question:last-child { margin-bottom: 0; }
+
+    .ld-q-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .ld-q-hint {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-weight: 300;
+      border-left: 2px solid var(--gold-light);
+      padding-left: 10px;
+    }
+
+    /* ── Guide-on-its-way notice ─────────────────────────────── */
+    .guide-notice {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      background: #f0faf4;
+      border: 0.5px solid #a8d5b5;
+      border-radius: var(--radius);
+      padding: 11px 14px;
+      margin-top: 12px;
+      font-size: 13px;
+      color: #2d6a4f;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .guide-notice.show { display: flex; }
+
+    .guide-notice-icon { font-size: 16px; flex-shrink: 0; }
+
+    /* ── Animations ───────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .screen.active {
+      animation: fadeUp 0.35s ease both;
+    }
+
+    /* ── Responsive ───────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .card { padding: 22px 18px; }
+      .hero { padding: 40px 0 32px; }
+      .hero-stats { gap: 20px; }
+      .cta-block { padding: 22px 18px; }
+      .client-summary { flex-direction: column; }
+    }
+
+    /* ── Mode select ──────────────────────────────────────────── */
+    .mode-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 32px 0 8px;
+    }
+
+    @media (max-width: 560px) {
+      .mode-grid { grid-template-columns: 1fr; }
+    }
+
+    .mode-card {
+      background: #fff;
+      border: 0.5px solid var(--border-mid);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      text-align: left;
+      cursor: pointer;
+      transition: border-color 0.15s, transform 0.1s, box-shadow 0.15s;
+      box-shadow: var(--shadow);
+    }
+
+    .mode-card:hover {
+      border-color: var(--gold);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+    }
+
+    .mode-card .mc-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .mode-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+
+    .mode-card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-weight: 300;
+      margin-bottom: 16px;
+    }
+
+    .mode-card .mc-meta {
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      border-top: 0.5px solid var(--border);
+      padding-top: 12px;
+    }
+
+    .mode-card .mc-arrow { color: var(--gold-dark); font-weight: 500; }
+
+    #pillar-overview { grid-template-columns: repeat(4, 1fr); }
+
+    @media (max-width: 480px) {
+      #pillar-overview { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── Manifesto / principles band ──────────────────────────── */
+    .principle-band {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 28px 0 8px;
+    }
+
+    @media (max-width: 560px) {
+      .principle-band { grid-template-columns: 1fr; }
+    }
+
+    .principle-card {
+      background: var(--cream-mid);
+      border: 0.5px solid var(--border-mid);
+      border-radius: var(--radius);
+      padding: 16px 16px 18px;
+    }
+
+    .principle-card .pc-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: var(--gold-dark);
+      margin-bottom: 6px;
+    }
+
+    .principle-card h4 {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 6px;
+      letter-spacing: 0.01em;
+    }
+
+    .principle-card p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.55;
+      font-weight: 300;
+    }
+
+    /* ── Case-for-help callout ────────────────────────────────── */
+    .case-callout {
+      background: var(--navy);
+      border-radius: var(--radius-lg);
+      padding: 22px 26px;
+      margin: 24px 0;
+      color: var(--cream);
+    }
+
+    .case-callout .cc-label {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .case-callout p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--cream);
+      font-weight: 300;
+    }
+
+    .case-callout p + p { margin-top: 10px; }
+
+    .case-callout strong { color: var(--gold-light); font-weight: 500; }
+
+    /* ── Resource reality panel ───────────────────────────────── */
+    .reality-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    @media (max-width: 560px) {
+      .reality-grid { grid-template-columns: 1fr; }
+    }
+
+    .reality-card {
+      background: var(--cream);
+      border: 0.5px solid var(--border-mid);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+
+    .reality-card .rc-label {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .reality-card .rc-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .reality-card .rc-note {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.5;
+      font-weight: 300;
+    }
+
+    /* ── Recommendation tier card ─────────────────────────────── */
+    .tier-card {
+      border-radius: var(--radius-lg);
+      padding: 26px 28px;
+      margin-bottom: 24px;
+      border: 0.5px solid var(--border-mid);
+      background: linear-gradient(135deg, #fff, var(--cream-mid));
+    }
+
+    .tier-badge {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: #fff;
+      background: var(--gold-dark);
+      padding: 5px 12px;
+      border-radius: 100px;
+      margin-bottom: 12px;
+    }
+
+    .tier-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .tier-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 14px;
+    }
+
+    .tier-next {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .tier-next li {
+      font-size: 13px;
+      color: var(--navy);
+      line-height: 1.5;
+      padding-left: 20px;
+      position: relative;
+      font-weight: 400;
+    }
+
+    .tier-next li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--gold-dark);
+    }
+
+    /* ── Efficiency metrics strip ─────────────────────────────── */
+    .metric-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 20px 0 28px;
+    }
+
+    @media (max-width: 560px) {
+      .metric-strip { grid-template-columns: 1fr; }
+    }
+
+    .metric-item {
+      background: #fff;
+      border: 0.5px solid var(--border-mid);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+
+    .metric-item .mi-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--gold-dark);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .metric-item .mi-desc {
+      font-size: 12px;
+      color: var(--navy);
+      line-height: 1.55;
+      margin-bottom: 6px;
+    }
+
+    .metric-item .mi-src { font-size: 10px; color: var(--muted-light); }
+
+    /* ── Email tips opt-in note ───────────────────────────────── */
+    .tips-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: var(--cream-mid);
+      border: 0.5px solid var(--border-mid);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* ── Utility ──────────────────────────────────────────────── */
+    /* Present in the HTML source and readable by screen readers and
+       text-based crawlers, but not visible on screen. Used to expose
+       the full question bank (normally revealed only via a click, so
+       otherwise invisible to non-interactive crawlers) without
+       cluttering the interactive UI with a duplicate plain-text dump. */
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .mt8  { margin-top: 8px; }
+    .mt16 { margin-top: 16px; }
+    .mt24 { margin-top: 24px; }
+    .text-center { text-align: center; }
+    .text-muted { color: var(--muted); font-size: 13px; font-weight: 300; }
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 0.5px solid var(--border);
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Free Marketing Diagnostics — XL Marketing Services",
+    "description": "Two free 12-question diagnostics: find out where AI can — and cannot — find your business, and whether your marketing setup is ready to DIY or needs expert help.",
+    "url": "https://xluxemarketing.com/ai-visibility-audit.html",
+    "isPartOf": {
+      "@type": "Organization",
+      "name": "XL Marketing Services",
+      "url": "https://xluxemarketing.com/"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <div class="page-wrap">
+
+    <!-- ── Navigation ─────────────────────────────────────────── -->
+    <nav class="site-nav">
+      <a href="index.html" class="site-logo">XL<span>.</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="journal.html">Journal</a>
+        <button class="nav-cta" id="nav-back-btn" onclick="goToModeSelect()" style="display:none">&larr; All diagnostics</button>
+      </div>
+    </nav>
+
+    <!-- ══════════════════════════════════════════════════════════
+      SCREEN 0: MODE SELECT
+    ══════════════════════════════════════════════════════════════ -->
+    <div id="screen-mode-select" class="screen active">
+      <div class="hero">
+        <div class="hero-eyebrow">XL Marketing Services</div>
+        <h1 class="hero-title">Two free diagnostics.<br/>One clearer path <em>forward</em>.</h1>
+        <p class="hero-sub">
+          Choose the assessment that matches where you're stuck. Both take around four
+          minutes and end with a scored report sent to your inbox.
+        </p>
+      </div>
+
+      <div class="mode-grid">
+        <div class="mode-card" onclick="selectMode('visibility')">
+          <div class="mc-eyebrow">Diagnostic 01</div>
+          <h3>How visible is your business to AI?</h3>
+          <p>Twelve questions across six levers — clarity, positioning, off-site presence, content structure, buyer intent, and measurement — scored against how AI tools actually read and cite businesses.</p>
+          <div class="mc-meta"><span>12 questions &middot; ~4 min</span><span class="mc-arrow">Start &rarr;</span></div>
+        </div>
+        <div class="mode-card" onclick="selectMode('readiness')">
+          <div class="mc-eyebrow">Diagnostic 02</div>
+          <h3>Should you DIY your marketing, or get help?</h3>
+          <p>Twelve questions across brand &amp; positioning, content &amp; AI visibility, paid media, and marketing ops — an honest read on whether your current setup is compounding results, or quietly costing you.</p>
+          <div class="mc-meta"><span>12 questions &middot; ~4 min</span><span class="mc-arrow">Start &rarr;</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+      SCREEN 1: HERO + INTAKE FORM (AI VISIBILITY)
+    ══════════════════════════════════════════════════════════════ -->
+    <div id="screen-intro" class="screen">
+
+      <div class="hero">
+        <div class="hero-eyebrow">XL Marketing Services</div>
+        <h2 class="hero-title">How visible is your<br/>business to <em>AI</em>?</h2>
+        <p class="hero-sub">
+          Twelve questions. Six diagnostic levers. A scored report that tells you
+          exactly where AI can — and cannot — find your business, and what to fix first.
+        </p>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hs-num">23×</div>
+            <div class="hs-label">Higher conversion from AI-referred traffic<br/><span style="font-size:10px">(BrightEdge, 2025)</span></div>
+          </div>
+          <div class="divider"></div>
+          <div class="hero-stat">
+            <div class="hs-num">58%</div>
+            <div class="hs-label">Of Google queries now show<br/>an AI Overview at the top</div>
+          </div>
+          <div class="divider"></div>
+          <div class="hero-stat">
+            <div class="hs-num">85%</div>
+            <div class="hs-label">Of AI brand mentions come from<br/>third-party sources, not your site</div>
+          </div>
+        </div>
+      </div>
+
+      <p style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:28px 0 10px;text-align:center">Six levers — tap any to preview the questions</p>
+      <div class="lever-overview" id="lever-overview">
+        <div class="lo-chip" onclick="toggleLever(1, this)"><div class="loc-num">Lever 1</div><div class="loc-name">Clarity</div><span class="loc-toggle">+</span></div>
+        <div class="lo-chip" onclick="toggleLever(2, this)"><div class="loc-num">Lever 2</div><div class="loc-name">Positioning</div><span class="loc-toggle">+</span></div>
+        <div class="lo-chip" onclick="toggleLever(3, this)"><div class="loc-num">Lever 3</div><div class="loc-name">Off-Site Presence</div><span class="loc-toggle">+</span></div>
+        <div class="lever-drawer" id="drawer-1-3"></div>
+        <div class="lo-chip" onclick="toggleLever(4, this)"><div class="loc-num">Lever 4</div><div class="loc-name">Content Structure</div><span class="loc-toggle">+</span></div>
+        <div class="lo-chip" onclick="toggleLever(5, this)"><div class="loc-num">Lever 5</div><div class="loc-name">Buyer Intent</div><span class="loc-toggle">+</span></div>
+        <div class="lo-chip" onclick="toggleLever(6, this)"><div class="loc-num">Lever 6</div><div class="loc-name">Measurement</div><span class="loc-toggle">+</span></div>
+        <div class="lever-drawer" id="drawer-4-6"></div>
+      </div>
+
+      <!-- Full question bank, present in the HTML source so it's readable by
+           screen readers and by crawlers that don't execute click handlers —
+           the interactive drawers above only populate on click. Keep this in
+           sync with the QUESTIONS array below if a question ever changes. -->
+      <div class="visually-hidden">
+        <h2>All AI Visibility Audit questions, by lever</h2>
+        <section>
+          <h3>Lever 1: Clarity</h3>
+          <p><strong>If someone arrived on your homepage having never heard of you, could they explain what you do in one sentence within ten seconds?</strong> Think about your opening headline and the first paragraph of body copy. AI reads this block first.</p>
+          <p><strong>Do your page headings tell AI what each section covers, or do they read as brand language and metaphor?</strong> A clear heading example: "What marketing teams can do with our platform that they cannot do in a spreadsheet." AI cannot infer meaning from clever headings.</p>
+        </section>
+        <section>
+          <h3>Lever 2: Positioning</h3>
+          <p><strong>Is your core positioning — who you serve, what you deliver, why you are different — stated identically on your website, LinkedIn, and any review or directory platforms?</strong> AI reads all your surfaces simultaneously. Inconsistency across platforms registers as unreliability.</p>
+          <p><strong>Do you publish content that directly compares you to alternatives or named competitors?</strong> When someone asks AI "X vs Y", it cites the most credible voice in that conversation. That should be you, not a third-party review site.</p>
+        </section>
+        <section>
+          <h3>Lever 3: Off-Site Presence</h3>
+          <p><strong>When you search for your category in ChatGPT or Perplexity, do you appear — and do you know which third-party sources AI is drawing from?</strong> 85% of AI brand mentions come from third-party sources — review platforms, editorial coverage, community forums — not your own website.</p>
+          <p><strong>How active is your presence on third-party review platforms, industry publications, and community forums your target audience trusts?</strong> G2, Capterra, Trustpilot, Reddit, industry press — wherever your category is discussed by people other than you.</p>
+        </section>
+        <section>
+          <h3>Lever 4: Content Structure</h3>
+          <p><strong>Does every major page on your site open with a 2–3 sentence direct answer to the question that page is meant to address?</strong> AI reads in roughly 375-word chunks and lifts the paragraph that can stand alone. It does not read to the end to find your conclusion.</p>
+          <p><strong>Do your key pages include FAQ sections written in the language of how buyers actually ask questions — including how they would type a query into an AI tool?</strong> FAQs are among the most-cited content formats in AI answers. Write them as buyer prompts, not corporate Q&As.</p>
+        </section>
+        <section>
+          <h3>Lever 5: Buyer Intent</h3>
+          <p><strong>Is the majority of your content aimed at people who are browsing and learning, or at people who are comparing options and ready to decide?</strong> AI gets consulted right before someone chooses. Decision-stage content — comparisons, "is it worth it" guides, "how to choose" articles — is what earns citations at that moment.</p>
+          <p><strong>Do you have content that names your specific ideal client — by role, company size, industry, or situation — and addresses their exact decision criteria?</strong> "Best [category] for [specific audience and use case]" is one of the highest-performing AI query formats. Generic content does not get cited at the decision moment.</p>
+        </section>
+        <section>
+          <h3>Lever 6: Measurement</h3>
+          <p><strong>How regularly do you run your most important category queries through ChatGPT, Gemini, and Perplexity to monitor what AI says about your business?</strong> Monthly reconnaissance takes two to three hours and is the single highest-value activity available to any brand serious about AI visibility.</p>
+          <p><strong>When you find inaccuracies in how AI describes your business, do you know how to trace the origin of that description and correct it at source?</strong> Asking AI to correct itself does not work. The inaccuracy lives in a third-party source — a directory listing, an outdated article, an inconsistent profile. You must fix the origin.</p>
+        </section>
+      </div>
+
+      <div class="card" id="intake-form">
+        <div class="section-label">Before you begin — tell us about your business</div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="f-name">Your name</label>
+            <input type="text" id="f-name" placeholder="Jane Smith" autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="f-company">Company name</label>
+            <input type="text" id="f-company" placeholder="Acme Ltd" autocomplete="organization" />
+          </div>
+          <div class="form-group">
+            <label for="f-email">Work email</label>
+            <input type="email" id="f-email" placeholder="jane@acme.com" autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="f-website">Website URL</label>
+            <input type="url" id="f-website" placeholder="https://acme.com" autocomplete="url" />
+          </div>
+          <div class="form-group full">
+            <label for="f-maturity">How would you describe your current marketing maturity?</label>
+            <select id="f-maturity">
+              <option value="" disabled selected>Select one</option>
+              <option value="early">Early stage — we are building our foundations</option>
+              <option value="growing">Growing — we have a presence but want more reach</option>
+              <option value="established">Established — we are optimising what already works</option>
+              <option value="scaling">Scaling — we need to stay ahead as we grow quickly</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="consent-row">
+          <input type="checkbox" id="f-consent" />
+          <label class="consent-text" for="f-consent" style="text-transform:none;letter-spacing:0;font-weight:300;font-size:12px">
+            I am happy for XL Marketing Services to contact me about my audit results
+            and relevant services. I understand my data will be handled in accordance with
+            applicable privacy regulations.
+          </label>
+        </div>
+
+        <button class="btn btn-primary btn-full" id="start-btn" onclick="startAudit()">
+          Start my audit &rarr;
+        </button>
+        <p class="text-muted text-center mt8">Takes around 4 minutes. No payment required.</p>
+
+        <div class="guide-notice" id="guide-notice">
+          <span class="guide-notice-icon">✉️</span>
+          <span>Your free guide — <em>How to Be Found Online Circa 2026</em> — will land in your inbox within the hour.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+      SCREEN 1B: HERO + INTAKE FORM (CONSULTANT VS DIY READINESS)
+    ══════════════════════════════════════════════════════════════ -->
+    <div id="screen-intro-readiness" class="screen">
+
+      <div class="hero">
+        <div class="hero-eyebrow">XL Marketing Services</div>
+        <h2 class="hero-title">Marketing is a <em>foundation</em>,<br/>not a launch.</h2>
+        <p class="hero-sub">
+          Twelve honest questions across four pillars. A scored read on whether your
+          current approach is compounding — or quietly draining the time and budget
+          you could be spending elsewhere.
+        </p>
+      </div>
+
+      <div class="principle-band">
+        <div class="principle-card">
+          <div class="pc-num">01</div>
+          <h4>Clarity compounds</h4>
+          <p>Every week your positioning stays vague, every channel built on top of it inherits that vagueness.</p>
+        </div>
+        <div class="principle-card">
+          <div class="pc-num">02</div>
+          <h4>Consistency compounds</h4>
+          <p>Businesses that execute consistently across channels see 53% stronger email results and 43% stronger paid social than single-channel effort (Taradel, 2025).</p>
+        </div>
+        <div class="principle-card">
+          <div class="pc-num">03</div>
+          <h4>Outside eyes close blind spots</h4>
+          <p>You can't audit what you can't see from inside your own business. That's not a skills gap — it's a vantage point problem.</p>
+        </div>
+      </div>
+
+      <div class="case-callout">
+        <div class="cc-label">Why this matters now</div>
+        <p>Some brands bring in expert help from day one and spend the following years compounding on a solid foundation. Others spend those same years rebuilding what should have been right the first time — the real cost isn't just the wasted spend, it's the time the business spent invisible while competitors weren't.</p>
+        <p><strong>71% of small business owners</strong> now prefer DIY marketing tools over hiring help (Taradel, 2025) — yet <strong>88% of businesses</strong> that increased marketing spend in 2025 saw measurable revenue improvement, and that gain only showed up when spend was paired with consistent execution (Taradel, 2025). The distance between those two numbers is where most small businesses lose ground.</p>
+      </div>
+
+      <p style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:28px 0 10px;text-align:center">Four pillars — tap any to preview the questions</p>
+      <div class="lever-overview" id="pillar-overview">
+        <div class="lo-chip" onclick="togglePillar(1, this)"><div class="loc-num">Pillar 1</div><div class="loc-name">Brand &amp; Positioning</div><span class="loc-toggle">+</span></div>
+        <div class="lo-chip" onclick="togglePillar(2, this)"><div class="loc-num">Pillar 2</div><div class="loc-name">Content, SEO &amp; AI</div><span class="loc-toggle">+</span></div>
+        <div class="lo-chip" onclick="togglePillar(3, this)"><div class="loc-num">Pillar 3</div><div class="loc-name">Paid &amp; Demand Gen</div><span class="loc-toggle">+</span></div>
+        <div class="lo-chip" onclick="togglePillar(4, this)"><div class="loc-num">Pillar 4</div><div class="loc-name">Ops &amp; CRM</div><span class="loc-toggle">+</span></div>
+        <div class="lever-drawer" id="drawer-pillars"></div>
+      </div>
+
+      <!-- Full question bank, present in the HTML source so it's readable by
+           screen readers and by crawlers that don't execute click handlers —
+           the interactive drawer above only populates on click. Keep this in
+           sync with the QUESTIONS2 array below if a question ever changes. -->
+      <div class="visually-hidden">
+        <h2>All Consultant vs DIY Readiness questions, by pillar</h2>
+        <section>
+          <h3>Pillar 1: Brand &amp; Positioning</h3>
+          <p><strong>If a new hire had to explain, in two sentences, why your last three customers chose you over the alternative — could they get it right without asking you first?</strong> Positioning drift is invisible from inside a business. It is usually the first gap an outside eye catches in week one.</p>
+          <p><strong>When did your core messaging last change in response to evidence — a market shift, a competitor move, a pattern in lost deals — rather than a rebrand or a gut feeling?</strong> Positioning that has not moved in over a year is usually guesswork wearing the costume of strategy.</p>
+          <p><strong>Could you say, in one sentence and without hedging, the single thing a customer would lose by switching to your closest competitor?</strong> If that takes more than a sentence internally, the market cannot answer it either — and unclear differentiation is one of the most expensive gaps to leave unaddressed.</p>
+        </section>
+        <section>
+          <h3>Pillar 2: Content, SEO &amp; AI Visibility</h3>
+          <p><strong>Do you work from a documented content plan tied to business goals, or does content happen when someone finds an hour?</strong> Ad hoc content is the single biggest predictor of wasted marketing hours in small teams — real effort, without the compounding return a system would give it.</p>
+          <p><strong>Do you know which specific pages or posts are actually driving traffic, leads, or AI citations for your business — or are you publishing and hoping?</strong> Without this visibility, you cannot tell the difference between content that is working and content that is simply accumulating.</p>
+          <p><strong>If a close competitor doubled their content output and search visibility tomorrow, would you know within a week — or find out from a lost customer?</strong> Competitive blind spots compound quietly. By the time they are visible without monitoring, the gap is already expensive to close.</p>
+        </section>
+        <section>
+          <h3>Pillar 3: Paid Media &amp; Demand Gen</h3>
+          <p><strong>Do you know your cost per lead and cost per customer broken down by channel — or just your total spend?</strong> Total spend tells you what marketing cost. Cost per channel tells you what marketing is worth. Most small businesses only ever answer the first question.</p>
+          <p><strong>When a campaign underperforms, do you have a defined process for diagnosing why — or does it just get switched off?</strong> Turning off an underperforming campaign without diagnosis means you learn nothing, and are statistically likely to repeat the same mistake with the next one.</p>
+          <p><strong>Is your paid budget allocated based on data about where your actual customers spend attention — or based on where competitors are, or where it was easiest to get started?</strong> Channel choice by convenience or copycat instinct is one of the most common — and most expensive — small business marketing habits.</p>
+        </section>
+        <section>
+          <h3>Pillar 4: Marketing Ops &amp; CRM</h3>
+          <p><strong>Can you see, in one place, every touchpoint a lead has had with your business before they buy?</strong> Without a single view of the customer journey, you are optimising individual channels while staying blind to what is actually converting.</p>
+          <p><strong>If the one person on your team who understands marketing left tomorrow, would anything break?</strong> Key-person risk is one of the clearest signs that marketing is running on individual effort rather than an actual system — and it is invisible until the person is gone.</p>
+          <p><strong>How often does data actually change a marketing decision — versus getting reported and filed away?</strong> Reporting without action is the most common way small businesses convince themselves they are "doing marketing properly" while nothing actually improves.</p>
+        </section>
+      </div>
+
+      <div class="card" id="readiness-form">
+        <div class="section-label">Before you begin — tell us about your business</div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="r-name">Your name</label>
+            <input type="text" id="r-name" placeholder="Jane Smith" autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="r-company">Company name</label>
+            <input type="text" id="r-company" placeholder="Acme Ltd" autocomplete="organization" />
+          </div>
+          <div class="form-group">
+            <label for="r-email">Work email</label>
+            <input type="email" id="r-email" placeholder="jane@acme.com" autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="r-website">Website URL</label>
+            <input type="url" id="r-website" placeholder="https://acme.com" autocomplete="url" />
+          </div>
+          <div class="form-group">
+            <label for="r-team">Who currently owns marketing?</label>
+            <select id="r-team">
+              <option value="" disabled selected>Select one</option>
+              <option value="solo">Just me — the owner/founder</option>
+              <option value="small">A small in-house team (1–3 people)</option>
+              <option value="lead">A marketing lead with some support</option>
+              <option value="none">No one — it happens ad hoc</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="r-hours">Hours per week you personally spend on marketing</label>
+            <select id="r-hours">
+              <option value="" disabled selected>Select one</option>
+              <option value="2">Under 5 hours</option>
+              <option value="7.5">5–10 hours</option>
+              <option value="15">10–20 hours</option>
+              <option value="25">20+ hours</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label for="r-budget">Current monthly marketing budget (spend + tools, excluding your own time)</label>
+            <select id="r-budget">
+              <option value="" disabled selected>Select one</option>
+              <option value="under1k">Under $1,000</option>
+              <option value="1to3k">$1,000 – $3,000</option>
+              <option value="3to7k">$3,000 – $7,000</option>
+              <option value="7kplus">$7,000+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="consent-row">
+          <input type="checkbox" id="r-consent" />
+          <label class="consent-text" for="r-consent" style="text-transform:none;letter-spacing:0;font-weight:300;font-size:12px">
+            I am happy for XL Marketing Services to contact me about my results and relevant
+            services, and to send me periodic marketing efficiency and effectiveness tips. I understand
+            my data will be handled in accordance with applicable privacy regulations.
+          </label>
+        </div>
+
+        <button class="btn btn-primary btn-full" id="start-readiness-btn" onclick="startReadiness()">
+          Start my assessment &rarr;
+        </button>
+        <p class="text-muted text-center mt8">Takes around 4 minutes. No payment required.</p>
+
+        <div class="guide-notice" id="guide-notice-readiness">
+          <span class="guide-notice-icon">✉️</span>
+          <span>Your free guide — <em>Marketing Efficiency &amp; Effectiveness: What Actually Moves the Needle</em> — will land in your inbox within the hour.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+      SCREEN 2: QUIZ
+    ══════════════════════════════════════════════════════════════ -->
+    <div id="screen-quiz" class="screen">
+      <div style="padding-top:32px;">
+        <div class="progress-wrap">
+          <div class="progress-meta">
+            <span id="q-counter">Question 1 of 12</span>
+            <span id="q-pct">0% complete</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="q-progress" style="width:0%"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="lever-pill">
+            <div class="lever-dot" id="q-lever-num">1</div>
+            <span id="q-lever-name">Lever 1: Clarity</span>
+          </div>
+
+          <div class="question-text" id="q-text"></div>
+          <div class="question-hint" id="q-hint"></div>
+
+          <div class="options-list" id="q-options"></div>
+
+          <div class="nav-row">
+            <button class="btn btn-ghost" id="q-back" onclick="goBack()">← Back</button>
+            <button class="btn btn-primary" id="q-next" onclick="goNext()" disabled>Next →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+      SCREEN 3: RESULTS
+    ══════════════════════════════════════════════════════════════ -->
+    <div id="screen-results" class="screen">
+      <div style="padding-top:32px;">
+
+        <div class="card">
+          <div class="client-summary" id="results-client"></div>
+
+          <div class="results-hero">
+            <div class="score-ring-wrap">
+              <div class="score-ring">
+                <div class="s-num" id="r-score">0</div>
+                <div class="s-den">out of 100</div>
+              </div>
+            </div>
+            <div class="score-verdict" id="r-verdict"></div>
+            <div class="score-desc" id="r-desc"></div>
+          </div>
+
+          <div class="section-label">Score by lever</div>
+          <div class="lever-grid" id="r-lever-grid"></div>
+
+          <div class="priority-section">
+            <div class="section-label">Where to focus first</div>
+            <div id="r-priorities"></div>
+          </div>
+
+          <div class="cta-block">
+            <h3>Ready to act on this?</h3>
+            <p>
+              XL Marketing Services works with brand and marketing leaders to build the
+              content architecture, off-site presence, and measurement practice that earns AI
+              recommendation. The next step is a 30-minute strategy call — no sales pitch, just
+              a clear plan for your three highest-priority levers.
+            </p>
+            <div class="cta-btn-row">
+              <!-- DEVELOPER: Replace href with your booking/contact page URL -->
+              <a href="mailto:pearl.m@xploraluxe.com?subject=AI%20Visibility%20Audit%20%E2%80%94%20Strategy%20Call" class="btn btn-gold">
+                Book a strategy call
+              </a>
+              <button class="btn btn-ghost" onclick="downloadReport()">
+                Download my report
+              </button>
+            </div>
+          </div>
+
+          <div class="text-center mt16">
+            <button class="btn btn-ghost" onclick="restartAudit()" style="font-size:12px">
+              Retake the audit
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+      SCREEN 3B: READINESS RESULTS
+    ══════════════════════════════════════════════════════════════ -->
+    <div id="screen-results-readiness" class="screen">
+      <div style="padding-top:32px;">
+
+        <div class="card">
+          <div class="client-summary" id="results-client-r"></div>
+
+          <div class="results-hero">
+            <div class="score-ring-wrap">
+              <div class="score-ring">
+                <div class="s-num" id="rr-score">0</div>
+                <div class="s-den">out of 100</div>
+              </div>
+            </div>
+            <div class="score-verdict" id="rr-verdict"></div>
+            <div class="score-desc" id="rr-desc"></div>
+          </div>
+
+          <div class="section-label">Score by pillar</div>
+          <div class="lever-grid" id="rr-pillar-grid"></div>
+
+          <div class="section-label">Your resource reality</div>
+          <div class="reality-grid" id="rr-reality"></div>
+
+          <div id="rr-tier-card"></div>
+
+          <div class="priority-section">
+            <div class="section-label">Where a consultant closes the gap fastest</div>
+            <div id="rr-priorities"></div>
+          </div>
+
+          <div class="section-label">Marketing efficiency, in numbers</div>
+          <div class="metric-strip">
+            <div class="metric-item">
+              <div class="mi-num">7–8%</div>
+              <div class="mi-desc">of revenue is the benchmark marketing investment for businesses under $5M — most small businesses over- or under-spend simply because no one is checking the number against a system.</div>
+              <div class="mi-src">SBA / Deloitte-Duke CMO Survey, 2025</div>
+            </div>
+            <div class="metric-item">
+              <div class="mi-num">88%</div>
+              <div class="mi-desc">of businesses that increased marketing spend in 2025 saw measurable revenue improvement — but the gain only appeared when spend was matched with consistent execution.</div>
+              <div class="mi-src">Taradel Small Business Marketing Survey, 2025</div>
+            </div>
+            <div class="metric-item">
+              <div class="mi-num">53%</div>
+              <div class="mi-desc">stronger email performance, 43% stronger paid social, and 21% stronger organic search for businesses executing consistently across channels rather than one at a time.</div>
+              <div class="mi-src">Taradel Small Business Marketing Survey, 2025</div>
+            </div>
+          </div>
+
+          <div class="cta-block">
+            <h3>Ready to stop spending resources without a system?</h3>
+            <p>
+              XL Marketing Services works with small business owners and small marketing
+              teams to build the foundation — positioning, content, demand generation, and ops —
+              that makes every future marketing dollar and hour compound instead of evaporate.
+              The next step is a 30-minute strategy call — no sales pitch, just a clear read on
+              your highest-leverage next move.
+            </p>
+            <div class="cta-btn-row">
+              <a href="mailto:pearl.m@xploraluxe.com?subject=Marketing%20Readiness%20Assessment%20%E2%80%94%20Strategy%20Call" class="btn btn-gold">
+                Book a strategy call
+              </a>
+              <button class="btn btn-ghost" onclick="downloadReport()">
+                Download my report
+              </button>
+            </div>
+            <div class="tips-note">
+              <span>✉️</span>
+              <span>You're also on the list for our <em>Marketing Efficiency &amp; Effectiveness</em> tips — practical, no-fluff notes on where marketing time and spend actually pay off, sent every couple of weeks.</span>
+            </div>
+          </div>
+
+          <div class="text-center mt16">
+            <button class="btn btn-ghost" onclick="restartAudit()" style="font-size:12px">
+              Retake the assessment
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── Footer ──────────────────────────────────────────────── -->
+    <footer class="site-footer">
+      <div class="footer-logo">XL Marketing Services</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="journal.html">Journal</a>
+        <a href="https://xluxemarketing.com" target="_blank" rel="noopener">xluxemarketing.com</a>
+      </div>
+    </footer>
+
+  </div><!-- /page-wrap -->
+
+
+
+  <script>
+    /* ================================================================
+      DATA
+    ================================================================ */
+    const LEVERS = [
+      { id: 1, name: 'Clarity' },
+      { id: 2, name: 'Positioning' },
+      { id: 3, name: 'Off-Site Presence' },
+      { id: 4, name: 'Content Structure' },
+      { id: 5, name: 'Buyer Intent' },
+      { id: 6, name: 'Measurement' }
+    ];
+
+    const QUESTIONS = [
+      {
+        lever: 1,
+        q: 'If someone arrived on your homepage having never heard of you, could they explain what you do in one sentence within ten seconds?',
+        hint: 'Think about your opening headline and the first paragraph of body copy. AI reads this block first.',
+        opts: [
+          { text: 'Yes — our first line makes it unambiguous', score: 3 },
+          { text: 'Mostly, but it requires some reading', score: 2 },
+          { text: 'We lead with a tagline rather than an explanation', score: 1 },
+          { text: 'Honestly no — we rely on brand feel and imagery', score: 0 }
+        ]
+      },
+      {
+        lever: 1,
+        q: 'Do your page headings tell AI what each section covers, or do they read as brand language and metaphor?',
+        hint: 'A clear heading example: "What marketing teams can do with our platform that they cannot do in a spreadsheet." AI cannot infer meaning from clever headings.',
+        opts: [
+          { text: 'We use plain, descriptive headings throughout', score: 3 },
+          { text: 'A mix of clear and brand-led headings', score: 2 },
+          { text: 'Mostly brand language and creative phrasing', score: 1 },
+          { text: 'We have not thought about this before', score: 0 }
+        ]
+      },
+      {
+        lever: 2,
+        q: 'Is your core positioning — who you serve, what you deliver, why you are different — stated identically on your website, LinkedIn, and any review or directory platforms?',
+        hint: 'AI reads all your surfaces simultaneously. Inconsistency across platforms registers as unreliability.',
+        opts: [
+          { text: 'Yes — one consistent version applied everywhere', score: 3 },
+          { text: 'Similar across platforms but not word-for-word', score: 2 },
+          { text: 'Each platform has its own version', score: 1 },
+          { text: 'We have never audited this', score: 0 }
+        ]
+      },
+      {
+        lever: 2,
+        q: 'Do you publish content that directly compares you to alternatives or named competitors?',
+        hint: 'When someone asks AI "X vs Y", it cites the most credible voice in that conversation. That should be you, not a third-party review site.',
+        opts: [
+          { text: 'Yes — dedicated comparison pages or articles', score: 3 },
+          { text: 'We mention alternatives briefly but no dedicated content', score: 2 },
+          { text: 'We avoid mentioning competitors altogether', score: 1 },
+          { text: 'This approach has not occurred to us', score: 0 }
+        ]
+      },
+      {
+        lever: 3,
+        q: 'When you search for your category in ChatGPT or Perplexity, do you appear — and do you know which third-party sources AI is drawing from?',
+        hint: '85% of AI brand mentions come from third-party sources — review platforms, editorial coverage, community forums — not your own website.',
+        opts: [
+          { text: 'We appear and we know which sources AI uses', score: 3 },
+          { text: 'We appear occasionally but have not tracked the sources', score: 2 },
+          { text: 'We have checked and we do not appear', score: 1 },
+          { text: 'We have never tested this', score: 0 }
+        ]
+      },
+      {
+        lever: 3,
+        q: 'How active is your presence on third-party review platforms, industry publications, and community forums your target audience trusts?',
+        hint: 'G2, Capterra, Trustpilot, Reddit, industry press — wherever your category is discussed by people other than you.',
+        opts: [
+          { text: 'Strong — verified reviews, editorial coverage, and community engagement', score: 3 },
+          { text: 'Some reviews and occasional editorial mentions', score: 2 },
+          { text: 'A listing exists but it is thin and unmanaged', score: 1 },
+          { text: 'We are largely absent from these platforms', score: 0 }
+        ]
+      },
+      {
+        lever: 4,
+        q: 'Does every major page on your site open with a 2–3 sentence direct answer to the question that page is meant to address?',
+        hint: 'AI reads in roughly 375-word chunks and lifts the paragraph that can stand alone. It does not read to the end to find your conclusion.',
+        opts: [
+          { text: 'Yes — every page leads with a direct, plain-language answer', score: 3 },
+          { text: 'Some pages do, but most build up to the point', score: 2 },
+          { text: 'We write in narrative flow — no upfront summaries', score: 1 },
+          { text: 'We have not structured content this way', score: 0 }
+        ]
+      },
+      {
+        lever: 4,
+        q: 'Do your key pages include FAQ sections written in the language of how buyers actually ask questions — including how they would type a query into an AI tool?',
+        hint: 'FAQs are among the most-cited content formats in AI answers. Write them as buyer prompts, not corporate Q&As.',
+        opts: [
+          { text: 'Yes — detailed FAQs on most pages, written for real buyer language', score: 3 },
+          { text: 'A few FAQs but not consistently across key pages', score: 2 },
+          { text: 'FAQs exist but they are written in corporate or formal tone', score: 1 },
+          { text: 'No FAQ sections on our site', score: 0 }
+        ]
+      },
+      {
+        lever: 5,
+        q: 'Is the majority of your content aimed at people who are browsing and learning, or at people who are comparing options and ready to decide?',
+        hint: 'AI gets consulted right before someone chooses. Decision-stage content — comparisons, "is it worth it" guides, "how to choose" articles — is what earns citations at that moment.',
+        opts: [
+          { text: 'Majority is decision-stage: comparisons, use cases, "is it right for me"', score: 3 },
+          { text: 'A reasonably balanced mix of awareness and decision content', score: 2 },
+          { text: 'Mostly awareness, thought leadership, and category education', score: 1 },
+          { text: 'We publish primarily for brand presence, not decision stage', score: 0 }
+        ]
+      },
+      {
+        lever: 5,
+        q: 'Do you have content that names your specific ideal client — by role, company size, industry, or situation — and addresses their exact decision criteria?',
+        hint: '"Best [category] for [specific audience and use case]" is one of the highest-performing AI query formats. Generic content does not get cited at the decision moment.',
+        opts: [
+          { text: 'Yes — content is specific to named audiences and exact situations', score: 3 },
+          { text: 'Somewhat — we reference sectors but not precise buyer situations', score: 2 },
+          { text: 'Our content addresses everyone in our general category', score: 1 },
+          { text: 'We have not approached content this way', score: 0 }
+        ]
+      },
+      {
+        lever: 6,
+        q: 'How regularly do you run your most important category queries through ChatGPT, Gemini, and Perplexity to monitor what AI says about your business?',
+        hint: 'Monthly reconnaissance takes two to three hours and is the single highest-value activity available to any brand serious about AI visibility.',
+        opts: [
+          { text: 'Monthly — we document results and track changes over time', score: 3 },
+          { text: 'Occasionally — we have done it but not on a regular schedule', score: 2 },
+          { text: 'Once or twice, not systematically', score: 1 },
+          { text: 'Never — this is new information', score: 0 }
+        ]
+      },
+      {
+        lever: 6,
+        q: 'When you find inaccuracies in how AI describes your business, do you know how to trace the origin of that description and correct it at source?',
+        hint: 'Asking AI to correct itself does not work. The inaccuracy lives in a third-party source — a directory listing, an outdated article, an inconsistent profile. You must fix the origin.',
+        opts: [
+          { text: 'Yes — we have a clear process for tracing and correcting source data', score: 3 },
+          { text: 'We could work it out but have no established process', score: 2 },
+          { text: 'We would not know where to begin', score: 1 },
+          { text: 'We have never encountered this or considered it', score: 0 }
+        ]
+      }
+    ];
+
+    const LEVER_RECS = {
+      1: {
+        low:  'Start at the foundation. Rewrite your homepage opening paragraph as a plain-language statement: what you are, who you serve, and what outcome you deliver. Then audit every H2 heading across your three most important pages to confirm it describes a buyer question, not a brand idea.',
+        mid:  'Clarity is partly there. Audit each key page for sections where brand language has crept in ahead of plain explanation. Sections of 120–180 words with clear headings earn 70% more AI citations than long, undivided passages.',
+        high: 'Strong foundation. Add comparison tables on any page where you address trade-offs — structured comparisons increase AI citation rates by 2.5x.'
+      },
+      2: {
+        low:  'Audit every platform where you appear — website, LinkedIn, Google Business, review sites — and write one consistent positioning statement. Apply it everywhere without variation. Then build at least one "versus" page that positions you clearly against a named alternative.',
+        mid:  'The core story is present but not consistent across surfaces. Standardise the essential claim this month. Then identify which competitor comparisons are most searched in your category and create a dedicated page for each.',
+        high: 'Positioning is consistent. The next move is proactive comparison content — "X vs Y" and "alternatives to X" pages that make you the authoritative voice in your category.'
+      },
+      3: {
+        low:  'Run your primary category query in ChatGPT and Perplexity now. Note every source cited. Those are your off-site targets for the next 90 days. Begin with review platforms, then pursue one editorial mention per month.',
+        mid:  'You have some off-site presence but gaps remain. Identify the specific platforms AI cites for your category and ensure you are active on each. Actively solicit verified reviews — quality and recency both matter to AI systems.',
+        high: 'Off-site presence is solid. Sustain it with regular review solicitation and one editorial pitch per month. Partnerships where complementary brands mention you naturally are the highest-value next step.'
+      },
+      4: {
+        low:  'Before rewriting any content, reformat it. Add a TL;DR to every major page. Rewrite H2 headings as buyer questions. Ensure every section leads with a 40–60 word direct answer before elaborating. This structural shift alone will increase AI citation likelihood significantly.',
+        mid:  'Structure is partly in place. Audit the pages that matter most for decision-stage buyers and ensure each has: a TL;DR, question-based headings, an FAQ section, and at least one specific data point per major section.',
+        high: 'Content structure is working. The refinement is confirming every key paragraph can stand alone — remove it from context and it should still communicate something useful. That is the test AI applies when extracting content.'
+      },
+      5: {
+        low:  'Audit your content by buyer stage. For the next 90 days, publish only decision-intent content: comparisons, "is it right for me" pieces, use-case-specific guides, and "how to choose" articles. These match the queries AI receives at the moment someone is closest to a decision.',
+        mid:  'You have some decision-stage content but the balance still favours awareness. Identify the five most common questions your best clients asked before choosing you. Each of those is a content brief.',
+        high: 'Decision-intent coverage is strong. Ensure each piece names the specific audience by role, company size, or situation — that specificity is what earns AI citations over generic category content.'
+      },
+      6: {
+        low:  'Set a recurring monthly date in your calendar. Spend two hours running 5–10 key queries in ChatGPT, Gemini, and Perplexity. Document what AI says, which sources it cites, and whether your description is accurate. This intelligence brief feeds every other lever.',
+        mid:  'You are doing some reconnaissance but not systematically. Formalise it: same queries, same platforms, documented results, monthly cadence. Track changes over time — the direction of travel matters as much as the current position.',
+        high: 'Measurement practice is in place. Extend it by running the same queries for two or three competitors and noting every third-party source AI cites for them. Those are your off-site targets.'
+      }
+    };
+
+    /* ================================================================
+      DATA — CONSULTANT VS DIY READINESS TOOL
+    ================================================================ */
+    const PILLARS = [
+      { id: 1, name: 'Brand & Positioning' },
+      { id: 2, name: 'Content, SEO & AI Visibility' },
+      { id: 3, name: 'Paid Media & Demand Gen' },
+      { id: 4, name: 'Marketing Ops & CRM' }
+    ];
+
+    const QUESTIONS2 = [
+      {
+        lever: 1,
+        q: 'If a new hire had to explain, in two sentences, why your last three customers chose you over the alternative — could they get it right without asking you first?',
+        hint: 'Positioning drift is invisible from inside a business. It is usually the first gap an outside eye catches in week one.',
+        opts: [
+          { text: 'Yes — we have actually tested this against real customer language', score: 3 },
+          { text: 'Roughly — the themes would line up, the wording would not', score: 2 },
+          { text: 'Probably not — everyone on the team would say something different', score: 1 },
+          { text: 'We have never compared what we say to what customers actually say', score: 0 }
+        ]
+      },
+      {
+        lever: 1,
+        q: 'When did your core messaging last change in response to evidence — a market shift, a competitor move, a pattern in lost deals — rather than a rebrand or a gut feeling?',
+        hint: 'Positioning that has not moved in over a year is usually guesswork wearing the costume of strategy.',
+        opts: [
+          { text: 'Within the last quarter, and we could point to what triggered it', score: 3 },
+          { text: 'Within the last year, but informally', score: 2 },
+          { text: 'Over a year ago, or only as part of a visual rebrand', score: 1 },
+          { text: 'We have never revisited it', score: 0 }
+        ]
+      },
+      {
+        lever: 1,
+        q: 'Could you say, in one sentence and without hedging, the single thing a customer would lose by switching to your closest competitor?',
+        hint: 'If that takes more than a sentence internally, the market cannot answer it either — and unclear differentiation is one of the most expensive gaps to leave unaddressed.',
+        opts: [
+          { text: 'Yes, immediately and specifically', score: 3 },
+          { text: 'I could get there, but it would take some thinking', score: 2 },
+          { text: 'I would struggle to make it specific', score: 1 },
+          { text: 'Honestly, I am not certain there is one', score: 0 }
+        ]
+      },
+      {
+        lever: 2,
+        q: 'Do you work from a documented content plan tied to business goals, or does content happen when someone finds an hour?',
+        hint: 'Ad hoc content is the single biggest predictor of wasted marketing hours in small teams — real effort, without the compounding return a system would give it.',
+        opts: [
+          { text: 'Documented plan, tied to specific goals and reviewed regularly', score: 3 },
+          { text: 'A loose plan that exists but is inconsistently followed', score: 2 },
+          { text: 'Reactive — whoever has time writes whatever comes to mind', score: 1 },
+          { text: 'There is no content function, structured or otherwise', score: 0 }
+        ]
+      },
+      {
+        lever: 2,
+        q: 'Do you know which specific pages or posts are actually driving traffic, leads, or AI citations for your business — or are you publishing and hoping?',
+        hint: 'Without this visibility, you cannot tell the difference between content that is working and content that is simply accumulating.',
+        opts: [
+          { text: 'Yes — we track this and it actively shapes what we publish next', score: 3 },
+          { text: 'We check occasionally but it rarely changes what we do', score: 2 },
+          { text: 'We publish but do not really measure what happens after', score: 1 },
+          { text: 'We would not know where to look', score: 0 }
+        ]
+      },
+      {
+        lever: 2,
+        q: 'If a close competitor doubled their content output and search visibility tomorrow, would you know within a week — or find out from a lost customer?',
+        hint: 'Competitive blind spots compound quietly. By the time they are visible without monitoring, the gap is already expensive to close.',
+        opts: [
+          { text: 'We monitor this and would know almost immediately', score: 3 },
+          { text: 'We would probably notice within a month or so', score: 2 },
+          { text: 'We would likely only notice if it directly cost us a deal', score: 1 },
+          { text: 'We have no way of knowing this at all', score: 0 }
+        ]
+      },
+      {
+        lever: 3,
+        q: 'Do you know your cost per lead and cost per customer broken down by channel — or just your total spend?',
+        hint: 'Total spend tells you what marketing cost. Cost per channel tells you what marketing is worth. Most small businesses only ever answer the first question.',
+        opts: [
+          { text: 'Yes — tracked by channel, and it drives budget decisions', score: 3 },
+          { text: 'We have a rough sense but it is not rigorously tracked', score: 2 },
+          { text: 'We know total spend, not the breakdown', score: 1 },
+          { text: 'We do not track this at all', score: 0 }
+        ]
+      },
+      {
+        lever: 3,
+        q: 'When a campaign underperforms, do you have a defined process for diagnosing why — or does it just get switched off?',
+        hint: 'Turning off an underperforming campaign without diagnosis means you learn nothing, and are statistically likely to repeat the same mistake with the next one.',
+        opts: [
+          { text: 'Yes — a defined diagnostic process before any decision is made', score: 3 },
+          { text: 'We investigate sometimes, depending on how busy things are', score: 2 },
+          { text: 'It usually just gets paused or killed', score: 1 },
+          { text: 'We do not run paid media in a way that is diagnosable', score: 0 }
+        ]
+      },
+      {
+        lever: 3,
+        q: 'Is your paid budget allocated based on data about where your actual customers spend attention — or based on where competitors are, or where it was easiest to get started?',
+        hint: 'Channel choice by convenience or copycat instinct is one of the most common — and most expensive — small business marketing habits.',
+        opts: [
+          { text: 'Based on our own data about our actual customers', score: 3 },
+          { text: 'A mix — some data, some instinct and convenience', score: 2 },
+          { text: 'Mostly based on what is easiest or what competitors do', score: 1 },
+          { text: 'We do not currently run paid media, or do not know why we chose our channels', score: 0 }
+        ]
+      },
+      {
+        lever: 4,
+        q: 'Can you see, in one place, every touchpoint a lead has had with your business before they buy?',
+        hint: 'Without a single view of the customer journey, you are optimising individual channels while staying blind to what is actually converting.',
+        opts: [
+          { text: 'Yes — a single connected view, actively used', score: 3 },
+          { text: 'Partially — some touchpoints are tracked, others are not', score: 2 },
+          { text: 'Data exists but lives in disconnected spreadsheets and tools', score: 1 },
+          { text: 'No — we could not reconstruct a lead’s journey if we tried', score: 0 }
+        ]
+      },
+      {
+        lever: 4,
+        q: 'If the one person on your team who understands marketing left tomorrow, would anything break?',
+        hint: 'Key-person risk is one of the clearest signs that marketing is running on individual effort rather than an actual system — and it is invisible until the person is gone.',
+        opts: [
+          { text: 'No — it is documented and the system would keep running', score: 3 },
+          { text: 'Some disruption, but we would recover within a few weeks', score: 2 },
+          { text: 'Significant disruption — a lot lives in that person’s head', score: 1 },
+          { text: 'Marketing would effectively stop', score: 0 }
+        ]
+      },
+      {
+        lever: 4,
+        q: 'How often does data actually change a marketing decision — versus getting reported and filed away?',
+        hint: 'Reporting without action is the most common way small businesses convince themselves they are "doing marketing properly" while nothing actually improves.',
+        opts: [
+          { text: 'Regularly — data is the basis for most decisions we make', score: 3 },
+          { text: 'Sometimes, for the bigger decisions', score: 2 },
+          { text: 'Rarely — we report on it but mostly go with instinct', score: 1 },
+          { text: 'We do not currently produce marketing data to act on', score: 0 }
+        ]
+      }
+    ];
+
+    const PILLAR_RECS = {
+      1: {
+        low:  'Positioning is the first thing to fix and the cheapest to fix early — before content, ads, or a new hire compound the wrong story. Get one page written: who you serve, what changes for them, why you specifically. Test it against your last five closed-won and closed-lost deals before publishing anything else.',
+        mid:  'The story exists but is not load-bearing yet. Pressure-test it against real customer language — win/loss interviews are the fastest way to find where your internal version and the market’s version have drifted apart.',
+        high: 'Positioning is genuinely solid. The next move is defending it — comparison content and category-defining language that keeps you ahead as competitors catch up to where you already are.'
+      },
+      2: {
+        low:  'Content without a plan is effort without compounding. Before producing anything new, map your last 90 days of content against actual business goals — you will likely find most of it was activity, not strategy. A structured content system is one of the fastest wins a consultant delivers in the first 30 days.',
+        mid:  'You are producing content but not learning from it fast enough. Put basic tracking in place — which pieces drive traffic, leads, and AI citations — and let that data set next quarter’s brief, not instinct.',
+        high: 'Content is working. The compounding move now is competitive monitoring — knowing what is winning in your category before a competitor’s gain becomes your loss.'
+      },
+      3: {
+        low:  'This is where budget quietly disappears. Before spending another dollar on paid media, get cost-per-channel visibility in place — you cannot make a good decision with only a total-spend number. This single fix routinely pays for a consultant engagement within the first quarter.',
+        mid:  'You have some visibility but no defined process when something underperforms. Build a simple diagnostic checklist — audience, creative, offer, landing page — before any campaign gets paused. Guessing is the expensive alternative.',
+        high: 'Paid media is data-led and working. The next lever is testing new channels with the same rigor — expansion is where undisciplined spend usually creeps back in.'
+      },
+      4: {
+        low:  'This is the highest-risk gap on the list — not because it is the hardest to fix, but because it is invisible until it breaks. Document what currently exists in one person’s head, and put a lightweight CRM or shared system in place so the business does not depend on any one individual.',
+        mid:  'The pieces exist but are not connected. Prioritise a single customer view over adding more tools — the return on connecting what you have is almost always higher than the return on buying something new.',
+        high: 'Ops and reporting are functioning well. The next step is making sure reporting drives decisions on a set cadence, not just when someone remembers to look.'
+      }
+    };
+
+    function getReadinessTier(pct) {
+      if (pct >= 80) return {
+        badge: 'Strong foundation',
+        label: 'Scale it — don’t strain it',
+        desc:  'Your foundations are genuinely solid. At this stage, more DIY hours have diminishing returns — the highest-leverage move is a fractional strategist who can compound what is already working and catch the blind spots that are structurally impossible to see from inside your own business.',
+        next: [
+          'Bring in fractional or advisory support to pressure-test strategy quarterly',
+          'Protect your strongest pillar with documentation so it survives team changes',
+          'Redirect saved DIY hours into the one pillar still scoring lowest'
+        ]
+      };
+      if (pct >= 55) return {
+        badge: 'Hybrid zone',
+        label: 'Real capability, real gaps',
+        desc:  'You have genuine in-house capability — this is not a case for wholesale outsourcing. It is a case for closing specific, identifiable gaps with focused expert input, rather than letting your team spend months learning by trial and error what a specialist already knows.',
+        next: [
+          'Bring in targeted expert support for your lowest-scoring pillar only',
+          'Keep executing in-house where you scored strongly',
+          'Revisit this assessment in 90 days to confirm the gap has closed'
+        ]
+      };
+      if (pct >= 30) return {
+        badge: 'Quietly costing you',
+        label: 'DIY is costing more than it is saving',
+        desc:  'You are spending real time and real budget, but without a system converting that effort into compounding results. This is the zone where businesses lose the most ground — not from doing nothing, but from doing a lot without a structure behind it.',
+        next: [
+          'Get a structured audit across all four pillars before spending more on any one of them',
+          'Bring in consultant support to build the system, then hand execution back in-house',
+          'Pause new spend in any channel you cannot currently measure'
+        ]
+      };
+      return {
+        badge: 'Highest-risk zone',
+        label: 'Resources are being spent without a system',
+        desc:  'This is the position that costs the most, longest, and most invisibly. Some businesses bring in expert help from day one and spend the following years compounding on a solid foundation. Others spend those same years rebuilding what should have been right the first time. Right now, the gap between those two paths is a single decision.',
+        next: [
+          'Pause discretionary spend until foundational positioning and measurement exist',
+          'Bring in a consultant to build the foundation — this stage is not DIY-fixable',
+          'Set a 90-day plan with one clear, measurable outcome per pillar'
+        ]
+      };
+    }
+
+    const TEAM_LABELS = {
+      solo:  'Solo founder — no dedicated marketing support',
+      small: 'Small in-house team (1–3 people)',
+      lead:  'Marketing lead with some support',
+      none:  'No one owns it — ad hoc'
+    };
+
+    const BUDGET_LABELS = {
+      under1k: 'Under $1,000/month',
+      '1to3k': '$1,000–$3,000/month',
+      '3to7k': '$3,000–$7,000/month',
+      '7kplus': '$7,000+/month'
+    };
+
+    const TOOLS = {
+      visibility: { levers: LEVERS,  questions: QUESTIONS,  recs: LEVER_RECS,  label: 'Lever' },
+      readiness:  { levers: PILLARS, questions: QUESTIONS2, recs: PILLAR_RECS, label: 'Pillar' }
+    };
+
+    /* ================================================================
+      STATE
+    ================================================================ */
+    let state = {
+      current: 0,
+      answers: {},
+      client: {},
+      mode: null
+    };
+
+    /* ================================================================
+      MODE SELECT
+    ================================================================ */
+    function selectMode(mode) {
+      state = { current: 0, answers: {}, client: {}, mode };
+      showScreen(mode === 'visibility' ? 'intro' : 'intro-readiness');
+    }
+
+    function goToModeSelect() {
+      state = { current: 0, answers: {}, client: {}, mode: null };
+      showScreen('mode-select');
+    }
+
+    /* ================================================================
+      INTAKE
+    ================================================================ */
+    function startAudit() {
+      const name    = document.getElementById('f-name').value.trim();
+      const company = document.getElementById('f-company').value.trim();
+      const email   = document.getElementById('f-email').value.trim();
+      const consent = document.getElementById('f-consent').checked;
+
+      if (!name || !email) {
+        alert('Please enter your name and email address to continue.');
+        return;
+      }
+
+      if (!email.includes('@')) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+
+      if (!consent) {
+        alert('Please confirm you are happy for us to contact you before continuing.');
+        return;
+      }
+
+      state.client = {
+        name,
+        company: document.getElementById('f-company').value.trim(),
+        email,
+        website: document.getElementById('f-website').value.trim(),
+        maturity: document.getElementById('f-maturity').value
+      };
+
+      /* ================================================================
+        DEVELOPER: SUBMIT LEAD DATA TO YOUR ENDPOINT
+        Replace the URL below with your Zapier webhook, Formspree
+        endpoint, or custom API route.
+
+        Example Zapier webhook:
+        fetch('https://hooks.zapier.com/hooks/catch/YOUR_HOOK_ID/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ...state.client, timestamp: new Date().toISOString() })
+        });
+
+        Example Formspree (formspree.io — free tier available):
+        fetch('https://formspree.io/f/YOUR_FORM_ID', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(state.client)
+        });
+
+        This fires immediately on form submit, before the quiz begins.
+        That way you capture the lead even if they do not complete the audit.
+      ================================================================ */
+      /* Add to MailerLite via Netlify serverless function — key stays server-side */
+      fetch('/.netlify/functions/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(state.client)
+      }).catch(() => { /* Silently ignore — do not block the user */ });
+
+      /* Show the guide-on-its-way notice briefly before transitioning */
+      const notice = document.getElementById('guide-notice');
+      notice.classList.add('show');
+      setTimeout(() => {
+        showScreen('quiz');
+        renderQuestion();
+      }, 1800);
+    }
+
+    function startReadiness() {
+      const name    = document.getElementById('r-name').value.trim();
+      const email   = document.getElementById('r-email').value.trim();
+      const consent = document.getElementById('r-consent').checked;
+      const team    = document.getElementById('r-team').value;
+      const hours   = document.getElementById('r-hours').value;
+      const budget  = document.getElementById('r-budget').value;
+
+      if (!name || !email) {
+        alert('Please enter your name and email address to continue.');
+        return;
+      }
+
+      if (!email.includes('@')) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+
+      if (!consent) {
+        alert('Please confirm you are happy for us to contact you before continuing.');
+        return;
+      }
+
+      if (!team || !hours || !budget) {
+        alert('Please answer the three setup questions so we can tailor your results.');
+        return;
+      }
+
+      state.client = {
+        name,
+        company: document.getElementById('r-company').value.trim(),
+        email,
+        website: document.getElementById('r-website').value.trim(),
+        team,
+        hoursPerWeek: parseFloat(hours),
+        budget
+      };
+
+      /* Add to MailerLite via Netlify serverless function — key stays server-side */
+      fetch('/.netlify/functions/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...state.client, tool: 'readiness' })
+      }).catch(() => { /* Silently ignore — do not block the user */ });
+
+      const notice = document.getElementById('guide-notice-readiness');
+      notice.classList.add('show');
+      setTimeout(() => {
+        showScreen('quiz');
+        renderQuestion();
+      }, 1800);
+    }
+
+    /* ================================================================
+      QUIZ
+    ================================================================ */
+    function renderQuestion() {
+      const tool   = TOOLS[state.mode];
+      const q      = tool.questions[state.current];
+      const lever  = tool.levers.find(l => l.id === q.lever);
+      const pct    = Math.round((state.current / tool.questions.length) * 100);
+
+      document.getElementById('q-counter').textContent  = `Question ${state.current + 1} of ${tool.questions.length}`;
+      document.getElementById('q-pct').textContent      = `${pct}% complete`;
+      document.getElementById('q-progress').style.width = `${pct}%`;
+      document.getElementById('q-lever-num').textContent = lever.id;
+      document.getElementById('q-lever-name').textContent = `${tool.label} ${lever.id}: ${lever.name}`;
+      document.getElementById('q-text').textContent      = q.q;
+      document.getElementById('q-hint').textContent      = q.hint;
+
+      const optWrap = document.getElementById('q-options');
+      optWrap.innerHTML = q.opts.map((o, i) => `
+        <button
+          class="opt-btn${state.answers[state.current] === o.score ? ' selected' : ''}"
+          onclick="selectAnswer(${o.score}, this)"
+          aria-pressed="${state.answers[state.current] === o.score}"
+        >
+          <div class="opt-indicator"></div>
+          <span>${o.text}</span>
+        </button>
+      `).join('');
+
+      const backBtn = document.getElementById('q-back');
+      const nextBtn = document.getElementById('q-next');
+
+      backBtn.disabled = state.current === 0;
+      nextBtn.disabled = state.answers[state.current] === undefined;
+      nextBtn.textContent = state.current === tool.questions.length - 1 ? 'See my results →' : 'Next →';
+    }
+
+    function selectAnswer(score, btn) {
+      state.answers[state.current] = score;
+
+      document.querySelectorAll('.opt-btn').forEach(b => {
+        b.classList.remove('selected');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('selected');
+      btn.setAttribute('aria-pressed', 'true');
+
+      document.getElementById('q-next').disabled = false;
+    }
+
+    function goNext() {
+      if (state.answers[state.current] === undefined) return;
+
+      const questions = TOOLS[state.mode].questions;
+      if (state.current === questions.length - 1) {
+        if (state.mode === 'readiness') {
+          buildResultsReadiness();
+          showScreen('results-readiness');
+        } else {
+          buildResults();
+          showScreen('results');
+        }
+      } else {
+        state.current++;
+        renderQuestion();
+      }
+    }
+
+    function goBack() {
+      if (state.current > 0) {
+        state.current--;
+        renderQuestion();
+      }
+    }
+
+    /* ================================================================
+      SCORING
+    ================================================================ */
+    function getLeverScore(leverNum) {
+      const questions = TOOLS[state.mode].questions;
+      const indices = questions.map((q, i) => q.lever === leverNum ? i : -1).filter(i => i >= 0);
+      let total = 0;
+      indices.forEach(i => { if (state.answers[i] !== undefined) total += state.answers[i]; });
+      const max = indices.length * 3;
+      return { total, max, pct: max > 0 ? Math.round((total / max) * 100) : 0 };
+    }
+
+    function getOverallScore() {
+      const questions = TOOLS[state.mode].questions;
+      const max   = questions.length * 3;
+      const total = Object.values(state.answers).reduce((s, v) => s + v, 0);
+      return { total, max, pct: Math.round((total / max) * 100) };
+    }
+
+    function getVerdict(pct) {
+      if (pct >= 80) return {
+        label: 'Well positioned',
+        desc:  'Your AI visibility foundations are solid. The gains now come from refinement, off-site amplification, and consistent measurement.'
+      };
+      if (pct >= 55) return {
+        label: 'Partially visible',
+        desc:  'You have made a start, but there are clear gaps. Addressing the weakest levers first will have the fastest measurable impact.'
+      };
+      if (pct >= 30) return {
+        label: 'Limited visibility',
+        desc:  'AI is likely unable to describe or recommend you accurately. The foundation work comes first — and it is more straightforward than it sounds.'
+      };
+      return {
+        label: 'Largely invisible to AI',
+        desc:  'AI has very little to work with. The good news: the foundational fixes are well-defined and have measurable impact within 60–90 days.'
+      };
+    }
+
+    function getBarColour(pct) {
+      if (pct >= 70) return '#4a7c59';
+      if (pct >= 40) return '#C9B07A';
+      return '#a32d2d';
+    }
+
+    function getRecText(recsMap, leverId, pct) {
+      const rec = recsMap[leverId];
+      if (pct < 40) return rec.low;
+      if (pct < 70) return rec.mid;
+      return rec.high;
+    }
+
+    /* ================================================================
+      RESULTS RENDER
+    ================================================================ */
+    function buildResults() {
+      const overall  = getOverallScore();
+      const verdict  = getVerdict(overall.pct);
+
+      /* Client summary */
+      const initials = (state.client.name || 'XX').split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase();
+      document.getElementById('results-client').innerHTML = `
+        <div class="cs-avatar">${initials}</div>
+        <div class="cs-body">
+          <div class="cs-name">${state.client.name}${state.client.company ? ' · ' + state.client.company : ''}</div>
+          <div class="cs-company">AI Visibility Score: ${overall.pct} / 100 · ${new Date().toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' })}</div>
+        </div>
+      `;
+
+      /* Overall score */
+      document.getElementById('r-score').textContent  = overall.pct;
+      document.getElementById('r-verdict').textContent = verdict.label;
+      document.getElementById('r-desc').textContent    = verdict.desc;
+
+      /* Lever grid */
+      const grid = document.getElementById('r-lever-grid');
+      grid.innerHTML = LEVERS.map(l => {
+        const s = getLeverScore(l.id);
+        return `
+          <div class="lever-card">
+            <div class="lc-name">${l.name}</div>
+            <div class="lc-pct">${s.pct}%</div>
+            <div class="lever-bar">
+              <div class="lever-bar-fill" style="width:${s.pct}%;background:${getBarColour(s.pct)}"></div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      /* Top 3 priorities */
+      const sorted = LEVERS
+        .map(l => ({ ...l, ...getLeverScore(l.id) }))
+        .sort((a, b) => a.pct - b.pct)
+        .slice(0, 3);
+
+      document.getElementById('r-priorities').innerHTML = sorted.map((p, idx) => `
+        <div class="priority-item">
+          <div class="pi-meta">Priority ${idx + 1} — Lever ${p.id}: ${p.name} (${p.pct}%)</div>
+          <div class="pi-rec">${getRecText(LEVER_RECS, p.id, p.pct)}</div>
+        </div>
+      `).join('');
+
+      /* ================================================================
+        DEVELOPER: SUBMIT COMPLETED RESULTS TO YOUR ENDPOINT
+        This fires when the audit is complete. Send the full scored
+        results so you can personalise your follow-up sequence.
+
+        You might trigger:
+        - A branded email with their report (SendGrid / Mailchimp)
+        - A CRM record update (via Zapier → HubSpot / Zoho Bigin)
+        - A Notion database entry via Notion API
+      ================================================================ */
+      const resultsPayload = {
+        event:       'audit_completed',
+        timestamp:   new Date().toISOString(),
+        client:      state.client,
+        score:       overall.pct,
+        verdict:     verdict.label,
+        lever_scores: LEVERS.reduce((obj, l) => {
+          obj[l.name] = getLeverScore(l.id).pct;
+          return obj;
+        }, {}),
+        priorities:  sorted.map(p => ({ lever: p.name, score: p.pct }))
+      };
+
+      fetch('https://formspree.io/f/mlgkeyqp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(resultsPayload)
+      }).catch(() => {
+        /* Silently ignore — do not interrupt the user experience */
+      });
+    }
+
+    function buildResultsReadiness() {
+      const overall = getOverallScore();
+      const tier    = getReadinessTier(overall.pct);
+
+      /* Client summary */
+      const initials = (state.client.name || 'XX').split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase();
+      document.getElementById('results-client-r').innerHTML = `
+        <div class="cs-avatar">${initials}</div>
+        <div class="cs-body">
+          <div class="cs-name">${state.client.name}${state.client.company ? ' · ' + state.client.company : ''}</div>
+          <div class="cs-company">Marketing Readiness Score: ${overall.pct} / 100 · ${new Date().toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' })}</div>
+        </div>
+      `;
+
+      /* Overall score */
+      document.getElementById('rr-score').textContent   = overall.pct;
+      document.getElementById('rr-verdict').textContent = tier.label;
+      document.getElementById('rr-desc').textContent    = tier.desc;
+
+      /* Pillar grid */
+      const grid = document.getElementById('rr-pillar-grid');
+      grid.innerHTML = PILLARS.map(l => {
+        const s = getLeverScore(l.id);
+        return `
+          <div class="lever-card">
+            <div class="lc-name">${l.name}</div>
+            <div class="lc-pct">${s.pct}%</div>
+            <div class="lever-bar">
+              <div class="lever-bar-fill" style="width:${s.pct}%;background:${getBarColour(s.pct)}"></div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      /* Resource reality */
+      const annualHours = Math.round((state.client.hoursPerWeek || 0) * 52);
+      document.getElementById('rr-reality').innerHTML = `
+        <div class="reality-card">
+          <div class="rc-label">Your time</div>
+          <div class="rc-value">~${annualHours} hrs/yr</div>
+          <div class="rc-note">Hours you personally spend on marketing — time not spent running or growing the business.</div>
+        </div>
+        <div class="reality-card">
+          <div class="rc-label">Your team</div>
+          <div class="rc-value">${TEAM_LABELS[state.client.team] || '—'}</div>
+          <div class="rc-note">Whoever this is, they are also the single point of failure if your score above is under 55%.</div>
+        </div>
+        <div class="reality-card">
+          <div class="rc-label">Your budget</div>
+          <div class="rc-value">${BUDGET_LABELS[state.client.budget] || '—'}</div>
+          <div class="rc-note">Benchmark for businesses under $5M revenue is 7–8% of revenue (SBA / Deloitte-Duke CMO Survey, 2025).</div>
+        </div>
+      `;
+
+      /* Recommendation tier card */
+      document.getElementById('rr-tier-card').innerHTML = `
+        <div class="tier-card">
+          <div class="tier-badge">${tier.badge}</div>
+          <h3>${tier.label}</h3>
+          <p>${tier.desc}</p>
+          <ul class="tier-next">
+            ${tier.next.map(n => `<li>${n}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+
+      /* Top 3 priorities */
+      const sorted = PILLARS
+        .map(l => ({ ...l, ...getLeverScore(l.id) }))
+        .sort((a, b) => a.pct - b.pct)
+        .slice(0, 3);
+
+      document.getElementById('rr-priorities').innerHTML = sorted.map((p, idx) => `
+        <div class="priority-item">
+          <div class="pi-meta">Priority ${idx + 1} — Pillar ${p.id}: ${p.name} (${p.pct}%)</div>
+          <div class="pi-rec">${getRecText(PILLAR_RECS, p.id, p.pct)}</div>
+        </div>
+      `).join('');
+
+      /* DEVELOPER: submit completed readiness results to your endpoint */
+      const resultsPayload = {
+        event:       'readiness_completed',
+        timestamp:   new Date().toISOString(),
+        client:      state.client,
+        score:       overall.pct,
+        tier:        tier.label,
+        pillar_scores: PILLARS.reduce((obj, l) => {
+          obj[l.name] = getLeverScore(l.id).pct;
+          return obj;
+        }, {}),
+        priorities:  sorted.map(p => ({ pillar: p.name, score: p.pct }))
+      };
+
+      fetch('https://formspree.io/f/mlgkeyqp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(resultsPayload)
+      }).catch(() => {
+        /* Silently ignore — do not interrupt the user experience */
+      });
+    }
+
+    /* ================================================================
+      DOWNLOAD REPORT (print-to-PDF)
+    ================================================================ */
+    function downloadReport() {
+      window.print();
+    }
+
+    /* ================================================================
+      NAVIGATION
+    ================================================================ */
+    function showScreen(name) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById(`screen-${name}`).classList.add('active');
+      document.getElementById('nav-back-btn').style.display = name === 'mode-select' ? 'none' : 'inline-flex';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function restartAudit() {
+      const mode = state.mode;
+      state = { current: 0, answers: {}, client: {}, mode };
+      showScreen(mode === 'visibility' ? 'intro' : 'intro-readiness');
+    }
+
+    /* ================================================================
+      LEVER / PILLAR PREVIEW ACCORDIONS
+    ================================================================ */
+    let openLever = null;
+
+    function toggleLever(leverNum, chipEl) {
+      const drawerId = leverNum <= 3 ? 'drawer-1-3' : 'drawer-4-6';
+      const drawer   = document.getElementById(drawerId);
+      const chips    = document.querySelectorAll('#lever-overview .lo-chip');
+
+      /* Clicking the already-open lever closes it */
+      if (openLever === leverNum) {
+        chipEl.classList.remove('open');
+        drawer.classList.remove('open');
+        openLever = null;
+        return;
+      }
+
+      /* Close any previously open chip */
+      chips.forEach(c => c.classList.remove('open'));
+
+      /* Build question list for this lever */
+      const qs = QUESTIONS.filter(q => q.lever === leverNum);
+      drawer.innerHTML = `
+        <div class="ld-title">Lever ${leverNum} questions</div>
+        ${qs.map(q => `
+          <div class="ld-question">
+            <div class="ld-q-text">${q.q}</div>
+            <div class="ld-q-hint">${q.hint}</div>
+          </div>
+        `).join('')}
+      `;
+
+      chipEl.classList.add('open');
+      drawer.classList.add('open');
+      openLever = leverNum;
+    }
+
+    let openPillar = null;
+
+    function togglePillar(pillarNum, chipEl) {
+      const drawer = document.getElementById('drawer-pillars');
+      const chips  = document.querySelectorAll('#pillar-overview .lo-chip');
+
+      if (openPillar === pillarNum) {
+        chipEl.classList.remove('open');
+        drawer.classList.remove('open');
+        openPillar = null;
+        return;
+      }
+
+      chips.forEach(c => c.classList.remove('open'));
+
+      const qs = QUESTIONS2.filter(q => q.lever === pillarNum);
+      drawer.innerHTML = `
+        <div class="ld-title">Pillar ${pillarNum} questions</div>
+        ${qs.map(q => `
+          <div class="ld-question">
+            <div class="ld-q-text">${q.q}</div>
+            <div class="ld-q-hint">${q.hint}</div>
+          </div>
+        `).join('')}
+      `;
+
+      chipEl.classList.add('open');
+      drawer.classList.add('open');
+      openPillar = pillarNum;
+    }
+
+    /* ================================================================
+      DEEP LINK — ?tool=visibility or ?tool=readiness jumps straight
+      to that diagnostic's intro screen (used by index.html's cards)
+    ================================================================ */
+    (function () {
+      const requestedTool = new URLSearchParams(window.location.search).get('tool');
+      if (requestedTool === 'visibility' || requestedTool === 'readiness') {
+        selectMode(requestedTool);
+      }
+    })();
+  </script>
+
+  <!-- ================================================================
+    PRINT STYLES — makes window.print() produce a clean PDF report
+  ================================================================ -->
+  <style media="print">
+    body { background: #fff; }
+    .site-nav, .hero-stats, .lever-overview, .cta-block .cta-btn-row, .nav-row, .btn-ghost { display: none !important; }
+    .card { box-shadow: none; border: 1px solid #ddd; }
+    .screen { display: none !important; }
+    .screen.active { display: block !important; }
+  </style>
+
+</body>
+</html>
