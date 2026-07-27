@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Book a Strategy Call — XL Marketing Services</title>
+  <meta name="description" content="Request a strategy call with XL Marketing Services — a structured discussion about your decision, evidence and next move, not an immediate proposal." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://xluxemarketing.com/contact.html" />
+
+  <!-- Open Graph / Twitter — DEVELOPER: add a real og:image once a brand share-image asset exists -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="XL Marketing Services" />
+  <meta property="og:title" content="Contact | Book a Strategy Call — XL Marketing Services" />
+  <meta property="og:description" content="Request a strategy call with XL Marketing Services — a structured discussion about your decision, evidence and next move, not an immediate proposal." />
+  <meta property="og:url" content="https://xluxemarketing.com/contact.html" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Contact | Book a Strategy Call — XL Marketing Services" />
+  <meta name="twitter:description" content="Request a strategy call with XL Marketing Services — a structured discussion about your decision, evidence and next move, not an immediate proposal." />
+
+  <!-- DEVELOPER: Drop your Google Analytics / GTM snippet here -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --ivory: #FAF5EA; --ivory-mid: #F1E8D6; --white: #FFFFFF;
+      --mustard: #C9A227; --mustard-lt: #E3C769; --mustard-dk: #9C7D1E; --ember: #B8461F;
+      --forest: #14291F; --forest-mid: #1E3A2C;
+      --muted: #6E6656; --muted-light: #A79C86;
+      --border: rgba(201,162,39,0.22); --border-mid: rgba(201,162,39,0.42);
+      --shadow: 0 2px 24px rgba(20,41,31,0.08); --shadow-lg: 0 8px 48px rgba(20,41,31,0.14);
+      --radius: 6px; --radius-lg: 12px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Manrope', sans-serif; background: var(--ivory); color: var(--forest); min-height: 100vh; -webkit-font-smoothing: antialiased; }
+    .serif { font-family: 'Source Serif 4', Georgia, serif; }
+    .page-wrap { max-width: 700px; margin: 0 auto; padding: 0 24px; }
+
+    .site-nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; border-bottom: 0.5px solid var(--border); }
+    .site-logo { font-family: 'Manrope', sans-serif; font-size: 19px; font-weight: 800; color: var(--forest); text-decoration: none; }
+    .site-logo span { color: var(--mustard-dk); }
+    .nav-links { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 10px 22px; }
+    .nav-links > a { font-size: 13px; color: var(--muted); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+    .nav-links > a.current { color: var(--forest); }
+    .nav-links > a:hover { color: var(--forest); }
+    .nav-cta {
+      font-size: 12px; font-weight: 700; color: var(--ivory); background: var(--forest); border: none;
+      padding: 9px 20px; border-radius: 999px; white-space: nowrap; cursor: pointer; text-decoration: none;
+      font-family: 'Manrope', sans-serif; transition: opacity 0.15s; display: inline-block;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    .hero { padding: 56px 0 8px; text-align: center; }
+    .hero-eyebrow { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mustard-dk); font-weight: 700; margin-bottom: 18px; }
+    .hero h1 { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: clamp(30px, 4.6vw, 42px); line-height: 1.2; color: var(--forest); margin-bottom: 18px; }
+    .hero-sub { font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; color: var(--forest-mid); line-height: 1.7; max-width: 560px; margin: 0 auto; }
+
+    .form-card {
+      background: var(--white);
+      border: 0.5px solid var(--border-mid);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      margin: 40px 0 24px;
+    }
+
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    @media (max-width: 540px) { .form-grid { grid-template-columns: 1fr; } }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group.full { grid-column: 1 / -1; }
+
+    label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+
+    input, select, textarea {
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      color: var(--forest);
+      background: var(--ivory);
+      border: 1.5px solid var(--border-mid);
+      border-radius: var(--radius);
+      padding: 11px 14px;
+      outline: none;
+      transition: border-color 0.15s;
+      width: 100%;
+    }
+
+    input:focus, select:focus, textarea:focus { border-color: var(--mustard); }
+    input::placeholder, textarea::placeholder { color: var(--muted-light); }
+    textarea { resize: vertical; min-height: 96px; font-family: 'Manrope', sans-serif; }
+
+    select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236E6656' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; font-family: 'Manrope', sans-serif; font-size: 14px;
+      font-weight: 700; padding: 13px 28px; border-radius: 999px; white-space: nowrap; cursor: pointer;
+      transition: opacity 0.15s, transform 0.1s; border: none; text-decoration: none;
+    }
+    .btn:active { transform: scale(0.98); }
+    .btn-gold { background: var(--mustard-dk); color: #fff; }
+    .btn-gold:hover { opacity: 0.88; }
+    .btn-full { width: 100%; justify-content: center; }
+
+    .form-note { font-size: 12px; color: var(--muted); text-align: center; margin-top: 12px; }
+
+    .honeypot { position: absolute; left: -9999px; }
+
+    .success-banner {
+      display: none;
+      background: var(--ivory-mid);
+      border: 0.5px solid var(--border-mid);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .success-banner.show { display: block; }
+    .success-banner h2 { font-size: 20px; font-weight: 800; color: var(--forest); margin-bottom: 8px; }
+    .success-banner p { font-family: 'Source Serif 4', Georgia, serif; font-size: 15px; color: var(--forest-mid); }
+
+    .direct-line {
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    .direct-line a { color: var(--mustard-dk); text-decoration: none; font-weight: 600; }
+    .direct-line a:hover { text-decoration: underline; }
+
+    .site-footer { border-top: 0.5px solid var(--border); margin-top: 8px; padding: 24px 0 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-logo { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 15px; color: var(--muted); }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--forest); }
+
+    @media (max-width: 600px) {
+      .hero { padding: 40px 0 8px; }
+      .form-card { padding: 26px 20px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-wrap">
+
+    <nav class="site-nav">
+      <a href="index.html" class="site-logo">XL<span>.</span></a>
+      <div class="nav-links">
+        <a href="services.html">Services</a>
+        <a href="decision-led-growth.html">Decision-Led Growth</a>
+        <a href="about.html">About</a>
+        <a href="journal.html">Journal</a>
+        <a href="ai-visibility-audit.html">Diagnostics</a>
+        <a href="contact.html" class="nav-cta">Book a strategy call</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div class="hero-eyebrow">Contact</div>
+      <h1>Request a strategy call</h1>
+      <p class="hero-sub">This first conversation is a structured discussion about your decision, the evidence behind it and the next move — not an immediate proposal.</p>
+    </div>
+
+    <div class="success-banner" id="success-banner">
+      <h2>Thank you — that's on its way to us.</h2>
+      <p>We'll come back to you shortly to schedule a time.</p>
+    </div>
+
+    <div class="form-card" id="contact-form-card">
+      <form name="strategy-call" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/contact.html?submitted=true" id="contact-form">
+        <input type="hidden" name="form-name" value="strategy-call" />
+        <p class="honeypot"><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="f-name">Name</label>
+            <input type="text" id="f-name" name="name" placeholder="Jane Smith" autocomplete="name" required />
+          </div>
+          <div class="form-group">
+            <label for="f-org">Organisation</label>
+            <input type="text" id="f-org" name="organisation" placeholder="Acme Ltd" autocomplete="organization" required />
+          </div>
+          <div class="form-group">
+            <label for="f-email">Work email</label>
+            <input type="email" id="f-email" name="email" placeholder="jane@acme.com" autocomplete="email" required />
+          </div>
+          <div class="form-group">
+            <label for="f-role">Role</label>
+            <input type="text" id="f-role" name="role" placeholder="CEO, CMO, Founder..." required />
+          </div>
+          <div class="form-group full">
+            <label for="f-website">Website</label>
+            <input type="url" id="f-website" name="website_url" placeholder="https://acme.com" autocomplete="url" />
+          </div>
+          <div class="form-group full">
+            <label for="f-challenge">Business challenge</label>
+            <textarea id="f-challenge" name="business_challenge" placeholder="What's the decision or problem you're trying to work through?" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="f-timeline">Decision timeline</label>
+            <select id="f-timeline" name="decision_timeline" required>
+              <option value="" disabled selected>Select one</option>
+              <option value="immediate">Immediate — within a month</option>
+              <option value="this-quarter">This quarter</option>
+              <option value="next-quarter">Next quarter</option>
+              <option value="exploring">Exploring, no fixed timeline</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="f-source">How did you hear about XL?</label>
+            <select id="f-source" name="referral_source">
+              <option value="" disabled selected>Select one</option>
+              <option value="referral">Referral</option>
+              <option value="search">Search / AI tool</option>
+              <option value="linkedin">LinkedIn</option>
+              <option value="diagnostic">Took a diagnostic</option>
+              <option value="journal">Read the Journal</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-gold btn-full">Request a strategy call</button>
+        <p class="form-note">Enquiries route to our team at support@xploraluxe.com.</p>
+      </form>
+    </div>
+
+    <p class="direct-line">Prefer email directly? Write to <a href="mailto:support@xploraluxe.com?subject=Strategy%20Call">support@xploraluxe.com</a>.</p>
+
+    <footer class="site-footer">
+      <div class="footer-logo">XL Marketing Services</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="journal.html">Journal</a>
+      </div>
+    </footer>
+
+  </div><!-- /page-wrap -->
+
+  <script>
+    /* Pre-fill the business-challenge field if arriving from a service page link,
+       and swap in the success banner after a Netlify form redirect. */
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const service = params.get('service');
+      if (service) {
+        const field = document.getElementById('f-challenge');
+        field.value = 'Regarding: ' + service + '\n\n';
+        field.focus();
+        field.setSelectionRange(field.value.length, field.value.length);
+      }
+      if (params.get('submitted') === 'true') {
+        document.getElementById('success-banner').classList.add('show');
+        document.getElementById('contact-form-card').style.display = 'none';
+      }
+    })();
+  </script>
+</body>
+</html>
