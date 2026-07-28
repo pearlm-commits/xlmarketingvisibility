@@ -26,28 +26,34 @@
 
   <style>
     :root {
-      --ivory:       #FAF5EA;
-      --ivory-mid:   #F1E8D6;
       --white:       #FFFFFF;
-      --mustard:     #C9A227;
-      --mustard-lt:  #E3C769;
-      --mustard-dk:  #9C7D1E;
-      --ember:       #B8461F;
-      --forest:      #14291F;
-      --forest-mid:  #1E3A2C;
-      --muted:       #6E6656;
-      --muted-light: #A79C86;
-      --border:      rgba(201,162,39,0.22);
-      --border-mid:  rgba(201,162,39,0.42);
-      --shadow:      0 2px 24px rgba(20,41,31,0.08);
-      --shadow-lg:   0 8px 48px rgba(20,41,31,0.14);
+      --ivory:       #FFFBF1;
+      --ivory-mid:   #F6EEDD;
+      --sage:        #DCE8DD;
+      --mustard:     #D9A928;
+      --mustard-lt:  #F3E6B8;
+      --mustard-dk:  #8A6500;
+      --ember:       #B83A2D;
+      --ember-dark:  #922A20;
+      --forest:      #173F35;
+      --forest-mid:  #245847;
+      --ink:         #102A24;
+      --muted:       #5B625D;
+      --muted-light: #94988D;
+      --border:      rgba(216,205,184,0.4);
+      --border-mid:  #D8CDB8;
+      --focus:       #D9A928;
+      --focus-offset:#FFFBF1;
+      --shadow:      0 2px 24px rgba(23,63,53,0.08);
+      --shadow-lg:   0 8px 48px rgba(23,63,53,0.14);
       --radius:      6px;
       --radius-lg:   12px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Manrope', sans-serif; background: var(--white); color: var(--forest); min-height: 100vh; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Manrope', sans-serif; background: var(--white); color: var(--ink); min-height: 100vh; -webkit-font-smoothing: antialiased; }
+    :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
     .serif { font-family: 'Source Serif 4', Georgia, serif; }
     .page-wrap { max-width: 800px; margin: 0 auto; padding: 0 24px; }
 
@@ -79,8 +85,10 @@
       transition: opacity 0.15s, transform 0.1s; border: none; text-decoration: none;
     }
     .btn:active { transform: scale(0.98); }
-    .btn-gold { background: var(--mustard-dk); color: #fff; }
-    .btn-gold:hover { opacity: 0.88; }
+    .btn-gold { background: var(--ember); color: #fff; }
+    .btn-gold:hover { background: var(--ember-dark); }
+    .btn-primary { background: var(--forest); color: #fff; }
+    .btn-primary:hover { background: var(--forest-mid); }
     .btn-ghost { background: transparent; color: var(--forest-mid); border: 1.5px solid var(--border-mid); }
     .btn-ghost:hover { border-color: var(--mustard); color: var(--forest); }
     .btn-sm { padding: 10px 22px; font-size: 13px; }
@@ -223,7 +231,7 @@
             <p>A buyer who knows differentiation or messaging is unclear and is evaluating specialist help.</p>
           </div>
         </div>
-        <a href="contact.html?service=Brand%20Positioning%20%26%20Messaging" class="btn btn-gold btn-sm">Discuss your positioning challenge</a>
+        <a href="contact.html?service=Brand%20Positioning%20%26%20Messaging" class="btn btn-primary btn-sm">Discuss your positioning challenge</a>
       </div>
 
       <div class="service-card" id="gtm-product-marketing">
@@ -240,7 +248,7 @@
             <p>A product, service or market-entry team preparing to launch, reposition or improve adoption.</p>
           </div>
         </div>
-        <a href="contact.html?service=GTM%20%26%20Product%20Marketing" class="btn btn-gold btn-sm">Discuss a launch or market-entry decision</a>
+        <a href="contact.html?service=GTM%20%26%20Product%20Marketing" class="btn btn-primary btn-sm">Discuss a launch or market-entry decision</a>
       </div>
 
       <div class="service-card" id="b2b-growth-abm">
@@ -257,7 +265,7 @@
             <p>A B2B organisation that wants higher-quality account engagement, executive access or event-led pipeline.</p>
           </div>
         </div>
-        <a href="contact.html?service=B2B%20Growth%2C%20ABM%20%26%20Executive%20Engagement" class="btn btn-gold btn-sm">Discuss your priority accounts</a>
+        <a href="contact.html?service=B2B%20Growth%2C%20ABM%20%26%20Executive%20Engagement" class="btn btn-primary btn-sm">Discuss your priority accounts</a>
       </div>
 
       <div class="service-card" id="marketing-sales-alignment">
@@ -274,7 +282,7 @@
             <p>Leadership seeing weak handover, disputed lead quality or limited revenue accountability.</p>
           </div>
         </div>
-        <a href="contact.html?service=Marketing%20%26%20Sales%20Alignment" class="btn btn-gold btn-sm">Align marketing and sales</a>
+        <a href="contact.html?service=Marketing%20%26%20Sales%20Alignment" class="btn btn-primary btn-sm">Align marketing and sales</a>
       </div>
 
       <div class="service-card" id="ai-search-visibility">
@@ -291,7 +299,7 @@
             <p>A brand that wants to understand or improve how AI tools discover, describe, cite and recommend it.</p>
           </div>
         </div>
-        <a href="ai-visibility-audit.html?tool=visibility" class="btn btn-gold btn-sm">Take the AI Visibility Diagnostic</a>
+        <a href="ai-visibility-audit.html?tool=visibility" class="btn btn-primary btn-sm">Take the AI Visibility Diagnostic</a>
       </div>
 
       <div class="service-card" id="fractional-cmo">
@@ -308,7 +316,7 @@
             <p>A growing or established organisation that needs senior marketing direction without an immediate full-time appointment.</p>
           </div>
         </div>
-        <a href="contact.html?service=Fractional%20CMO%20%26%20Advisory" class="btn btn-gold btn-sm">Discuss fractional marketing leadership</a>
+        <a href="contact.html?service=Fractional%20CMO%20%26%20Advisory" class="btn btn-primary btn-sm">Discuss fractional marketing leadership</a>
       </div>
 
     </div>
