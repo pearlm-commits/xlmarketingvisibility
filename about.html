@@ -194,6 +194,23 @@
     /* ── Leader profile ───────────────────────────────────────── */
     .leader-block { max-width: 680px; margin: 0 auto; }
 
+    .lb-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .lb-photo {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 3px solid var(--ivory);
+      box-shadow: var(--shadow);
+    }
+
     .leader-block .lb-name {
       font-size: 24px;
       font-weight: 800;
@@ -207,7 +224,11 @@
       text-transform: uppercase;
       color: var(--mustard-dk);
       font-weight: 700;
-      margin-bottom: 20px;
+    }
+
+    @media (max-width: 480px) {
+      .lb-header { gap: 14px; }
+      .lb-photo { width: 76px; height: 76px; }
     }
 
     .leader-block p {
@@ -363,9 +384,9 @@
       </div>
     </nav>
 
-    <!-- ── Hero / direct answer ─────────────────────────────────── -->
+    <!-- ── Hero ─────────────────────────────────────────────────── -->
     <div class="hero">
-      <div class="hero-eyebrow">Direct Answer</div>
+      <div class="hero-eyebrow">About XL</div>
       <h1>Strategic marketing intelligence, connected to commercial action</h1>
       <div class="hero-body">
         <p>XL Marketing Services helps organisations make better decisions about markets, customers, positioning and growth—and turn those decisions into coordinated marketing and business-development action.</p>
@@ -377,8 +398,13 @@
     <!-- ── Pearl M ──────────────────────────────────────────────── -->
     <div class="section">
       <div class="leader-block">
-        <div class="lb-name">Pearl M</div>
-        <div class="lb-role">Chief Marketing Officer and Strategic Marketing Lead</div>
+        <div class="lb-header">
+          <img src="images/pearl-m.png" alt="Pearl M, Chief Marketing Officer and Strategic Marketing Lead at XL Marketing Services" class="lb-photo">
+          <div>
+            <div class="lb-name">Pearl M</div>
+            <div class="lb-role">Chief Marketing Officer and Strategic Marketing Lead</div>
+          </div>
+        </div>
         <p>Pearl is a fractional CMO and brand strategist with more than 25 years of experience across telecommunications, fintech, enterprise technology, infrastructure, luxury services and emerging technology.</p>
         <p>Her leadership experience includes Vodacom, PayU, Dimension Data/NTT, Openserve, Altron and Alcatel-Lucent, with responsibility spanning South Africa, 54 African markets and the Middle East.</p>
         <p>Pearl's work encompasses market intelligence, brand positioning, product marketing, go-to-market strategy, marketing transformation and executive communications. She served as marketing lead on Vodacom's South African M-Pesa launch project team and subsequently led B2B marketing for Vodacom Business across 54 African markets, where marketing-generated pipeline contributed to 30% gross-profit growth.</p>
@@ -389,8 +415,13 @@
     <!-- ── Tameka Hendrikz ──────────────────────────────────────── -->
     <div class="section">
       <div class="leader-block">
-        <div class="lb-name">Tameka Hendrikz</div>
-        <div class="lb-role">Head of Business Development and Partnerships</div>
+        <div class="lb-header">
+          <img src="images/tameka-hendrikz.png" alt="Tameka Hendrikz, Head of Business Development and Partnerships at XL Marketing Services" class="lb-photo">
+          <div>
+            <div class="lb-name">Tameka Hendrikz</div>
+            <div class="lb-role">Head of Business Development and Partnerships</div>
+          </div>
+        </div>
         <p>Tameka brings the commercial and relationship-building discipline that turns strategy into market access.</p>
         <p>As Head of Partnerships at Xplora Luxe, she built the company's partner network from zero to more than 100 partners, creating the relationships required to support an international luxury travel and concierge proposition.</p>
         <p>She also led Xplora Luxe's entry into Eureka GCC, a highly competitive entrepreneurial incubator competition. The business was selected among the top 33 start-ups from approximately 500 submissions—placing it within the top 6.6% of applicants.</p>

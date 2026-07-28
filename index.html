@@ -378,6 +378,33 @@
       line-height: 1.6;
     }
 
+    /* ── Leader strip ─────────────────────────────────────────── */
+    .leader-strip {
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+      flex-wrap: wrap;
+      margin: 24px 0 32px;
+    }
+
+    .leader-strip .ls-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .leader-strip img {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--ivory);
+      box-shadow: var(--shadow);
+    }
+
+    .leader-strip .ls-name { font-size: 15px; font-weight: 700; color: var(--forest); }
+    .leader-strip .ls-role { font-size: 12px; color: var(--muted); }
+
     /* ── Proof table ──────────────────────────────────────────── */
     .proof-table {
       display: grid;
@@ -698,6 +725,22 @@
       <div class="section-label">Leadership proof</div>
       <h2>Strategy shaped by experience — and tested in the work</h2>
       <p class="lead center">XL combines more than 25 years of senior marketing leadership with current business-building, partnership and client-acquisition experience.</p>
+      <div class="leader-strip">
+        <div class="ls-item">
+          <img src="images/pearl-m.png" alt="Pearl M">
+          <div>
+            <div class="ls-name">Pearl M</div>
+            <div class="ls-role">Chief Marketing Officer</div>
+          </div>
+        </div>
+        <div class="ls-item">
+          <img src="images/tameka-hendrikz.png" alt="Tameka Hendrikz">
+          <div>
+            <div class="ls-name">Tameka Hendrikz</div>
+            <div class="ls-role">Head of Business Development</div>
+          </div>
+        </div>
+      </div>
       <div class="proof-table">
         <div class="pt-head">Proof</div>
         <div class="pt-head">What it demonstrates</div>
