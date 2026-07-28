@@ -453,6 +453,43 @@
       .proof-table .pt-cell.demo { border-top: none; padding-top: 4px; padding-bottom: 16px; }
     }
 
+    /* ── Selected work grid ───────────────────────────────────── */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    @media (max-width: 760px) { .work-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .work-grid { grid-template-columns: 1fr; } }
+
+    .work-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 0.5px solid var(--border-mid);
+      background: var(--ivory);
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .work-card:hover { border-color: var(--mustard); box-shadow: var(--shadow); }
+
+    .work-card .wc-media { aspect-ratio: 3 / 4; overflow: hidden; background: var(--forest); }
+    .work-card .wc-media img,
+    .work-card .wc-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .work-card .wc-media-contain img { object-fit: contain; background: var(--ivory-mid); }
+
+    .work-card .wc-body { padding: 14px 16px 16px; }
+    .work-card .wc-title { font-size: 13px; font-weight: 700; color: var(--forest); margin-bottom: 4px; line-height: 1.3; }
+    .work-card .wc-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+    .work-card.wc-text .wc-body { padding: 22px 18px; min-height: 100%; }
+    .work-card.wc-text .wc-eyebrow { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mustard-dk); font-weight: 700; margin-bottom: 12px; }
+    .work-card.wc-text .wc-title { font-size: 15px; margin-bottom: 8px; }
+    .work-card.wc-text .wc-desc { font-size: 12px; }
+
     /* ── Diagnostics teaser cards ─────────────────────────────── */
     .mode-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
@@ -769,6 +806,51 @@
       <p class="lead center" style="margin-top:24px; font-size:14px">Pearl M's leadership experience includes Vodacom, PayU, Dimension Data/NTT, Openserve, Altron and Alcatel-Lucent. Tameka works with clients in the UAE/GCC, South Africa, the UK, Germany and the Netherlands on English-language campaigns.</p>
       <div style="text-align:center; margin-top:24px">
         <a href="about.html" class="btn btn-ghost">Meet Pearl M and Tameka Hendrikz</a>
+      </div>
+    </div>
+
+    <!-- ── Selected work ─────────────────────────────────────────── -->
+    <div class="section reveal">
+      <div class="section-label">Selected work</div>
+      <h2>Strategy translated into execution</h2>
+      <p class="lead center">Alongside strategic marketing leadership, the team behind XL has produced brand content, campaign creative and competition strategy across UAE and GCC markets.</p>
+      <div class="work-grid">
+        <div class="work-card">
+          <div class="wc-media">
+            <img src="work/travel-publication.jpg" alt="Magazine-style travel publication cover created for a client brief">
+          </div>
+          <div class="wc-body">
+            <div class="wc-title">Magazine-style brand content</div>
+            <div class="wc-desc">Custom publication content created to align with a client's editorial brief.</div>
+          </div>
+        </div>
+        <div class="work-card">
+          <div class="wc-media wc-media-contain">
+            <img src="work/chatbatt-carousel.jpg" alt="Strategy carousel slide created for ChatBatt">
+          </div>
+          <div class="wc-body">
+            <div class="wc-title">ChatBatt — market insight strategy</div>
+            <div class="wc-desc">Insight-led strategy material addressing SME customer-communication gaps in the UAE market.</div>
+          </div>
+        </div>
+        <div class="work-card">
+          <div class="wc-media">
+            <video preload="metadata" controls playsinline>
+              <source src="work/eid-reel.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="wc-body">
+            <div class="wc-title">Eid season social content</div>
+            <div class="wc-desc">A short-form Instagram Reel created for the UAE market's Eid season.</div>
+          </div>
+        </div>
+        <div class="work-card wc-text">
+          <div class="wc-body">
+            <div class="wc-eyebrow">Strategy</div>
+            <div class="wc-title">Eureka GCC competition strategy</div>
+            <div class="wc-desc">The strategy presentation behind Xplora Luxe's Eureka GCC entry — selected among the top 33 start-ups from approximately 500 submissions.</div>
+          </div>
+        </div>
       </div>
     </div>
 
