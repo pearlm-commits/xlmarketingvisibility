@@ -7,6 +7,10 @@
   <meta name="description" content="Meridian Insights: clear thinking for the decisions worth paying attention to. Evidence, practical tools and clear opinions on positioning, customer behaviour, B2B growth, product marketing and AI visibility from XL Marketing Services." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://xluxemarketing.com/journal.html" />
+  <link rel="icon" href="images/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="images/favicon-32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="images/favicon-192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="images/favicon-180.png" />
 
   <!-- Open Graph / Twitter — DEVELOPER: add a real og:image once a brand share-image asset exists -->
   <meta property="og:type" content="website" />
@@ -66,6 +70,11 @@
       outline: 3px solid var(--focus);
       outline-offset: 2px;
     }
+
+    /* ── Scroll reveal ────────────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 
     .serif { font-family: 'Source Serif 4', Georgia, serif; }
 
@@ -354,7 +363,7 @@
       list.innerHTML = '<div class="entry-empty">The first entry is coming soon.</div>';
     } else {
       list.innerHTML = ENTRIES.map(e => `
-        <a class="entry-card" href="${e.slug}">
+        <a class="entry-card reveal" href="${e.slug}">
           <div class="entry-meta-row">
             <span class="format-badge">${e.format}</span>
             <span class="entry-date">${e.date}</span>
@@ -364,6 +373,20 @@
           <span class="entry-read">Read &rarr;</span>
         </a>
       `).join('');
+    }
+
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
     }
   </script>
 </body>

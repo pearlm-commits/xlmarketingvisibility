@@ -7,6 +7,10 @@
   <meta name="description" content="Six ways XL helps founders, CEOs and marketing leaders compete: brand positioning, GTM & product marketing, B2B growth & ABM, marketing-sales alignment, AI search visibility, and fractional CMO advisory." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://xluxemarketing.com/services.html" />
+  <link rel="icon" href="images/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="images/favicon-32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="images/favicon-192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="images/favicon-180.png" />
 
   <!-- Open Graph / Twitter — DEVELOPER: add a real og:image once a brand share-image asset exists -->
   <meta property="og:type" content="website" />
@@ -54,6 +58,9 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'Manrope', sans-serif; background: var(--white); color: var(--ink); min-height: 100vh; -webkit-font-smoothing: antialiased; }
     :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
     .serif { font-family: 'Source Serif 4', Georgia, serif; }
     .page-wrap { max-width: 800px; margin: 0 auto; padding: 0 24px; }
 
@@ -217,7 +224,7 @@
     <!-- ── Services list ─────────────────────────────────────────── -->
     <div class="services-list">
 
-      <div class="service-card" id="brand-positioning">
+      <div class="service-card reveal" id="brand-positioning">
         <div class="svc-num">Service 01</div>
         <h2>Brand Positioning &amp; Messaging Strategy</h2>
         <p class="svc-desc">Clarify who you serve, why the offer matters and what makes it meaningfully different. Build a positioning and messaging system that leadership, marketing and sales can use consistently.</p>
@@ -234,7 +241,7 @@
         <a href="contact.html?service=Brand%20Positioning%20%26%20Messaging" class="btn btn-primary btn-sm">Discuss your positioning challenge</a>
       </div>
 
-      <div class="service-card" id="gtm-product-marketing">
+      <div class="service-card reveal" id="gtm-product-marketing">
         <div class="svc-num">Service 02</div>
         <h2>Go-to-Market &amp; Product Marketing Strategy</h2>
         <p class="svc-desc">Create a connected route from market opportunity to customer understanding, product adoption and measurable growth — particularly when the offer is complex, unfamiliar or entering a new market.</p>
@@ -251,7 +258,7 @@
         <a href="contact.html?service=GTM%20%26%20Product%20Marketing" class="btn btn-primary btn-sm">Discuss a launch or market-entry decision</a>
       </div>
 
-      <div class="service-card" id="b2b-growth-abm">
+      <div class="service-card reveal" id="b2b-growth-abm">
         <div class="svc-num">Service 03</div>
         <h2>B2B Growth, ABM &amp; Executive Engagement</h2>
         <p class="svc-desc">Identify priority accounts, reach the right decision-makers and progress credible commercial conversations through audience intelligence, relevant messaging and structured follow-through.</p>
@@ -268,7 +275,7 @@
         <a href="contact.html?service=B2B%20Growth%2C%20ABM%20%26%20Executive%20Engagement" class="btn btn-primary btn-sm">Discuss your priority accounts</a>
       </div>
 
-      <div class="service-card" id="marketing-sales-alignment">
+      <div class="service-card reveal" id="marketing-sales-alignment">
         <div class="svc-num">Service 04</div>
         <h2>Marketing &amp; Sales Alignment</h2>
         <p class="svc-desc">Connect audience strategy, qualification, messaging, handover and measurement so marketing activity supports pipeline and sales retains the context required to convert interest.</p>
@@ -285,7 +292,7 @@
         <a href="contact.html?service=Marketing%20%26%20Sales%20Alignment" class="btn btn-primary btn-sm">Align marketing and sales</a>
       </div>
 
-      <div class="service-card" id="ai-search-visibility">
+      <div class="service-card reveal" id="ai-search-visibility">
         <div class="svc-num">Service 05</div>
         <h2>AI Search Visibility Consulting</h2>
         <p class="svc-desc">Strengthen the clarity, content structure and external authority required for search engines and AI tools to understand, cite and recommend your business.</p>
@@ -302,7 +309,7 @@
         <a href="ai-visibility-audit.html?tool=visibility" class="btn btn-primary btn-sm">Take the AI Visibility Diagnostic</a>
       </div>
 
-      <div class="service-card" id="fractional-cmo">
+      <div class="service-card reveal" id="fractional-cmo">
         <div class="svc-num">Service 06</div>
         <h2>Fractional CMO &amp; Strategic Advisory</h2>
         <p class="svc-desc">Bring senior marketing direction into the organisation without immediately adding a full-time executive role. Establish priorities, guide delivery partners and strengthen internal capability.</p>
@@ -346,5 +353,21 @@
     </footer>
 
   </div><!-- /page-wrap -->
+
+  <script>
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+    }
+  </script>
 </body>
 </html>

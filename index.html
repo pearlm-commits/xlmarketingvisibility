@@ -7,6 +7,10 @@
   <meta name="description" content="XL helps founders, CEOs and marketing leaders improve positioning, go-to-market strategy, B2B growth and AI visibility through evidence-led marketing consulting." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://xluxemarketing.com/" />
+  <link rel="icon" href="images/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="images/favicon-32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="images/favicon-192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="images/favicon-180.png" />
 
   <!-- Open Graph / Twitter — DEVELOPER: add a real og:image once a brand share-image asset exists -->
   <meta property="og:type" content="website" />
@@ -66,6 +70,11 @@
       outline: 3px solid var(--focus);
       outline-offset: 2px;
     }
+
+    /* ── Scroll reveal ────────────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 
     .serif { font-family: 'Source Serif 4', Georgia, serif; }
 
@@ -593,7 +602,7 @@
     </div>
 
     <!-- ── Problem recognition ──────────────────────────────────── -->
-    <div class="section">
+    <div class="section reveal">
       <div class="section-label">Problem recognition</div>
       <h2>When activity is moving faster than clarity</h2>
       <p class="lead center">Marketing problems rarely begin with a shortage of content, campaigns or ideas. They begin earlier: with incomplete market intelligence, indistinct positioning, uncertain priorities or assumptions about customers that have never been properly tested.</p>
@@ -602,7 +611,7 @@
     </div>
 
     <!-- ── Transformation ───────────────────────────────────────── -->
-    <div class="section">
+    <div class="section reveal">
       <div class="section-label">Transformation</div>
       <h2>What changes when you bring in XL</h2>
       <div class="transform-grid">
@@ -632,7 +641,7 @@
     </div>
 
     <!-- ── Where XL creates clarity ─────────────────────────────── -->
-    <div class="section">
+    <div class="section reveal">
       <div class="section-label">Where XL creates clarity</div>
       <h2>Six ways we help you compete</h2>
       <p class="lead center">XL supports the decisions that shape market relevance, customer demand and commercial growth. Each engagement begins by defining the problem properly, establishing the evidence and identifying the change the organisation needs to make.</p>
@@ -683,7 +692,7 @@
     </div>
 
     <!-- ── Method ───────────────────────────────────────────────── -->
-    <div class="section">
+    <div class="section reveal">
       <div class="section-label">Method</div>
       <h2>A more disciplined way to create growth</h2>
       <p class="lead center">XL's Decision-Led Growth approach begins with the decisions that need to improve — not the marketing output that happens to have been requested.</p>
@@ -695,7 +704,7 @@
     </div>
 
     <!-- ── Governing principle ──────────────────────────────────── -->
-    <div class="section">
+    <div class="section reveal">
       <div class="pullquote-block">
         <div class="pq-label">Governing principle</div>
         <p>The quality of decisions cannot consistently exceed the quality of the information, questions and assumptions from which they are made.</p>
@@ -706,7 +715,7 @@
     </div>
 
     <!-- ── B2B advantage ─────────────────────────────────────────── -->
-    <div class="section">
+    <div class="section reveal">
       <div class="section-label">B2B advantage</div>
       <h2>From market intelligence to meaningful commercial conversations</h2>
       <p class="lead center">B2B growth requires more than defining an audience and launching a campaign. The right organisations must be prioritised, the buying committee understood and engagement carried forward with discipline.</p>
@@ -721,7 +730,7 @@
     </div>
 
     <!-- ── Leadership proof ──────────────────────────────────────── -->
-    <div class="section">
+    <div class="section reveal">
       <div class="section-label">Leadership proof</div>
       <h2>Strategy shaped by experience — and tested in the work</h2>
       <p class="lead center">XL combines more than 25 years of senior marketing leadership with current business-building, partnership and client-acquisition experience.</p>
@@ -764,7 +773,7 @@
     </div>
 
     <!-- ── Diagnostics teaser ───────────────────────────────────── -->
-    <div class="section">
+    <div class="section reveal">
       <div class="section-label">Not sure what is getting in the way?</div>
       <h2>Start with a diagnostic</h2>
       <p class="section-sub">Twelve questions. Approximately four minutes. A practical assessment showing where your current approach is strong, where it is vulnerable and what deserves attention first.</p>
@@ -785,7 +794,7 @@
     </div>
 
     <!-- ── Meridian Insights teaser ──────────────────────────────── -->
-    <div class="section">
+    <div class="section reveal">
       <div class="section-label">Meridian Insights</div>
       <h2>Clear thinking for the decisions worth paying attention to</h2>
       <p class="lead center">Meridian Insights brings together evidence, practical tools and clear opinions on positioning, customer behaviour, B2B growth, product marketing and AI visibility.</p>
@@ -800,7 +809,7 @@
     </div>
 
     <!-- ── Closing CTA ──────────────────────────────────────────── -->
-    <div class="section">
+    <div class="section reveal">
       <div class="cta-block">
         <h3>Better marketing begins before the next campaign</h3>
         <p>It begins with a clearer view of the market, the customer and the choices that will move the business forward. Every XL engagement is designed to leave your organisation with stronger direction, more useful evidence and greater internal capability than it had before.</p>
@@ -826,5 +835,21 @@
     </footer>
 
   </div><!-- /page-wrap -->
+
+  <script>
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+    }
+  </script>
 </body>
 </html>
