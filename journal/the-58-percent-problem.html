@@ -24,25 +24,26 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet" />
 
   <style>
     /* ── Brand tokens ─────────────────────────────────────────── */
     :root {
-      --cream:       #FFFBF1;
-      --cream-mid:   #F5EFE0;
-      --gold:        #C9B07A;
-      --gold-light:  #DDD0A8;
-      --gold-dark:   #A08B52;
-      --navy:        #050A30;
-      --navy-mid:    #0D1650;
-      --oxblood:     #3D1200;
-      --muted:       #7A7469;
-      --muted-light: #B5AFA4;
-      --border:      rgba(201,176,122,0.22);
-      --border-mid:  rgba(201,176,122,0.45);
-      --shadow:      0 2px 24px rgba(5,10,48,0.08);
-      --shadow-lg:   0 8px 48px rgba(5,10,48,0.14);
+      --ivory:       #FAF5EA;
+      --ivory-mid:   #F1E8D6;
+      --white:       #FFFFFF;
+      --mustard:     #C9A227;
+      --mustard-lt:  #E3C769;
+      --mustard-dk:  #9C7D1E;
+      --ember:       #B8461F;
+      --forest:      #14291F;
+      --forest-mid:  #1E3A2C;
+      --muted:       #6E6656;
+      --muted-light: #A79C86;
+      --border:      rgba(201,162,39,0.22);
+      --border-mid:  rgba(201,162,39,0.42);
+      --shadow:      0 2px 24px rgba(20,41,31,0.08);
+      --shadow-lg:   0 8px 48px rgba(20,41,31,0.14);
       --radius:      6px;
       --radius-lg:   12px;
     }
@@ -51,14 +52,14 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Inter Tight', sans-serif;
-      background: var(--cream);
-      color: var(--navy);
+      font-family: 'Manrope', sans-serif;
+      background: var(--white);
+      color: var(--forest);
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
     }
 
-    .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+    .serif { font-family: 'Source Serif 4', Georgia, serif; }
 
     /* ── Layout ───────────────────────────────────────────────── */
     .page-wrap { max-width: 680px; margin: 0 auto; padding: 0 24px; }
@@ -73,61 +74,60 @@
     }
 
     .site-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      color: var(--navy);
+      font-family: 'Manrope', sans-serif;
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--forest);
       text-decoration: none;
     }
 
-    .site-logo span { color: var(--gold-dark); }
+    .site-logo span { color: var(--mustard-dk); }
 
-    .nav-links { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 12px 24px; }
+    .nav-links { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 10px 22px; }
 
     .nav-links > a {
-      font-size: 13px;
+      font-size: 15px;
       color: var(--muted);
       text-decoration: none;
-      font-weight: 400;
+      font-weight: 600;
       transition: color 0.15s;
     }
 
-    .nav-links > a.current { color: var(--navy); font-weight: 500; }
-    .nav-links > a:hover { color: var(--navy); }
+    .nav-links > a.current { color: var(--forest); }
+    .nav-links > a:hover { color: var(--forest); }
 
-    .nav-cta {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      color: var(--cream);
-      background: var(--navy);
+    a.nav-cta {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      background: var(--forest);
       border: none;
       padding: 9px 20px;
       border-radius: 999px;
       white-space: nowrap;
       cursor: pointer;
       text-decoration: none;
-      font-family: 'Inter Tight', sans-serif;
+      font-family: 'Manrope', sans-serif;
       transition: opacity 0.15s;
       display: inline-block;
     }
 
-    .nav-cta:hover { opacity: 0.82; }
+    .nav-cta:hover { opacity: 0.85; }
 
     /* ── Back link ────────────────────────────────────────────── */
     .back-link {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 12px;
+      font-size: 14px;
+      font-weight: 600;
       color: var(--muted);
       text-decoration: none;
       margin: 28px 0 0;
       transition: color 0.15s;
     }
 
-    .back-link:hover { color: var(--navy); }
+    .back-link:hover { color: var(--forest); }
 
     /* ── Article masthead ─────────────────────────────────────── */
     .article-head { padding: 24px 0 36px; text-align: center; }
@@ -142,65 +142,65 @@
     }
 
     .format-badge {
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      font-weight: 500;
-      color: var(--gold-dark);
+      font-weight: 700;
+      color: var(--mustard-dk);
       border: 0.5px solid var(--border-mid);
       padding: 4px 10px;
       border-radius: 100px;
     }
 
-    .article-date { font-size: 12px; color: var(--muted); }
+    .article-date { font-size: 12px; color: var(--muted); font-weight: 500; }
 
     .article-head h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(34px, 6vw, 48px);
-      font-weight: 500;
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(38px, 6.5vw, 56px);
+      font-weight: 800;
       line-height: 1.15;
-      color: var(--navy);
+      color: var(--forest);
       margin-bottom: 16px;
       letter-spacing: -0.01em;
     }
 
     .article-dek {
-      font-size: 16px;
-      color: var(--muted);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: clamp(18px, 2.2vw, 20px);
+      color: var(--forest-mid);
       line-height: 1.7;
       max-width: 520px;
       margin: 0 auto 18px;
-      font-weight: 300;
     }
 
     .article-byline {
       font-size: 12px;
       color: var(--muted-light);
+      font-weight: 500;
     }
 
     /* ── Article body ─────────────────────────────────────────── */
     .article-body { padding: 8px 0 12px; }
 
     .article-body p {
-      font-size: 15px;
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 18px;
       line-height: 1.85;
-      color: var(--navy);
-      font-weight: 400;
+      color: var(--forest);
       margin-bottom: 22px;
     }
 
     .article-body p.lede {
-      font-size: 18px;
+      font-size: 21px;
       line-height: 1.75;
-      color: var(--navy-mid);
-      font-weight: 400;
+      color: var(--forest-mid);
     }
 
-    .article-body strong { font-weight: 500; }
+    .article-body strong { font-weight: 600; }
 
     /* ── Pull-quote block ─────────────────────────────────────── */
     .pullquote-block {
-      background: var(--navy);
+      background: var(--forest);
       border-radius: var(--radius-lg);
       padding: 34px 32px;
       text-align: center;
@@ -208,18 +208,18 @@
     }
 
     .pullquote-block p {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Source Serif 4', Georgia, serif;
       font-style: italic;
-      font-size: clamp(19px, 3vw, 23px);
+      font-size: clamp(19px, 3vw, 24px);
       line-height: 1.55;
-      color: var(--cream);
+      color: var(--ivory);
       max-width: 520px;
       margin: 0 auto;
     }
 
     /* ── Inline CTA ───────────────────────────────────────────── */
     .inline-cta {
-      background: var(--cream-mid);
+      background: var(--ivory-mid);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius-lg);
       padding: 30px 32px;
@@ -228,29 +228,29 @@
     }
 
     .inline-cta h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      font-weight: 500;
-      color: var(--navy);
+      font-family: 'Manrope', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--forest);
       margin-bottom: 10px;
     }
 
     .inline-cta p {
-      font-size: 14px;
-      color: var(--muted);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 16px;
+      color: var(--forest-mid);
       line-height: 1.6;
       margin-bottom: 20px;
-      font-weight: 300;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
+      font-family: 'Manrope', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
       padding: 13px 28px;
       border-radius: 999px;
       white-space: nowrap;
@@ -261,21 +261,21 @@
     }
 
     .btn:active { transform: scale(0.98); }
-    .btn-gold { background: var(--gold-dark); color: #fff; }
+    .btn-gold { background: var(--mustard-dk); color: #fff; }
     .btn-gold:hover { opacity: 0.88; }
 
     /* ── Sign-off ─────────────────────────────────────────────── */
     .sign-off {
       text-align: center;
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Source Serif 4', Georgia, serif;
       font-style: italic;
-      font-size: 16px;
+      font-size: 17px;
       color: var(--muted);
       margin: 36px 0 8px;
     }
 
     .source-note {
-      font-size: 11px;
+      font-size: 12px;
       color: var(--muted-light);
       text-align: center;
       margin-bottom: 20px;
@@ -293,10 +293,10 @@
       gap: 12px;
     }
 
-    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 15px; color: var(--muted); }
-    .footer-links { display: flex; gap: 20px; }
+    .footer-logo { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 15px; color: var(--muted); }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
     .footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.15s; }
-    .footer-links a:hover { color: var(--navy); }
+    .footer-links a:hover { color: var(--forest); }
 
     @media (max-width: 600px) {
       .article-head { padding: 16px 0 28px; }
@@ -329,7 +329,6 @@
     <nav class="site-nav">
       <a href="../index.html" class="site-logo">XL<span>.</span></a>
       <div class="nav-links">
-        <a href="../index.html">Home</a>
         <a href="../services.html">Services</a>
         <a href="../decision-led-growth.html">Decision-Led Growth</a>
         <a href="../about.html">About</a>
@@ -391,8 +390,8 @@
     <footer class="site-footer">
       <div class="footer-logo">XL Marketing Services</div>
       <div class="footer-links">
-        <a href="../index.html">Home</a>
         <a href="../services.html">Services</a>
+        <a href="../decision-led-growth.html">Decision-Led Growth</a>
         <a href="../about.html">About</a>
         <a href="../journal.html">Meridian Insights</a>
         <a href="../ai-visibility-audit.html">Diagnostics</a>

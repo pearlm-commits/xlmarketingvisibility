@@ -62,25 +62,26 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet" />
 
   <style>
     /* ── Brand tokens ─────────────────────────────────────────── */
     :root {
-      --cream:       #FFFBF1;
-      --cream-mid:   #F5EFE0;
-      --gold:        #C9B07A;
-      --gold-light:  #DDD0A8;
-      --gold-dark:   #A08B52;
-      --navy:        #050A30;
-      --navy-mid:    #0D1650;
-      --oxblood:     #3D1200;
-      --muted:       #7A7469;
-      --muted-light: #B5AFA4;
-      --border:      rgba(201,176,122,0.22);
-      --border-mid:  rgba(201,176,122,0.45);
-      --shadow:      0 2px 24px rgba(5,10,48,0.08);
-      --shadow-lg:   0 8px 48px rgba(5,10,48,0.14);
+      --ivory:       #FAF5EA;
+      --ivory-mid:   #F1E8D6;
+      --white:       #FFFFFF;
+      --mustard:     #C9A227;
+      --mustard-lt:  #E3C769;
+      --mustard-dk:  #9C7D1E;
+      --ember:       #B8461F;
+      --forest:      #14291F;
+      --forest-mid:  #1E3A2C;
+      --muted:       #6E6656;
+      --muted-light: #A79C86;
+      --border:      rgba(201,162,39,0.22);
+      --border-mid:  rgba(201,162,39,0.42);
+      --shadow:      0 2px 24px rgba(20,41,31,0.08);
+      --shadow-lg:   0 8px 48px rgba(20,41,31,0.14);
       --radius:      6px;
       --radius-lg:   12px;
     }
@@ -89,15 +90,15 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Inter Tight', sans-serif;
-      background: var(--cream);
-      color: var(--navy);
+      font-family: 'Manrope', sans-serif;
+      background: var(--white);
+      color: var(--forest);
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
     }
 
     /* ── Typography ───────────────────────────────────────────── */
-    .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+    .serif { font-family: 'Source Serif 4', Georgia, serif; }
 
     /* ── Layout ───────────────────────────────────────────────── */
     .page-wrap {
@@ -116,16 +117,15 @@
     }
 
     .site-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      color: var(--navy);
+      font-family: 'Manrope', sans-serif;
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--forest);
       text-decoration: none;
     }
 
     .site-logo span {
-      color: var(--gold-dark);
+      color: var(--mustard-dk);
     }
 
     .nav-links {
@@ -137,32 +137,32 @@
     }
 
     .nav-links > a {
-      font-size: 13px;
+      font-size: 15px;
       color: var(--muted);
       text-decoration: none;
-      font-weight: 400;
+      font-weight: 600;
       transition: color 0.15s;
     }
 
-    .nav-links > a:hover { color: var(--navy); }
+    .nav-links > a:hover { color: var(--forest); }
 
-    .nav-cta {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      color: var(--cream);
-      background: var(--navy);
+    .site-nav .nav-cta {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      color: #fff;
+      background: var(--forest);
       border: none;
       padding: 9px 20px;
       border-radius: 999px;
       white-space: nowrap;
       cursor: pointer;
       text-decoration: none;
-      font-family: 'Inter Tight', sans-serif;
+      font-family: 'Manrope', sans-serif;
       transition: opacity 0.15s;
     }
 
-    .nav-cta:hover { opacity: 0.82; }
+    .nav-cta:hover { opacity: 0.85; }
 
     /* ── Hero ─────────────────────────────────────────────────── */
     .hero {
@@ -171,10 +171,11 @@
     }
 
     .hero-eyebrow {
-      font-size: 11px;
+      font-size: 13px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--gold-dark);
+      color: var(--mustard-dk);
+      font-weight: 700;
       margin-bottom: 18px;
     }
 
@@ -183,18 +184,19 @@
        since they're only reachable after a user interaction, not on
        initial load. All three share this class so styling stays identical. */
     .hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(36px, 6vw, 52px);
-      font-weight: 500;
-      line-height: 1.1;
-      color: var(--navy);
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(42px, 7vw, 64px);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--forest);
       margin-bottom: 20px;
       letter-spacing: -0.01em;
     }
 
     .hero-title em {
+      font-family: 'Source Serif 4', Georgia, serif;
       font-style: italic;
-      color: var(--gold-dark);
+      color: var(--mustard-dk);
     }
 
     .hero-sub {
@@ -219,10 +221,10 @@
     }
 
     .hero-stat .hs-num {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Manrope', sans-serif;
       font-size: 28px;
-      font-weight: 500;
-      color: var(--navy);
+      font-weight: 700;
+      color: var(--forest);
       line-height: 1;
     }
 
@@ -242,7 +244,7 @@
 
     /* ── Cards ────────────────────────────────────────────────── */
     .card {
-      background: #fff;
+      background: var(--ivory);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius-lg);
       padding: 32px;
@@ -286,10 +288,10 @@
     }
 
     input, select {
-      font-family: 'Inter Tight', sans-serif;
+      font-family: 'Manrope', sans-serif;
       font-size: 14px;
-      color: var(--navy);
-      background: var(--cream);
+      color: var(--forest);
+      background: var(--white);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius);
       padding: 10px 14px;
@@ -299,7 +301,7 @@
     }
 
     input:focus, select:focus {
-      border-color: var(--gold);
+      border-color: var(--mustard);
     }
 
     input::placeholder {
@@ -327,7 +329,7 @@
       height: 16px;
       flex-shrink: 0;
       margin-top: 1px;
-      accent-color: var(--gold-dark);
+      accent-color: var(--mustard-dk);
       cursor: pointer;
     }
 
@@ -342,10 +344,10 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
+      font-family: 'Manrope', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
       padding: 13px 28px;
       border-radius: 999px;
       white-space: nowrap;
@@ -358,14 +360,14 @@
     .btn:active { transform: scale(0.98); }
 
     .btn-primary {
-      background: var(--navy);
-      color: var(--cream);
+      background: var(--forest);
+      color: var(--white);
     }
 
     .btn-primary:hover { opacity: 0.88; }
 
     .btn-gold {
-      background: var(--gold-dark);
+      background: var(--mustard-dk);
       color: #fff;
     }
 
@@ -378,8 +380,8 @@
     }
 
     .btn-ghost:hover {
-      border-color: var(--gold);
-      color: var(--navy);
+      border-color: var(--mustard);
+      color: var(--forest);
     }
 
     .btn-full { width: 100%; justify-content: center; }
@@ -404,14 +406,14 @@
 
     .progress-track {
       height: 2px;
-      background: var(--cream-mid);
+      background: var(--ivory-mid);
       border-radius: 2px;
       overflow: hidden;
     }
 
     .progress-fill {
       height: 100%;
-      background: var(--gold);
+      background: var(--mustard);
       border-radius: 2px;
       transition: width 0.4s ease;
     }
@@ -421,7 +423,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--cream-mid);
+      background: var(--ivory-mid);
       border: 0.5px solid var(--border-mid);
       border-radius: 100px;
       padding: 5px 14px 5px 5px;
@@ -432,15 +434,15 @@
       width: 26px;
       height: 26px;
       border-radius: 50%;
-      background: var(--navy);
-      color: var(--gold);
+      background: var(--forest);
+      color: var(--mustard);
       font-size: 11px;
-      font-weight: 500;
+      font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Manrope', sans-serif;
     }
 
     .lever-pill span {
@@ -453,10 +455,10 @@
 
     /* ── Question ─────────────────────────────────────────────── */
     .question-text {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Manrope', sans-serif;
       font-size: 22px;
-      font-weight: 500;
-      color: var(--navy);
+      font-weight: 700;
+      color: var(--forest);
       line-height: 1.35;
       margin-bottom: 10px;
     }
@@ -467,7 +469,7 @@
       line-height: 1.6;
       margin-bottom: 24px;
       padding-left: 14px;
-      border-left: 2px solid var(--gold-light);
+      border-left: 2px solid var(--mustard-lt);
       font-weight: 300;
     }
 
@@ -484,26 +486,26 @@
       align-items: flex-start;
       gap: 12px;
       padding: 14px 16px;
-      background: var(--cream);
+      background: var(--white);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius);
       cursor: pointer;
       text-align: left;
-      font-family: 'Inter Tight', sans-serif;
+      font-family: 'Manrope', sans-serif;
       font-size: 14px;
-      color: var(--navy);
+      color: var(--forest);
       line-height: 1.5;
       transition: border-color 0.15s, background 0.15s;
       width: 100%;
     }
 
     .opt-btn:hover {
-      border-color: var(--gold);
+      border-color: var(--mustard);
       background: #fff;
     }
 
     .opt-btn.selected {
-      border-color: var(--gold-dark);
+      border-color: var(--mustard-dk);
       background: #fff;
     }
 
@@ -521,8 +523,8 @@
     }
 
     .opt-btn.selected .opt-indicator {
-      background: var(--gold-dark);
-      border-color: var(--gold-dark);
+      background: var(--mustard-dk);
+      border-color: var(--mustard-dk);
     }
 
     .opt-btn.selected .opt-indicator::after {
@@ -559,7 +561,7 @@
       width: 100px;
       height: 100px;
       border-radius: 50%;
-      border: 2px solid var(--gold);
+      border: 2px solid var(--mustard);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -569,10 +571,10 @@
     }
 
     .score-ring .s-num {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Manrope', sans-serif;
       font-size: 34px;
-      font-weight: 500;
-      color: var(--navy);
+      font-weight: 700;
+      color: var(--forest);
       line-height: 1;
     }
 
@@ -583,10 +585,10 @@
     }
 
     .score-verdict {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Manrope', sans-serif;
       font-size: 24px;
-      font-weight: 500;
-      color: var(--navy);
+      font-weight: 700;
+      color: var(--forest);
       margin-bottom: 8px;
     }
 
@@ -612,7 +614,7 @@
     }
 
     .lever-card {
-      background: var(--cream);
+      background: var(--white);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius);
       padding: 14px;
@@ -628,16 +630,16 @@
     }
 
     .lever-card .lc-pct {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Manrope', sans-serif;
       font-size: 22px;
-      font-weight: 500;
-      color: var(--navy);
+      font-weight: 700;
+      color: var(--forest);
       margin-bottom: 6px;
     }
 
     .lever-bar {
       height: 3px;
-      background: var(--cream-mid);
+      background: var(--ivory-mid);
       border-radius: 2px;
       overflow: hidden;
     }
@@ -649,18 +651,18 @@
 
     /* ── Priority blocks ──────────────────────────────────────── */
     .priority-section h2 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Manrope', sans-serif;
       font-size: 20px;
-      font-weight: 500;
-      color: var(--navy);
+      font-weight: 700;
+      color: var(--forest);
       margin-bottom: 16px;
     }
 
     .priority-item {
       padding: 18px 20px;
-      background: #fff;
+      background: var(--white);
       border: 0.5px solid var(--border-mid);
-      border-left: 3px solid var(--gold);
+      border-left: 3px solid var(--mustard);
       border-radius: 0 var(--radius) var(--radius) 0;
       margin-bottom: 12px;
     }
@@ -669,16 +671,16 @@
       font-size: 10px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--gold-dark);
+      color: var(--mustard-dk);
       font-weight: 500;
       margin-bottom: 6px;
     }
 
     .pi-title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Manrope', sans-serif;
       font-size: 17px;
-      font-weight: 500;
-      color: var(--navy);
+      font-weight: 700;
+      color: var(--forest);
       margin-bottom: 6px;
     }
 
@@ -691,7 +693,7 @@
 
     /* ── Client summary block ─────────────────────────────────── */
     .client-summary {
-      background: var(--navy);
+      background: var(--forest);
       border-radius: var(--radius-lg);
       padding: 24px 28px;
       margin-bottom: 20px;
@@ -704,9 +706,9 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: var(--gold-dark);
+      background: var(--mustard-dk);
       color: #fff;
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Manrope', sans-serif;
       font-size: 18px;
       display: flex;
       align-items: center;
@@ -717,19 +719,19 @@
     .cs-body .cs-name {
       font-size: 15px;
       font-weight: 500;
-      color: var(--cream);
+      color: var(--white);
       margin-bottom: 2px;
     }
 
     .cs-body .cs-company {
       font-size: 13px;
-      color: var(--gold-light);
+      color: var(--mustard-lt);
       font-weight: 300;
     }
 
     /* ── CTA block ────────────────────────────────────────────── */
     .cta-block {
-      background: var(--cream-mid);
+      background: var(--ivory-mid);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius-lg);
       padding: 28px 32px;
@@ -738,10 +740,10 @@
     }
 
     .cta-block h3 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Manrope', sans-serif;
       font-size: 22px;
-      font-weight: 500;
-      color: var(--navy);
+      font-weight: 700;
+      color: var(--forest);
       margin-bottom: 8px;
     }
 
@@ -773,7 +775,8 @@
     }
 
     .footer-logo {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700;
       font-size: 15px;
       color: var(--muted);
     }
@@ -781,6 +784,7 @@
     .footer-links {
       display: flex;
       gap: 20px;
+      flex-wrap: wrap;
     }
 
     .footer-links a {
@@ -790,7 +794,7 @@
       transition: color 0.15s;
     }
 
-    .footer-links a:hover { color: var(--navy); }
+    .footer-links a:hover { color: var(--forest); }
 
     /* ── Intro lever overview ─────────────────────────────────── */
     .lever-overview {
@@ -805,7 +809,7 @@
     }
 
     .lo-chip {
-      background: var(--cream);
+      background: var(--white);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius);
       padding: 12px;
@@ -816,18 +820,18 @@
     }
 
     .lo-chip:hover {
-      border-color: var(--gold);
+      border-color: var(--mustard);
       background: #fff;
     }
 
     .lo-chip.open {
-      border-color: var(--gold-dark);
+      border-color: var(--mustard-dk);
       background: #fff;
     }
 
     .lo-chip .loc-num {
       font-size: 10px;
-      color: var(--gold-dark);
+      color: var(--mustard-dk);
       letter-spacing: 0.1em;
       text-transform: uppercase;
       font-weight: 500;
@@ -837,12 +841,12 @@
     .lo-chip .loc-name {
       font-size: 13px;
       font-weight: 500;
-      color: var(--navy);
+      color: var(--forest);
     }
 
     .lo-chip .loc-toggle {
       font-size: 16px;
-      color: var(--gold-dark);
+      color: var(--mustard-dk);
       line-height: 1;
       margin-top: 6px;
       transition: transform 0.2s;
@@ -857,7 +861,7 @@
     .lever-drawer {
       display: none;
       grid-column: 1 / -1;
-      background: #fff;
+      background: var(--white);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius);
       padding: 20px 22px;
@@ -870,14 +874,14 @@
       font-size: 11px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--gold-dark);
+      color: var(--mustard-dk);
       font-weight: 500;
       margin-bottom: 14px;
     }
 
     .ld-question {
       padding: 12px 14px;
-      background: var(--cream);
+      background: var(--white);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius);
       margin-bottom: 8px;
@@ -886,10 +890,10 @@
     .ld-question:last-child { margin-bottom: 0; }
 
     .ld-q-text {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Manrope', sans-serif;
       font-size: 15px;
-      font-weight: 500;
-      color: var(--navy);
+      font-weight: 700;
+      color: var(--forest);
       line-height: 1.4;
       margin-bottom: 6px;
     }
@@ -899,7 +903,7 @@
       color: var(--muted);
       line-height: 1.6;
       font-weight: 300;
-      border-left: 2px solid var(--gold-light);
+      border-left: 2px solid var(--mustard-lt);
       padding-left: 10px;
     }
 
@@ -955,7 +959,7 @@
     }
 
     .mode-card {
-      background: #fff;
+      background: var(--ivory);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius-lg);
       padding: 28px 24px;
@@ -966,7 +970,7 @@
     }
 
     .mode-card:hover {
-      border-color: var(--gold);
+      border-color: var(--mustard);
       box-shadow: var(--shadow-lg);
       transform: translateY(-2px);
     }
@@ -975,16 +979,16 @@
       font-size: 10px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--gold-dark);
+      color: var(--mustard-dk);
       font-weight: 500;
       margin-bottom: 10px;
     }
 
     .mode-card h3 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Manrope', sans-serif;
       font-size: 22px;
-      font-weight: 500;
-      color: var(--navy);
+      font-weight: 700;
+      color: var(--forest);
       margin-bottom: 8px;
       line-height: 1.25;
     }
@@ -1006,7 +1010,7 @@
       padding-top: 12px;
     }
 
-    .mode-card .mc-arrow { color: var(--gold-dark); font-weight: 500; }
+    .mode-card .mc-arrow { color: var(--mustard-dk); font-weight: 500; }
 
     #pillar-overview { grid-template-columns: repeat(4, 1fr); }
 
@@ -1027,23 +1031,23 @@
     }
 
     .principle-card {
-      background: var(--cream-mid);
+      background: var(--ivory-mid);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius);
       padding: 16px 16px 18px;
     }
 
     .principle-card .pc-num {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Manrope', sans-serif;
       font-size: 20px;
-      color: var(--gold-dark);
+      color: var(--mustard-dk);
       margin-bottom: 6px;
     }
 
     .principle-card h4 {
       font-size: 13px;
       font-weight: 500;
-      color: var(--navy);
+      color: var(--forest);
       margin-bottom: 6px;
       letter-spacing: 0.01em;
     }
@@ -1057,18 +1061,18 @@
 
     /* ── Case-for-help callout ────────────────────────────────── */
     .case-callout {
-      background: var(--navy);
+      background: var(--forest);
       border-radius: var(--radius-lg);
       padding: 22px 26px;
       margin: 24px 0;
-      color: var(--cream);
+      color: var(--white);
     }
 
     .case-callout .cc-label {
       font-size: 10px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--gold-light);
+      color: var(--mustard-lt);
       font-weight: 500;
       margin-bottom: 10px;
     }
@@ -1076,13 +1080,13 @@
     .case-callout p {
       font-size: 13px;
       line-height: 1.7;
-      color: var(--cream);
+      color: var(--white);
       font-weight: 300;
     }
 
     .case-callout p + p { margin-top: 10px; }
 
-    .case-callout strong { color: var(--gold-light); font-weight: 500; }
+    .case-callout strong { color: var(--mustard-lt); font-weight: 500; }
 
     /* ── Resource reality panel ───────────────────────────────── */
     .reality-grid {
@@ -1097,7 +1101,7 @@
     }
 
     .reality-card {
-      background: var(--cream);
+      background: var(--white);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius);
       padding: 16px;
@@ -1113,10 +1117,10 @@
     }
 
     .reality-card .rc-value {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Manrope', sans-serif;
       font-size: 20px;
-      font-weight: 500;
-      color: var(--navy);
+      font-weight: 700;
+      color: var(--forest);
       margin-bottom: 4px;
     }
 
@@ -1133,7 +1137,7 @@
       padding: 26px 28px;
       margin-bottom: 24px;
       border: 0.5px solid var(--border-mid);
-      background: linear-gradient(135deg, #fff, var(--cream-mid));
+      background: linear-gradient(135deg, var(--white), var(--ivory-mid));
     }
 
     .tier-badge {
@@ -1143,17 +1147,17 @@
       text-transform: uppercase;
       font-weight: 500;
       color: #fff;
-      background: var(--gold-dark);
+      background: var(--mustard-dk);
       padding: 5px 12px;
       border-radius: 100px;
       margin-bottom: 12px;
     }
 
     .tier-card h3 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Manrope', sans-serif;
       font-size: 24px;
-      font-weight: 500;
-      color: var(--navy);
+      font-weight: 700;
+      color: var(--forest);
       margin-bottom: 10px;
     }
 
@@ -1174,7 +1178,7 @@
 
     .tier-next li {
       font-size: 13px;
-      color: var(--navy);
+      color: var(--forest);
       line-height: 1.5;
       padding-left: 20px;
       position: relative;
@@ -1185,7 +1189,7 @@
       content: '→';
       position: absolute;
       left: 0;
-      color: var(--gold-dark);
+      color: var(--mustard-dk);
     }
 
     /* ── Efficiency metrics strip ─────────────────────────────── */
@@ -1201,24 +1205,24 @@
     }
 
     .metric-item {
-      background: #fff;
+      background: var(--white);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius);
       padding: 16px;
     }
 
     .metric-item .mi-num {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Manrope', sans-serif;
       font-size: 26px;
-      font-weight: 500;
-      color: var(--gold-dark);
+      font-weight: 700;
+      color: var(--mustard-dk);
       line-height: 1;
       margin-bottom: 8px;
     }
 
     .metric-item .mi-desc {
       font-size: 12px;
-      color: var(--navy);
+      color: var(--forest);
       line-height: 1.55;
       margin-bottom: 6px;
     }
@@ -1230,7 +1234,7 @@
       display: flex;
       align-items: flex-start;
       gap: 10px;
-      background: var(--cream-mid);
+      background: var(--ivory-mid);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius);
       padding: 12px 14px;
@@ -1299,7 +1303,6 @@
     <nav class="site-nav">
       <a href="index.html" class="site-logo">XL<span>.</span></a>
       <div class="nav-links">
-        <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="decision-led-growth.html">Decision-Led Growth</a>
         <a href="about.html">About</a>
@@ -1805,10 +1808,11 @@
     <footer class="site-footer">
       <div class="footer-logo">XL Marketing Services</div>
       <div class="footer-links">
-        <a href="index.html">Home</a>
         <a href="services.html">Services</a>
+        <a href="decision-led-growth.html">Decision-Led Growth</a>
         <a href="about.html">About</a>
         <a href="journal.html">Meridian Insights</a>
+        <a href="ai-visibility-audit.html">Diagnostics</a>
         <a href="contact.html">Contact</a>
       </div>
     </footer>
@@ -2488,9 +2492,9 @@
     }
 
     function getBarColour(pct) {
-      if (pct >= 70) return '#4a7c59';
-      if (pct >= 40) return '#C9B07A';
-      return '#a32d2d';
+      if (pct >= 70) return '#1E3A2C';
+      if (pct >= 40) return '#C9A227';
+      return '#B8461F';
     }
 
     function getRecText(recsMap, leverId, pct) {

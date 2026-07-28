@@ -22,25 +22,26 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet" />
 
   <style>
     /* ── Brand tokens ─────────────────────────────────────────── */
     :root {
-      --cream:       #FFFBF1;
-      --cream-mid:   #F5EFE0;
-      --gold:        #C9B07A;
-      --gold-light:  #DDD0A8;
-      --gold-dark:   #A08B52;
-      --navy:        #050A30;
-      --navy-mid:    #0D1650;
-      --oxblood:     #3D1200;
-      --muted:       #7A7469;
-      --muted-light: #B5AFA4;
-      --border:      rgba(201,176,122,0.22);
-      --border-mid:  rgba(201,176,122,0.45);
-      --shadow:      0 2px 24px rgba(5,10,48,0.08);
-      --shadow-lg:   0 8px 48px rgba(5,10,48,0.14);
+      --ivory:       #FAF5EA;
+      --ivory-mid:   #F1E8D6;
+      --white:       #FFFFFF;
+      --mustard:     #C9A227;
+      --mustard-lt:  #E3C769;
+      --mustard-dk:  #9C7D1E;
+      --ember:       #B8461F;
+      --forest:      #14291F;
+      --forest-mid:  #1E3A2C;
+      --muted:       #6E6656;
+      --muted-light: #A79C86;
+      --border:      rgba(201,162,39,0.22);
+      --border-mid:  rgba(201,162,39,0.42);
+      --shadow:      0 2px 24px rgba(20,41,31,0.08);
+      --shadow-lg:   0 8px 48px rgba(20,41,31,0.14);
       --radius:      6px;
       --radius-lg:   12px;
     }
@@ -49,14 +50,14 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Inter Tight', sans-serif;
-      background: var(--cream);
-      color: var(--navy);
+      font-family: 'Manrope', sans-serif;
+      background: var(--white);
+      color: var(--forest);
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
     }
 
-    .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+    .serif { font-family: 'Source Serif 4', Georgia, serif; }
 
     /* ── Layout ───────────────────────────────────────────────── */
     .page-wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
@@ -71,56 +72,55 @@
     }
 
     .site-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      color: var(--navy);
+      font-family: 'Manrope', sans-serif;
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--forest);
       text-decoration: none;
     }
 
-    .site-logo span { color: var(--gold-dark); }
+    .site-logo span { color: var(--mustard-dk); }
 
-    .nav-links { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 12px 24px; }
+    .nav-links { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 10px 22px; }
 
     .nav-links > a {
-      font-size: 13px;
+      font-size: 15px;
       color: var(--muted);
       text-decoration: none;
-      font-weight: 400;
+      font-weight: 600;
       transition: color 0.15s;
     }
 
-    .nav-links > a.current { color: var(--navy); font-weight: 500; }
-    .nav-links > a:hover { color: var(--navy); }
+    .nav-links > a.current { color: var(--forest); }
+    .nav-links > a:hover { color: var(--forest); }
 
-    .nav-cta {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      color: var(--cream);
-      background: var(--navy);
+    a.nav-cta {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      background: var(--forest);
       border: none;
       padding: 9px 20px;
       border-radius: 999px;
       white-space: nowrap;
       cursor: pointer;
       text-decoration: none;
-      font-family: 'Inter Tight', sans-serif;
+      font-family: 'Manrope', sans-serif;
       transition: opacity 0.15s;
       display: inline-block;
     }
 
-    .nav-cta:hover { opacity: 0.82; }
+    .nav-cta:hover { opacity: 0.85; }
 
     /* ── Masthead ─────────────────────────────────────────────── */
     .masthead { text-align: center; padding: 60px 0 8px; }
 
     .masthead-eyebrow {
-      font-size: 11px;
+      font-size: 13px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--gold-dark);
+      color: var(--mustard-dk);
+      font-weight: 700;
       margin-bottom: 18px;
     }
 
@@ -132,31 +132,31 @@
     }
 
     .masthead h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(38px, 7vw, 58px);
-      font-weight: 500;
-      line-height: 1.1;
-      color: var(--navy);
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(42px, 7vw, 68px);
+      font-weight: 800;
+      line-height: 1.12;
+      color: var(--forest);
       letter-spacing: -0.01em;
     }
 
     .masthead .tagline {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Source Serif 4', Georgia, serif;
       font-style: italic;
-      font-size: 18px;
-      color: var(--gold-dark);
+      font-size: 20px;
+      color: var(--mustard-dk);
       margin-top: 10px;
     }
 
     .masthead-rule.bottom { margin: 22px auto 0; }
 
     .masthead-intro {
-      font-size: 15px;
-      color: var(--muted);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: clamp(18px, 2.2vw, 20px);
+      color: var(--forest-mid);
       line-height: 1.75;
-      max-width: 480px;
+      max-width: 520px;
       margin: 26px auto 0;
-      font-weight: 300;
       text-align: center;
     }
 
@@ -170,16 +170,15 @@
 
     .entry-card {
       display: block;
-      background: #fff;
+      background: var(--ivory);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius-lg);
       padding: 28px 30px;
       text-decoration: none;
-      box-shadow: var(--shadow);
       transition: border-color 0.15s, box-shadow 0.15s, transform 0.1s;
     }
 
-    .entry-card:hover { border-color: var(--gold); box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+    .entry-card:hover { border-color: var(--mustard); box-shadow: var(--shadow-lg); transform: translateY(-2px); }
 
     .entry-meta-row {
       display: flex;
@@ -190,39 +189,39 @@
     }
 
     .format-badge {
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      font-weight: 500;
-      color: var(--gold-dark);
+      font-weight: 700;
+      color: var(--mustard-dk);
       border: 0.5px solid var(--border-mid);
       padding: 4px 10px;
       border-radius: 100px;
     }
 
-    .entry-date { font-size: 12px; color: var(--muted); }
+    .entry-date { font-size: 12px; color: var(--muted); font-weight: 500; }
 
     .entry-card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 23px;
-      font-weight: 500;
-      color: var(--navy);
+      font-family: 'Manrope', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--forest);
       margin-bottom: 10px;
       line-height: 1.3;
     }
 
     .entry-card .dek {
-      font-size: 14px;
-      color: var(--muted);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 16px;
+      color: var(--forest-mid);
       line-height: 1.65;
-      font-weight: 300;
       margin-bottom: 16px;
     }
 
     .entry-read {
-      font-size: 12px;
-      color: var(--gold-dark);
-      font-weight: 500;
+      font-size: 13px;
+      color: var(--mustard-dk);
+      font-weight: 700;
     }
 
     .entry-empty {
@@ -230,7 +229,7 @@
       padding: 40px 20px;
       color: var(--muted);
       font-size: 14px;
-      font-weight: 300;
+      font-weight: 500;
     }
 
     /* ── Footer ───────────────────────────────────────────────── */
@@ -245,10 +244,10 @@
       gap: 12px;
     }
 
-    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 15px; color: var(--muted); }
-    .footer-links { display: flex; gap: 20px; }
+    .footer-logo { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 15px; color: var(--muted); }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
     .footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.15s; }
-    .footer-links a:hover { color: var(--navy); }
+    .footer-links a:hover { color: var(--forest); }
 
     @media (max-width: 600px) {
       .masthead { padding: 40px 0 8px; }
@@ -279,7 +278,6 @@
     <nav class="site-nav">
       <a href="index.html" class="site-logo">XL<span>.</span></a>
       <div class="nav-links">
-        <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="decision-led-growth.html">Decision-Led Growth</a>
         <a href="about.html">About</a>
@@ -312,10 +310,10 @@
     <footer class="site-footer">
       <div class="footer-logo">XL Marketing Services</div>
       <div class="footer-links">
-        <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="decision-led-growth.html">Decision-Led Growth</a>
         <a href="about.html">About</a>
+        <a href="journal.html">Meridian Insights</a>
         <a href="ai-visibility-audit.html">Diagnostics</a>
         <a href="contact.html">Contact</a>
       </div>
