@@ -47,7 +47,7 @@
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Manrope', sans-serif; background: var(--ivory); color: var(--forest); min-height: 100vh; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Manrope', sans-serif; background: var(--white); color: var(--forest); min-height: 100vh; -webkit-font-smoothing: antialiased; }
     .serif { font-family: 'Source Serif 4', Georgia, serif; }
     .page-wrap { max-width: 800px; margin: 0 auto; padding: 0 24px; }
 
@@ -56,11 +56,11 @@
     .site-logo { font-family: 'Manrope', sans-serif; font-size: 19px; font-weight: 800; color: var(--forest); text-decoration: none; }
     .site-logo span { color: var(--mustard-dk); }
     .nav-links { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 10px 22px; }
-    .nav-links > a { font-size: 13px; color: var(--muted); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+    .nav-links > a { font-size: 15px; color: var(--muted); text-decoration: none; font-weight: 600; transition: color 0.15s; }
     .nav-links > a.current { color: var(--forest); }
     .nav-links > a:hover { color: var(--forest); }
-    .nav-cta {
-      font-size: 12px; font-weight: 700; color: var(--ivory); background: var(--forest); border: none;
+    a.nav-cta {
+      font-size: 15px; font-weight: 700; color: #fff; background: var(--forest); border: none;
       padding: 9px 20px; border-radius: 999px; white-space: nowrap; cursor: pointer; text-decoration: none;
       font-family: 'Manrope', sans-serif; transition: opacity 0.15s; display: inline-block;
     }
@@ -68,13 +68,13 @@
 
     /* ── Hero ─────────────────────────────────────────────────── */
     .hero { padding: 64px 0 8px; text-align: center; }
-    .hero-eyebrow { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mustard-dk); font-weight: 700; margin-bottom: 18px; }
-    .hero h1 { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: clamp(30px, 4.6vw, 44px); line-height: 1.2; color: var(--forest); margin-bottom: 20px; }
-    .hero-sub { font-family: 'Source Serif 4', Georgia, serif; font-size: 19px; color: var(--forest-mid); line-height: 1.7; max-width: 620px; margin: 0 auto; }
+    .hero-eyebrow { font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mustard-dk); font-weight: 700; margin-bottom: 18px; }
+    .hero h1 { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: clamp(42px, 6.4vw, 64px); line-height: 1.15; color: var(--forest); margin-bottom: 20px; }
+    .hero-sub { font-family: 'Source Serif 4', Georgia, serif; font-size: clamp(21px, 2.4vw, 23px); color: var(--forest-mid); line-height: 1.7; max-width: 620px; margin: 0 auto; }
 
     /* ── Buttons ──────────────────────────────────────────────── */
     .btn {
-      display: inline-flex; align-items: center; gap: 8px; font-family: 'Manrope', sans-serif; font-size: 14px;
+      display: inline-flex; align-items: center; gap: 8px; font-family: 'Manrope', sans-serif; font-size: 15px;
       font-weight: 700; padding: 13px 28px; border-radius: 999px; white-space: nowrap; cursor: pointer;
       transition: opacity 0.15s, transform 0.1s; border: none; text-decoration: none;
     }
@@ -90,7 +90,7 @@
 
     .service-card {
       scroll-margin-top: 24px;
-      background: var(--white);
+      background: var(--ivory);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius-lg);
       padding: 32px;
@@ -107,16 +107,16 @@
     }
 
     .service-card h2 {
-      font-size: 22px;
-      font-weight: 800;
+      font-size: clamp(28px, 3.2vw, 34px);
+      font-weight: 700;
       color: var(--forest);
       margin-bottom: 14px;
-      line-height: 1.3;
+      line-height: 1.25;
     }
 
     .service-card .svc-desc {
       font-family: 'Source Serif 4', Georgia, serif;
-      font-size: 17px;
+      font-size: 19px;
       line-height: 1.7;
       color: var(--forest-mid);
       margin-bottom: 20px;
@@ -149,7 +149,7 @@
 
     /* ── Closing CTA ──────────────────────────────────────────── */
     .cta-block { background: var(--ivory-mid); border: 0.5px solid var(--border-mid); border-radius: var(--radius-lg); padding: 40px 32px; text-align: center; }
-    .cta-block h3 { font-size: 24px; font-weight: 700; color: var(--forest); margin-bottom: 10px; }
+    .cta-block h3 { font-size: 27px; font-weight: 700; color: var(--forest); margin-bottom: 10px; }
     .cta-block p { font-family: 'Source Serif 4', Georgia, serif; font-size: 17px; color: var(--forest-mid); line-height: 1.6; margin-bottom: 24px; max-width: 480px; margin-left: auto; margin-right: auto; }
     .cta-btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
@@ -193,7 +193,7 @@
         <a href="services.html" class="current">Services</a>
         <a href="decision-led-growth.html">Decision-Led Growth</a>
         <a href="about.html">About</a>
-        <a href="journal.html">Journal</a>
+        <a href="journal.html">Meridian Insights</a>
         <a href="ai-visibility-audit.html">Diagnostics</a>
         <a href="mailto:support@xploraluxe.com?subject=Strategy%20Call" class="nav-cta">Book a strategy call</a>
       </div>
@@ -212,7 +212,7 @@
       <div class="service-card" id="brand-positioning">
         <div class="svc-num">Service 01</div>
         <h2>Brand Positioning &amp; Messaging Strategy</h2>
-        <p class="svc-desc">Clarify who you serve, why the offer matters and what makes it meaningfully different — a defensible position and messaging system that marketing, sales and leadership can use consistently.</p>
+        <p class="svc-desc">Clarify who you serve, why the offer matters and what makes it meaningfully different. Build a positioning and messaging system that leadership, marketing and sales can use consistently.</p>
         <div class="svc-meta">
           <div class="svc-meta-block">
             <div class="sm-label">If this sounds like you</div>
@@ -228,8 +228,8 @@
 
       <div class="service-card" id="gtm-product-marketing">
         <div class="svc-num">Service 02</div>
-        <h2>GTM &amp; Product Marketing Strategy</h2>
-        <p class="svc-desc">Create a route from market opportunity to comprehension, adoption and growth — connecting market opportunity and product value to customer understanding, adoption and measurement.</p>
+        <h2>Go-to-Market &amp; Product Marketing Strategy</h2>
+        <p class="svc-desc">Create a connected route from market opportunity to customer understanding, product adoption and measurable growth — particularly when the offer is complex, unfamiliar or entering a new market.</p>
         <div class="svc-meta">
           <div class="svc-meta-block">
             <div class="sm-label">If this sounds like you</div>
@@ -246,7 +246,7 @@
       <div class="service-card" id="b2b-growth-abm">
         <div class="svc-num">Service 03</div>
         <h2>B2B Growth, ABM &amp; Executive Engagement</h2>
-        <p class="svc-desc">Identify priority accounts, reach the right decision-makers and progress credible commercial conversations — a relationship-led acquisition system connecting ICP refinement, account intelligence, messaging, outreach and pipeline learning.</p>
+        <p class="svc-desc">Identify priority accounts, reach the right decision-makers and progress credible commercial conversations through audience intelligence, relevant messaging and structured follow-through.</p>
         <div class="svc-meta">
           <div class="svc-meta-block">
             <div class="sm-label">If this sounds like you</div>
@@ -263,7 +263,7 @@
       <div class="service-card" id="marketing-sales-alignment">
         <div class="svc-num">Service 04</div>
         <h2>Marketing &amp; Sales Alignment</h2>
-        <p class="svc-desc">Connect audience, messaging, handover and measurement to pipeline and revenue — shared audience logic, qualification rules, message continuity, handover governance and commercial measurement.</p>
+        <p class="svc-desc">Connect audience strategy, qualification, messaging, handover and measurement so marketing activity supports pipeline and sales retains the context required to convert interest.</p>
         <div class="svc-meta">
           <div class="svc-meta-block">
             <div class="sm-label">If this sounds like you</div>
@@ -280,7 +280,7 @@
       <div class="service-card" id="ai-search-visibility">
         <div class="svc-num">Service 05</div>
         <h2>AI Search Visibility Consulting</h2>
-        <p class="svc-desc">Build the clarity, content and external authority required to be found and cited by AI tools — a prioritised authority plan across clarity, positioning, content structure, off-site evidence, buyer intent and measurement.</p>
+        <p class="svc-desc">Strengthen the clarity, content structure and external authority required for search engines and AI tools to understand, cite and recommend your business.</p>
         <div class="svc-meta">
           <div class="svc-meta-block">
             <div class="sm-label">If this sounds like you</div>
@@ -297,7 +297,7 @@
       <div class="service-card" id="fractional-cmo">
         <div class="svc-num">Service 06</div>
         <h2>Fractional CMO &amp; Strategic Advisory</h2>
-        <p class="svc-desc">Bring senior marketing direction into the organisation without immediately adding a full-time executive role — embedded C-suite marketing direction, team and partner oversight, measurement governance and capability transfer.</p>
+        <p class="svc-desc">Bring senior marketing direction into the organisation without immediately adding a full-time executive role. Establish priorities, guide delivery partners and strengthen internal capability.</p>
         <div class="svc-meta">
           <div class="svc-meta-block">
             <div class="sm-label">If this sounds like you</div>
@@ -332,7 +332,7 @@
         <a href="index.html">Home</a>
         <a href="decision-led-growth.html">Decision-Led Growth</a>
         <a href="about.html">About</a>
-        <a href="journal.html">Journal</a>
+        <a href="journal.html">Meridian Insights</a>
         <a href="contact.html">Contact</a>
       </div>
     </footer>

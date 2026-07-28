@@ -51,7 +51,7 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Manrope', sans-serif;
-      background: var(--ivory);
+      background: var(--white);
       color: var(--forest);
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
@@ -85,21 +85,21 @@
     .nav-links { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 10px 22px; }
 
     .nav-links > a {
-      font-size: 13px;
+      font-size: 15px;
       color: var(--muted);
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
       transition: color 0.15s;
     }
 
     .nav-links > a.current { color: var(--forest); }
     .nav-links > a:hover { color: var(--forest); }
 
-    .nav-cta {
-      font-size: 12px;
+    a.nav-cta {
+      font-size: 15px;
       font-weight: 700;
       letter-spacing: 0.01em;
-      color: var(--ivory);
+      color: #fff;
       background: var(--forest);
       border: none;
       padding: 9px 20px;
@@ -118,7 +118,7 @@
     .hero { padding: 72px 0 40px; text-align: center; }
 
     .hero-eyebrow {
-      font-size: 11px;
+      font-size: 13px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--mustard-dk);
@@ -129,8 +129,8 @@
     .hero h1 {
       font-family: 'Manrope', sans-serif;
       font-weight: 800;
-      font-size: clamp(34px, 5.4vw, 52px);
-      line-height: 1.15;
+      font-size: clamp(42px, 7vw, 68px);
+      line-height: 1.12;
       color: var(--forest);
       margin-bottom: 22px;
       letter-spacing: -0.01em;
@@ -138,7 +138,7 @@
 
     .hero-sub {
       font-family: 'Source Serif 4', Georgia, serif;
-      font-size: 20px;
+      font-size: clamp(21px, 2.4vw, 23px);
       color: var(--forest-mid);
       line-height: 1.65;
       max-width: 600px;
@@ -162,7 +162,7 @@
       align-items: center;
       gap: 8px;
       font-family: 'Manrope', sans-serif;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 700;
       letter-spacing: 0.01em;
       padding: 13px 28px;
@@ -187,7 +187,7 @@
     .section:first-of-type { border-top: none; }
 
     .section-label {
-      font-size: 11px;
+      font-size: 13px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--mustard-dk);
@@ -199,24 +199,24 @@
     .section h2 {
       font-family: 'Manrope', sans-serif;
       font-weight: 700;
-      font-size: clamp(26px, 3.6vw, 34px);
+      font-size: clamp(34px, 4.6vw, 46px);
       color: var(--forest);
       text-align: center;
       margin-bottom: 16px;
-      line-height: 1.25;
+      line-height: 1.2;
     }
 
     .section h3 {
       font-family: 'Manrope', sans-serif;
       font-weight: 600;
-      font-size: 20px;
+      font-size: clamp(24px, 2.8vw, 28px);
       color: var(--forest);
       margin-bottom: 12px;
       text-align: center;
     }
 
     .section-sub {
-      font-size: 15px;
+      font-size: 19px;
       color: var(--muted);
       line-height: 1.7;
       text-align: center;
@@ -228,7 +228,7 @@
     /* ── Lead / narrative paragraph ──────────────────────────── */
     .lead {
       font-family: 'Source Serif 4', Georgia, serif;
-      font-size: clamp(17px, 2vw, 19px);
+      font-size: clamp(18px, 2.2vw, 20px);
       line-height: 1.75;
       color: var(--forest-mid);
       max-width: 640px;
@@ -271,7 +271,7 @@
     @media (max-width: 560px) { .transform-grid { grid-template-columns: 1fr; } }
 
     .transform-col {
-      background: var(--white);
+      background: var(--ivory);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius-lg);
       padding: 26px 26px 28px;
@@ -312,7 +312,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 20px;
-      background: var(--white);
+      background: var(--ivory);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius-lg);
       padding: 20px 24px;
@@ -343,60 +343,69 @@
       .service-row { flex-direction: column; align-items: flex-start; gap: 10px; }
     }
 
-    /* ── Framework list ───────────────────────────────────────── */
-    .framework-list { list-style: none; display: flex; flex-direction: column; gap: 10px; max-width: 600px; margin: 24px auto 0; }
-
-    .framework-list li {
-      font-size: 15px;
-      color: var(--forest);
-      line-height: 1.6;
-      padding-left: 22px;
-      position: relative;
-      font-weight: 500;
-    }
-
-    .framework-list li::before {
-      content: '';
-      position: absolute;
-      left: 2px;
-      top: 8px;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--mustard-dk);
-    }
-
-    /* ── Leadership proof ─────────────────────────────────────── */
-    .leader-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
-
-    @media (max-width: 560px) { .leader-grid { grid-template-columns: 1fr; } }
-
-    .leader-col {
-      background: var(--white);
+    /* ── B2B advantage callout ────────────────────────────────── */
+    .flow-callout {
+      background: var(--ivory-mid);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius-lg);
-      padding: 26px 24px;
+      padding: 22px 26px;
+      margin: 22px 0;
     }
 
-    .leader-col .lc-name {
-      font-size: 17px;
+    .flow-callout .fc-label {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mustard-dk);
       font-weight: 700;
-      color: var(--forest);
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
 
-    .leader-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-
-    .leader-col li {
-      font-size: 13px;
-      color: var(--muted);
+    .flow-callout p {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 16px;
+      color: var(--forest-mid);
       line-height: 1.6;
-      padding-left: 16px;
-      position: relative;
+    }
+
+    /* ── Proof table ──────────────────────────────────────────── */
+    .proof-table {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border-mid);
+      border: 0.5px solid var(--border-mid);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-top: 28px;
+    }
+
+    .proof-table .pt-head {
+      background: var(--forest);
+      color: var(--ivory);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 12px 16px;
+    }
+
+    .proof-table .pt-cell {
+      background: var(--ivory);
+      font-size: 13px;
+      color: var(--forest);
+      line-height: 1.5;
+      padding: 14px 16px;
       font-weight: 500;
     }
 
-    .leader-col li::before { content: '—'; position: absolute; left: 0; color: var(--mustard-dk); }
+    .proof-table .pt-cell.demo { color: var(--muted); font-weight: 400; }
+
+    @media (max-width: 640px) {
+      .proof-table { grid-template-columns: 1fr; }
+      .proof-table .pt-head:nth-child(2) { display: none; }
+      .proof-table .pt-cell.demo { border-top: none; padding-top: 4px; padding-bottom: 16px; }
+    }
 
     /* ── Diagnostics teaser cards ─────────────────────────────── */
     .mode-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -404,7 +413,7 @@
     @media (max-width: 560px) { .mode-grid { grid-template-columns: 1fr; } }
 
     .mode-card {
-      background: var(--white);
+      background: var(--ivory);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius-lg);
       padding: 26px 24px;
@@ -458,7 +467,7 @@
     }
 
     .cta-block h3 {
-      font-size: 24px;
+      font-size: 27px;
       font-weight: 700;
       color: var(--forest);
       margin-bottom: 10px;
@@ -528,7 +537,7 @@
         <a href="services.html">Services</a>
         <a href="decision-led-growth.html">Decision-Led Growth</a>
         <a href="about.html">About</a>
-        <a href="journal.html">Journal</a>
+        <a href="journal.html">Meridian Insights</a>
         <a href="ai-visibility-audit.html">Diagnostics</a>
         <a href="mailto:support@xploraluxe.com?subject=Strategy%20Call" class="nav-cta">Book a strategy call</a>
       </div>
@@ -539,7 +548,7 @@
       <div class="hero-eyebrow">Strategic Marketing and Growth Consultancy</div>
       <h1>When marketing is busy but growth is unclear, start with better evidence.</h1>
       <p class="hero-sub">XL helps founders, CEOs and marketing leaders understand their markets, sharpen their positioning and make more confident choices about where to compete, how to create demand and what to prioritise next.</p>
-      <p class="hero-sub">From brand positioning and product marketing to B2B growth, account-based engagement and AI search visibility, we connect market intelligence, behavioural understanding and commercial strategy in one coherent approach.</p>
+      <p class="hero-sub">From brand positioning and product marketing to B2B growth, account-based engagement and AI search visibility, we connect market intelligence, behavioural understanding and commercial strategy in one coherent direction.</p>
       <div class="hero-btn-row">
         <a href="mailto:support@xploraluxe.com?subject=Strategy%20Call" class="btn btn-gold">Book a strategy call</a>
         <a href="ai-visibility-audit.html" class="btn btn-ghost">Take the free diagnostic</a>
@@ -589,99 +598,115 @@
     <div class="section">
       <div class="section-label">Where XL creates clarity</div>
       <h2>Six ways we help you compete</h2>
-      <div class="service-grid">
+      <p class="lead center">XL supports the decisions that shape market relevance, customer demand and commercial growth. Each engagement begins by defining the problem properly, establishing the evidence and identifying the change the organisation needs to make.</p>
+      <div class="service-grid" style="margin-top:28px">
         <a href="services.html#brand-positioning" class="service-row">
           <div class="sr-text">
             <h3>Brand Positioning &amp; Messaging</h3>
-            <p>Clarify who you serve, why the offer matters and what makes it meaningfully different.</p>
+            <p>Clarify who you serve, why the offer matters and what makes it meaningfully different. Build a positioning and messaging system that leadership, marketing and sales can use consistently.</p>
           </div>
           <span class="sr-arrow">&rarr;</span>
         </a>
         <a href="services.html#gtm-product-marketing" class="service-row">
           <div class="sr-text">
-            <h3>GTM &amp; Product Marketing</h3>
-            <p>Create a route from market opportunity to comprehension, adoption and growth.</p>
+            <h3>Go-to-Market &amp; Product Marketing</h3>
+            <p>Create a connected route from market opportunity to customer understanding, product adoption and measurable growth — particularly when the offer is complex, unfamiliar or entering a new market.</p>
           </div>
           <span class="sr-arrow">&rarr;</span>
         </a>
         <a href="services.html#b2b-growth-abm" class="service-row">
           <div class="sr-text">
             <h3>B2B Growth, ABM &amp; Executive Engagement</h3>
-            <p>Identify priority accounts, reach the right decision-makers and progress credible commercial conversations.</p>
+            <p>Identify priority accounts, reach the right decision-makers and progress credible commercial conversations through audience intelligence, relevant messaging and structured follow-through.</p>
           </div>
           <span class="sr-arrow">&rarr;</span>
         </a>
         <a href="services.html#marketing-sales-alignment" class="service-row">
           <div class="sr-text">
             <h3>Marketing &amp; Sales Alignment</h3>
-            <p>Connect audience, messaging, handover and measurement to pipeline and revenue.</p>
+            <p>Connect audience strategy, qualification, messaging, handover and measurement so marketing activity supports pipeline and sales retains the context required to convert interest.</p>
           </div>
           <span class="sr-arrow">&rarr;</span>
         </a>
         <a href="services.html#ai-search-visibility" class="service-row">
           <div class="sr-text">
             <h3>AI Search Visibility</h3>
-            <p>Build the clarity, content and external authority required to be found and cited by AI tools.</p>
+            <p>Strengthen the clarity, content structure and external authority required for search engines and AI tools to understand, cite and recommend your business.</p>
           </div>
           <span class="sr-arrow">&rarr;</span>
         </a>
         <a href="services.html#fractional-cmo" class="service-row">
           <div class="sr-text">
-            <h3>Fractional CMO &amp; Advisory</h3>
-            <p>Bring senior marketing direction into the organisation without immediately adding a full-time executive role.</p>
+            <h3>Fractional CMO &amp; Strategic Advisory</h3>
+            <p>Bring senior marketing direction into the organisation without immediately adding a full-time executive role. Establish priorities, guide delivery partners and strengthen internal capability.</p>
           </div>
           <span class="sr-arrow">&rarr;</span>
         </a>
       </div>
     </div>
 
-    <!-- ── How XL works ─────────────────────────────────────────── -->
+    <!-- ── Method ───────────────────────────────────────────────── -->
     <div class="section">
-      <div class="section-label">How XL works</div>
+      <div class="section-label">Method</div>
       <h2>A more disciplined way to create growth</h2>
-      <p class="lead center">Decisions are only as strong as the evidence and inquiry fueling them. For better commercial impact, we start by upgrading the quality of your information and the questions you ask.</p>
-      <p class="lead center" style="margin-top:18px">Our Decision-Led Growth approach anchors every marketing output in the business decisions that need to improve:</p>
-      <ul class="framework-list">
-        <li>What the organisation needs to decide, financially, strategically and positionally</li>
-        <li>What the market and customer evidence reveals</li>
-        <li>Which assumptions need to be tested</li>
-        <li>What customers need to understand, believe or do</li>
-        <li>Where friction is preventing progress</li>
-        <li>How success should be measured</li>
-      </ul>
-      <p class="lead center" style="margin-top:22px">The result is not simply another strategy document; it is a clearer basis for action, execution and learning.</p>
+      <p class="lead center">XL's Decision-Led Growth approach begins with the decisions that need to improve — not the marketing output that happens to have been requested.</p>
+      <p class="lead center" style="margin-top:18px">We examine the market evidence, customer and buyer behaviour, organisational assumptions, commercial priorities and points of friction shaping those decisions. We then turn that understanding into positioning, strategy, communication and a measurable route forward.</p>
+      <p class="lead center" style="margin-top:18px">The result is not simply another strategy document. It is a clearer basis for action, execution and learning.</p>
       <div style="text-align:center; margin-top:24px">
         <a href="decision-led-growth.html" class="btn btn-ghost">Explore the full approach</a>
+      </div>
+    </div>
+
+    <!-- ── Governing principle ──────────────────────────────────── -->
+    <div class="section">
+      <div class="pullquote-block">
+        <div class="pq-label">Governing principle</div>
+        <p>The quality of decisions cannot consistently exceed the quality of the information, questions and assumptions from which they are made.</p>
+      </div>
+      <div style="text-align:center; margin-top:20px">
+        <a href="decision-led-growth.html" class="btn btn-ghost">See how Decision-Led Growth works</a>
+      </div>
+    </div>
+
+    <!-- ── B2B advantage ─────────────────────────────────────────── -->
+    <div class="section">
+      <div class="section-label">B2B advantage</div>
+      <h2>From market intelligence to meaningful commercial conversations</h2>
+      <p class="lead center">B2B growth requires more than defining an audience and launching a campaign. The right organisations must be prioritised, the buying committee understood and engagement carried forward with discipline.</p>
+      <p class="lead center" style="margin-top:18px">Pearl M and Tameka Hendrikz connect strategic marketing with hands-on business development. Pearl leads the market, customer, positioning and messaging architecture. Tameka, Head of Business Development and Partnerships, leads account research, relationship strategy, personalised outreach and commercial follow-through.</p>
+      <div class="flow-callout">
+        <div class="fc-label">Connected operating path</div>
+        <p>Market intelligence &rarr; Positioning &rarr; Account selection &rarr; Personalised engagement &rarr; Commercial conversation &rarr; Pipeline learning</p>
+      </div>
+      <div style="text-align:center; margin-top:20px">
+        <a href="services.html#b2b-growth-abm" class="btn btn-ghost">Explore B2B Growth, ABM &amp; Executive Engagement</a>
       </div>
     </div>
 
     <!-- ── Leadership proof ──────────────────────────────────────── -->
     <div class="section">
       <div class="section-label">Leadership proof</div>
-      <h2>Strategy connected to commercial action</h2>
-      <p class="lead center">XL is led by Pearl M and Tameka Hendrikz, bringing together senior marketing leadership, product and brand strategy, business development, partnerships and account-based engagement.</p>
-      <div class="leader-grid">
-        <div class="leader-col">
-          <div class="lc-name">Pearl M</div>
-          <ul>
-            <li>25+ years of marketing leadership across telecoms, fintech, enterprise ICT, infrastructure, luxury services and emerging technology.</li>
-            <li>Vodacom, PayU, Dimension Data/NTT, Openserve, Altron and Alcatel-Lucent.</li>
-            <li>Marketing lead on Vodacom's South African M-Pesa launch project team.</li>
-            <li>Pan-African B2B remit across 54 markets; marketing-generated pipeline contributed to 30% gross-profit growth.</li>
-          </ul>
-        </div>
-        <div class="leader-col">
-          <div class="lc-name">Tameka Hendrikz</div>
-          <ul>
-            <li>Sales, business-development and partnership leadership that turns target-account strategy into structured engagement.</li>
-            <li>Built Xplora Luxe's network from zero to more than 100 partners.</li>
-            <li>Led Xplora Luxe's successful application into the top 33 of approximately 500 submissions to Eureka GCC.</li>
-            <li>Designed target-account research, personalised outreach, multi-touch follow-up and executive delegate-acquisition processes.</li>
-          </ul>
-        </div>
+      <h2>Strategy shaped by experience — and tested in the work</h2>
+      <p class="lead center">XL combines more than 25 years of senior marketing leadership with current business-building, partnership and client-acquisition experience.</p>
+      <div class="proof-table">
+        <div class="pt-head">Proof</div>
+        <div class="pt-head">What it demonstrates</div>
+        <div class="pt-cell">25+ years across telecommunications, fintech, enterprise ICT, infrastructure, luxury services and emerging technology</div>
+        <div class="pt-cell demo">Strategic depth across different markets, products and stakeholder environments</div>
+        <div class="pt-cell">Marketing lead on Vodacom's South African M-Pesa launch project team</div>
+        <div class="pt-cell demo">Product marketing, proposition translation and behaviour-change communications</div>
+        <div class="pt-cell">B2B marketing responsibility across 54 African markets</div>
+        <div class="pt-cell demo">Pan-African strategy, localisation and enterprise demand generation</div>
+        <div class="pt-cell">Marketing-generated pipeline contributed to 30% gross-profit growth at Vodacom Business Africa</div>
+        <div class="pt-cell demo">Connection between marketing activity, pipeline and commercial performance</div>
+        <div class="pt-cell">Xplora Luxe partner network built from zero to more than 100 partners</div>
+        <div class="pt-cell demo">Partnership development and relationship-led market access</div>
+        <div class="pt-cell">Selected among the top 33 start-ups from approximately 500 Eureka GCC submissions</div>
+        <div class="pt-cell demo">Entrepreneurial positioning and disciplined business storytelling</div>
       </div>
+      <p class="lead center" style="margin-top:24px; font-size:14px">Pearl M's leadership experience includes Vodacom, PayU, Dimension Data/NTT, Openserve, Altron and Alcatel-Lucent. Tameka works with clients in the UAE/GCC, South Africa, the UK, Germany and the Netherlands on English-language campaigns.</p>
       <div style="text-align:center; margin-top:24px">
-        <a href="about.html" class="btn btn-ghost">Meet the full team</a>
+        <a href="about.html" class="btn btn-ghost">Meet Pearl M and Tameka Hendrikz</a>
       </div>
     </div>
 
@@ -694,15 +719,30 @@
         <a href="ai-visibility-audit.html?tool=visibility" class="mode-card">
           <div class="mc-eyebrow">Diagnostic 01</div>
           <h3>How visible is your business to AI?</h3>
-          <p>Six levers — clarity, positioning, off-site presence, content structure, buyer intent, and measurement.</p>
+          <p>Assess the clarity, positioning, content structure, off-site presence, buyer-intent coverage and measurement shaping whether AI tools can find, understand and cite your business.</p>
           <div class="mc-meta"><span>12 questions &middot; ~4 min</span><span class="mc-arrow">Start &rarr;</span></div>
         </a>
         <a href="ai-visibility-audit.html?tool=readiness" class="mode-card">
           <div class="mc-eyebrow">Diagnostic 02</div>
-          <h3>Should you DIY your marketing, or get help?</h3>
-          <p>Brand &amp; positioning, content &amp; AI visibility, paid media, and marketing ops.</p>
+          <h3>Should you manage marketing internally — or bring in expert support?</h3>
+          <p>Assess whether your positioning, content, demand generation and marketing operations are creating compounding value or consuming resources without a connected system.</p>
           <div class="mc-meta"><span>12 questions &middot; ~4 min</span><span class="mc-arrow">Start &rarr;</span></div>
         </a>
+      </div>
+    </div>
+
+    <!-- ── Meridian Insights teaser ──────────────────────────────── -->
+    <div class="section">
+      <div class="section-label">Meridian Insights</div>
+      <h2>Clear thinking for the decisions worth paying attention to</h2>
+      <p class="lead center">Meridian Insights brings together evidence, practical tools and clear opinions on positioning, customer behaviour, B2B growth, product marketing and AI visibility.</p>
+      <p class="lead center" style="margin-top:18px">It is not a content calendar. It is a growing record of the market shifts, buyer questions and strategic choices that deserve closer examination.</p>
+      <div class="flow-callout">
+        <div class="fc-label">Return invitation</div>
+        <p>Return when the market changes — or when the decision does.</p>
+      </div>
+      <div style="text-align:center; margin-top:20px">
+        <a href="journal.html" class="btn btn-ghost">Read Meridian Insights</a>
       </div>
     </div>
 
@@ -710,11 +750,12 @@
     <div class="section">
       <div class="cta-block">
         <h3>Better marketing begins before the next campaign</h3>
-        <p>It begins with a clearer view of the market, the customer and the choices that will move the business forward.</p>
+        <p>It begins with a clearer view of the market, the customer and the choices that will move the business forward. Every XL engagement is designed to leave your organisation with stronger direction, more useful evidence and greater internal capability than it had before.</p>
         <div class="cta-btn-row">
           <a href="mailto:support@xploraluxe.com?subject=Strategy%20Call" class="btn btn-gold">Book a strategy call</a>
           <a href="ai-visibility-audit.html" class="btn btn-ghost">Take the free diagnostic</a>
         </div>
+        <p style="font-size:12px; color:var(--muted); margin-top:20px; margin-bottom:0">Strategy-call enquiries route to <a href="mailto:support@xploraluxe.com" style="color:var(--mustard-dk)">support@xploraluxe.com</a>. Pearl M may also be contacted directly at <a href="mailto:pearl.m@xploraluxe.com" style="color:var(--mustard-dk)">pearl.m@xploraluxe.com</a>.</p>
       </div>
     </div>
 
@@ -725,7 +766,7 @@
         <a href="services.html">Services</a>
         <a href="decision-led-growth.html">Decision-Led Growth</a>
         <a href="about.html">About</a>
-        <a href="journal.html">Journal</a>
+        <a href="journal.html">Meridian Insights</a>
         <a href="ai-visibility-audit.html">Diagnostics</a>
         <a href="contact.html">Contact</a>
       </div>
