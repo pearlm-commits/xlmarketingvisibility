@@ -38,9 +38,15 @@
   </url>
   <url>
     <loc>https://xluxemarketing.com/journal</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xluxemarketing.com/journal/why-ai-content-is-harder-to-differentiate</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://xluxemarketing.com/journal/the-58-percent-problem</loc>
