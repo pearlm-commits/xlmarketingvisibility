@@ -1,11 +1,14 @@
 # Permanent redirects: .html URLs → clean extensionless equivalents
 # One hop each. Query strings are preserved automatically by Netlify.
+# Force flag (!) required: these source paths are real files on disk,
+# and Netlify skips custom redirects for exact static-file matches
+# unless forced to override that default.
 
-/index.html                              /                                   301
-/about.html                              /about                              301
-/services.html                           /services                          301
-/decision-led-growth.html                /decision-led-growth                301
-/contact.html                            /contact                           301
-/ai-visibility-audit.html                /ai-visibility-audit                301
-/journal.html                            /journal                           301
-/journal/the-58-percent-problem.html     /journal/the-58-percent-problem     301
+/index.html                              /                                   301!
+/about.html                              /about                              301!
+/services.html                           /services                          301!
+/decision-led-growth.html                /decision-led-growth                301!
+/contact.html                            /contact                           301!
+/ai-visibility-audit.html                /ai-visibility-audit                301!
+/journal.html                            /journal                           301!
+/journal/the-58-percent-problem.html     /journal/the-58-percent-problem     301!
