@@ -213,6 +213,19 @@
     .closing-provocation { background: var(--forest); border-radius: var(--radius-lg); padding: 32px 30px; margin: 8px 0 28px; text-align: center; }
     .closing-provocation p { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: clamp(18px, 2.4vw, 21px); color: var(--ivory); line-height: 1.6; margin: 0; }
 
+    /* ── Availability triad (3-part visual) ───────────────────── */
+    .triad-intro { font-family: 'Source Serif 4', Georgia, serif; font-size: 15px; color: var(--muted); text-align: center; margin: 0 0 18px; }
+    .availability-triad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
+    .triad-card { background: var(--ivory); border: 0.5px solid var(--border-mid); border-radius: var(--radius-lg); padding: 26px 22px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .triad-num { width: 30px; height: 30px; border-radius: 50%; background: var(--forest); color: var(--mustard-lt); font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .triad-question { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 17px; color: var(--forest); line-height: 1.5; margin-bottom: 14px; }
+    .triad-principle { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mustard-dk); margin-bottom: 10px; }
+    .triad-builds { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    @media (max-width: 680px) {
+      .availability-triad { grid-template-columns: 1fr; }
+    }
+
     /* ── Comparison table (2-col) ─────────────────────────────── */
     .table-scroll { overflow-x: auto; margin-bottom: 22px; -webkit-overflow-scrolling: touch; }
     .comparison-table { border-collapse: collapse; width: 100%; min-width: 480px; font-family: 'Source Serif 4', Georgia, serif; font-size: 15px; }
@@ -564,6 +577,29 @@
       <p>The Ehrenberg-Bass framework treats physical availability as broader than distribution. It includes presence — being where buying happens; prominence — being easy to find there; and portfolio — offering something suitable for the buyer's need.<sup>[5]</sup></p>
 
       <p>For a B2B consultancy, this may include discoverability in search and AI answers, a clear service architecture, credible proof, straightforward contact paths and procurement readiness. For a consumer brand, it may include distribution, packaging, stock, retail presence, delivery and price-point accessibility.</p>
+
+      <p class="triad-intro">Together, these three fundamentals answer the questions every buyer is really asking:</p>
+
+      <div class="availability-triad">
+        <div class="triad-card">
+          <span class="triad-num">1</span>
+          <p class="triad-question">"Will I recognise you?"</p>
+          <div class="triad-principle">Distinctive brand assets</div>
+          <p class="triad-builds">Colours, symbols, shapes, phrases and recurring cues.</p>
+        </div>
+        <div class="triad-card">
+          <span class="triad-num">2</span>
+          <p class="triad-question">"Will I think of you when the need arises?"</p>
+          <div class="triad-principle">Mental availability</div>
+          <p class="triad-builds">Relevant buying situations and Category Entry Points.</p>
+        </div>
+        <div class="triad-card">
+          <span class="triad-num">3</span>
+          <p class="triad-question">"Can I find and buy you?"</p>
+          <div class="triad-principle">Physical availability</div>
+          <p class="triad-builds">Presence, prominence and a suitable portfolio.</p>
+        </div>
+      </div>
 
       <!-- ── Interactive infographic ────────────────────────────── -->
       <h2>From marketing pressure to sustainable progress</h2>
