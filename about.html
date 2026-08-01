@@ -331,6 +331,9 @@
     .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
     .footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.15s; }
     .footer-links a:hover { color: var(--forest); }
+    .footer-address { font-size: 12px; color: var(--muted); }
+    .footer-address a { color: var(--muted); text-decoration: none; }
+    .footer-address a:hover { color: var(--forest); }
 
     @media (max-width: 600px) {
       .hero { padding: 44px 0 8px; }
@@ -350,7 +353,19 @@
         "@id": "https://xluxemarketing.com/#organization",
         "name": "XL Marketing Services",
         "alternateName": "XL",
-        "url": "https://xluxemarketing.com/"
+        "url": "https://xluxemarketing.com/",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Building A1, Dubai Digital Park, Dubai Silicon Oasis",
+          "addressLocality": "Dubai",
+          "addressCountry": "AE"
+        },
+        "areaServed": ["AE", "ZA"],
+        "contactPoint": [
+          { "@type": "ContactPoint", "telephone": "+971-52-148-9618", "contactType": "customer service", "areaServed": "AE", "availableLanguage": ["en"] },
+          { "@type": "ContactPoint", "telephone": "+27-82-561-6101", "contactType": "customer service", "areaServed": "ZA", "availableLanguage": ["en"], "description": "WhatsApp only" },
+          { "@type": "ContactPoint", "email": "support@xploraluxe.com", "contactType": "customer service" }
+        ]
       },
       {
         "@type": "AboutPage",
@@ -479,6 +494,7 @@
     <!-- ── Footer ───────────────────────────────────────────────── -->
     <footer class="site-footer">
       <div class="footer-logo">XL Marketing Services</div>
+      <div class="footer-address">Dubai, UAE &middot; <a href="tel:+971521489618">+971 52 148 9618</a></div>
       <div class="footer-links">
         <a href="/">Home</a>
         <a href="/services">Services</a>

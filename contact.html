@@ -148,17 +148,37 @@
       text-align: center;
       font-size: 13px;
       color: var(--muted);
-      margin-bottom: 40px;
+      margin-bottom: 16px;
     }
 
     .direct-line a { color: var(--mustard-dk); text-decoration: none; font-weight: 600; }
     .direct-line a:hover { text-decoration: underline; }
+
+    .contact-direct {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      background: var(--ivory);
+      border: 0.5px solid var(--border-mid);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+      margin: 0 0 40px;
+    }
+
+    .contact-direct-item { display: flex; flex-direction: column; gap: 2px; text-align: center; }
+    .cd-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mustard-dk); font-weight: 700; }
+    .cd-value { font-size: 14px; color: var(--ink); font-weight: 500; }
+    a.cd-value { color: var(--forest); font-weight: 700; text-decoration: none; }
+    a.cd-value:hover { text-decoration: underline; }
 
     .site-footer { border-top: 0.5px solid var(--border); margin-top: 8px; padding: 24px 0 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
     .footer-logo { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 15px; color: var(--muted); }
     .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
     .footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.15s; }
     .footer-links a:hover { color: var(--forest); }
+    .footer-address { font-size: 12px; color: var(--muted); }
+    .footer-address a { color: var(--muted); text-decoration: none; }
+    .footer-address a:hover { color: var(--forest); }
 
     @media (max-width: 600px) {
       .hero { padding: 40px 0 8px; }
@@ -254,8 +274,28 @@
 
     <p class="direct-line">Prefer email directly? Write to <a href="mailto:support@xploraluxe.com?subject=Strategy%20Call">support@xploraluxe.com</a>.</p>
 
+    <div class="contact-direct">
+      <div class="contact-direct-item">
+        <span class="cd-label">Dubai office</span>
+        <span class="cd-value">Building A1, Dubai Digital Park, Dubai Silicon Oasis, Dubai, United Arab Emirates</span>
+      </div>
+      <div class="contact-direct-item">
+        <span class="cd-label">Call or WhatsApp (UAE)</span>
+        <a class="cd-value" href="https://wa.me/971521489618" target="_blank" rel="noopener">+971 52 148 9618</a>
+      </div>
+      <div class="contact-direct-item">
+        <span class="cd-label">WhatsApp (South Africa)</span>
+        <a class="cd-value" href="https://wa.me/27825616101" target="_blank" rel="noopener">+27 82 561 6101</a>
+      </div>
+      <div class="contact-direct-item">
+        <span class="cd-label">Email</span>
+        <a class="cd-value" href="mailto:support@xploraluxe.com">support@xploraluxe.com</a>
+      </div>
+    </div>
+
     <footer class="site-footer">
       <div class="footer-logo">XL Marketing Services</div>
+      <div class="footer-address">Dubai, UAE &middot; <a href="tel:+971521489618">+971 52 148 9618</a></div>
       <div class="footer-links">
         <a href="/">Home</a>
         <a href="/services">Services</a>
