@@ -174,6 +174,8 @@
     .article-body p { font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; line-height: 1.85; color: var(--ink); margin-bottom: 22px; }
     .article-body p.lede { font-size: 20px; line-height: 1.75; color: var(--forest-mid); }
     .article-body strong { font-weight: 600; color: var(--forest); }
+    .article-body p a { color: var(--mustard-dk); font-weight: 600; text-decoration: underline; text-decoration-color: var(--border-mid); text-underline-offset: 2px; }
+    .article-body p a:hover { text-decoration-color: var(--mustard-dk); }
     .article-body h2 { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: clamp(24px, 3.4vw, 29px); color: var(--forest); line-height: 1.3; margin: 44px 0 18px; }
     .article-body h3 { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 19px; color: var(--forest); line-height: 1.35; margin: 28px 0 12px; }
 
@@ -313,7 +315,7 @@
     /* ── End conversion panel ─────────────────────────────────── */
     .end-cta-panel { background: var(--ivory-mid); border-radius: var(--radius-lg); padding: 40px 32px; text-align: center; margin: 44px 0 8px; }
     .end-cta-panel .section-label { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--mustard-dk); margin-bottom: 14px; }
-    .end-cta-panel h3 { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: clamp(22px, 3.4vw, 28px); color: var(--forest); margin-bottom: 12px; line-height: 1.3; }
+    .end-cta-panel h2 { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: clamp(22px, 3.4vw, 28px); color: var(--forest); margin-bottom: 12px; line-height: 1.3; }
     .end-cta-panel > p { font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; color: var(--forest-mid); line-height: 1.6; max-width: 480px; margin: 0 auto 28px; }
     .end-cta-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
     .end-cta-btn-group { display: flex; flex-direction: column; align-items: center; gap: 8px; }
@@ -353,7 +355,7 @@
         "image": "https://xluxemarketing.com/images/decision-led-hero-desktop.jpg",
         "datePublished": "2026-08-01",
         "dateModified": "2026-08-01",
-        "author": { "@type": "Person", "name": "Pearl M", "jobTitle": "Chief Marketing Officer", "worksFor": { "@id": "https://xluxemarketing.com/#organization" } },
+        "author": { "@type": "Person", "@id": "https://xluxemarketing.com/about#pearl-m", "name": "Pearl M", "jobTitle": "Chief Marketing Officer and Strategic Marketing Lead", "url": "https://xluxemarketing.com/about", "sameAs": ["https://www.linkedin.com/in/pearl-mngomezulu-0675b635"], "worksFor": { "@id": "https://xluxemarketing.com/#organization" } },
         "publisher": { "@type": "Organization", "@id": "https://xluxemarketing.com/#organization", "name": "XL Marketing Services", "url": "https://xluxemarketing.com/" },
         "mainEntityOfPage": "https://xluxemarketing.com/journal/better-marketing-decisions-sustainable-growth",
         "url": "https://xluxemarketing.com/journal/better-marketing-decisions-sustainable-growth",
@@ -394,7 +396,7 @@
 
     <!-- ── Navigation ─────────────────────────────────────────── -->
     <nav class="site-nav">
-      <a href="/" class="site-logo"><img src="../images/xl-mark-gold-cropped.png" alt="XL Marketing Services — home"></a>
+      <a href="/" class="site-logo"><img src="../images/xl-mark-gold-cropped.png" alt="XL Marketing Services — home" width="32" height="32"></a>
       <div class="nav-links">
         <a href="/services">Services</a>
         <a href="/decision-led-growth">Decision-Led Growth</a>
@@ -480,7 +482,7 @@
 
       <p>Better marketing decision-making begins by identifying which problem the organisation is actually facing.</p>
 
-      <p>The 2026 B2B Content and Marketing Trends research from Content Marketing Institute offers a useful signal. Among marketers whose content strategies improved, 74% credited strategy refinement, compared with 51% who credited new technology. Among marketers who described their overall efforts as effective, 65% pointed to content relevance and quality.<sup>[1]</sup> The survey was conducted with 1,015 B2B marketers, mostly in North America; it should not be treated as a universal law, but it reinforces the practical distinction between acquiring a capability and deciding how that capability should create value.</p>
+      <p>The 2026 B2B Content and Marketing Trends research from Content Marketing Institute offers a useful signal. Among marketers whose content strategies improved, 74% credited strategy refinement, compared with 51% who credited new technology. Among marketers who described their overall efforts as effective, 65% pointed to content relevance and quality.<sup>[1]</sup> The survey was conducted with 1,015 B2B marketers, mostly in North America; it should not be treated as a universal law, but it reinforces the practical distinction between acquiring a capability and deciding how that capability should create value. The same pattern shows up in content specifically — see <a href="/journal/why-ai-content-is-harder-to-differentiate">why AI is making content easier to create but harder to differentiate</a>.</p>
 
       <h2>What is Decision-Led Growth?</h2>
 
@@ -501,7 +503,7 @@
         <span class="fs-node">Sustainable growth</span>
       </div>
 
-      <p>The method challenges leaders to distinguish busyness from progress. It helps an organisation decide what should remain constant, what needs to change and which attractive opportunities do not deserve investment.</p>
+      <p>The method challenges leaders to distinguish busyness from progress. It helps an organisation decide what should remain constant, what needs to change and which attractive opportunities do not deserve investment. See the full <a href="/decision-led-growth">Decision-Led Growth methodology</a> for how XL applies this across positioning, go-to-market and commercial strategy.</p>
 
       <h2>The opportunity within being a smaller brand</h2>
 
@@ -542,7 +544,7 @@
 
       <p>Positioning should do more than produce an elegant paragraph for the website. It should help teams decide which opportunities fit, which messages matter, what proof is required and what the brand should decline.</p>
 
-      <p>When positioning is weak, every campaign becomes a fresh debate. When it is clear, agencies, sales teams, creators and technology partners have a shared basis for action.</p>
+      <p>When positioning is weak, every campaign becomes a fresh debate. When it is clear, agencies, sales teams, creators and technology partners have a shared basis for action. This is the discipline behind XL's <a href="/services#brand-positioning">Brand Positioning &amp; Messaging</a> work.</p>
 
       <h3>3. Be easy to recognise: invest in distinctive brand assets</h3>
 
@@ -576,7 +578,7 @@
 
       <p>The Ehrenberg-Bass framework treats physical availability as broader than distribution. It includes presence — being where buying happens; prominence — being easy to find there; and portfolio — offering something suitable for the buyer's need.<sup>[5]</sup></p>
 
-      <p>For a B2B consultancy, this may include discoverability in search and AI answers, a clear service architecture, credible proof, straightforward contact paths and procurement readiness. For a consumer brand, it may include distribution, packaging, stock, retail presence, delivery and price-point accessibility.</p>
+      <p>For a B2B consultancy, this may include <a href="/services#ai-search-visibility">discoverability in search and AI answers</a>, a clear service architecture, credible proof, straightforward contact paths and procurement readiness. For a consumer brand, it may include distribution, packaging, stock, retail presence, delivery and price-point accessibility.</p>
 
       <p class="triad-intro">Together, these three fundamentals answer the questions every buyer is really asking:</p>
 
@@ -696,7 +698,7 @@
 
       <p>That is why capable leaders may need an external partner — not because they lack intelligence or experience, but because decision quality improves when someone can bring structured evidence, challenge assumptions and connect activities that have become fragmented inside the business.</p>
 
-      <p>For CEOs and founders, that partner should translate marketing choices into commercial implications. For CMOs, the partner should understand the tension between long-term brand building and immediate performance. For marketing leads, the partner should add senior strategic capability without requiring the budgets or operating model of a large agency network.</p>
+      <p>For CEOs and founders, that partner should translate marketing choices into commercial implications. For CMOs, the partner should understand the tension between long-term brand building and immediate performance. For marketing leads, the partner should add senior strategic capability without requiring the budgets or operating model of a large agency network — the model behind XL's <a href="/services#fractional-cmo">Fractional CMO &amp; Strategic Advisory</a>.</p>
 
       <p>Credibility does not come from making every idea sound exciting. It comes from positioning ideas honestly: what the evidence supports, what remains uncertain, what the organisation must be able to deliver and what the decision is expected to change.</p>
 
@@ -775,7 +777,7 @@
 
     <!-- ── Author bio ───────────────────────────────────────────── -->
     <div class="author-bio">
-      <img src="../images/pearl-m.png" alt="Pearl M">
+      <img src="../images/pearl-m.png" alt="Pearl M" width="64" height="64" loading="lazy" decoding="async">
       <div>
         <div class="author-name">Pearl M</div>
         <div class="author-role">Chief Marketing Officer, XL Marketing Services</div>
@@ -790,7 +792,7 @@
     <!-- ── End conversion panel ─────────────────────────────────── -->
     <div class="end-cta-panel">
       <div class="section-label">Need a clearer basis for your next decision?</div>
-      <h3>XL works with CEOs, founders, CMOs and marketing leads who need senior strategic support — without the structure or cost of a large agency network.</h3>
+      <h2>XL works with CEOs, founders, CMOs and marketing leads who need senior strategic support — without the structure or cost of a large agency network.</h2>
       <p>Book a strategy conversation to identify the decision constraining your next stage of growth, or start with the free diagnostic if the immediate concern is whether search engines and AI systems can find, interpret and cite your brand accurately.</p>
       <div class="end-cta-buttons">
         <div class="end-cta-btn-group">
