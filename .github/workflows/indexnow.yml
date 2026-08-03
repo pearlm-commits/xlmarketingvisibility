@@ -1,0 +1,37 @@
+name: Notify IndexNow on publish
+
+# Runs whenever a page changes on main, so Bing (and the other IndexNow
+# engines: Yandex, Seznam, Naver) get notified within minutes of a new or
+# updated article going live, instead of waiting for their next crawl pass.
+#
+# The IndexNow key is not a secret — its whole mechanism depends on it being
+# publicly readable at https://xluxemarketing.com/<key>.txt, so it's fine to
+# keep it inline here rather than in repo secrets.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.html'
+      - 'sitemap.xml'
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Submit sitemap URLs to IndexNow
+        run: |
+          urls=$(grep -oE '<loc>[^<]+</loc>' sitemap.xml | sed -e 's/<loc>//' -e 's/<\/loc>//')
+          json_urls=$(printf '%s\n' "$urls" | sed 's/.*/"&"/' | paste -sd, -)
+
+          curl -s -w "\nHTTP %{http_code}\n" -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"host\": \"xluxemarketing.com\",
+              \"key\": \"99b7ee852c5e4dbaa4e82873cffca1a4\",
+              \"keyLocation\": \"https://xluxemarketing.com/99b7ee852c5e4dbaa4e82873cffca1a4.txt\",
+              \"urlList\": [${json_urls}]
+            }"
