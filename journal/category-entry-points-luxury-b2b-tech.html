@@ -132,6 +132,9 @@
     .tldr li { font-size: 15px; line-height: 1.6; color: var(--ink); padding-left: 20px; position: relative; font-weight: 500; }
     .tldr li::before { content: ''; position: absolute; left: 2px; top: 8px; width: 6px; height: 6px; border-radius: 50%; background: var(--mustard-dk); }
 
+    /* ── CEP journey map intro line ───────────────────────────── */
+    .map-intro { font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; color: var(--forest-mid); line-height: 1.7; margin-bottom: 8px; }
+
     /* ── Buttons ──────────────────────────────────────────────── */
     .btn {
       display: inline-flex; align-items: center; gap: 8px; font-family: 'Manrope', sans-serif; font-size: 15px;
@@ -358,6 +361,92 @@
         <li>Once a brand is in consideration, ethical choice architecture — nudges that remain easy to avoid — can improve the path forward without removing the customer's agency.</li>
       </ul>
     </div>
+
+    <!-- ── CEP journey map ───────────────────────────────────────── -->
+    <p class="map-intro">See how these stages differ for a luxury buyer versus a technology buyer:</p>
+
+    <!--
+      XL Marketing Services — Category Entry Points journey map
+      Standalone component. No external dependencies (fonts, JS libraries).
+    -->
+    <div class="xl-cep-map" style="background:#FFFBF1;border:1px solid #D8CDB8;border-radius:12px;padding:24px;font-family:inherit;max-width:760px;margin:2rem auto;">
+      <div style="display:flex;gap:16px;font-size:13px;color:#5B625D;margin-bottom:20px;flex-wrap:wrap;">
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:50%;background:#D9A928;display:inline-block;"></span>Luxury &middot; consumer journey</span>
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:50%;background:#173F35;display:inline-block;"></span>Technology &middot; B2B journey</span>
+      </div>
+      <div style="display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;">
+        <div id="xlCepRail" style="display:flex;flex-direction:column;min-width:220px;flex:1;"></div>
+        <div id="xlCepDetail" style="flex:2;min-width:280px;background:#FFFFFF;border-radius:12px;padding:18px 20px;border:1px solid #D8CDB8;"></div>
+      </div>
+      <p style="font-size:12px;color:#5B625D;margin:16px 0 0;line-height:1.6;">
+        Luxury and technology examples are illustrative research hypotheses, not validated findings for every category buyer.
+      </p>
+    </div>
+
+    <script>
+    (function () {
+      var stages = [
+        { k: "Segment and context", l: "Affluent time-poor traveller", t: "Scaling regional enterprise" },
+        { k: "Category trigger", l: "An important anniversary requires a memorable private trip", t: "A legacy platform can no longer support expansion" },
+        { k: "Mental retrieval", l: "Which luxury travel designers come to mind?", t: "Which transformation partners come to mind?" },
+        { k: "Brand recognition", l: "Distinctive identity, expertise and proof", t: "Category authority, cases and technical credibility" },
+        { k: "Choice architecture", l: "Clear service levels and a guided consultation", t: "Clear assessment, decision brief and implementation path" },
+        { k: "Physical availability", l: "Responsive concierge access and trusted fulfilment", t: "Accessible specialists, integrations and procurement readiness" },
+        { k: "Customer experience", l: "The promised experience is delivered consistently", t: "Onboarding, adoption and support preserve the value promised" },
+        { k: "Commercial learning", l: "What strengthened preference and advocacy?", t: "What improved adoption, capability and commercial progress?" }
+      ];
+
+      var diamondIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A6500" stroke-width="1.6"><path d="M12 2L2 9l10 13L22 9 12 2z"/></svg>';
+      var buildingIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#173F35" stroke-width="1.6"><rect x="4" y="3" width="10" height="18"/><rect x="14" y="9" width="6" height="12"/><line x1="7" y1="7" x2="7" y2="7.01"/><line x1="11" y1="7" x2="11" y2="7.01"/><line x1="7" y1="11" x2="7" y2="11.01"/><line x1="11" y1="11" x2="11" y2="11.01"/></svg>';
+
+      var rail = document.getElementById('xlCepRail');
+      var detail = document.getElementById('xlCepDetail');
+      var active = 0;
+
+      function renderRail() {
+        var html = '';
+        stages.forEach(function (s, i) {
+          var isActive = i === active;
+          html += '<button type="button" data-i="' + i + '" style="all:unset;cursor:pointer;display:flex;align-items:center;gap:12px;padding:8px 4px;">' +
+            '<span style="display:flex;flex-direction:column;align-items:center;">' +
+            '<span style="width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;' +
+            (isActive ? 'background:#D9A928;color:#102A24;' : 'background:#DCE8DD;color:#173F35;') + '">' + (i + 1) + '</span>' +
+            (i < stages.length - 1 ? '<span style="width:1px;height:22px;background:#D8CDB8;"></span>' : '') +
+            '</span>' +
+            '<span style="font-size:14px;font-weight:' + (isActive ? '600' : '400') + ';color:' + (isActive ? '#102A24' : '#5B625D') + ';">' + s.k + '</span>' +
+            '</button>';
+        });
+        rail.innerHTML = html;
+        Array.prototype.forEach.call(rail.querySelectorAll('button'), function (btn) {
+          btn.addEventListener('click', function () {
+            active = parseInt(btn.getAttribute('data-i'), 10);
+            renderRail();
+            renderDetail();
+          });
+        });
+      }
+
+      function renderDetail() {
+        var s = stages[active];
+        detail.innerHTML =
+          '<div style="font-size:11px;letter-spacing:.03em;text-transform:uppercase;color:#8A6500;margin-bottom:6px;">Stage ' + (active + 1) + ' of ' + stages.length + '</div>' +
+          '<div style="font-size:17px;font-weight:600;color:#102A24;margin-bottom:16px;">' + s.k + '</div>' +
+          '<div style="display:flex;flex-direction:column;gap:12px;">' +
+          '<div style="display:flex;gap:10px;align-items:flex-start;padding:10px;background:#FFFBF1;border-radius:8px;">' +
+          '<span style="margin-top:2px;">' + diamondIcon + '</span>' +
+          '<div><div style="font-size:12px;font-weight:600;color:#8A6500;margin-bottom:2px;">Luxury</div><div style="font-size:14px;color:#102A24;line-height:1.5;">' + s.l + '</div></div>' +
+          '</div>' +
+          '<div style="display:flex;gap:10px;align-items:flex-start;padding:10px;background:#DCE8DD;border-radius:8px;">' +
+          '<span style="margin-top:2px;">' + buildingIcon + '</span>' +
+          '<div><div style="font-size:12px;font-weight:600;color:#173F35;margin-bottom:2px;">Technology</div><div style="font-size:14px;color:#102A24;line-height:1.5;">' + s.t + '</div></div>' +
+          '</div>' +
+          '</div>';
+      }
+
+      renderRail();
+      renderDetail();
+    })();
+    </script>
   </div><!-- /page-wrap (narrow) -->
 
   <!-- ── Hero placeholder (wide) ───────────────────────────────── -->
