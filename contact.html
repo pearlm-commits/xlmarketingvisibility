@@ -214,8 +214,10 @@
     </div>
 
     <div class="form-card" id="contact-form-card">
-      <form name="strategy-call" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/contact?submitted=true" id="contact-form">
-        <input type="hidden" name="form-name" value="strategy-call" />
+      <form name="strategy-call" method="POST" action="https://formspree.io/f/mlgkeyqp" id="contact-form">
+        <input type="hidden" name="_subject" value="New strategy call enquiry — XL Marketing Services website" />
+        <input type="hidden" name="_next" value="https://xluxemarketing.com/contact?submitted=true" />
+        <input type="hidden" name="form_type" value="Strategy call enquiry" />
         <p class="honeypot"><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
 
         <div class="form-grid">
@@ -308,7 +310,7 @@
 
   <script>
     /* Pre-fill the business-challenge field if arriving from a service page link,
-       and swap in the success banner after a Netlify form redirect. */
+       and swap in the success banner after a redirect (no-JS fallback path). */
     (function () {
       const params = new URLSearchParams(window.location.search);
       const service = params.get('service');
@@ -322,6 +324,37 @@
         document.getElementById('success-banner').classList.add('show');
         document.getElementById('contact-form-card').style.display = 'none';
       }
+    })();
+
+    /* Submit to Formspree via fetch so the page doesn't leave xluxemarketing.com. */
+    (function () {
+      const form = document.getElementById('contact-form');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        if (form.querySelector('[name="bot-field"]').value) return;
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        }).then(function (response) {
+          if (response.ok) {
+            document.getElementById('success-banner').classList.add('show');
+            document.getElementById('contact-form-card').style.display = 'none';
+          } else {
+            throw new Error('Formspree error');
+          }
+        }).catch(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Request a strategy call';
+          alert("Something went wrong sending your enquiry. Please email support@xploraluxe.com directly, or try again.");
+        });
+      });
     })();
   </script>
 </body>
