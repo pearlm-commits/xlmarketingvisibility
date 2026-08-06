@@ -26,7 +26,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet" /></noscript>
 
   <style>
     /* ── Brand tokens ─────────────────────────────────────────── */
@@ -654,6 +656,8 @@
       </div>
     </nav>
 
+    <main>
+
     <!-- ── Hero ───────────────────────────────────────────────── -->
     <div class="hero">
       <div class="hero-eyebrow">Strategic Marketing and Growth Consultancy</div>
@@ -674,7 +678,7 @@
       <div class="work-grid">
         <div class="work-card">
           <div class="wc-media">
-            <img src="work/travel-publication.jpg" alt="Magazine-style travel publication cover created for a client brief">
+            <img src="work/travel-publication.jpg" alt="Magazine-style travel publication cover created for a client brief" width="371" height="480" loading="lazy" decoding="async">
           </div>
           <div class="wc-body">
             <div class="wc-title">Magazine-style brand content</div>
@@ -683,7 +687,7 @@
         </div>
         <div class="work-card">
           <div class="wc-media wc-media-contain">
-            <img src="work/chatbatt-carousel.jpg" alt="Strategy carousel slide created for ChatBatt">
+            <img src="work/chatbatt-carousel.jpg" alt="Strategy carousel slide created for ChatBatt" width="480" height="480" loading="lazy" decoding="async">
           </div>
           <div class="wc-body">
             <div class="wc-title">ChatBatt — market insight strategy</div>
@@ -846,14 +850,14 @@
       <p class="lead center">XL combines more than 25 years of senior marketing leadership with current business-building, partnership and client-acquisition experience.</p>
       <div class="leader-strip">
         <div class="ls-item">
-          <img src="images/pearl-m.png" alt="Pearl M" width="64" height="64" loading="lazy" decoding="async">
+          <img src="images/pearl-m.jpg" alt="Pearl M" width="64" height="64" loading="lazy" decoding="async">
           <div>
             <div class="ls-name">Pearl M</div>
             <div class="ls-role">Chief Marketing Officer</div>
           </div>
         </div>
         <div class="ls-item">
-          <img src="images/tameka-hendrikz.png" alt="Tameka Hendrikz">
+          <img src="images/tameka-hendrikz.jpg" alt="Tameka Hendrikz" width="64" height="64" loading="lazy" decoding="async">
           <div>
             <div class="ls-name">Tameka Hendrikz</div>
             <div class="ls-role">Head of Business Development and Partnerships</div>
@@ -932,6 +936,8 @@
     </div>
 
     <!-- ── Footer ───────────────────────────────────────────────── -->
+        </main>
+
     <footer class="site-footer">
       <div class="footer-logo">XL Marketing Services</div>
       <div class="footer-address">Dubai, UAE &middot; <a href="tel:+971521489618">+971 52 148 9618</a></div>
