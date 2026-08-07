@@ -62,6 +62,7 @@
       --shadow-lg:   0 8px 48px rgba(23,63,53,0.14);
       --radius:      6px;
       --radius-lg:   12px;
+      --grey:        #F4F5F6;
     }
 
     /* ── Reset ────────────────────────────────────────────────── */
@@ -109,7 +110,7 @@
     .breadcrumb span.current { color: var(--forest); font-weight: 600; }
 
     /* ── Article head ─────────────────────────────────────────── */
-    .article-head { padding: 20px 0 32px; text-align: center; }
+    .article-head { background: var(--sage); padding: 20px 0 32px; text-align: center; }
     .article-meta-row { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
     .format-badge {
       font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700;
@@ -127,7 +128,7 @@
     .article-byline { font-size: 13px; color: var(--muted); font-weight: 600; }
 
     /* ── Direct answer ────────────────────────────────────────── */
-    .direct-answer { background: var(--ivory); border-left: 3px solid var(--mustard); border-radius: 0 var(--radius) var(--radius) 0; padding: 18px 22px; margin-bottom: 24px; }
+    .direct-answer { background: var(--grey); border-left: 3px solid var(--mustard); border-radius: 0 var(--radius) var(--radius) 0; padding: 18px 22px; margin-bottom: 24px; }
     .direct-answer p { font-family: 'Source Serif 4', Georgia, serif; font-size: 17px; line-height: 1.7; color: var(--ink); }
     .direct-answer strong { color: var(--forest); font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
 
@@ -145,15 +146,15 @@
       cursor: pointer; transition: opacity 0.15s, transform 0.1s, background 0.15s; border: none; text-decoration: none;
     }
     .btn:active { transform: scale(0.98); }
-    .btn-diagnostic { background: var(--mustard); color: var(--forest); }
-    .btn-diagnostic:hover { background: var(--mustard-lt); }
+    .btn-diagnostic { background: var(--forest); color: #fff; }
+    .btn-diagnostic:hover { background: var(--forest-mid); }
     .btn-outline-forest { background: transparent; color: var(--forest); border: 1.5px solid var(--forest); }
     .btn-outline-forest:hover { background: var(--forest); color: #fff; }
     .btn-primary { background: var(--forest); color: #fff; }
     .btn-primary:hover { background: var(--forest-mid); }
 
     /* ── Hero (full-bleed, wide-wrap) ─────────────────────────── */
-    .article-hero { margin-bottom: 8px; position: relative; border-radius: var(--radius-lg); overflow: hidden; background: var(--ivory-mid); }
+    .article-hero { margin-bottom: 8px; position: relative; border-radius: var(--radius-lg); overflow: hidden; background: var(--grey); }
     .article-hero picture, .article-hero img { display: block; width: 100%; height: auto; }
     .hero-proposition {
       position: absolute; top: 50%; left: 50%; width: min(90%, 640px); transform: translate(-50%, -50%);
@@ -186,7 +187,7 @@
     .article-body ul li::before { content: '→'; position: absolute; left: 0; color: var(--mustard-dk); font-weight: 700; font-family: 'Manrope', sans-serif; }
 
     .article-body ol.numbered-list { list-style: none; counter-reset: dec; margin-bottom: 22px; display: flex; flex-direction: column; gap: 18px; }
-    .article-body ol.numbered-list li { counter-increment: dec; background: var(--ivory); border-radius: var(--radius); padding: 18px 20px 18px 58px; position: relative; }
+    .article-body ol.numbered-list li { counter-increment: dec; background: var(--grey); border-radius: var(--radius); padding: 18px 20px 18px 58px; position: relative; }
     .article-body ol.numbered-list li::before {
       content: counter(dec); position: absolute; left: 16px; top: 18px; width: 26px; height: 26px; border-radius: 50%;
       background: var(--forest); color: #fff; font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 13px;
@@ -200,17 +201,17 @@
     .xl-definition p { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: clamp(17px, 2.2vw, 20px); color: var(--ivory); line-height: 1.6; margin: 0; }
     .xl-definition .def-label { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mustard-lt); margin-bottom: 10px; display: block; }
 
-    .central-proposition { background: var(--ivory-mid); border-radius: var(--radius-lg); padding: 30px 28px; margin: 8px 0 28px; text-align: center; }
+    .central-proposition { background: var(--grey); border-radius: var(--radius-lg); padding: 30px 28px; margin: 8px 0 28px; text-align: center; }
     .central-proposition p { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: clamp(19px, 2.8vw, 23px); color: var(--forest); line-height: 1.5; margin: 0; }
 
     .flow-sequence {
       display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 4px;
-      background: var(--ivory); border: 0.5px solid var(--border-mid); border-radius: var(--radius-lg); padding: 22px 20px; margin-bottom: 22px;
+      background: var(--grey); border: 0.5px solid var(--border-mid); border-radius: var(--radius-lg); padding: 22px 20px; margin-bottom: 22px;
     }
     .flow-sequence .fs-node { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 13px; color: var(--forest); background: var(--white); border: 0.5px solid var(--border-mid); border-radius: 100px; padding: 9px 14px; text-align: center; }
     .flow-sequence .fs-arrow { color: var(--mustard-dk); font-weight: 700; font-size: 15px; padding: 0 2px; }
 
-    .practical-shift { background: var(--ivory-mid); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 22px; }
+    .practical-shift { background: var(--grey); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 22px; }
     .practical-shift p { font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; color: var(--forest-mid); line-height: 1.65; margin: 0; }
     .practical-shift strong { font-family: 'Manrope', sans-serif; font-weight: 700; color: var(--forest); }
 
@@ -220,7 +221,7 @@
     /* ── Availability triad (3-part visual) ───────────────────── */
     .triad-intro { font-family: 'Source Serif 4', Georgia, serif; font-size: 15px; color: var(--muted); text-align: center; margin: 0 0 18px; }
     .availability-triad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
-    .triad-card { background: var(--ivory); border: 0.5px solid var(--border-mid); border-radius: var(--radius-lg); padding: 26px 22px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .triad-card { background: var(--grey); border: 0.5px solid var(--border-mid); border-radius: var(--radius-lg); padding: 26px 22px; text-align: center; display: flex; flex-direction: column; align-items: center; }
     .triad-num { width: 30px; height: 30px; border-radius: 50%; background: var(--forest); color: var(--mustard-lt); font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
     .triad-question { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 17px; color: var(--forest); line-height: 1.5; margin-bottom: 14px; }
     .triad-principle { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mustard-dk); margin-bottom: 10px; }
@@ -235,16 +236,16 @@
     .comparison-table { border-collapse: collapse; width: 100%; min-width: 480px; font-family: 'Source Serif 4', Georgia, serif; font-size: 15px; }
     .comparison-table th { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ivory); background: var(--forest); padding: 12px 16px; text-align: left; }
     .comparison-table td { padding: 14px 16px; border-bottom: 1px solid var(--border-mid); vertical-align: top; line-height: 1.6; color: var(--ink); }
-    .comparison-table tr:nth-child(even) td { background: var(--ivory); }
+    .comparison-table tr:nth-child(even) td { background: var(--grey); }
 
     /* ── Checklist ────────────────────────────────────────────── */
     .checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px; }
-    .checklist li { font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; line-height: 1.6; color: var(--ink); padding: 12px 16px 12px 42px; position: relative; background: var(--ivory); border-radius: var(--radius); }
+    .checklist li { font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; line-height: 1.6; color: var(--ink); padding: 12px 16px 12px 42px; position: relative; background: var(--grey); border-radius: var(--radius); }
     .checklist li::before { content: '?'; position: absolute; left: 14px; top: 12px; width: 20px; height: 20px; border-radius: 50%; background: var(--mustard); color: var(--forest); font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center; }
 
     /* ── Interactive infographic ──────────────────────────────── */
     .infographic-section { margin: 8px 0 36px; }
-    .infographic-frame { background: var(--ivory); border-radius: var(--radius-lg); padding: 28px 22px; border: 0.5px solid var(--border-mid); }
+    .infographic-frame { background: var(--grey); border-radius: var(--radius-lg); padding: 28px 22px; border: 0.5px solid var(--border-mid); }
 
     .loop-controls { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
     .loop-btn {
@@ -304,7 +305,7 @@
     .sources-section a { color: var(--forest-mid); word-break: break-word; }
 
     /* ── Author bio ───────────────────────────────────────────── */
-    .author-bio { display: flex; gap: 18px; align-items: flex-start; margin: 36px 0 8px; padding: 24px; background: var(--ivory); border-radius: var(--radius-lg); }
+    .author-bio { display: flex; gap: 18px; align-items: flex-start; margin: 36px 0 8px; padding: 24px; background: var(--grey); border-radius: var(--radius-lg); }
     .author-bio img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 3px solid var(--white); box-shadow: var(--shadow); }
     .author-bio .author-name { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 16px; color: var(--forest); margin-bottom: 2px; }
     .author-bio .author-role { font-size: 12px; color: var(--mustard-dk); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 10px; }
@@ -315,7 +316,7 @@
     .about-xl strong { color: var(--forest); }
 
     /* ── End conversion panel ─────────────────────────────────── */
-    .end-cta-panel { background: var(--ivory-mid); border-radius: var(--radius-lg); padding: 40px 32px; text-align: center; margin: 44px 0 8px; }
+    .end-cta-panel { background: var(--sage); border-radius: var(--radius-lg); padding: 40px 32px; text-align: center; margin: 44px 0 8px; }
     .end-cta-panel .section-label { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--mustard-dk); margin-bottom: 14px; }
     .end-cta-panel h2 { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: clamp(22px, 3.4vw, 28px); color: var(--forest); margin-bottom: 12px; line-height: 1.3; }
     .end-cta-panel > p { font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; color: var(--forest-mid); line-height: 1.6; max-width: 480px; margin: 0 auto 28px; }
@@ -328,7 +329,7 @@
     .related-reading { margin: 40px 0 8px; }
     .related-reading .section-label { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--mustard-dk); margin-bottom: 14px; text-align: center; }
     .related-links { display: flex; flex-direction: column; gap: 10px; }
-    .related-links a { display: block; background: var(--ivory); border: 0.5px solid var(--border-mid); border-radius: var(--radius); padding: 14px 18px; font-size: 14px; font-weight: 700; color: var(--forest); text-decoration: none; transition: border-color 0.15s; }
+    .related-links a { display: block; background: var(--grey); border: 0.5px solid var(--border-mid); border-radius: var(--radius); padding: 14px 18px; font-size: 14px; font-weight: 700; color: var(--forest); text-decoration: none; transition: border-color 0.15s; }
     .related-links a:hover { border-color: var(--mustard); }
     .related-links a span { color: var(--mustard-dk); }
 
@@ -343,6 +344,7 @@
     .footer-address a:hover { color: var(--forest); }
 
     @media (max-width: 600px) {
+      .btn { white-space: normal; text-align: center; }
       .article-head { padding: 12px 0 24px; }
       .end-cta-panel { padding: 28px 20px; }
       .author-bio { flex-direction: column; text-align: center; align-items: center; }
@@ -778,7 +780,7 @@
       </ol>
     </div>
 
-    <div class="editorial-note" style="background:var(--ivory); border-radius:var(--radius); padding:18px 22px; margin:24px 0;">
+    <div class="editorial-note" style="background:var(--grey); border-radius:var(--radius); padding:18px 22px; margin:24px 0;">
       <p style="font-size:13px; color:var(--muted); line-height:1.65;">Hilton is presented as an illustrative example interpreted through XL's Decision-Led Growth framework, not as an organisation that uses or endorses the method. Double Jeopardy, mental availability, physical availability and Category Entry Points are established marketing-science terms originating with the Ehrenberg-Bass Institute and associated researchers; they are cited here, not claimed as XL's original research.</p>
     </div>
 

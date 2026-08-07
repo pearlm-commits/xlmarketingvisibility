@@ -62,6 +62,7 @@
       --shadow-lg:   0 8px 48px rgba(23,63,53,0.14);
       --radius:      6px;
       --radius-lg:   12px;
+      --grey:        #F4F5F6;
     }
 
     /* ── Reset ────────────────────────────────────────────────── */
@@ -86,6 +87,7 @@
     .page-wrap { max-width: 680px; margin: 0 auto; padding: 0 24px; }
 
     @media (max-width: 600px) {
+      .btn { white-space: normal; text-align: center; }
       body { font-size: 16px; }
     }
 
@@ -149,7 +151,7 @@
     .breadcrumb span.current { color: var(--forest); font-weight: 600; }
 
     /* ── Article head ─────────────────────────────────────────── */
-    .article-head { padding: 20px 0 32px; text-align: center; }
+    .article-head { background: var(--sage); padding: 20px 0 32px; text-align: center; }
 
     .article-meta-row {
       display: flex;
@@ -197,7 +199,7 @@
 
     /* ── Direct answer ────────────────────────────────────────── */
     .direct-answer {
-      background: var(--ivory);
+      background: var(--grey);
       border-left: 3px solid var(--mustard);
       border-radius: 0 var(--radius) var(--radius) 0;
       padding: 18px 22px;
@@ -288,8 +290,8 @@
     .btn:active { transform: scale(0.98); }
 
     /* Diagnostic CTA — mustard fill, deep-green text (never white-on-mustard) */
-    .btn-diagnostic { background: var(--mustard); color: var(--forest); }
-    .btn-diagnostic:hover { background: var(--mustard-lt); }
+    .btn-diagnostic { background: var(--forest); color: #fff; }
+    .btn-diagnostic:hover { background: var(--forest-mid); }
 
     /* Strategy-call CTA — deep-green outline */
     .btn-outline-forest { background: transparent; color: var(--forest); border: 1.5px solid var(--forest); }
@@ -383,7 +385,7 @@
 
     /* ── Callout: correction ──────────────────────────────────── */
     .callout-correction {
-      background: var(--ivory-mid);
+      background: var(--grey);
       border-radius: var(--radius);
       padding: 18px 22px;
       margin: 0 0 22px;
@@ -443,7 +445,7 @@
       color: var(--ink);
       padding: 16px 18px 16px 52px;
       position: relative;
-      background: var(--ivory);
+      background: var(--grey);
       border-radius: var(--radius);
       counter-increment: criteria;
     }
@@ -506,14 +508,14 @@
       font-weight: 700;
       color: var(--forest);
       font-size: 13px;
-      background: var(--ivory);
+      background: var(--grey);
     }
 
-    .comparison-table tr:nth-child(even) td:not(:first-child) { background: var(--ivory-mid); }
+    .comparison-table tr:nth-child(even) td:not(:first-child) { background: var(--grey); }
 
     /* ── Contextual text-link CTA ─────────────────────────────── */
     .contextual-cta-link {
-      background: var(--ivory);
+      background: var(--grey);
       border-radius: var(--radius);
       padding: 16px 20px;
       margin-bottom: 22px;
@@ -534,7 +536,7 @@
     .equation-figure img { width: 100%; height: auto; border-radius: var(--radius-lg); display: block; }
 
     .equation-caption {
-      background: var(--ivory-mid);
+      background: var(--grey);
       border-radius: 0 0 var(--radius-lg) var(--radius-lg);
       padding: 22px 26px 26px;
       margin-bottom: 36px;
@@ -621,7 +623,7 @@
 
     /* ── Editorial note ───────────────────────────────────────── */
     .editorial-note {
-      background: var(--ivory);
+      background: var(--grey);
       border-radius: var(--radius);
       padding: 18px 22px;
       margin: 24px 0;
@@ -646,7 +648,7 @@
       align-items: flex-start;
       margin: 36px 0 8px;
       padding: 24px;
-      background: var(--ivory);
+      background: var(--grey);
       border-radius: var(--radius-lg);
     }
 
@@ -671,7 +673,7 @@
 
     /* ── End conversion panel ─────────────────────────────────── */
     .end-cta-panel {
-      background: var(--ivory-mid);
+      background: var(--sage);
       border-radius: var(--radius-lg);
       padding: 40px 32px;
       text-align: center;
@@ -736,7 +738,7 @@
 
     .related-links a {
       display: block;
-      background: var(--ivory);
+      background: var(--grey);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius);
       padding: 14px 18px;
@@ -771,6 +773,7 @@
     .footer-address a:hover { color: var(--forest); }
 
     @media (max-width: 600px) {
+      .btn { white-space: normal; text-align: center; }
       .article-head { padding: 12px 0 24px; }
       .end-cta-panel { padding: 28px 20px; }
       .author-bio { flex-direction: column; text-align: center; align-items: center; }

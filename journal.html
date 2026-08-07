@@ -55,6 +55,7 @@
       --shadow-lg:   0 8px 48px rgba(23,63,53,0.14);
       --radius:      6px;
       --radius-lg:   12px;
+      --grey:        #F4F5F6;
     }
 
     /* ── Reset ────────────────────────────────────────────────── */
@@ -134,7 +135,7 @@
     .nav-cta:hover { opacity: 0.85; }
 
     /* ── Masthead ─────────────────────────────────────────────── */
-    .masthead { text-align: center; padding: 60px 0 8px; }
+    .masthead { text-align: center; padding: 60px 0 8px; background: var(--sage); }
 
     .masthead-eyebrow {
       font-size: 13px;
@@ -191,7 +192,7 @@
 
     .entry-card {
       display: block;
-      background: var(--ivory);
+      background: var(--grey);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius-lg);
       padding: 28px 30px;
@@ -274,6 +275,7 @@
     .footer-address a:hover { color: var(--forest); }
 
     @media (max-width: 600px) {
+      .btn { white-space: normal; text-align: center; }
       .masthead { padding: 40px 0 8px; }
       .entry-card { padding: 22px 20px; }
     }

@@ -95,6 +95,7 @@
       --shadow-lg:   0 8px 48px rgba(23,63,53,0.14);
       --radius:      6px;
       --radius-lg:   12px;
+      --grey:        #F4F5F6;
     }
 
     /* ── Reset ────────────────────────────────────────────────── */
@@ -179,7 +180,7 @@
     .nav-cta:hover { opacity: 0.85; }
 
     /* ── Hero ─────────────────────────────────────────────────── */
-    .hero {
+    .hero { background: var(--sage);
       padding: 64px 0 48px;
       text-align: center;
     }
@@ -258,7 +259,7 @@
 
     /* ── Cards ────────────────────────────────────────────────── */
     .card {
-      background: var(--ivory);
+      background: var(--grey);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius-lg);
       padding: 32px;
@@ -420,7 +421,7 @@
 
     .progress-track {
       height: 2px;
-      background: var(--ivory-mid);
+      background: var(--grey);
       border-radius: 2px;
       overflow: hidden;
     }
@@ -437,7 +438,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--ivory-mid);
+      background: var(--grey);
       border: 0.5px solid var(--border-mid);
       border-radius: 100px;
       padding: 5px 14px 5px 5px;
@@ -653,7 +654,7 @@
 
     .lever-bar {
       height: 3px;
-      background: var(--ivory-mid);
+      background: var(--grey);
       border-radius: 2px;
       overflow: hidden;
     }
@@ -665,7 +666,7 @@
 
     /* ── Governing question ───────────────────────────────────── */
     .governing-question {
-      background: var(--ivory-mid);
+      background: var(--grey);
       border-radius: var(--radius-lg);
       padding: 20px 24px;
       margin: 20px 0 28px;
@@ -776,7 +777,7 @@
 
     /* ── CTA block ────────────────────────────────────────────── */
     .cta-block {
-      background: var(--ivory-mid);
+      background: var(--sage);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius-lg);
       padding: 28px 32px;
@@ -987,6 +988,7 @@
 
     /* ── Responsive ───────────────────────────────────────────── */
     @media (max-width: 600px) {
+      .btn { white-space: normal; text-align: center; }
       .card { padding: 22px 18px; }
       .hero { padding: 40px 0 32px; }
       .hero-stats { gap: 20px; }
@@ -1007,7 +1009,7 @@
     }
 
     .mode-card {
-      background: var(--ivory);
+      background: var(--grey);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius-lg);
       padding: 28px 24px;
@@ -1079,7 +1081,7 @@
     }
 
     .principle-card {
-      background: var(--ivory-mid);
+      background: var(--grey);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius);
       padding: 16px 16px 18px;
@@ -1185,7 +1187,7 @@
       padding: 26px 28px;
       margin-bottom: 24px;
       border: 0.5px solid var(--border-mid);
-      background: linear-gradient(135deg, var(--white), var(--ivory-mid));
+      background: linear-gradient(135deg, var(--white), var(--grey));
     }
 
     .tier-badge {
@@ -1282,7 +1284,7 @@
       display: flex;
       align-items: flex-start;
       gap: 10px;
-      background: var(--ivory-mid);
+      background: var(--grey);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius);
       padding: 12px 14px;

@@ -55,6 +55,7 @@
       --shadow-lg:   0 8px 48px rgba(23,63,53,0.14);
       --radius:      6px;
       --radius-lg:   12px;
+      --grey:        #F4F5F6;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -125,7 +126,7 @@
     .nav-cta:hover { opacity: 0.85; }
 
     /* ── Hero ─────────────────────────────────────────────────── */
-    .hero { padding: 64px 0 8px; text-align: center; }
+    .hero { background: var(--sage); padding: 64px 0 8px; text-align: center; }
 
     .hero-eyebrow {
       font-size: 13px;
@@ -221,7 +222,7 @@
       border-radius: 50%;
       object-fit: cover;
       flex-shrink: 0;
-      border: 3px solid var(--ivory);
+      border: 3px solid var(--grey);
       box-shadow: var(--shadow);
     }
 
@@ -277,7 +278,7 @@
     }
 
     .disciplines-table .dt-cell {
-      background: var(--ivory);
+      background: var(--grey);
       font-size: 14px;
       color: var(--forest);
       line-height: 1.5;
@@ -298,7 +299,7 @@
 
     /* ── Closing CTA ──────────────────────────────────────────── */
     .cta-block {
-      background: var(--ivory-mid);
+      background: var(--sage);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius-lg);
       padding: 40px 32px;
@@ -341,6 +342,7 @@
     .footer-address a:hover { color: var(--forest); }
 
     @media (max-width: 600px) {
+      .btn { white-space: normal; text-align: center; }
       .hero { padding: 44px 0 8px; }
       .section { padding: 36px 0; }
       .cta-block { padding: 28px 20px; }

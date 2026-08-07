@@ -55,6 +55,7 @@
       --shadow-lg:   0 8px 48px rgba(23,63,53,0.14);
       --radius:      6px;
       --radius-lg:   12px;
+      --grey:        #F4F5F6;
     }
 
     /* ── Reset ────────────────────────────────────────────────── */
@@ -135,7 +136,7 @@
     .nav-cta:hover { opacity: 0.85; }
 
     /* ── Hero ─────────────────────────────────────────────────── */
-    .hero { padding: 72px 0 40px; text-align: center; }
+    .hero { background: var(--sage); padding: 72px 0 40px; text-align: center; }
 
     .hero-eyebrow {
       font-size: 13px;
@@ -288,7 +289,7 @@
     .pullquote-block .pq-lead { font-weight: 700; margin-bottom: 16px; }
     .pullquote-block .pq-support { font-style: normal; font-size: clamp(15px, 1.8vw, 17px); color: var(--sage); max-width: 620px; }
 
-    .method-question { background: var(--ivory-mid); border-radius: var(--radius-lg); padding: 24px 28px; text-align: center; max-width: 680px; margin: 22px auto 0; }
+    .method-question { background: var(--grey); border-radius: var(--radius-lg); padding: 24px 28px; text-align: center; max-width: 680px; margin: 22px auto 0; }
     .method-question p { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: clamp(19px, 2.6vw, 24px); color: var(--forest); line-height: 1.35; margin: 0; }
     .method-tagline { text-align: center; font-family: 'Manrope', sans-serif; font-weight: 800; font-size: clamp(15px, 2vw, 17px); letter-spacing: 0.02em; color: var(--forest); margin-top: 26px; }
     .method-tagline span { color: var(--mustard-dk); margin: 0 6px; }
@@ -299,13 +300,13 @@
     @media (max-width: 560px) { .transform-grid { grid-template-columns: 1fr; } }
 
     .transform-col {
-      background: var(--ivory);
+      background: var(--grey);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius-lg);
       padding: 26px 26px 28px;
     }
 
-    .transform-col.after { background: var(--ivory-mid); }
+    .transform-col.after { background: var(--grey); }
 
     .transform-col .tc-label {
       font-size: 11px;
@@ -340,7 +341,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 20px;
-      background: var(--ivory);
+      background: var(--grey);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius-lg);
       padding: 20px 24px;
@@ -373,7 +374,7 @@
 
     /* ── B2B advantage callout ────────────────────────────────── */
     .flow-callout {
-      background: var(--ivory-mid);
+      background: var(--grey);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius-lg);
       padding: 22px 26px;
@@ -416,7 +417,7 @@
       height: 56px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid var(--ivory);
+      border: 2px solid var(--grey);
       box-shadow: var(--shadow);
     }
 
@@ -446,7 +447,7 @@
     }
 
     .proof-table .pt-cell {
-      background: var(--ivory);
+      background: var(--grey);
       font-size: 13px;
       color: var(--forest);
       line-height: 1.5;
@@ -477,7 +478,7 @@
       border-radius: var(--radius-lg);
       overflow: hidden;
       border: 0.5px solid var(--border-mid);
-      background: var(--ivory);
+      background: var(--grey);
       display: flex;
       flex-direction: column;
       transition: border-color 0.15s, box-shadow 0.15s;
@@ -488,7 +489,7 @@
     .work-card .wc-media { aspect-ratio: 3 / 4; overflow: hidden; background: var(--forest); }
     .work-card .wc-media img,
     .work-card .wc-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .work-card .wc-media-contain img { object-fit: contain; background: var(--ivory-mid); }
+    .work-card .wc-media-contain img { object-fit: contain; background: var(--grey); }
 
     .work-card .wc-body { padding: 14px 16px 16px; }
     .work-card .wc-title { font-size: 13px; font-weight: 700; color: var(--forest); margin-bottom: 4px; line-height: 1.3; }
@@ -505,7 +506,7 @@
     @media (max-width: 560px) { .mode-grid { grid-template-columns: 1fr; } }
 
     .mode-card {
-      background: var(--ivory);
+      background: var(--grey);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius-lg);
       padding: 26px 24px;
@@ -551,7 +552,7 @@
 
     /* ── Closing CTA ──────────────────────────────────────────── */
     .cta-block {
-      background: var(--ivory-mid);
+      background: var(--sage);
       border: 0.5px solid var(--border-mid);
       border-radius: var(--radius-lg);
       padding: 40px 32px;
@@ -599,6 +600,7 @@
     .footer-address a:hover { color: var(--forest); }
 
     @media (max-width: 600px) {
+      .btn { white-space: normal; text-align: center; }
       .hero { padding: 48px 0 32px; }
       .section { padding: 40px 0; }
       .pullquote-block { padding: 28px 22px; }
