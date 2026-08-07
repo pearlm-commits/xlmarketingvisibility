@@ -663,6 +663,23 @@
       border-radius: 2px;
     }
 
+    /* ── Governing question ───────────────────────────────────── */
+    .governing-question {
+      background: var(--ivory-mid);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      margin: 20px 0 28px;
+      text-align: center;
+    }
+    .governing-question .gq-label {
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--mustard-dk); font-weight: 700; margin-bottom: 8px;
+    }
+    .governing-question p {
+      font-family: 'Manrope', sans-serif; font-weight: 800;
+      font-size: clamp(16px, 2.4vw, 19px); color: var(--forest); line-height: 1.35; margin: 0;
+    }
+
     /* ── Priority blocks ──────────────────────────────────────── */
     .priority-section h2 {
       font-family: 'Manrope', sans-serif;
@@ -703,6 +720,20 @@
       color: var(--muted);
       line-height: 1.6;
       font-weight: 300;
+    }
+
+    .pi-constraint {
+      display: inline-block;
+      font-family: 'Manrope', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--forest);
+      background: var(--sage);
+      border-radius: 100px;
+      padding: 3px 10px;
+      margin-top: 8px;
     }
 
     /* ── Client summary block ─────────────────────────────────── */
@@ -1702,6 +1733,11 @@
             <div class="score-desc" id="r-desc"></div>
           </div>
 
+          <div class="governing-question">
+            <div class="gq-label">The question behind this score</div>
+            <p>What needs to change for people and the business to move forward?</p>
+          </div>
+
           <div class="section-label">Score by lever</div>
           <div class="lever-grid" id="r-lever-grid"></div>
 
@@ -1756,6 +1792,11 @@
             </div>
             <div class="score-verdict" id="rr-verdict"></div>
             <div class="score-desc" id="rr-desc"></div>
+          </div>
+
+          <div class="governing-question">
+            <div class="gq-label">The question behind this score</div>
+            <p>What needs to change for people and the business to move forward?</p>
           </div>
 
           <div class="section-label">Score by pillar</div>
@@ -1855,6 +1896,20 @@
       { id: 5, name: 'Buyer Intent' },
       { id: 6, name: 'Measurement' }
     ];
+
+    /* Maps each lever to the likely constraint category from XL's
+       Decision-Led Growth SOP. Proposed mapping, not exhaustive: this
+       diagnostic does not currently probe Market understanding or
+       Experience/delivery as distinct constraints, so those two
+       categories never appear here. */
+    const LEVER_CONSTRAINT = {
+      1: 'Positioning',        // Clarity
+      2: 'Positioning',        // Positioning
+      3: 'Availability',       // Off-Site Presence
+      4: 'Evidence',           // Content Structure
+      5: 'Human understanding',// Buyer Intent
+      6: 'Measurement and learning' // Measurement
+    };
 
     const QUESTIONS = [
       {
@@ -2033,6 +2088,14 @@
       { id: 3, name: 'Paid Media & Demand Gen' },
       { id: 4, name: 'Marketing Ops & CRM' }
     ];
+
+    /* Proposed mapping — see note beside LEVER_CONSTRAINT above. */
+    const PILLAR_CONSTRAINT = {
+      1: 'Positioning',           // Brand & Positioning
+      2: 'Evidence',              // Content, SEO & AI Visibility
+      3: 'Sales and handover',    // Paid Media & Demand Gen
+      4: 'Measurement and learning' // Marketing Ops & CRM
+    };
 
     const QUESTIONS2 = [
       {
@@ -2573,6 +2636,7 @@
         <div class="priority-item">
           <div class="pi-meta">Priority ${idx + 1} — Lever ${p.id}: ${p.name} (${p.pct}%)</div>
           <div class="pi-rec">${getRecText(LEVER_RECS, p.id, p.pct)}</div>
+          <div class="pi-constraint">Likely constraint: ${LEVER_CONSTRAINT[p.id]}</div>
         </div>
       `).join('');
 
@@ -2684,6 +2748,7 @@
         <div class="priority-item">
           <div class="pi-meta">Priority ${idx + 1} — Pillar ${p.id}: ${p.name} (${p.pct}%)</div>
           <div class="pi-rec">${getRecText(PILLAR_RECS, p.id, p.pct)}</div>
+          <div class="pi-constraint">Likely constraint: ${PILLAR_CONSTRAINT[p.id]}</div>
         </div>
       `).join('');
 
