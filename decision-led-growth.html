@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Decision-Led Growth | XL Marketing</title>
-  <meta name="description" content="Decision-Led Growth is XL's evidence-led method for identifying what must change for people and the business to move forward." />
+  <title>Marketing Decision-Led Growth | XL Marketing</title>
+  <meta name="description" content="Marketing Decision-Led Growth is XL's evidence-led method for identifying what must change for people and the business to move forward." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://xluxemarketing.com/decision-led-growth" />
   <link rel="icon" href="images/favicon.ico" sizes="any" />
@@ -15,11 +15,11 @@
   <!-- Open Graph / Twitter — DEVELOPER: add a real og:image once a brand share-image asset exists -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="XL Marketing Services" />
-  <meta property="og:title" content="Decision-Led Growth: XL Marketing's Growth Methodology" />
+  <meta property="og:title" content="Marketing Decision-Led Growth: XL Marketing's Growth Methodology" />
   <meta property="og:description" content="Find the decision, condition or experience that must improve for people and the business to move forward." />
   <meta property="og:url" content="https://xluxemarketing.com/decision-led-growth" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Decision-Led Growth: XL Marketing's Growth Methodology" />
+  <meta name="twitter:title" content="Marketing Decision-Led Growth: XL Marketing's Growth Methodology" />
   <meta name="twitter:description" content="Find the decision, condition or experience that must improve for people and the business to move forward." />
 
   <!-- DEVELOPER: Drop your Google Analytics / GTM snippet here -->
@@ -142,7 +142,12 @@
     .question-block p { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: clamp(21px, 3.2vw, 28px); line-height: 1.35; color: var(--forest); max-width: 680px; margin: 0 auto; }
 
     /* ── The XL Crosspoint diagram ─────────────────────────────── */
-    .crosspoint-wrap { max-width: 640px; margin: 0 auto; }
+    .crosspoint-wrap { max-width: 640px; margin: 0 auto; position: relative; }
+    .cp-accent { position: absolute; inset: -46px; z-index: 0; pointer-events: none; }
+    .cp-grid { z-index: 1; }
+    .hero-accent { position: absolute; top: 18px; right: max(2vw, calc(50% - 380px)); width: 96px; height: 96px; opacity: 0.5; pointer-events: none; }
+    .hero { position: relative; overflow: hidden; }
+    @media (max-width: 720px) { .hero-accent { display: none; } }
     .cp-grid {
       position: relative;
       display: grid;
@@ -184,6 +189,7 @@
     @media (max-width: 760px) { .udd-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 480px) { .udd-grid { grid-template-columns: 1fr; } }
     .udd-card { background: var(--grey); border: 0.5px solid var(--border-mid); border-radius: var(--radius-lg); padding: 22px 18px; }
+    .udd-icon { width: 76px; height: 76px; margin-bottom: 10px; }
     .udd-card .udd-num { width: 26px; height: 26px; border-radius: 50%; background: var(--forest); color: var(--mustard-lt); font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
     .udd-card .udd-title { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 16px; color: var(--forest); margin-bottom: 8px; }
     .udd-card p { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; line-height: 1.6; color: var(--forest-mid); margin: 0; }
@@ -226,8 +232,8 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Decision-Led Growth: Connecting Human Progress with Commercial Growth",
-    "description": "Decision-Led Growth is XL's method for using evidence and human understanding to improve the marketing decisions that shape progress.",
+    "name": "Marketing Decision-Led Growth: Connecting Human Progress with Commercial Growth",
+    "description": "Marketing Decision-Led Growth is XL's method for using evidence and human understanding to improve the marketing decisions that shape progress.",
     "url": "https://xluxemarketing.com/decision-led-growth",
     "isPartOf": { "@type": "Organization", "@id": "https://xluxemarketing.com/#organization", "name": "XL Marketing Services", "url": "https://xluxemarketing.com/" }
   }
@@ -241,7 +247,7 @@
       <a href="/" class="site-logo"><img src="images/xl-mark-gold-cropped.png" alt="" width="32" height="32"><span class="site-logo-text">XL Marketing</span></a>
       <div class="nav-links">
         <a href="/services">Services</a>
-        <a href="/decision-led-growth" class="current">Decision-Led Growth</a>
+        <a href="/decision-led-growth" class="current">Marketing Decision-Led Growth</a>
         <a href="/about">About</a>
         <a href="/journal">Meridian Insights</a>
         <a href="/ai-visibility-audit">Diagnostics</a>
@@ -252,9 +258,10 @@
     <main>
 
     <div class="hero">
+      <div class="hero-accent" id="heroAccent" aria-hidden="true"></div>
       <div class="hero-eyebrow">XL's Growth Methodology</div>
       <h1>Find what needs to change for people and the business to move forward.</h1>
-      <p class="hero-sub"><strong>Decision-Led Growth is XL's evidence-led method for improving the marketing decisions, conditions and experiences that shape progress.</strong></p>
+      <p class="hero-sub"><strong>Marketing Decision-Led Growth is XL's evidence-led method for improving the marketing decisions, conditions and experiences that shape progress.</strong></p>
       <p class="hero-sub" style="margin-top:16px">It combines credible evidence with human understanding to locate the XL Crosspoint: the productive point at which human progress, business ambition, credible brand contribution and the conditions for movement create mutual value.</p>
     </div>
 
@@ -280,7 +287,7 @@
       <div class="section-label">How it works</div>
       <h2>A more disciplined way to create growth</h2>
       <p class="lead">Decisions are only as strong as the evidence and inquiry fueling them. For better commercial impact, we start by upgrading the quality of your information and the questions you ask.</p>
-      <p class="lead" style="margin-top:18px">Our Decision-Led Growth approach begins with the progress people are already pursuing, then identifies the role the brand can legitimately earn:</p>
+      <p class="lead" style="margin-top:18px">Our Marketing Decision-Led Growth approach begins with the progress people are already pursuing, then identifies the role the brand can legitimately earn:</p>
       <ul class="framework-list">
         <li>What progress people are already trying to make</li>
         <li>What they currently think, feel and do in context</li>
@@ -299,6 +306,7 @@
       <h2>The XL Crosspoint</h2>
       <p class="lead">The Crosspoint identifies where four conditions align:</p>
       <div class="crosspoint-wrap" style="margin-top:28px">
+        <div class="cp-accent" id="cpAccent" aria-hidden="true"></div>
         <dl class="cp-grid">
           <div class="cp-card cp-tl">
             <dt class="cp-label">Human progress</dt>
@@ -327,24 +335,28 @@
     <!-- ── Understand → Decide → Design → Learn ─────────────────── -->
     <div class="section reveal">
       <div class="section-label">How value is created</div>
-      <h2>Understand &rarr; Decide &rarr; Design &rarr; Learn</h2>
+      <h2>One method, four disciplines</h2>
       <div class="udd-grid">
         <div class="udd-card">
+          <div class="udd-icon" id="uddIcon1" aria-hidden="true"></div>
           <div class="udd-num">1</div>
           <div class="udd-title">Understand</div>
           <p>What progress people are pursuing, and what stands in the way.</p>
         </div>
         <div class="udd-card">
+          <div class="udd-icon" id="uddIcon2" aria-hidden="true"></div>
           <div class="udd-num">2</div>
           <div class="udd-title">Decide</div>
           <p>Where the Crosspoint lies — the decision that matters most.</p>
         </div>
         <div class="udd-card">
+          <div class="udd-icon" id="uddIcon3" aria-hidden="true"></div>
           <div class="udd-num">3</div>
           <div class="udd-title">Design</div>
           <p>The brand, experience, communications and commercial activity required to support movement.</p>
         </div>
         <div class="udd-card">
+          <div class="udd-icon" id="uddIcon4" aria-hidden="true"></div>
           <div class="udd-num">4</div>
           <div class="udd-title">Learn</div>
           <p>What changed, what didn't, and what should happen next.</p>
@@ -419,6 +431,92 @@
   </div><!-- /page-wrap -->
 
   <script>
+    (function(){
+      var CX = 110, CY = 110, VB = 220;
+      var PETAL_D = "M-50,-58 C-50,-30 -30,-6 -3,-4 C-1,-4 2,-6 4,-10 C8,-4 12,-4 14,-6 C40,-10 50,-32 50,-58 C50,-92 28,-110 0,-110 C-28,-110 -50,-92 -50,-58 Z";
+
+      // dir(theta): unit vector this petal points toward, matching the rotate() convention
+      // used by the full mark (0deg = up, 90deg = right, 180deg = down, 270deg = left).
+      function dir(theta) {
+        var r = theta * Math.PI / 180;
+        return [Math.sin(r), -Math.cos(r)];
+      }
+
+      // One petal, tightly cropped so the four cards read as adjoining quarters of
+      // the same mark rather than four repeats of the whole symbol.
+      function petalPiece(theta, accentSVG, centerOp) {
+        var d = dir(theta);
+        var cropOffset = 62, cropHalf = 68;
+        var vx = CX + d[0] * cropOffset - cropHalf;
+        var vy = CY + d[1] * cropOffset - cropHalf;
+        var petal = '<g transform="translate(' + CX + ' ' + CY + ') rotate(' + theta + ')"><path d="' + PETAL_D + '" fill="var(--forest)"/></g>';
+        // The same diagonal X-gap construction as the full mark, so the cut edge
+        // reads as "continues into the whole symbol" rather than an arbitrary crop.
+        var gapW = 22;
+        var edgeCut = '<rect x="' + (CX-gapW/2) + '" y="' + (CY-160) + '" width="' + gapW + '" height="320" fill="var(--grey)" transform="rotate(' + (theta+45) + ' ' + CX + ' ' + CY + ')"/>' +
+          '<rect x="' + (CX-gapW/2) + '" y="' + (CY-160) + '" width="' + gapW + '" height="320" fill="var(--grey)" transform="rotate(' + (theta-45) + ' ' + CX + ' ' + CY + ')"/>';
+        var centerDot = '<circle cx="' + CX + '" cy="' + CY + '" r="9" fill="var(--mustard)" opacity="' + centerOp + '"/>';
+        return '<svg viewBox="' + vx + ' ' + vy + ' ' + (cropHalf*2) + ' ' + (cropHalf*2) + '" width="76" height="76" aria-hidden="true">' +
+          petal + edgeCut + accentSVG + centerDot +
+        '</svg>';
+      }
+
+      // Understand: a couple of small nodes still outside the piece, evidence not yet in.
+      function scatterAccent(theta) {
+        var d = dir(theta), p = [-d[1], d[0]];
+        var nx = CX + d[0]*124 + p[0]*14, ny = CY + d[1]*124 + p[1]*14;
+        var lx = CX + d[0]*104, ly = CY + d[1]*104;
+        var nx2 = CX + d[0]*118 - p[0]*18, ny2 = CY + d[1]*118 - p[1]*18;
+        return (
+          '<line x1="' + nx + '" y1="' + ny + '" x2="' + lx + '" y2="' + ly + '" stroke="var(--muted-light)" stroke-width="2"/>' +
+          '<rect x="' + (nx-5) + '" y="' + (ny-5) + '" width="10" height="10" fill="var(--mustard-dk)"/>' +
+          '<circle cx="' + nx2 + '" cy="' + ny2 + '" r="4.5" fill="none" stroke="var(--muted-light)" stroke-width="2"/>'
+        );
+      }
+      // Design: this piece activating outward.
+      function spokeAccent(theta) {
+        var d = dir(theta);
+        var x1 = CX + d[0]*102, y1 = CY + d[1]*102;
+        var x2 = CX + d[0]*126, y2 = CY + d[1]*126;
+        return '<line x1="' + x1 + '" y1="' + y1 + '" x2="' + x2 + '" y2="' + y2 + '" stroke="var(--mustard-dk)" stroke-width="3" stroke-linecap="round"/>' +
+          '<circle cx="' + x2 + '" cy="' + y2 + '" r="5" fill="var(--mustard-dk)"/>';
+      }
+      // Learn: a short arc of the return-path passing this piece.
+      function arcAccent(theta) {
+        var a1 = (theta - 30) * Math.PI/180, a2 = (theta + 30) * Math.PI/180, r = 108;
+        var x1 = CX + r*Math.sin(a1), y1 = CY - r*Math.cos(a1);
+        var x2 = CX + r*Math.sin(a2), y2 = CY - r*Math.cos(a2);
+        return '<path d="M ' + x1 + ' ' + y1 + ' A ' + r + ' ' + r + ' 0 0 1 ' + x2 + ' ' + y2 + '" fill="none" stroke="var(--mustard-dk)" stroke-width="2" stroke-dasharray="3 7" opacity="0.8"/>';
+      }
+
+      var el1 = document.getElementById('uddIcon1');
+      var el2 = document.getElementById('uddIcon2');
+      var el3 = document.getElementById('uddIcon3');
+      var el4 = document.getElementById('uddIcon4');
+      if (el1) el1.innerHTML = petalPiece(0, scatterAccent(0), 0);
+      if (el2) el2.innerHTML = petalPiece(90, '', 1);
+      if (el3) el3.innerHTML = petalPiece(180, spokeAccent(180), 1);
+      if (el4) el4.innerHTML = petalPiece(270, arcAccent(270), 0.6);
+
+      var cpAccent = document.getElementById('cpAccent');
+      if (cpAccent) {
+        cpAccent.innerHTML = '<svg viewBox="0 0 400 400" width="100%" height="100%" aria-hidden="true" style="opacity:0.28">' +
+          [[-168,-168],[168,-168],[-168,168],[168,168]].map(function(c){
+            var x1 = 200 + c[0], y1 = 200 + c[1];
+            var x2 = 200 + c[0]*0.52, y2 = 200 + c[1]*0.72;
+            return '<line x1="' + x1 + '" y1="' + y1 + '" x2="' + x2 + '" y2="' + y2 + '" stroke="var(--forest-mid)" stroke-width="1.5"/>' +
+              '<rect x="' + (x1-5) + '" y="' + (y1-5) + '" width="10" height="10" fill="none" stroke="var(--forest-mid)" stroke-width="1.5"/>' +
+              '<circle cx="' + x2 + '" cy="' + y2 + '" r="4" fill="var(--mustard-dk)"/>';
+          }).join('') +
+        '</svg>';
+      }
+
+      var heroAccent = document.getElementById('heroAccent');
+      if (heroAccent) {
+        heroAccent.innerHTML = petalPiece(0, scatterAccent(0), 0).replace('width="76" height="76"', 'width="96" height="96"');
+      }
+    })();
+
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
