@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About XL — Strategic Marketing, Connected to Cross-Border Action</title>
-  <meta name="description" content="XL Marketing Services is led by Pearl M and Tameka Hendrikz, bringing together senior marketing leadership, business development and account-based engagement." />
+  <title>About XL Marketing Services | Strategic Marketing &amp; Growth Consultancy</title>
+  <meta name="description" content="Meet XL Marketing Services, a strategic marketing and growth consultancy helping leaders improve positioning, go-to-market choices and commercial action." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://xluxemarketing.com/about" />
   <link rel="icon" href="images/favicon.ico" sizes="any" />
@@ -15,12 +15,12 @@
   <!-- Open Graph / Twitter — DEVELOPER: add a real og:image once a brand share-image asset exists -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="XL Marketing Services" />
-  <meta property="og:title" content="About XL — Strategic Marketing, Connected to Cross-Border Action" />
-  <meta property="og:description" content="XL Marketing Services is led by Pearl M and Tameka Hendrikz, bringing together senior marketing leadership, business development and account-based engagement." />
+  <meta property="og:title" content="About XL Marketing Services | Strategic Marketing &amp; Growth Consultancy" />
+  <meta property="og:description" content="Meet XL Marketing Services, a strategic marketing and growth consultancy helping leaders improve positioning, go-to-market choices and commercial action." />
   <meta property="og:url" content="https://xluxemarketing.com/about" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="About XL — Strategic Marketing, Connected to Cross-Border Action" />
-  <meta name="twitter:description" content="XL Marketing Services is led by Pearl M and Tameka Hendrikz, bringing together senior marketing leadership, business development and account-based engagement." />
+  <meta name="twitter:title" content="About XL Marketing Services | Strategic Marketing &amp; Growth Consultancy" />
+  <meta name="twitter:description" content="Meet XL Marketing Services, a strategic marketing and growth consultancy helping leaders improve positioning, go-to-market choices and commercial action." />
 
   <!-- DEVELOPER: Drop your Google Analytics / GTM snippet here -->
 
@@ -217,6 +217,27 @@
     .lead { font-family: 'Source Serif 4', Georgia, serif; font-size: clamp(18px, 2.2vw, 20px); line-height: 1.75; color: var(--forest-mid); max-width: 640px; margin: 0 auto; text-align: center; }
     .lead + .lead { margin-top: 18px; }
 
+    .brand-line { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 15px; letter-spacing: 0.01em; color: var(--mustard-dk); margin-top: 18px; }
+
+    /* ── Promise callout ──────────────────────────────────────── */
+    .promise-block { background: var(--sage); border-radius: var(--radius-lg); padding: 22px 26px; max-width: 640px; margin: 28px auto 0; }
+    .promise-block .pb-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mustard-dk); font-weight: 700; margin-bottom: 8px; }
+    .promise-block p { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.5; color: var(--forest); margin: 0; }
+
+    /* ── Simple bulleted list ─────────────────────────────────── */
+    .about-list { list-style: none; display: flex; flex-direction: column; gap: 12px; max-width: 640px; margin: 24px auto 0; text-align: left; }
+    .about-list li { font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; line-height: 1.6; color: var(--forest-mid); padding-left: 22px; position: relative; }
+    .about-list li::before { content: ''; position: absolute; left: 2px; top: 8px; width: 6px; height: 6px; border-radius: 50%; background: var(--mustard-dk); }
+    .about-list li strong { color: var(--forest); font-family: 'Manrope', sans-serif; font-weight: 700; }
+
+    /* ── Capability grid ──────────────────────────────────────── */
+    .capability-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 720px; margin: 28px auto 0; }
+    @media (max-width: 640px) { .capability-grid { grid-template-columns: 1fr; } }
+    .capability-item { background: var(--grey); border: 0.5px solid var(--border-mid); border-radius: var(--radius-lg); padding: 20px; text-decoration: none; display: block; transition: border-color 0.15s; }
+    .capability-item:hover { border-color: var(--mustard); }
+    .capability-item h3 { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 15px; color: var(--forest); margin-bottom: 6px; }
+    .capability-item p { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; line-height: 1.6; color: var(--forest-mid); margin: 0; }
+
     /* ── Leader profile ───────────────────────────────────────── */
     .leader-block { max-width: 680px; margin: 0 auto; }
 
@@ -372,6 +393,7 @@
         "name": "XL Marketing Services",
         "alternateName": "XL",
         "url": "https://xluxemarketing.com/",
+        "description": "XL Marketing Services is a strategic marketing and growth consultancy helping leaders make better marketing decisions and translate them into credible positioning, customer value and sustainable commercial progress.",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Building A1, Dubai Digital Park, Dubai Silicon Oasis",
@@ -388,7 +410,7 @@
       {
         "@type": "AboutPage",
         "url": "https://xluxemarketing.com/about",
-        "name": "About XL — Strategic Marketing, Connected to Cross-Border Action",
+        "name": "About XL Marketing Services",
         "mainEntity": { "@id": "https://xluxemarketing.com/#organization" }
       },
       {
@@ -422,7 +444,7 @@
       <a href="/" class="site-logo"><img src="images/xl-mark-gold-cropped.png" alt="" width="32" height="32"><span class="site-logo-text">XL Marketing</span></a>
       <div class="nav-links">
         <a href="/services">Services</a>
-        <a href="/decision-led-growth">Decision-Led Growth</a>
+        <a href="/decision-led-growth">Marketing Decision-Led Growth</a>
         <a href="/about" class="current">About</a>
         <a href="/journal">Meridian Insights</a>
         <a href="/ai-visibility-audit">Diagnostics</a>
@@ -432,23 +454,104 @@
 
     <main>
 
-    <!-- ── Hero: The Core Premise ──────────────────────────────── -->
+    <!-- ── Hero ───────────────────────────────────────────────── -->
     <div class="hero">
       <div class="hero-eyebrow">About XL</div>
-      <h1>Strategic Marketing, Connected to Cross-Border Action</h1>
+      <h1>About XL Marketing Services</h1>
       <div class="hero-body">
-        <p>XL Marketing Services is a strategic marketing and growth consultancy for founders, CEOs and corporate leaders who refuse to separate market intelligence from commercial results.</p>
-        <p>We work at the intersection of brand strategy, institutional relationships and market insight. Through Decision-Led Growth, our method for connecting human progress with commercial growth, we help organisations replace fragmented marketing activity with a coherent route from customer understanding to commercial action.</p>
-        <p>XL is led by Pearl M and Tameka Hendrikz, whose experience brings together two disciplines that are too often separated: marketing strategy and business development.</p>
+        <p>XL Marketing Services is a strategic marketing and growth consultancy helping founders, CEOs, CMOs and marketing leaders improve the evidence, choices and systems behind commercial action.</p>
+        <p>We work across brand positioning, go-to-market and product marketing, B2B growth and account-based marketing, marketing-sales alignment, AI search visibility, and fractional CMO advisory. Our role is to help organisations decide what deserves attention, translate that decision into coherent execution and learn from the market without losing strategic consistency.</p>
+      </div>
+      <div class="promise-block">
+        <div class="pb-label">Core promise</div>
+        <p>Better marketing decisions that create credible positioning, customer value and sustainable commercial progress.</p>
+      </div>
+      <p class="brand-line">Decisions That Compound.</p>
+    </div>
+
+    <!-- ── Marketing can be busy while the decision remains unresolved ── -->
+    <div class="section reveal">
+      <div class="section-label">Where growth stalls</div>
+      <h2>Marketing can be busy while the decision remains unresolved</h2>
+      <p class="lead">A new campaign, technology platform or content format can create activity without resolving the question underneath it. The audience may be unclear. The proposition may not be credible. Marketing and sales may be working from different definitions of value.</p>
+      <p class="lead">XL helps leadership teams locate the decision that is shaping the outcome, examine the evidence and assumptions around it, and design the next appropriate action — keeping marketing connected to customer value and commercial priorities while making operational and customer-experience dependencies visible.</p>
+    </div>
+
+    <!-- ── What we believe ───────────────────────────────────────── -->
+    <div class="section reveal">
+      <div class="section-label">What we believe</div>
+      <h2>Decisions are only as good as the evidence behind them</h2>
+      <p class="lead">The quality of marketing decisions cannot consistently exceed the quality of the information, questions and assumptions from which they are made.</p>
+      <p class="lead">Marketing should help organisations understand markets and people more accurately, make credible choices, communicate value clearly and create conditions in which customers can decide with confidence. It should also respect customer agency — behavioural science can reduce unnecessary friction and improve comprehension; it should not disguise manipulation as optimisation.</p>
+    </div>
+
+    <!-- ── What we help organisations decide ─────────────────────── -->
+    <div class="section reveal">
+      <div class="section-label">What we help organisations decide</div>
+      <h2>The questions behind every engagement</h2>
+      <ul class="about-list">
+        <li>What position can the brand credibly own, and how should that position be expressed consistently?</li>
+        <li>Which market, customer or organisational evidence should shape the next go-to-market decision?</li>
+        <li>What is activating demand, and which buying situations or category entry points matter?</li>
+        <li>Which accounts, buying committees and executive conversations warrant focused investment?</li>
+        <li>Where are marketing and sales losing context, accountability or commercial learning?</li>
+        <li>How can the organisation become easier to understand and cite across search engines and generative AI systems?</li>
+        <li>What should leadership keep constant, what should adapt and what should not be funded yet?</li>
+      </ul>
+    </div>
+
+    <!-- ── Our capabilities ───────────────────────────────────────── -->
+    <div class="section reveal">
+      <div class="section-label">Our capabilities</div>
+      <h2>Six ways we help you compete</h2>
+      <div class="capability-grid">
+        <a href="/services#brand-positioning" class="capability-item">
+          <h3>Brand Positioning &amp; Messaging</h3>
+          <p>Audience, market, category and competitive evidence translated into a position the brand can credibly own.</p>
+        </a>
+        <a href="/services#gtm-product-marketing" class="capability-item">
+          <h3>Go-to-Market &amp; Product Marketing</h3>
+          <p>Market need, product truth, adoption barriers and organisational readiness inform route-to-market choices.</p>
+        </a>
+        <a href="/services#b2b-growth-abm" class="capability-item">
+          <h3>B2B Growth, ABM &amp; Executive Engagement</h3>
+          <p>Account and buying-committee insight guide personalised engagement and commercially responsible follow-through.</p>
+        </a>
+        <a href="/services#marketing-sales-alignment" class="capability-item">
+          <h3>Marketing-Sales Alignment</h3>
+          <p>Shared definitions, handovers, evidence and feedback loops help marketing and sales retain context.</p>
+        </a>
+        <a href="/services#ai-search-visibility" class="capability-item">
+          <h3>AI Search Visibility</h3>
+          <p>Entity clarity, answer coverage and content authority help organisations become easier to find and recommend.</p>
+        </a>
+        <a href="/services#fractional-cmo" class="capability-item">
+          <h3>Fractional CMO &amp; Strategic Advisory</h3>
+          <p>Senior marketing leadership helps interpret evidence, establish priorities and strengthen governance.</p>
+        </a>
       </div>
     </div>
 
-    <!-- ── Our competitive distinction ──────────────────────────── -->
+    <!-- ── How XL works ─────────────────────────────────────────── -->
     <div class="section reveal">
-      <div class="section-label">Our competitive distinction</div>
-      <h2>Frictionless agility across MEA markets</h2>
-      <p class="lead">Organisations expanding into new territory often face structural fragmentation — a global network without regional nuance, or local teams without cross-border strategic discipline.</p>
-      <p class="lead">XL resolves this through a single, multi-geographical delivery model. Headquartered in Dubai, UAE, our team bridges cross-border work between major Middle Eastern and African commercial hubs, so clients keep continuity of strategy, positioning and leadership as they move between markets.</p>
+      <div class="section-label">How XL works</div>
+      <h2>Marketing Decision-Led Growth</h2>
+      <p class="lead">Our approach connects four recurring disciplines. It is an adaptive operating cycle rather than a rigid sequence imposed on every engagement.</p>
+      <ul class="about-list">
+        <li><strong>Understand:</strong> clarify the market, customer, organisational conditions and quality of available evidence.</li>
+        <li><strong>Decide:</strong> identify the choice that matters, the trade-offs involved and what evidence is sufficient to proceed.</li>
+        <li><strong>Design:</strong> translate the decision into positioning, systems, experiences, communications or coordinated activity.</li>
+        <li><strong>Learn:</strong> examine market response, commercial movement, customer experience and new evidence to improve the next decision.</li>
+      </ul>
+      <p class="lead" style="margin-top:22px">The <a href="/decision-led-growth" style="color:var(--forest);text-decoration-color:var(--border-mid)">XL Crosspoint</a> supports the initial diagnostic conversation by locating where evidence, decisions, execution and learning intersect — or where they have become disconnected. The diagnostic guides judgement; it does not replace it.</p>
+    </div>
+
+    <!-- ── Experience across different commercial contexts ──────── -->
+    <div class="section reveal">
+      <div class="section-label">Experience across different commercial contexts</div>
+      <h2>Pattern recognition, applied with local care</h2>
+      <p class="lead">XL brings experience across telecommunications, fintech, enterprise technology, infrastructure, luxury travel and services, and emerging technology. This range helps us recognise patterns across categories while remaining careful about differences in customers, buying committees, regulation, adoption and delivery.</p>
+      <p class="lead">We support organisations operating across the UAE and South Africa. Cross-border work begins with market evidence and local context, not the assumption that one execution can be exported unchanged.</p>
     </div>
 
     <!-- ── Leadership & institutional authority ─────────────────── -->
@@ -468,9 +571,8 @@
             <div class="lb-role">Chief Marketing Officer and Strategic Marketing Lead</div>
           </div>
         </div>
-        <p>Pearl is a fractional CMO and brand strategist with more than 25 years of experience across telecommunications, fintech, enterprise technology, infrastructure, luxury services and emerging technology.</p>
-        <p>Her leadership experience includes Vodacom, PayU, Dimension Data/NTT, Openserve, Altron and Alcatel-Lucent, with responsibility spanning South Africa, 54 African markets and the Middle East.</p>
-        <p>Pearl's work encompasses market intelligence, brand positioning, product marketing, go-to-market strategy, marketing transformation and executive communications. She served as marketing lead on Vodacom's South African M-Pesa launch project team and subsequently led B2B marketing for Vodacom Business across 54 African markets, where marketing-generated pipeline contributed to 30% gross-profit growth.</p>
+        <p>Pearl brings more than 25 years of marketing leadership across telecommunications, fintech, enterprise ICT, infrastructure, luxury services and emerging technology. Her experience includes product marketing and adoption work associated with M-Pesa and PayU, enterprise marketing for Dimension Data/NTT DATA and Vodacom Business, and the development of market-intelligence, positioning and behavioural-communication approaches.</p>
+        <p>In Vodacom Business Africa, marketing-generated pipeline contributed to a reported 30% year-on-year increase in gross profit. This is presented as contribution evidence, not as a claim that marketing acted independently of sales, operations or market conditions.</p>
         <p>At XL, Pearl leads the strategic architecture: defining the market opportunity, clarifying the proposition, understanding the customer decision and creating the marketing system required to build demand.</p>
       </div>
     </div>
@@ -485,21 +587,17 @@
             <div class="lb-role">Head of Business Development and Partnerships</div>
           </div>
         </div>
-        <p>Tameka brings the commercial and relationship-building discipline that turns strategy into market access.</p>
-        <p>As Head of Partnerships at Xplora Luxe, she built the company's partner network from zero to more than 100 partners, creating the relationships required to support an international luxury travel and concierge proposition.</p>
-        <p>She also led Xplora Luxe's entry into Eureka GCC, a highly competitive entrepreneurial incubator competition. The business was selected among the top 33 start-ups from approximately 500 submissions—placing it within the top 6.6% of applicants.</p>
-        <p>Tameka applies a structured business-development approach to target-account identification, partnership development, account-based marketing, prospect research, personalised outreach, multi-touch follow-up, executive delegate acquisition and pipeline progression.</p>
-        <p>Her sales leadership enables XL to assess marketing from the receiving end of the pipeline: whether the audience is properly qualified, whether the proposition supports a commercial conversation and whether follow-up can convert interest into opportunity.</p>
+        <p>Tameka brings business-development, partnership and account-engagement capability. Her work includes helping build Xplora Luxe's partner network from zero to more than 100 partners and contributing to its placement in the top 33 from approximately 500 submissions in the Eureka GCC competition.</p>
+        <p>Within XL, she strengthens account selection, executive engagement, partnerships and commercial follow-through — assessing marketing from the receiving end of the pipeline: whether the audience is properly qualified, whether the proposition supports a commercial conversation and whether follow-up can convert interest into opportunity.</p>
       </div>
     </div>
 
-    <!-- ── Our governing philosophy ──────────────────────────────── -->
+    <!-- ── A partner for consequential marketing decisions ──────── -->
     <div class="section reveal">
-      <div class="section-label">Our governing philosophy</div>
-      <h2>We believe growth should be earned through value</h2>
-      <p class="lead">People are not passive targets waiting for marketing to move them through a funnel. They are already trying to make progress.</p>
-      <p class="lead">XL helps organisations understand that progress, identify what makes it difficult and decide what the business must do to become more useful, credible and easier to choose.</p>
-      <p class="lead">Sometimes perception needs to change. Sometimes the proposition, experience, process or organisation must change first. This discipline — <a href="/decision-led-growth" style="color:var(--forest);text-decoration-color:var(--border-mid)">Decision-Led Growth</a> — is how we tell the difference.</p>
+      <div class="section-label">Who this is for</div>
+      <h2>A partner for consequential marketing decisions</h2>
+      <p class="lead">XL works with leaders who need stronger thinking before more activity: founders establishing a credible market position; CEOs weighing growth priorities; CMOs seeking an experienced strategic partner; and marketing leaders who need specialist capability without the layers of a large agency network.</p>
+      <p class="lead">We do not promise that marketing alone will determine revenue. We help organisations improve the marketing decisions, evidence and systems that contribute to customer value and sustainable commercial progress — and make the dependencies on sales, operations, delivery and customer experience explicit.</p>
     </div>
 
     <!-- ── How the disciplines connect ──────────────────────────── -->
@@ -526,11 +624,11 @@
     <!-- ── Closing CTA ──────────────────────────────────────────── -->
     <div class="section reveal">
       <div class="cta-block">
-        <h3>Ready to make better growth decisions?</h3>
-        <p>The first conversation is a structured discussion about your decision, evidence and next move — not an immediate proposal.</p>
+        <h3>Bring us the decision behind your next marketing challenge.</h3>
+        <p>Book a strategy call to examine what needs to be understood, decided, designed or learned next. If the problem is not yet clear, begin with the XL Crosspoint diagnostic.</p>
         <div class="cta-btn-row">
           <a href="/contact" class="btn btn-gold">Book a strategy call</a>
-          <a href="/services" class="btn btn-ghost">Explore our services</a>
+          <a href="/decision-led-growth" class="btn btn-ghost">Explore the XL Crosspoint</a>
         </div>
       </div>
     </div>
@@ -544,7 +642,7 @@
       <div class="footer-links">
         <a href="/">Home</a>
         <a href="/services">Services</a>
-        <a href="/decision-led-growth">Decision-Led Growth</a>
+        <a href="/decision-led-growth">Marketing Decision-Led Growth</a>
         <a href="/journal">Meridian Insights</a>
         <a href="/contact">Contact</a>
       </div>
