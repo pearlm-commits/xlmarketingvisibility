@@ -96,12 +96,23 @@
     .site-logo {
       display: inline-flex;
       align-items: center;
+      text-decoration: none;
     }
 
     .site-logo img {
       height: 32px;
       width: auto;
       display: block;
+    }
+    .site-logo-text {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 800;
+      font-size: 17px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--forest);
+      margin-left: 10px;
+      white-space: nowrap;
     }
 .nav-links { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 10px 22px; }
 
@@ -655,7 +666,7 @@
 
     <!-- ── Navigation ─────────────────────────────────────────── -->
     <nav class="site-nav">
-      <a href="/" class="site-logo"><img src="images/xl-mark-gold-cropped.png" alt="XL Marketing Services — home" width="32" height="32"></a>
+      <a href="/" class="site-logo"><img src="images/xl-mark-gold-cropped.png" alt="" width="32" height="32"><span class="site-logo-text">XL Marketing</span></a>
       <div class="nav-links">
         <a href="/services">Services</a>
         <a href="/decision-led-growth">Decision-Led Growth</a>
