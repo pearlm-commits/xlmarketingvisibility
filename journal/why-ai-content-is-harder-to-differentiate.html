@@ -33,9 +33,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet" /></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" /></noscript>
 
   <style>
     /* ── Brand tokens ─────────────────────────────────────────── */
@@ -44,32 +44,34 @@
       --ivory:       #FFFBF1;
       --ivory-mid:   #F6EEDD;
       --sage:        #DCE8DD;
-      --mustard:     #D9A928;
+      --mustard:     #A08F5C;
       --mustard-lt:  #F3E6B8;
       --mustard-dk:  #8A6500;
-      --ember:       #B83A2D;
+      --ember:       #C1442A;
       --ember-dark:  #922A20;
-      --forest:      #173F35;
+      --forest:      #1E3D2B;
       --forest-mid:  #245847;
-      --ink:         #102A24;
+      --ink:         #14110F;
       --muted:       #5B625D;
       --muted-light: #94988D;
       --border:      rgba(216,205,184,0.4);
       --border-mid:  #D8CDB8;
-      --focus:       #D9A928;
+      --focus:       #A08F5C;
       --focus-offset:#FFFBF1;
-      --shadow:      0 2px 24px rgba(23,63,53,0.08);
-      --shadow-lg:   0 8px 48px rgba(23,63,53,0.14);
-      --radius:      6px;
-      --radius-lg:   12px;
+      --shadow:      0 0 0 1px var(--stone);
+      --shadow-lg:   0 0 0 1px var(--stone);
+      --radius:      0;
       --grey:        #F4F5F6;
+      --bordeaux:    #5C1220;
+      --stone:       #8B8479;
+      --paper:       #FFFFFF;
     }
 
     /* ── Reset ────────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       background: var(--white);
       color: var(--ink);
       min-height: 100vh;
@@ -81,12 +83,14 @@
       outline-offset: 2px;
     }
 
-    .serif { font-family: 'Source Serif 4', Georgia, serif; }
+    .serif { font-family: 'Fraunces', Georgia, serif; }
 
     /* ── Layout ───────────────────────────────────────────────── */
     .page-wrap { max-width: 680px; margin: 0 auto; padding: 0 24px; }
 
     @media (max-width: 600px) {
+      .site-nav { flex-wrap: wrap; row-gap: 14px; }
+      .nav-links { width: 100%; justify-content: flex-start; }
       .btn { white-space: normal; text-align: center; }
       body { font-size: 16px; }
     }
@@ -97,43 +101,52 @@
       align-items: center;
       justify-content: space-between;
       padding: 22px 0;
-      border-bottom: 0.5px solid var(--border);
+      border-bottom: 1px solid var(--border-mid);
     }
 
     .site-logo { display: inline-flex; align-items: center; text-decoration: none; }
     .site-logo img { height: 32px; width: auto; display: block; }
-    .site-logo-text { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 17px; letter-spacing: 0.02em; text-transform: uppercase; color: var(--forest); margin-left: 10px; white-space: nowrap; }
+    .site-logo-text {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 600;
+      font-size: 21px;
+      letter-spacing: -0.01em;
+      color: var(--forest);
+      margin-left: 10px;
+      white-space: nowrap;
+    }
 
     .nav-links { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 10px 22px; }
 
     .nav-links > a {
-      font-size: 15px;
+      font-size: 13px;
       color: var(--muted);
       text-decoration: none;
-      font-weight: 600;
-      transition: color 0.15s;
+      font-weight: 500;
+      letter-spacing: 0.01em; transition: color 0.15s;
     }
 
     .nav-links > a.current { color: var(--forest); }
     .nav-links > a:hover { color: var(--forest); }
 
     a.nav-cta {
-      font-size: 15px;
-      font-weight: 700;
-      color: #fff;
-      background: var(--forest);
-      border: none;
-      padding: 9px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: var(--forest);
+      background: transparent;
+      border: 1.5px solid var(--forest);
+      padding: 8px 19px;
       border-radius: 999px;
       white-space: nowrap;
       cursor: pointer;
       text-decoration: none;
-      font-family: 'Manrope', sans-serif;
-      transition: opacity 0.15s;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.15s, color 0.15s;
       display: inline-block;
     }
 
-    .nav-cta:hover { opacity: 0.85; }
+    .nav-cta:hover { background: var(--forest); color: #fff; }
 
     /* ── Breadcrumb ───────────────────────────────────────────── */
     .breadcrumb {
@@ -152,7 +165,7 @@
     .breadcrumb span.current { color: var(--forest); font-weight: 600; }
 
     /* ── Article head ─────────────────────────────────────────── */
-    .article-head { background: var(--sage); padding: 20px 0 32px; text-align: center; }
+    .article-head { background: var(--paper); padding: 20px 0 32px; text-align: center; border-bottom: 1px solid var(--border-mid);}
 
     .article-meta-row {
       display: flex;
@@ -168,7 +181,7 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       font-weight: 700;
-      color: var(--mustard-dk);
+      color: var(--mustard);
       border: 0.5px solid var(--border-mid);
       padding: 4px 10px;
       border-radius: 100px;
@@ -177,9 +190,9 @@
     .article-date { font-size: 12px; color: var(--muted); font-weight: 500; }
 
     .article-head h1 {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: clamp(32px, 5.6vw, 46px);
-      font-weight: 800;
+      font-weight: 500;
       line-height: 1.2;
       color: var(--forest);
       margin-bottom: 14px;
@@ -187,7 +200,7 @@
     }
 
     .article-dek {
-      font-family: 'Source Serif 4', Georgia, serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-style: italic;
       font-size: clamp(17px, 2.1vw, 19px);
       color: var(--forest-mid);
@@ -208,29 +221,29 @@
     }
 
     .direct-answer p {
-      font-family: 'Source Serif 4', Georgia, serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: 17px;
       line-height: 1.7;
       color: var(--ink);
     }
 
-    .direct-answer strong { color: var(--forest); font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+    .direct-answer strong { color: var(--forest); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
 
     /* ── TL;DR ────────────────────────────────────────────────── */
     .tldr {
       background: var(--white);
       border: 1px solid var(--border-mid);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius);
       padding: 22px 24px;
       margin-bottom: 20px;
     }
 
-    .tldr-label {
+    .tldr-label { font-family: 'IBM Plex Mono', monospace;
       font-size: 12px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       font-weight: 700;
-      color: var(--mustard-dk);
+      color: var(--mustard);
       margin-bottom: 12px;
     }
 
@@ -253,17 +266,16 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: var(--mustard-dk);
+      background: var(--mustard);
     }
 
     /* ── Slim contextual CTA ──────────────────────────────────── */
     .cta-slim {
-      background: var(--sage);
-      border-radius: var(--radius-lg);
+      background: var(--paper);
+      border-radius: 0;
       padding: 20px 24px;
       margin-bottom: 36px;
-      text-align: center;
-    }
+      text-align: center; border-top: 1px solid var(--border-mid);}
 
     .cta-slim p { font-size: 15px; color: var(--forest); line-height: 1.55; margin-bottom: 4px; font-weight: 500; }
     .cta-slim p.cta-slim-question { font-weight: 700; margin-bottom: 8px; }
@@ -275,7 +287,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 15px;
       font-weight: 700;
       letter-spacing: 0.01em;
@@ -306,11 +318,11 @@
     .article-hero img {
       width: 100%;
       height: auto;
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius);
       display: block;
     }
     .article-hero figcaption {
-      font-family: 'Source Serif 4', Georgia, serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-style: italic;
       font-size: 14px;
       color: var(--muted);
@@ -323,7 +335,7 @@
     .article-body { padding: 8px 0 12px; }
 
     .article-body p {
-      font-family: 'Source Serif 4', Georgia, serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: 18px;
       line-height: 1.85;
       color: var(--ink);
@@ -337,12 +349,12 @@
     }
 
     .article-body strong { font-weight: 600; color: var(--forest); }
-    .article-body p a { color: var(--mustard-dk); font-weight: 600; text-decoration: underline; text-decoration-color: var(--border-mid); text-underline-offset: 2px; }
-    .article-body p a:hover { text-decoration-color: var(--mustard-dk); }
+    .article-body p a { color: var(--mustard); font-weight: 600; text-decoration: underline; text-decoration-color: var(--border-mid); text-underline-offset: 2px; }
+    .article-body p a:hover { text-decoration-color: var(--mustard); }
 
     .article-body h2 {
-      font-family: 'Manrope', sans-serif;
-      font-weight: 800;
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 500;
       font-size: clamp(24px, 3.4vw, 29px);
       color: var(--forest);
       line-height: 1.3;
@@ -350,7 +362,7 @@
     }
 
     .article-body h3 {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-weight: 700;
       font-size: 19px;
       color: var(--forest);
@@ -367,7 +379,7 @@
     }
 
     .article-body ul li, .article-body ol.plain-list li {
-      font-family: 'Source Serif 4', Georgia, serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: 17px;
       line-height: 1.7;
       color: var(--ink);
@@ -379,9 +391,9 @@
       content: '→';
       position: absolute;
       left: 0;
-      color: var(--mustard-dk);
+      color: var(--mustard);
       font-weight: 700;
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
     }
 
     /* ── Callout: correction ──────────────────────────────────── */
@@ -399,18 +411,18 @@
       margin: 0;
     }
 
-    .callout-correction strong { font-family: 'Manrope', sans-serif; font-weight: 700; color: var(--forest); }
+    .callout-correction strong { font-family: 'Inter', sans-serif; font-weight: 700; color: var(--forest); }
 
     /* ── XL definition callout ────────────────────────────────── */
     .xl-definition {
       background: var(--forest);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius);
       padding: 26px 28px;
       margin-bottom: 22px;
     }
 
     .xl-definition p {
-      font-family: 'Source Serif 4', Georgia, serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-style: italic;
       font-size: clamp(18px, 2.4vw, 21px);
       color: var(--ivory);
@@ -419,7 +431,7 @@
     }
 
     .xl-definition .def-label {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'IBM Plex Mono', monospace;
       font-weight: 700;
       font-size: 11px;
       letter-spacing: 0.1em;
@@ -440,7 +452,7 @@
     }
 
     .criteria-list li {
-      font-family: 'Source Serif 4', Georgia, serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: 17px;
       line-height: 1.7;
       color: var(--ink);
@@ -461,7 +473,7 @@
       border-radius: 50%;
       background: var(--mustard);
       color: var(--forest);
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-weight: 800;
       font-size: 13px;
       display: flex;
@@ -469,7 +481,7 @@
       justify-content: center;
     }
 
-    .criteria-list strong { font-family: 'Manrope', sans-serif; font-weight: 700; color: var(--forest); }
+    .criteria-list strong { font-family: 'Inter', sans-serif; font-weight: 700; color: var(--forest); }
 
     /* ── Comparison table ─────────────────────────────────────── */
     .table-scroll { overflow-x: auto; margin-bottom: 22px; -webkit-overflow-scrolling: touch; }
@@ -478,12 +490,12 @@
       border-collapse: collapse;
       width: 100%;
       min-width: 560px;
-      font-family: 'Source Serif 4', Georgia, serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: 15px;
     }
 
     .comparison-table th {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-weight: 700;
       font-size: 12px;
       letter-spacing: 0.04em;
@@ -505,7 +517,7 @@
     }
 
     .comparison-table td:first-child {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-weight: 700;
       color: var(--forest);
       font-size: 13px;
@@ -529,23 +541,23 @@
       line-height: 1.6;
     }
 
-    .contextual-cta-link a { color: var(--mustard-dk); font-weight: 700; text-decoration: none; }
+    .contextual-cta-link a { color: var(--mustard); font-weight: 700; text-decoration: none; }
     .contextual-cta-link a:hover { text-decoration: underline; }
 
     /* ── Equation figure ──────────────────────────────────────── */
     .equation-figure { margin: 8px 0 0; }
-    .equation-figure img { width: 100%; height: auto; border-radius: var(--radius-lg); display: block; }
+    .equation-figure img { width: 100%; height: auto; border-radius: var(--radius); display: block; }
 
     .equation-caption {
       background: var(--grey);
-      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+      border-radius: 0 0 var(--radius) var(--radius);
       padding: 22px 26px 26px;
       margin-bottom: 36px;
       text-align: center;
     }
 
     .equation-caption .equation-formula {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-weight: 800;
       font-size: clamp(16px, 2.4vw, 19px);
       color: var(--forest);
@@ -554,7 +566,7 @@
     }
 
     .equation-caption p:not(.equation-formula) {
-      font-family: 'Source Serif 4', Georgia, serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: 15px;
       color: var(--forest-mid);
       line-height: 1.6;
@@ -564,7 +576,7 @@
     .faq-section { margin-bottom: 8px; }
 
     .faq-section > h2 {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-weight: 800;
       font-size: clamp(24px, 3.4vw, 29px);
       color: var(--forest);
@@ -575,7 +587,7 @@
     .faq-item:last-child { border-bottom: 0.5px solid var(--border); }
 
     .faq-item h3 {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-weight: 700;
       font-size: 17px;
       color: var(--forest);
@@ -584,7 +596,7 @@
     }
 
     .faq-item p {
-      font-family: 'Source Serif 4', Georgia, serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: 16px;
       line-height: 1.7;
       color: var(--ink);
@@ -594,7 +606,7 @@
     .sources-section { margin: 40px 0 8px; }
 
     .sources-section h2 {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-weight: 800;
       font-size: 22px;
       color: var(--forest);
@@ -616,7 +628,7 @@
       content: '[' counter(src) ']';
       position: absolute;
       left: 0;
-      color: var(--mustard-dk);
+      color: var(--mustard);
       font-weight: 700;
     }
 
@@ -631,12 +643,12 @@
     }
 
     .editorial-note h3 {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-weight: 700;
       font-size: 12px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--mustard-dk);
+      color: var(--mustard);
       margin-bottom: 8px;
     }
 
@@ -650,7 +662,7 @@
       margin: 36px 0 8px;
       padding: 24px;
       background: var(--grey);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius);
     }
 
     .author-bio img {
@@ -660,12 +672,12 @@
       object-fit: cover;
       flex-shrink: 0;
       border: 3px solid var(--white);
-      box-shadow: var(--shadow);
+      box-shadow: 0 2px 24px rgba(23,63,53,0.08);
     }
 
-    .author-bio .author-name { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 16px; color: var(--forest); margin-bottom: 2px; }
-    .author-bio .author-role { font-size: 12px; color: var(--mustard-dk); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 10px; }
-    .author-bio p.author-text { font-family: 'Source Serif 4', Georgia, serif; font-size: 15px; color: var(--forest-mid); line-height: 1.65; margin: 0; }
+    .author-bio .author-name { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 16px; color: var(--forest); margin-bottom: 2px; }
+    .author-bio .author-role { font-size: 12px; color: var(--mustard); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 10px; }
+    .author-bio p.author-text { font-family: 'Fraunces', Georgia, serif; font-size: 15px; color: var(--forest-mid); line-height: 1.65; margin: 0; }
 
     /* ── About XL blurb ───────────────────────────────────────── */
     .about-xl { margin: 20px 0 8px; }
@@ -674,25 +686,24 @@
 
     /* ── End conversion panel ─────────────────────────────────── */
     .end-cta-panel {
-      background: var(--sage);
-      border-radius: var(--radius-lg);
+      background: var(--paper);
+      border-radius: 0;
       padding: 40px 32px;
       text-align: center;
-      margin: 44px 0 8px;
-    }
+      margin: 44px 0 8px; border-top: 1px solid var(--border-mid);}
 
-    .end-cta-panel .section-label {
+    .end-cta-panel .section-label { font-family: 'IBM Plex Mono', monospace;
       font-size: 12px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       font-weight: 700;
-      color: var(--mustard-dk);
+      color: var(--mustard);
       margin-bottom: 14px;
     }
 
     .end-cta-panel h2 {
-      font-family: 'Manrope', sans-serif;
-      font-weight: 800;
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 500;
       font-size: clamp(22px, 3.4vw, 28px);
       color: var(--forest);
       margin-bottom: 12px;
@@ -700,7 +711,7 @@
     }
 
     .end-cta-panel > p {
-      font-family: 'Source Serif 4', Georgia, serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: 16px;
       color: var(--forest-mid);
       line-height: 1.6;
@@ -725,12 +736,12 @@
     /* ── Related reading ──────────────────────────────────────── */
     .related-reading { margin: 40px 0 8px; }
 
-    .related-reading .section-label {
+    .related-reading .section-label { font-family: 'IBM Plex Mono', monospace;
       font-size: 12px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       font-weight: 700;
-      color: var(--mustard-dk);
+      color: var(--mustard);
       margin-bottom: 14px;
       text-align: center;
     }
@@ -751,7 +762,7 @@
     }
 
     .related-links a:hover { border-color: var(--mustard); }
-    .related-links a span { color: var(--mustard-dk); }
+    .related-links a span { color: var(--mustard); }
 
     /* ── Footer ───────────────────────────────────────────────── */
     .site-footer {
@@ -765,7 +776,7 @@
       gap: 12px;
     }
 
-    .footer-logo { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 15px; color: var(--muted); }
+    .footer-logo { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px; color: var(--muted); }
     .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
     .footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.15s; }
     .footer-links a:hover { color: var(--forest); }
@@ -847,7 +858,7 @@
 
     <!-- ── Navigation ─────────────────────────────────────────── -->
     <nav class="site-nav">
-      <a href="/" class="site-logo"><img src="../images/xl-mark-gold-cropped.png" alt="" width="32" height="32"><span class="site-logo-text">XL Marketing</span></a>
+      <a href="/" class="site-logo"><img src="../images/xl-mark-forest.png" alt="" width="32" height="32"><span class="site-logo-text">XL Marketing</span></a>
       <div class="nav-links">
         <a href="/services">Services</a>
         <a href="/decision-led-growth">Marketing Decision-Led Growth</a>
@@ -1048,7 +1059,7 @@
 
       <p>Content is easier to make. Meaning is not. That is precisely why judgement has become the advantage.</p>
 
-      <p><strong>Next step.</strong> If your organisation is producing more content without clearer evidence of what it changes, XL Marketing Services can help assess the positioning, decision logic, evidence base and measurement system behind it. <a href="/services#brand-positioning" style="color:var(--mustard-dk)">Explore Brand Positioning &amp; Messaging</a>, or see how the same discipline applies to <a href="/journal/better-marketing-decisions-sustainable-growth" style="color:var(--mustard-dk)">broader marketing decision-making</a>.</p>
+      <p><strong>Next step.</strong> If your organisation is producing more content without clearer evidence of what it changes, XL Marketing Services can help assess the positioning, decision logic, evidence base and measurement system behind it. <a href="/services#brand-positioning" style="color:var(--mustard)">Explore Brand Positioning &amp; Messaging</a>, or see how the same discipline applies to <a href="/journal/better-marketing-decisions-sustainable-growth" style="color:var(--mustard)">broader marketing decision-making</a>.</p>
     </div>
 
     <!-- ── XL Content Quality Equation ───────────────────────────── -->

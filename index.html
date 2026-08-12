@@ -26,9 +26,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet" /></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" /></noscript>
 
   <style>
     /* ── Brand tokens ─────────────────────────────────────────── */
@@ -37,32 +37,34 @@
       --ivory:       #FFFBF1;
       --ivory-mid:   #F6EEDD;
       --sage:        #DCE8DD;
-      --mustard:     #D9A928;
+      --mustard:     #A08F5C;
       --mustard-lt:  #F3E6B8;
       --mustard-dk:  #8A6500;
-      --ember:       #B83A2D;
+      --ember:       #C1442A;
       --ember-dark:  #922A20;
-      --forest:      #173F35;
+      --forest:      #1E3D2B;
       --forest-mid:  #245847;
-      --ink:         #102A24;
+      --ink:         #14110F;
       --muted:       #5B625D;
       --muted-light: #94988D;
       --border:      rgba(216,205,184,0.4);
       --border-mid:  #D8CDB8;
-      --focus:       #D9A928;
+      --focus:       #A08F5C;
       --focus-offset:#FFFBF1;
-      --shadow:      0 2px 24px rgba(23,63,53,0.08);
-      --shadow-lg:   0 8px 48px rgba(23,63,53,0.14);
-      --radius:      6px;
-      --radius-lg:   12px;
+      --shadow:      0 0 0 1px var(--stone);
+      --shadow-lg:   0 0 0 1px var(--stone);
+      --radius:      0;
       --grey:        #F4F5F6;
+      --bordeaux:    #5C1220;
+      --stone:       #8B8479;
+      --paper:       #FFFFFF;
     }
 
     /* ── Reset ────────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       background: var(--white);
       color: var(--ink);
       min-height: 100vh;
@@ -79,7 +81,7 @@
     .reveal.is-visible { opacity: 1; transform: translateY(0); }
     @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 
-    .serif { font-family: 'Source Serif 4', Georgia, serif; }
+    .serif { font-family: 'Fraunces', Georgia, serif; }
 
     /* ── Layout ───────────────────────────────────────────────── */
     .page-wrap { max-width: 800px; margin: 0 auto; padding: 0 24px; }
@@ -90,7 +92,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 22px 0;
-      border-bottom: 0.5px solid var(--border);
+      border-bottom: 1px solid var(--border-mid);
     }
 
     .site-logo {
@@ -105,11 +107,10 @@
       display: block;
     }
     .site-logo-text {
-      font-family: 'Manrope', sans-serif;
-      font-weight: 800;
-      font-size: 17px;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 600;
+      font-size: 21px;
+      letter-spacing: -0.01em;
       color: var(--forest);
       margin-left: 10px;
       white-space: nowrap;
@@ -117,64 +118,72 @@
 .nav-links { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 10px 22px; }
 
     .nav-links > a {
-      font-size: 15px;
+      font-size: 13px;
       color: var(--muted);
       text-decoration: none;
-      font-weight: 600;
-      transition: color 0.15s;
+      font-weight: 500;
+      letter-spacing: 0.01em; transition: color 0.15s;
     }
 
     .nav-links > a.current { color: var(--forest); }
     .nav-links > a:hover { color: var(--forest); }
 
     a.nav-cta {
-      font-size: 15px;
-      font-weight: 700;
+      font-size: 14px;
+      font-weight: 600;
       letter-spacing: 0.01em;
-      color: #fff;
-      background: var(--forest);
-      border: none;
-      padding: 9px 20px;
+      color: var(--forest);
+      background: transparent;
+      border: 1.5px solid var(--forest);
+      padding: 8px 19px;
       border-radius: 999px;
       white-space: nowrap;
       cursor: pointer;
       text-decoration: none;
-      font-family: 'Manrope', sans-serif;
-      transition: opacity 0.15s;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.15s, color 0.15s;
       display: inline-block;
     }
 
-    .nav-cta:hover { opacity: 0.85; }
+    .nav-cta:hover { background: var(--forest); color: #fff; }
 
     /* ── Hero ─────────────────────────────────────────────────── */
-    .hero { background: var(--sage); padding: 72px 0 40px; text-align: center; }
+    .hero {
+      background: var(--paper);
+      padding: 52px 0 44px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 56px;
+      border-bottom: 1px solid var(--border-mid);
+      text-align: left;
+    }
 
-    .hero-eyebrow {
+    .hero-eyebrow { font-family: 'IBM Plex Mono', monospace;
       font-size: 13px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--mustard-dk);
+      color: var(--mustard);
       font-weight: 700;
       margin-bottom: 18px;
     }
 
     .hero h1 {
-      font-family: 'Manrope', sans-serif;
-      font-weight: 800;
-      font-size: clamp(42px, 7vw, 68px);
-      line-height: 1.12;
-      color: var(--forest);
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(32px, 4vw, 44px);
+      line-height: 1.16;
+      color: var(--ink);
       margin-bottom: 22px;
       letter-spacing: -0.01em;
     }
 
     .hero-sub {
-      font-family: 'Source Serif 4', Georgia, serif;
-      font-size: clamp(21px, 2.4vw, 23px);
-      color: var(--forest-mid);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--muted);
       line-height: 1.65;
-      max-width: 600px;
-      margin: 0 auto 16px;
+      max-width: 46ch;
+      margin: 0 0 16px;
       font-weight: 400;
     }
 
@@ -183,18 +192,55 @@
     .hero-btn-row {
       display: flex;
       gap: 12px;
-      justify-content: center;
+      justify-content: flex-start;
       flex-wrap: wrap;
       margin-top: 20px;
     }
 
     .brand-line {
-      font-family: 'Source Serif 4', Georgia, serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-style: italic;
       font-size: 15px;
       letter-spacing: 0.01em;
-      color: var(--mustard-dk);
+      color: var(--mustard);
       margin-top: 28px;
+    }
+
+    /* ── Decision brief ───────────────────────────────────────── */
+    .brief { border-left: 1px solid var(--border-mid); padding-left: 32px; }
+    .brief-title { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 18px; color: var(--bordeaux); margin: 0 0 16px; }
+    .brief-row { display: flex; gap: 14px; padding: 14px 0; border-top: 1px solid var(--border); font-size: 14px; line-height: 1.55; }
+    .brief-row:first-of-type { border-top: none; }
+    .brief-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.03em; color: var(--stone); padding-top: 2px; min-width: 92px; text-transform: uppercase; }
+    .brief-row span:last-child { color: var(--ink); }
+
+    /* ── Crosspoint state line ────────────────────────────────── */
+    .home-cross {
+      display: flex; align-items: center; flex-wrap: nowrap; gap: 0;
+      padding: 24px 0; border-bottom: 1px solid var(--border-mid);
+      font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.05em; color: var(--stone);
+      overflow-x: auto; -webkit-overflow-scrolling: touch;
+    }
+    .home-cross span { padding: 0 18px 0 0; margin-right: 18px; position: relative; text-transform: uppercase; white-space: nowrap; }
+    .home-cross span.on { color: var(--ink); font-weight: 600; }
+    .home-cross span:not(:last-child)::after { content: '\2192'; position: absolute; right: -22px; color: var(--border-mid); }
+
+    /* ── Evidence grid ─────────────────────────────────────────── */
+    .home-evidence-wrap { padding: 44px 0 0; }
+    .home-ev-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--mustard); text-transform: uppercase; margin-bottom: 22px; }
+    .home-ev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--border-mid); }
+    .home-ev-item { padding: 24px 24px 24px 0; border-right: 1px solid var(--border-mid); }
+    .home-ev-item:last-child { border-right: none; }
+    .home-ev-num { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 16px; color: var(--bordeaux); margin-bottom: 10px; }
+    .home-ev-body { font-size: 13.5px; line-height: 1.6; color: var(--ink); }
+
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; gap: 36px; }
+      .brief { border-left: none; padding-left: 0; border-top: 1px solid var(--border-mid); padding-top: 28px; }
+      .home-ev-grid { grid-template-columns: 1fr; }
+      .home-ev-item { border-right: none; border-bottom: 1px solid var(--border-mid); }
+      .home-cross span { margin-right: 12px; }
+      .home-cross span:not(:last-child)::after { right: -16px; }
     }
 
     /* ── Buttons ──────────────────────────────────────────────── */
@@ -202,7 +248,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 15px;
       font-weight: 700;
       letter-spacing: 0.01em;
@@ -227,19 +273,19 @@
     .section { padding: 56px 0; border-top: 0.5px solid var(--border); }
     .section:first-of-type { border-top: none; }
 
-    .section-label {
+    .section-label { font-family: 'IBM Plex Mono', monospace;
       font-size: 13px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--mustard-dk);
+      color: var(--mustard);
       font-weight: 700;
       margin-bottom: 14px;
       text-align: center;
     }
 
     .section h2 {
-      font-family: 'Manrope', sans-serif;
-      font-weight: 700;
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 500;
       font-size: clamp(34px, 4.6vw, 46px);
       color: var(--forest);
       text-align: center;
@@ -248,7 +294,7 @@
     }
 
     .section h3 {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-weight: 600;
       font-size: clamp(24px, 2.8vw, 28px);
       color: var(--forest);
@@ -268,7 +314,7 @@
 
     /* ── Lead / narrative paragraph ──────────────────────────── */
     .lead {
-      font-family: 'Source Serif 4', Georgia, serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: clamp(18px, 2.2vw, 20px);
       line-height: 1.75;
       color: var(--forest-mid);
@@ -282,12 +328,12 @@
     /* ── Pull-quote block ─────────────────────────────────────── */
     .pullquote-block {
       background: var(--forest);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius);
       padding: 40px 36px;
       text-align: center;
     }
 
-    .pullquote-block .pq-label {
+    .pullquote-block .pq-label { font-family: 'IBM Plex Mono', monospace;
       font-size: 10px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -297,7 +343,7 @@
     }
 
     .pullquote-block p {
-      font-family: 'Source Serif 4', Georgia, serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-style: italic;
       font-size: clamp(19px, 3vw, 24px);
       line-height: 1.55;
@@ -307,12 +353,12 @@
     }
 
     .pullquote-block .pq-lead { font-weight: 700; margin-bottom: 16px; }
-    .pullquote-block .pq-support { font-style: normal; font-size: clamp(15px, 1.8vw, 17px); color: var(--sage); max-width: 620px; }
+    .pullquote-block .pq-support { font-style: normal; font-size: clamp(15px, 1.8vw, 17px); color: rgba(255,255,255,0.75); max-width: 620px; }
 
-    .method-question { background: var(--grey); border-radius: var(--radius-lg); padding: 24px 28px; text-align: center; max-width: 680px; margin: 22px auto 0; }
-    .method-question p { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: clamp(19px, 2.6vw, 24px); color: var(--forest); line-height: 1.35; margin: 0; }
-    .method-tagline { text-align: center; font-family: 'Manrope', sans-serif; font-weight: 800; font-size: clamp(15px, 2vw, 17px); letter-spacing: 0.02em; color: var(--forest); margin-top: 26px; }
-    .method-tagline span { color: var(--mustard-dk); margin: 0 6px; }
+    .method-question { background: var(--grey); border-radius: var(--radius); padding: 24px 28px; text-align: center; max-width: 680px; margin: 22px auto 0; }
+    .method-question p { font-family: 'Inter', sans-serif; font-weight: 800; font-size: clamp(19px, 2.6vw, 24px); color: var(--forest); line-height: 1.35; margin: 0; }
+    .method-tagline { text-align: center; font-family: 'Inter', sans-serif; font-weight: 800; font-size: clamp(15px, 2vw, 17px); letter-spacing: 0.02em; color: var(--forest); margin-top: 26px; }
+    .method-tagline span { color: var(--mustard); margin: 0 6px; }
 
     /* ── Before / after transformation ───────────────────────── */
     .transform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -322,13 +368,13 @@
     .transform-col {
       background: var(--grey);
       border: 0.5px solid var(--border-mid);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius);
       padding: 26px 26px 28px;
     }
 
     .transform-col.after { background: var(--grey); }
 
-    .transform-col .tc-label {
+    .transform-col .tc-label { font-family: 'IBM Plex Mono', monospace;
       font-size: 11px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -337,7 +383,7 @@
       margin-bottom: 16px;
     }
 
-    .transform-col.after .tc-label { color: var(--mustard-dk); }
+    .transform-col.after .tc-label { font-family: 'IBM Plex Mono', monospace; color: var(--mustard); }
 
     .transform-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
 
@@ -351,7 +397,7 @@
     }
 
     .transform-col.before li::before { content: '–'; position: absolute; left: 0; color: var(--muted-light); }
-    .transform-col.after li::before { content: '→'; position: absolute; left: 0; color: var(--mustard-dk); }
+    .transform-col.after li::before { content: '→'; position: absolute; left: 0; color: var(--mustard); }
 
     /* ── Services grid ─────────────────────────────────────────── */
     .service-grid { display: flex; flex-direction: column; gap: 12px; }
@@ -363,7 +409,7 @@
       gap: 20px;
       background: var(--grey);
       border: 0.5px solid var(--border-mid);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius);
       padding: 20px 24px;
       text-decoration: none;
       transition: border-color 0.15s, box-shadow 0.15s, transform 0.1s;
@@ -386,7 +432,7 @@
       font-weight: 500;
     }
 
-    .service-row .sr-arrow { color: var(--mustard-dk); font-weight: 700; flex-shrink: 0; }
+    .service-row .sr-arrow { color: var(--mustard); font-weight: 700; flex-shrink: 0; }
 
     @media (max-width: 560px) {
       .service-row { flex-direction: column; align-items: flex-start; gap: 10px; }
@@ -396,22 +442,22 @@
     .flow-callout {
       background: var(--grey);
       border: 0.5px solid var(--border-mid);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius);
       padding: 22px 26px;
       margin: 22px 0;
     }
 
-    .flow-callout .fc-label {
+    .flow-callout .fc-label { font-family: 'IBM Plex Mono', monospace;
       font-size: 10px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--mustard-dk);
+      color: var(--mustard);
       font-weight: 700;
       margin-bottom: 10px;
     }
 
     .flow-callout p {
-      font-family: 'Source Serif 4', Georgia, serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: 16px;
       color: var(--forest-mid);
       line-height: 1.6;
@@ -438,7 +484,7 @@
       border-radius: 50%;
       object-fit: cover;
       border: 2px solid var(--grey);
-      box-shadow: var(--shadow);
+      box-shadow: 0 2px 24px rgba(23,63,53,0.08);
     }
 
     .leader-strip .ls-name { font-size: 15px; font-weight: 700; color: var(--forest); }
@@ -451,7 +497,7 @@
       gap: 1px;
       background: var(--border-mid);
       border: 0.5px solid var(--border-mid);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius);
       overflow: hidden;
       margin-top: 28px;
     }
@@ -495,7 +541,7 @@
     @media (max-width: 480px) { .work-grid { grid-template-columns: 1fr; } }
 
     .work-card {
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius);
       overflow: hidden;
       border: 0.5px solid var(--border-mid);
       background: var(--grey);
@@ -516,7 +562,7 @@
     .work-card .wc-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
 
     .work-card.wc-text .wc-body { padding: 22px 18px; min-height: 100%; }
-    .work-card.wc-text .wc-eyebrow { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mustard-dk); font-weight: 700; margin-bottom: 12px; }
+    .work-card.wc-text .wc-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mustard); font-weight: 700; margin-bottom: 12px; }
     .work-card.wc-text .wc-title { font-size: 15px; margin-bottom: 8px; }
     .work-card.wc-text .wc-desc { font-size: 12px; }
 
@@ -528,7 +574,7 @@
     .mode-card {
       background: var(--grey);
       border: 0.5px solid var(--border-mid);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius);
       padding: 26px 24px;
       text-align: left;
       text-decoration: none;
@@ -539,11 +585,11 @@
 
     .mode-card:hover { border-color: var(--mustard); box-shadow: var(--shadow-lg); transform: translateY(-2px); }
 
-    .mode-card .mc-eyebrow {
+    .mode-card .mc-eyebrow { font-family: 'IBM Plex Mono', monospace;
       font-size: 10px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--mustard-dk);
+      color: var(--mustard);
       font-weight: 700;
       margin-bottom: 10px;
     }
@@ -568,13 +614,13 @@
       padding-top: 12px;
     }
 
-    .mode-card .mc-arrow { color: var(--mustard-dk); font-weight: 700; }
+    .mode-card .mc-arrow { color: var(--mustard); font-weight: 700; }
 
     /* ── Closing CTA ──────────────────────────────────────────── */
     .cta-block {
-      background: var(--sage);
+      background: var(--paper);
       border: 0.5px solid var(--border-mid);
-      border-radius: var(--radius-lg);
+      border-radius: 0;
       padding: 40px 32px;
       text-align: center;
     }
@@ -587,7 +633,7 @@
     }
 
     .cta-block p {
-      font-family: 'Source Serif 4', Georgia, serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: 17px;
       color: var(--forest-mid);
       line-height: 1.6;
@@ -611,7 +657,7 @@
       gap: 12px;
     }
 
-    .footer-logo { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 15px; color: var(--muted); }
+    .footer-logo { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px; color: var(--muted); }
     .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
     .footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.15s; }
     .footer-links a:hover { color: var(--forest); }
@@ -620,6 +666,8 @@
     .footer-address a:hover { color: var(--forest); }
 
     @media (max-width: 600px) {
+      .site-nav { flex-wrap: wrap; row-gap: 14px; }
+      .nav-links { width: 100%; justify-content: flex-start; }
       .btn { white-space: normal; text-align: center; }
       .hero { padding: 48px 0 32px; }
       .section { padding: 40px 0; }
@@ -637,7 +685,7 @@
     "alternateName": "XL",
     "url": "https://xluxemarketing.com/",
     "description": "XL Marketing Services is a strategic marketing and growth consultancy that helps founders, CEOs and marketing leaders improve positioning, go-to-market strategy, B2B growth and AI visibility through evidence-led marketing consulting.",
-    "logo": "https://xluxemarketing.com/images/xl-mark-gold-cropped.png",
+    "logo": "https://xluxemarketing.com/images/xl-mark-forest.png",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Building A1, Dubai Digital Park, Dubai Silicon Oasis",
@@ -675,7 +723,7 @@
 
     <!-- ── Navigation ─────────────────────────────────────────── -->
     <nav class="site-nav">
-      <a href="/" class="site-logo"><img src="images/xl-mark-gold-cropped.png" alt="" width="32" height="32"><span class="site-logo-text">XL Marketing</span></a>
+      <a href="/" class="site-logo"><img src="images/xl-mark-forest.png" alt="" width="32" height="32"><span class="site-logo-text">XL Marketing</span></a>
       <div class="nav-links">
         <a href="/services">Services</a>
         <a href="/decision-led-growth">Marketing Decision-Led Growth</a>
@@ -690,15 +738,38 @@
 
     <!-- ── Hero ───────────────────────────────────────────────── -->
     <div class="hero">
-      <div class="hero-eyebrow">Strategic Marketing and Growth Consultancy</div>
-      <h1>When marketing is busy but growth is unclear, start with better evidence.</h1>
-      <p class="hero-sub">XL helps founders, CEOs and marketing leaders understand their markets, sharpen their positioning and make more confident choices about where to compete, how to create demand and what to prioritise next.</p>
-      <p class="hero-sub">From brand positioning and product marketing to B2B growth, account-based engagement and AI search visibility, we connect market intelligence, behavioural understanding and commercial strategy in one coherent direction.</p>
-      <div class="hero-btn-row">
-        <a href="/contact" class="btn btn-gold">Book a strategy call</a>
-        <a href="/ai-visibility-audit" class="btn btn-ghost">Take the free diagnostic</a>
+      <div>
+        <div class="hero-eyebrow">Strategic Marketing and Growth Consultancy</div>
+        <h1>When marketing is busy but growth is unclear, start with better evidence.</h1>
+        <p class="hero-sub">XL helps founders, CEOs and marketing leaders understand their markets, sharpen their positioning and make more confident choices about where to compete, how to create demand and what to prioritise next.</p>
+        <p class="hero-sub">From brand positioning and product marketing to B2B growth, account-based engagement and AI search visibility, we connect market intelligence, behavioural understanding and commercial strategy in one coherent direction.</p>
+        <div class="hero-btn-row">
+          <a href="/contact" class="btn btn-gold">Book a strategy call</a>
+          <a href="/ai-visibility-audit" class="btn btn-ghost">Take the free diagnostic</a>
+        </div>
+        <p class="brand-line">Decisions That Compound.</p>
       </div>
-      <p class="brand-line">Decisions That Compound.</p>
+      <div class="brief">
+        <p class="brief-title">The decision brief</p>
+        <div class="brief-row"><span class="brief-tag">Unresolved</span><span>Which growth decision is being delayed while more marketing activity fills the gap.</span></div>
+        <div class="brief-row"><span class="brief-tag">XL examines</span><span>Market evidence, buyer behaviour and where current activity is compensating for an unmade decision.</span></div>
+        <div class="brief-row"><span class="brief-tag">Becomes possible</span><span>A decision made with evidence you can defend — and marketing built to compound from it.</span></div>
+      </div>
+    </div>
+
+    <!-- ── Crosspoint state line ──────────────────────────────── -->
+    <div class="home-cross">
+      <span class="on">Understand</span><span>Decide</span><span>Design</span><span>Learn</span>
+    </div>
+
+    <!-- ── Commercial evidence ──────────────────────────────────── -->
+    <div class="home-evidence-wrap">
+      <p class="home-ev-label">Commercial evidence</p>
+      <div class="home-ev-grid">
+        <div class="home-ev-item"><p class="home-ev-num">01</p><p class="home-ev-body">Marketing-generated pipeline contributed to 30% year-on-year gross-profit growth for Vodacom Business Africa.</p></div>
+        <div class="home-ev-item"><p class="home-ev-num">02</p><p class="home-ev-body">Xplora Luxe's partner network was built from zero to more than 100 partners.</p></div>
+        <div class="home-ev-item"><p class="home-ev-num">03</p><p class="home-ev-body">Selected among the top 33 start-ups from approximately 500 Eureka GCC submissions.</p></div>
+      </div>
     </div>
 
     <!-- ── Governing belief ──────────────────────────────────────── -->
@@ -981,7 +1052,7 @@
           <a href="/contact" class="btn btn-gold">Book a strategy call</a>
           <a href="/ai-visibility-audit" class="btn btn-ghost">Take the free diagnostic</a>
         </div>
-        <p style="font-size:12px; color:var(--muted); margin-top:20px; margin-bottom:0">Prefer email? Write to <a href="mailto:support@xploraluxe.com" style="color:var(--mustard-dk)">support@xploraluxe.com</a>. Pearl M may also be contacted directly at <a href="mailto:pearl.m@xploraluxe.com" style="color:var(--mustard-dk)">pearl.m@xploraluxe.com</a>.</p>
+        <p style="font-size:12px; color:var(--muted); margin-top:20px; margin-bottom:0">Prefer email? Write to <a href="mailto:support@xploraluxe.com" style="color:var(--mustard)">support@xploraluxe.com</a>. Pearl M may also be contacted directly at <a href="mailto:pearl.m@xploraluxe.com" style="color:var(--mustard)">pearl.m@xploraluxe.com</a>.</p>
       </div>
     </div>
 

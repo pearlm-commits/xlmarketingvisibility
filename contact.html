@@ -26,31 +26,34 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet" /></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" /></noscript>
 
   <style>
     :root {
       --white: #FFFFFF; --ivory: #FFFBF1; --ivory-mid: #F6EEDD; --sage: #DCE8DD;
-      --mustard: #D9A928; --mustard-lt: #F3E6B8; --mustard-dk: #8A6500; --ember: #B83A2D; --ember-dark: #922A20;
-      --forest: #173F35; --forest-mid: #245847; --ink: #102A24;
+      --mustard: #A08F5C; --mustard-lt: #F3E6B8; --mustard-dk: #8A6500; --ember: #C1442A; --ember-dark: #922A20;
+      --forest: #1E3D2B; --forest-mid: #245847; --ink: #14110F;
       --muted: #5B625D; --muted-light: #94988D;
       --border: rgba(216,205,184,0.4); --border-mid: #D8CDB8;
-      --focus: #D9A928; --focus-offset: #FFFBF1;
-      --shadow: 0 2px 24px rgba(23,63,53,0.08); --shadow-lg: 0 8px 48px rgba(23,63,53,0.14);
-      --radius: 6px; --radius-lg: 12px;
+      --focus: #A08F5C; --focus-offset: #FFFBF1;
+      --shadow: 0 0 0 1px var(--stone); --shadow-lg: 0 0 0 1px var(--stone);
+      --radius: 0;
       --grey:        #F4F5F6;
+      --bordeaux:    #5C1220;
+      --stone:       #8B8479;
+      --paper:       #FFFFFF;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Manrope', sans-serif; background: var(--white); color: var(--ink); min-height: 100vh; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--ink); min-height: 100vh; -webkit-font-smoothing: antialiased; }
     :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
-    .serif { font-family: 'Source Serif 4', Georgia, serif; }
+    .serif { font-family: 'Fraunces', Georgia, serif; }
     .page-wrap { max-width: 700px; margin: 0 auto; padding: 0 24px; }
 
-    .site-nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; border-bottom: 0.5px solid var(--border); }
+    .site-nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; border-bottom: 1px solid var(--border-mid); }
     .site-logo {
       display: inline-flex;
       align-items: center;
@@ -63,35 +66,45 @@
       display: block;
     }
     .site-logo-text {
-      font-family: 'Manrope', sans-serif;
-      font-weight: 800;
-      font-size: 17px;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 600;
+      font-size: 21px;
+      letter-spacing: -0.01em;
       color: var(--forest);
       margin-left: 10px;
       white-space: nowrap;
     }
 .nav-links { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 10px 22px; }
-    .nav-links > a { font-size: 15px; color: var(--muted); text-decoration: none; font-weight: 600; transition: color 0.15s; }
+    .nav-links > a { font-size: 13px; color: var(--muted); text-decoration: none; font-weight: 500; letter-spacing: 0.01em; transition: color 0.15s; }
     .nav-links > a.current { color: var(--forest); }
     .nav-links > a:hover { color: var(--forest); }
     a.nav-cta {
-      font-size: 15px; font-weight: 700; color: #fff; background: var(--forest); border: none;
-      padding: 9px 20px; border-radius: 999px; white-space: nowrap; cursor: pointer; text-decoration: none;
-      font-family: 'Manrope', sans-serif; transition: opacity 0.15s; display: inline-block;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: var(--forest);
+      background: transparent;
+      border: 1.5px solid var(--forest);
+      padding: 8px 19px;
+      border-radius: 999px;
+      white-space: nowrap;
+      cursor: pointer;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.15s, color 0.15s;
+      display: inline-block;
     }
-    .nav-cta:hover { opacity: 0.85; }
+    .nav-cta:hover { background: var(--forest); color: #fff; }
 
-    .hero { background: var(--sage); padding: 56px 0 8px; text-align: center; }
-    .hero-eyebrow { font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mustard-dk); font-weight: 700; margin-bottom: 18px; }
-    .hero h1 { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: clamp(42px, 6.4vw, 60px); line-height: 1.15; color: var(--forest); margin-bottom: 18px; }
-    .hero-sub { font-family: 'Source Serif 4', Georgia, serif; font-size: clamp(21px, 2.4vw, 23px); color: var(--forest-mid); line-height: 1.7; max-width: 560px; margin: 0 auto; }
+    .hero { background: var(--paper); padding: 56px 0 8px; text-align: center; border-bottom: 1px solid var(--border-mid);}
+    .hero-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mustard); font-weight: 700; margin-bottom: 18px; }
+    .hero h1 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(42px, 6.4vw, 60px); line-height: 1.15; color: var(--forest); margin-bottom: 18px; }
+    .hero-sub { font-family: 'Fraunces', Georgia, serif; font-size: clamp(21px, 2.4vw, 23px); color: var(--forest-mid); line-height: 1.7; max-width: 560px; margin: 0 auto; }
 
     .form-card {
       background: var(--grey);
       border: 0.5px solid var(--border-mid);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius);
       padding: 36px 32px;
       margin: 40px 0 24px;
     }
@@ -105,7 +118,7 @@
     label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
 
     input, select, textarea {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 14px;
       color: var(--ink);
       background: var(--white);
@@ -119,7 +132,7 @@
 
     input:focus, select:focus, textarea:focus { border-color: var(--mustard); }
     input::placeholder, textarea::placeholder { color: var(--muted-light); }
-    textarea { resize: vertical; min-height: 96px; font-family: 'Manrope', sans-serif; }
+    textarea { resize: vertical; min-height: 96px; font-family: 'Inter', sans-serif; }
 
     select {
       appearance: none;
@@ -131,7 +144,7 @@
     }
 
     .btn {
-      display: inline-flex; align-items: center; gap: 8px; font-family: 'Manrope', sans-serif; font-size: 15px;
+      display: inline-flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-size: 15px;
       font-weight: 700; padding: 13px 28px; border-radius: 999px; white-space: nowrap; cursor: pointer;
       transition: opacity 0.15s, transform 0.1s; border: none; text-decoration: none;
     }
@@ -148,7 +161,7 @@
       display: none;
       background: var(--grey);
       border: 0.5px solid var(--border-mid);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius);
       padding: 28px;
       text-align: center;
       margin: 40px 0;
@@ -156,7 +169,7 @@
 
     .success-banner.show { display: block; }
     .success-banner h2 { font-size: 20px; font-weight: 800; color: var(--forest); margin-bottom: 8px; }
-    .success-banner p { font-family: 'Source Serif 4', Georgia, serif; font-size: 15px; color: var(--forest-mid); }
+    .success-banner p { font-family: 'Fraunces', Georgia, serif; font-size: 15px; color: var(--forest-mid); }
 
     .direct-line {
       text-align: center;
@@ -165,7 +178,7 @@
       margin-bottom: 16px;
     }
 
-    .direct-line a { color: var(--mustard-dk); text-decoration: none; font-weight: 600; }
+    .direct-line a { color: var(--mustard); text-decoration: none; font-weight: 600; }
     .direct-line a:hover { text-decoration: underline; }
 
     .contact-direct {
@@ -174,19 +187,19 @@
       gap: 14px;
       background: var(--grey);
       border: 0.5px solid var(--border-mid);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius);
       padding: 24px 28px;
       margin: 0 0 40px;
     }
 
     .contact-direct-item { display: flex; flex-direction: column; gap: 2px; text-align: center; }
-    .cd-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mustard-dk); font-weight: 700; }
+    .cd-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mustard); font-weight: 700; }
     .cd-value { font-size: 14px; color: var(--ink); font-weight: 500; }
     a.cd-value { color: var(--forest); font-weight: 700; text-decoration: none; }
     a.cd-value:hover { text-decoration: underline; }
 
     .site-footer { border-top: 0.5px solid var(--border); margin-top: 8px; padding: 24px 0 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-    .footer-logo { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 15px; color: var(--muted); }
+    .footer-logo { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px; color: var(--muted); }
     .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
     .footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.15s; }
     .footer-links a:hover { color: var(--forest); }
@@ -195,6 +208,8 @@
     .footer-address a:hover { color: var(--forest); }
 
     @media (max-width: 600px) {
+      .site-nav { flex-wrap: wrap; row-gap: 14px; }
+      .nav-links { width: 100%; justify-content: flex-start; }
       .btn { white-space: normal; text-align: center; }
       .hero { padding: 40px 0 8px; }
       .form-card { padding: 26px 20px; }
@@ -206,7 +221,7 @@
   <div class="page-wrap">
 
     <nav class="site-nav">
-      <a href="/" class="site-logo"><img src="images/xl-mark-gold-cropped.png" alt="" width="32" height="32"><span class="site-logo-text">XL Marketing</span></a>
+      <a href="/" class="site-logo"><img src="images/xl-mark-forest.png" alt="" width="32" height="32"><span class="site-logo-text">XL Marketing</span></a>
       <div class="nav-links">
         <a href="/services">Services</a>
         <a href="/decision-led-growth">Marketing Decision-Led Growth</a>

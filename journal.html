@@ -26,9 +26,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet" /></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" /></noscript>
 
   <style>
     /* ── Brand tokens ─────────────────────────────────────────── */
@@ -37,32 +37,34 @@
       --ivory:       #FFFBF1;
       --ivory-mid:   #F6EEDD;
       --sage:        #DCE8DD;
-      --mustard:     #D9A928;
+      --mustard:     #A08F5C;
       --mustard-lt:  #F3E6B8;
       --mustard-dk:  #8A6500;
-      --ember:       #B83A2D;
+      --ember:       #C1442A;
       --ember-dark:  #922A20;
-      --forest:      #173F35;
+      --forest:      #1E3D2B;
       --forest-mid:  #245847;
-      --ink:         #102A24;
+      --ink:         #14110F;
       --muted:       #5B625D;
       --muted-light: #94988D;
       --border:      rgba(216,205,184,0.4);
       --border-mid:  #D8CDB8;
-      --focus:       #D9A928;
+      --focus:       #A08F5C;
       --focus-offset:#FFFBF1;
-      --shadow:      0 2px 24px rgba(23,63,53,0.08);
-      --shadow-lg:   0 8px 48px rgba(23,63,53,0.14);
-      --radius:      6px;
-      --radius-lg:   12px;
+      --shadow:      0 0 0 1px var(--stone);
+      --shadow-lg:   0 0 0 1px var(--stone);
+      --radius:      0;
       --grey:        #F4F5F6;
+      --bordeaux:    #5C1220;
+      --stone:       #8B8479;
+      --paper:       #FFFFFF;
     }
 
     /* ── Reset ────────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       background: var(--white);
       color: var(--ink);
       min-height: 100vh;
@@ -79,7 +81,7 @@
     .reveal.is-visible { opacity: 1; transform: translateY(0); }
     @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 
-    .serif { font-family: 'Source Serif 4', Georgia, serif; }
+    .serif { font-family: 'Fraunces', Georgia, serif; }
 
     /* ── Layout ───────────────────────────────────────────────── */
     .page-wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
@@ -90,7 +92,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 22px 0;
-      border-bottom: 0.5px solid var(--border);
+      border-bottom: 1px solid var(--border-mid);
     }
 
     .site-logo {
@@ -105,11 +107,10 @@
       display: block;
     }
     .site-logo-text {
-      font-family: 'Manrope', sans-serif;
-      font-weight: 800;
-      font-size: 17px;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 600;
+      font-size: 21px;
+      letter-spacing: -0.01em;
       color: var(--forest);
       margin-left: 10px;
       white-space: nowrap;
@@ -117,42 +118,43 @@
 .nav-links { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 10px 22px; }
 
     .nav-links > a {
-      font-size: 15px;
+      font-size: 13px;
       color: var(--muted);
       text-decoration: none;
-      font-weight: 600;
-      transition: color 0.15s;
+      font-weight: 500;
+      letter-spacing: 0.01em; transition: color 0.15s;
     }
 
     .nav-links > a.current { color: var(--forest); }
     .nav-links > a:hover { color: var(--forest); }
 
     a.nav-cta {
-      font-size: 15px;
-      font-weight: 700;
-      color: #fff;
-      background: var(--forest);
-      border: none;
-      padding: 9px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: var(--forest);
+      background: transparent;
+      border: 1.5px solid var(--forest);
+      padding: 8px 19px;
       border-radius: 999px;
       white-space: nowrap;
       cursor: pointer;
       text-decoration: none;
-      font-family: 'Manrope', sans-serif;
-      transition: opacity 0.15s;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.15s, color 0.15s;
       display: inline-block;
     }
 
-    .nav-cta:hover { opacity: 0.85; }
+    .nav-cta:hover { background: var(--forest); color: #fff; }
 
     /* ── Masthead ─────────────────────────────────────────────── */
-    .masthead { text-align: center; padding: 60px 0 8px; background: var(--sage); }
+    .masthead { text-align: center; padding: 60px 0 8px; background: var(--paper); border-bottom: 1px solid var(--border-mid);}
 
-    .masthead-eyebrow {
+    .masthead-eyebrow { font-family: 'IBM Plex Mono', monospace;
       font-size: 13px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--mustard-dk);
+      color: var(--mustard);
       font-weight: 700;
       margin-bottom: 18px;
     }
@@ -165,26 +167,26 @@
     }
 
     .masthead h1 {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: clamp(42px, 7vw, 68px);
-      font-weight: 800;
+      font-weight: 500;
       line-height: 1.12;
       color: var(--forest);
       letter-spacing: -0.01em;
     }
 
     .masthead .tagline {
-      font-family: 'Source Serif 4', Georgia, serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-style: italic;
       font-size: 20px;
-      color: var(--mustard-dk);
+      color: var(--mustard);
       margin-top: 10px;
     }
 
     .masthead-rule.bottom { margin: 22px auto 0; }
 
     .masthead-intro {
-      font-family: 'Source Serif 4', Georgia, serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: clamp(18px, 2.2vw, 20px);
       color: var(--forest-mid);
       line-height: 1.75;
@@ -205,7 +207,7 @@
       display: block;
       background: var(--grey);
       border: 0.5px solid var(--border-mid);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius);
       padding: 28px 30px;
       text-decoration: none;
       transition: border-color 0.15s, box-shadow 0.15s, transform 0.1s;
@@ -226,7 +228,7 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       font-weight: 700;
-      color: var(--mustard-dk);
+      color: var(--mustard);
       border: 0.5px solid var(--border-mid);
       padding: 4px 10px;
       border-radius: 100px;
@@ -235,7 +237,7 @@
     .entry-date { font-size: 12px; color: var(--muted); font-weight: 500; }
 
     .entry-card h3 {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 22px;
       font-weight: 700;
       color: var(--forest);
@@ -244,7 +246,7 @@
     }
 
     .entry-card .dek {
-      font-family: 'Source Serif 4', Georgia, serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: 16px;
       color: var(--forest-mid);
       line-height: 1.65;
@@ -253,7 +255,7 @@
 
     .entry-read {
       font-size: 13px;
-      color: var(--mustard-dk);
+      color: var(--mustard);
       font-weight: 700;
     }
 
@@ -277,7 +279,7 @@
       gap: 12px;
     }
 
-    .footer-logo { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 15px; color: var(--muted); }
+    .footer-logo { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px; color: var(--muted); }
     .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
     .footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.15s; }
     .footer-links a:hover { color: var(--forest); }
@@ -286,6 +288,8 @@
     .footer-address a:hover { color: var(--forest); }
 
     @media (max-width: 600px) {
+      .site-nav { flex-wrap: wrap; row-gap: 14px; }
+      .nav-links { width: 100%; justify-content: flex-start; }
       .btn { white-space: normal; text-align: center; }
       .masthead { padding: 40px 0 8px; }
       .entry-card { padding: 22px 20px; }
@@ -314,7 +318,7 @@
 
     <!-- ── Navigation ─────────────────────────────────────────── -->
     <nav class="site-nav">
-      <a href="/" class="site-logo"><img src="images/xl-mark-gold-cropped.png" alt="" width="32" height="32"><span class="site-logo-text">XL Marketing</span></a>
+      <a href="/" class="site-logo"><img src="images/xl-mark-forest.png" alt="" width="32" height="32"><span class="site-logo-text">XL Marketing</span></a>
       <div class="nav-links">
         <a href="/services">Services</a>
         <a href="/decision-led-growth">Marketing Decision-Led Growth</a>

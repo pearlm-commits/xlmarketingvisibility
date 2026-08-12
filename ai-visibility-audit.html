@@ -66,9 +66,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet" /></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" /></noscript>
 
   <style>
     /* ── Brand tokens ─────────────────────────────────────────── */
@@ -77,32 +77,34 @@
       --ivory:       #FFFBF1;
       --ivory-mid:   #F6EEDD;
       --sage:        #DCE8DD;
-      --mustard:     #D9A928;
+      --mustard:     #A08F5C;
       --mustard-lt:  #F3E6B8;
       --mustard-dk:  #8A6500;
-      --ember:       #B83A2D;
+      --ember:       #C1442A;
       --ember-dark:  #922A20;
-      --forest:      #173F35;
+      --forest:      #1E3D2B;
       --forest-mid:  #245847;
-      --ink:         #102A24;
+      --ink:         #14110F;
       --muted:       #5B625D;
       --muted-light: #94988D;
       --border:      rgba(216,205,184,0.4);
       --border-mid:  #D8CDB8;
-      --focus:       #D9A928;
+      --focus:       #A08F5C;
       --focus-offset:#FFFBF1;
-      --shadow:      0 2px 24px rgba(23,63,53,0.08);
-      --shadow-lg:   0 8px 48px rgba(23,63,53,0.14);
-      --radius:      6px;
-      --radius-lg:   12px;
+      --shadow:      0 0 0 1px var(--stone);
+      --shadow-lg:   0 0 0 1px var(--stone);
+      --radius:      0;
       --grey:        #F4F5F6;
+      --bordeaux:    #5C1220;
+      --stone:       #8B8479;
+      --paper:       #FFFFFF;
     }
 
     /* ── Reset ────────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       background: var(--white);
       color: var(--ink);
       min-height: 100vh;
@@ -115,7 +117,7 @@
     }
 
     /* ── Typography ───────────────────────────────────────────── */
-    .serif { font-family: 'Source Serif 4', Georgia, serif; }
+    .serif { font-family: 'Fraunces', Georgia, serif; }
 
     /* ── Layout ───────────────────────────────────────────────── */
     .page-wrap {
@@ -130,7 +132,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 22px 0;
-      border-bottom: 0.5px solid var(--border);
+      border-bottom: 1px solid var(--border-mid);
     }
 
     .site-logo {
@@ -145,11 +147,10 @@
       display: block;
     }
     .site-logo-text {
-      font-family: 'Manrope', sans-serif;
-      font-weight: 800;
-      font-size: 17px;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 600;
+      font-size: 21px;
+      letter-spacing: -0.01em;
       color: var(--forest);
       margin-left: 10px;
       white-space: nowrap;
@@ -163,44 +164,44 @@
     }
 
     .nav-links > a {
-      font-size: 15px;
+      font-size: 13px;
       color: var(--muted);
       text-decoration: none;
-      font-weight: 600;
-      transition: color 0.15s;
+      font-weight: 500;
+      letter-spacing: 0.01em; transition: color 0.15s;
     }
 
     .nav-links > a:hover { color: var(--forest); }
 
     .site-nav .nav-cta {
-      font-size: 15px;
-      font-weight: 700;
+      font-size: 14px;
+      font-weight: 600;
       letter-spacing: 0.01em;
-      color: #fff;
-      background: var(--forest);
-      border: none;
-      padding: 9px 20px;
+      color: var(--forest);
+      background: transparent;
+      border: 1.5px solid var(--forest);
+      padding: 8px 19px;
       border-radius: 999px;
       white-space: nowrap;
       cursor: pointer;
       text-decoration: none;
-      font-family: 'Manrope', sans-serif;
-      transition: opacity 0.15s;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.15s, color 0.15s;
+      display: inline-block;
     }
 
-    .nav-cta:hover { opacity: 0.85; }
+    .nav-cta:hover { background: var(--forest); color: #fff; }
 
     /* ── Hero ─────────────────────────────────────────────────── */
-    .hero { background: var(--sage);
+    .hero { background: var(--paper);
       padding: 64px 0 48px;
-      text-align: center;
-    }
+      text-align: center; border-bottom: 1px solid var(--border-mid);}
 
-    .hero-eyebrow {
+    .hero-eyebrow { font-family: 'IBM Plex Mono', monospace;
       font-size: 13px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--mustard-dk);
+      color: var(--mustard);
       font-weight: 700;
       margin-bottom: 18px;
     }
@@ -210,9 +211,9 @@
        since they're only reachable after a user interaction, not on
        initial load. All three share this class so styling stays identical. */
     .hero-title {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: clamp(42px, 7vw, 64px);
-      font-weight: 800;
+      font-weight: 500;
       line-height: 1.15;
       color: var(--forest);
       margin-bottom: 20px;
@@ -220,9 +221,9 @@
     }
 
     .hero-title em {
-      font-family: 'Source Serif 4', Georgia, serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-style: italic;
-      color: var(--mustard-dk);
+      color: var(--mustard);
     }
 
     .hero-sub {
@@ -247,14 +248,14 @@
     }
 
     .hero-stat .hs-num {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 28px;
       font-weight: 700;
       color: var(--forest);
       line-height: 1;
     }
 
-    .hero-stat .hs-label {
+    .hero-stat .hs-label { font-family: 'IBM Plex Mono', monospace;
       font-size: 11px;
       color: var(--muted);
       margin-top: 4px;
@@ -272,7 +273,7 @@
     .card {
       background: var(--grey);
       border: 0.5px solid var(--border-mid);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius);
       padding: 32px;
       box-shadow: var(--shadow);
     }
@@ -314,7 +315,7 @@
     }
 
     input, select {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 14px;
       color: var(--forest);
       background: var(--white);
@@ -355,7 +356,7 @@
       height: 16px;
       flex-shrink: 0;
       margin-top: 1px;
-      accent-color: var(--mustard-dk);
+      accent-color: var(--mustard);
       cursor: pointer;
     }
 
@@ -370,7 +371,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 15px;
       font-weight: 700;
       letter-spacing: 0.01em;
@@ -433,14 +434,14 @@
     .progress-track {
       height: 2px;
       background: var(--grey);
-      border-radius: 2px;
+      border-radius: var(--radius);
       overflow: hidden;
     }
 
     .progress-fill {
       height: 100%;
       background: var(--mustard);
-      border-radius: 2px;
+      border-radius: var(--radius);
       transition: width 0.4s ease;
     }
 
@@ -468,7 +469,7 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
     }
 
     .lever-pill span {
@@ -481,7 +482,7 @@
 
     /* ── Question ─────────────────────────────────────────────── */
     .question-text {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 22px;
       font-weight: 700;
       color: var(--forest);
@@ -517,7 +518,7 @@
       border-radius: var(--radius);
       cursor: pointer;
       text-align: left;
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 14px;
       color: var(--forest);
       line-height: 1.5;
@@ -531,7 +532,7 @@
     }
 
     .opt-btn.selected {
-      border-color: var(--mustard-dk);
+      border-color: var(--mustard);
       background: #fff;
     }
 
@@ -549,8 +550,8 @@
     }
 
     .opt-btn.selected .opt-indicator {
-      background: var(--mustard-dk);
-      border-color: var(--mustard-dk);
+      background: var(--mustard);
+      border-color: var(--mustard);
     }
 
     .opt-btn.selected .opt-indicator::after {
@@ -597,7 +598,7 @@
     }
 
     .score-ring .s-num {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 34px;
       font-weight: 700;
       color: var(--forest);
@@ -611,7 +612,7 @@
     }
 
     .score-verdict {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 24px;
       font-weight: 700;
       color: var(--forest);
@@ -656,7 +657,7 @@
     }
 
     .lever-card .lc-pct {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 22px;
       font-weight: 700;
       color: var(--forest);
@@ -666,35 +667,35 @@
     .lever-bar {
       height: 3px;
       background: var(--grey);
-      border-radius: 2px;
+      border-radius: var(--radius);
       overflow: hidden;
     }
 
     .lever-bar-fill {
       height: 100%;
-      border-radius: 2px;
+      border-radius: var(--radius);
     }
 
     /* ── Governing question ───────────────────────────────────── */
     .governing-question {
       background: var(--grey);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius);
       padding: 20px 24px;
       margin: 20px 0 28px;
       text-align: center;
     }
-    .governing-question .gq-label {
+    .governing-question .gq-label { font-family: 'IBM Plex Mono', monospace;
       font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--mustard-dk); font-weight: 700; margin-bottom: 8px;
+      color: var(--mustard); font-weight: 700; margin-bottom: 8px;
     }
     .governing-question p {
-      font-family: 'Manrope', sans-serif; font-weight: 800;
+      font-family: 'Inter', sans-serif; font-weight: 800;
       font-size: clamp(16px, 2.4vw, 19px); color: var(--forest); line-height: 1.35; margin: 0;
     }
 
     /* ── Priority blocks ──────────────────────────────────────── */
     .priority-section h2 {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 20px;
       font-weight: 700;
       color: var(--forest);
@@ -714,13 +715,13 @@
       font-size: 10px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--mustard-dk);
+      color: var(--mustard);
       font-weight: 500;
       margin-bottom: 6px;
     }
 
     .pi-title {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 17px;
       font-weight: 700;
       color: var(--forest);
@@ -736,13 +737,13 @@
 
     .pi-constraint {
       display: inline-block;
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 10px;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       font-weight: 700;
       color: var(--forest);
-      background: var(--sage);
+      background: var(--grey);
       border-radius: 100px;
       padding: 3px 10px;
       margin-top: 8px;
@@ -751,7 +752,7 @@
     /* ── Client summary block ─────────────────────────────────── */
     .client-summary {
       background: var(--forest);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius);
       padding: 24px 28px;
       margin-bottom: 20px;
       display: flex;
@@ -763,9 +764,9 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: var(--mustard-dk);
+      background: var(--mustard);
       color: #fff;
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 18px;
       display: flex;
       align-items: center;
@@ -788,18 +789,18 @@
 
     /* ── CTA block ────────────────────────────────────────────── */
     .cta-block {
-      background: var(--sage);
+      background: var(--paper);
       border: 0.5px solid var(--border-mid);
-      border-radius: var(--radius-lg);
+      border-radius: 0;
       padding: 28px 32px;
       text-align: center;
       margin-top: 24px;
     }
 
     .cta-block h3 {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: 22px;
-      font-weight: 700;
+      font-weight: 500;
       color: var(--forest);
       margin-bottom: 8px;
     }
@@ -832,7 +833,7 @@
     }
 
     .footer-logo {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-weight: 700;
       font-size: 15px;
       color: var(--muted);
@@ -885,13 +886,13 @@
     }
 
     .lo-chip.open {
-      border-color: var(--mustard-dk);
+      border-color: var(--mustard);
       background: #fff;
     }
 
     .lo-chip .loc-num {
       font-size: 10px;
-      color: var(--mustard-dk);
+      color: var(--mustard);
       letter-spacing: 0.1em;
       text-transform: uppercase;
       font-weight: 500;
@@ -906,7 +907,7 @@
 
     .lo-chip .loc-toggle {
       font-size: 16px;
-      color: var(--mustard-dk);
+      color: var(--mustard);
       line-height: 1;
       margin-top: 6px;
       transition: transform 0.2s;
@@ -934,7 +935,7 @@
       font-size: 11px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--mustard-dk);
+      color: var(--mustard);
       font-weight: 500;
       margin-bottom: 14px;
     }
@@ -950,7 +951,7 @@
     .ld-question:last-child { margin-bottom: 0; }
 
     .ld-q-text {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 15px;
       font-weight: 700;
       color: var(--forest);
@@ -999,6 +1000,8 @@
 
     /* ── Responsive ───────────────────────────────────────────── */
     @media (max-width: 600px) {
+      .site-nav { flex-wrap: wrap; row-gap: 14px; }
+      .nav-links { width: 100%; justify-content: flex-start; }
       .btn { white-space: normal; text-align: center; }
       .card { padding: 22px 18px; }
       .hero { padding: 40px 0 32px; }
@@ -1022,7 +1025,7 @@
     .mode-card {
       background: var(--grey);
       border: 0.5px solid var(--border-mid);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius);
       padding: 28px 24px;
       text-align: left;
       cursor: pointer;
@@ -1036,17 +1039,17 @@
       transform: translateY(-2px);
     }
 
-    .mode-card .mc-eyebrow {
+    .mode-card .mc-eyebrow { font-family: 'IBM Plex Mono', monospace;
       font-size: 10px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--mustard-dk);
+      color: var(--mustard);
       font-weight: 500;
       margin-bottom: 10px;
     }
 
     .mode-card h3 {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 22px;
       font-weight: 700;
       color: var(--forest);
@@ -1071,7 +1074,7 @@
       padding-top: 12px;
     }
 
-    .mode-card .mc-arrow { color: var(--mustard-dk); font-weight: 500; }
+    .mode-card .mc-arrow { color: var(--mustard); font-weight: 500; }
 
     #pillar-overview { grid-template-columns: repeat(4, 1fr); }
 
@@ -1099,9 +1102,9 @@
     }
 
     .principle-card .pc-num {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 20px;
-      color: var(--mustard-dk);
+      color: var(--mustard);
       margin-bottom: 6px;
     }
 
@@ -1123,13 +1126,13 @@
     /* ── Case-for-help callout ────────────────────────────────── */
     .case-callout {
       background: var(--forest);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius);
       padding: 22px 26px;
       margin: 24px 0;
       color: var(--white);
     }
 
-    .case-callout .cc-label {
+    .case-callout .cc-label { font-family: 'IBM Plex Mono', monospace;
       font-size: 10px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -1168,7 +1171,7 @@
       padding: 16px;
     }
 
-    .reality-card .rc-label {
+    .reality-card .rc-label { font-family: 'IBM Plex Mono', monospace;
       font-size: 10px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -1178,7 +1181,7 @@
     }
 
     .reality-card .rc-value {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 20px;
       font-weight: 700;
       color: var(--forest);
@@ -1194,7 +1197,7 @@
 
     /* ── Recommendation tier card ─────────────────────────────── */
     .tier-card {
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius);
       padding: 26px 28px;
       margin-bottom: 24px;
       border: 0.5px solid var(--border-mid);
@@ -1208,14 +1211,14 @@
       text-transform: uppercase;
       font-weight: 500;
       color: #fff;
-      background: var(--mustard-dk);
+      background: var(--mustard);
       padding: 5px 12px;
       border-radius: 100px;
       margin-bottom: 12px;
     }
 
     .tier-card h3 {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 24px;
       font-weight: 700;
       color: var(--forest);
@@ -1250,7 +1253,7 @@
       content: '→';
       position: absolute;
       left: 0;
-      color: var(--mustard-dk);
+      color: var(--mustard);
     }
 
     /* ── Efficiency metrics strip ─────────────────────────────── */
@@ -1273,10 +1276,10 @@
     }
 
     .metric-item .mi-num {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 26px;
       font-weight: 700;
-      color: var(--mustard-dk);
+      color: var(--mustard);
       line-height: 1;
       margin-bottom: 8px;
     }
@@ -1329,7 +1332,7 @@
     .mt24 { margin-top: 24px; }
     .text-center { text-align: center; }
     .text-muted { color: var(--muted); font-size: 13px; font-weight: 300; }
-    .section-label {
+    .section-label { font-family: 'IBM Plex Mono', monospace;
       font-size: 11px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -1363,7 +1366,7 @@
 
     <!-- ── Navigation ─────────────────────────────────────────── -->
     <nav class="site-nav">
-      <a href="/" class="site-logo"><img src="images/xl-mark-gold-cropped.png" alt="" width="32" height="32"><span class="site-logo-text">XL Marketing</span></a>
+      <a href="/" class="site-logo"><img src="images/xl-mark-forest.png" alt="" width="32" height="32"><span class="site-logo-text">XL Marketing</span></a>
       <div class="nav-links">
         <a href="/services">Services</a>
         <a href="/decision-led-growth">Marketing Decision-Led Growth</a>
