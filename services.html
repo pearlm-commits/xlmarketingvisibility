@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Services | XL Marketing — Strategic Marketing & Growth Consultancy</title>
-  <meta name="description" content="Six ways XL helps founders, CEOs and marketing leaders compete: positioning, GTM, B2B growth, sales alignment, AI visibility and fractional CMO advisory." />
+  <meta name="description" content="Six ways XL helps founders, CEOs and marketing leaders compete: positioning, GTM, B2B growth, sales alignment, AI visibility and marketing leadership advisory." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://xluxemarketing.com/services" />
   <link rel="icon" href="images/favicon.ico" sizes="any" />
@@ -16,11 +16,11 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="XL Marketing Services" />
   <meta property="og:title" content="Services | XL Marketing — Strategic Marketing & Growth Consultancy" />
-  <meta property="og:description" content="Six ways XL helps founders, CEOs and marketing leaders compete: positioning, GTM, B2B growth, sales alignment, AI visibility and fractional CMO advisory." />
+  <meta property="og:description" content="Six ways XL helps founders, CEOs and marketing leaders compete: positioning, GTM, B2B growth, sales alignment, AI visibility and marketing leadership advisory." />
   <meta property="og:url" content="https://xluxemarketing.com/services" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Services | XL Marketing — Strategic Marketing & Growth Consultancy" />
-  <meta name="twitter:description" content="Six ways XL helps founders, CEOs and marketing leaders compete: positioning, GTM, B2B growth, sales alignment, AI visibility and fractional CMO advisory." />
+  <meta name="twitter:description" content="Six ways XL helps founders, CEOs and marketing leaders compete: positioning, GTM, B2B growth, sales alignment, AI visibility and marketing leadership advisory." />
 
   <!-- DEVELOPER: Drop your Google Analytics / GTM snippet here -->
 
@@ -164,6 +164,9 @@
       line-height: 1.25;
     }
 
+    .service-card h2 a { color: inherit; text-decoration: none; }
+    .service-card h2 a:hover { text-decoration: underline; text-decoration-color: var(--border-mid); }
+
     .service-card .svc-desc {
       font-family: 'Fraunces', Georgia, serif;
       font-size: 19px;
@@ -210,6 +213,8 @@
       font-weight: 500;
     }
 
+    .svc-card-links { display: flex; gap: 12px; flex-wrap: wrap; }
+
     /* ── FAQ ──────────────────────────────────────────────────── */
     .faq-section { padding: 12px 0 44px; }
     .faq-section .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mustard); font-weight: 700; margin-bottom: 10px; text-align: center; }
@@ -250,12 +255,12 @@
   {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "Service", "name": "Brand Positioning & Messaging", "provider": { "@type": "Organization", "@id": "https://xluxemarketing.com/#organization", "name": "XL Marketing Services" }, "url": "https://xluxemarketing.com/services#brand-positioning" },
-      { "@type": "Service", "name": "GTM & Product Marketing", "provider": { "@type": "Organization", "@id": "https://xluxemarketing.com/#organization", "name": "XL Marketing Services" }, "url": "https://xluxemarketing.com/services#gtm-product-marketing" },
-      { "@type": "Service", "name": "B2B Growth, ABM & Executive Engagement", "provider": { "@type": "Organization", "@id": "https://xluxemarketing.com/#organization", "name": "XL Marketing Services" }, "url": "https://xluxemarketing.com/services#b2b-growth-abm" },
-      { "@type": "Service", "name": "Marketing & Sales Alignment", "provider": { "@type": "Organization", "@id": "https://xluxemarketing.com/#organization", "name": "XL Marketing Services" }, "url": "https://xluxemarketing.com/services#marketing-sales-alignment" },
-      { "@type": "Service", "name": "AI Search Visibility", "provider": { "@type": "Organization", "@id": "https://xluxemarketing.com/#organization", "name": "XL Marketing Services" }, "url": "https://xluxemarketing.com/services#ai-search-visibility" },
-      { "@type": "Service", "name": "Fractional CMO & Advisory", "provider": { "@type": "Organization", "@id": "https://xluxemarketing.com/#organization", "name": "XL Marketing Services" }, "url": "https://xluxemarketing.com/services#fractional-cmo" }
+      { "@type": "Service", "name": "Brand Positioning & Messaging", "provider": { "@type": "Organization", "@id": "https://xluxemarketing.com/#organization", "name": "XL Marketing Services" }, "url": "https://xluxemarketing.com/services/brand-positioning" },
+      { "@type": "Service", "name": "Go-to-Market & Product Marketing", "provider": { "@type": "Organization", "@id": "https://xluxemarketing.com/#organization", "name": "XL Marketing Services" }, "url": "https://xluxemarketing.com/services/go-to-market-product-marketing" },
+      { "@type": "Service", "name": "B2B Growth, ABM & Executive Engagement", "provider": { "@type": "Organization", "@id": "https://xluxemarketing.com/#organization", "name": "XL Marketing Services" }, "url": "https://xluxemarketing.com/services/b2b-growth-abm" },
+      { "@type": "Service", "name": "Marketing & Sales Alignment", "provider": { "@type": "Organization", "@id": "https://xluxemarketing.com/#organization", "name": "XL Marketing Services" }, "url": "https://xluxemarketing.com/services/marketing-sales-alignment" },
+      { "@type": "Service", "name": "AI Search Visibility Consulting", "provider": { "@type": "Organization", "@id": "https://xluxemarketing.com/#organization", "name": "XL Marketing Services" }, "url": "https://xluxemarketing.com/services/ai-search-visibility" },
+      { "@type": "Service", "name": "Marketing Leadership & Strategic Advisory", "provider": { "@type": "Organization", "@id": "https://xluxemarketing.com/#organization", "name": "XL Marketing Services" }, "url": "https://xluxemarketing.com/services/fractional-cmo" }
     ]
   }
   </script>
@@ -286,7 +291,7 @@
         "name": "What unique advantage does XL bring to brands operating across the UAE and the broader MEA region?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We offer regional expertise combined with multi-geographical agility, meaning clients do not have to switch teams or agencies to scale cross-border. Backed by our Head of Partnerships' networks in the UAE and our CMO's history leading brands across MEA, we understand the market dynamics, regulatory landscape and cultural nuance required to drive enterprise adoption in this region."
+          "text": "We offer regional expertise combined with multi-geographical agility, meaning clients do not have to switch teams or agencies to scale cross-border. Backed by our Head of Business Development and Partnerships' networks in the UAE and our founder's history leading brands across MEA, we understand the market dynamics, regulatory landscape and cultural nuance required to drive enterprise adoption in this region."
         }
       },
       {
@@ -307,10 +312,10 @@
       },
       {
         "@type": "Question",
-        "name": "What is the benefit of a Fractional CMO over hiring a full-time marketing executive?",
+        "name": "What is the benefit of fractional marketing leadership over hiring a full-time executive?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A Fractional CMO delivers senior strategic leadership, commercial governance and partner oversight without the immediate structural overhead of a full-time executive placement — allowing growing or established organisations to inject high-level decision-making capability into their current execution layer."
+          "text": "Fractional marketing leadership delivers senior strategic direction, commercial governance and partner oversight without the immediate structural overhead of a full-time executive placement — allowing growing or established organisations to inject high-level decision-making capability into their current execution layer."
         }
       },
       {
@@ -345,7 +350,7 @@
         <a href="/decision-led-growth">Marketing Decision-Led Growth</a>
         <a href="/about">About</a>
         <a href="/journal">Meridian Insights</a>
-        <a href="/ai-visibility-audit">Diagnostics</a>
+        <a href="/diagnostics">Diagnostics</a>
         <a href="/contact" class="nav-cta">Book a strategy call</a>
       </div>
     </nav>
@@ -362,9 +367,9 @@
     <!-- ── Services list ─────────────────────────────────────────── -->
     <div class="services-list">
 
-      <div class="service-card reveal" id="brand-positioning">
+      <div class="service-card reveal">
         <div class="svc-num">Service 01</div>
-        <h2>Brand Positioning &amp; Messaging Strategy</h2>
+        <h2><a href="/services/brand-positioning">Brand Positioning &amp; Messaging Strategy</a></h2>
         <p class="svc-desc">Clarify who you serve, why the offer matters and what makes it meaningfully different. Build a positioning and messaging system that leadership, marketing and sales can use consistently.</p>
         <div class="svc-insight"><p>Positioning identifies the useful role a brand can credibly earn in the progress people are already pursuing.</p></div>
         <div class="svc-meta">
@@ -377,12 +382,15 @@
             <p>A buyer who knows differentiation or messaging is unclear and is evaluating specialist help.</p>
           </div>
         </div>
-        <a href="/contact?service=Brand%20Positioning%20%26%20Messaging" class="btn btn-primary btn-sm">Discuss your positioning challenge</a>
+        <div class="svc-card-links">
+          <a href="/services/brand-positioning" class="btn btn-primary btn-sm">Read the full brief</a>
+          <a href="/contact?service=Brand%20Positioning%20%26%20Messaging" class="btn btn-ghost btn-sm">Discuss your positioning challenge</a>
+        </div>
       </div>
 
-      <div class="service-card reveal" id="gtm-product-marketing">
+      <div class="service-card reveal">
         <div class="svc-num">Service 02</div>
-        <h2>Go-to-Market &amp; Product Marketing Strategy</h2>
+        <h2><a href="/services/go-to-market-product-marketing">Go-to-Market &amp; Product Marketing Strategy</a></h2>
         <p class="svc-desc">Create a connected route from market opportunity to customer understanding, product adoption and measurable growth — particularly when the offer is complex, unfamiliar or entering a new market.</p>
         <div class="svc-insight"><p>We do not treat adoption as a communications problem by default. We examine whether the proposition is understood, credible, accessible, suitable and supported by an experience capable of fulfilling its promise.</p></div>
         <div class="svc-meta">
@@ -395,12 +403,15 @@
             <p>A product, service or market-entry team preparing to launch, reposition or improve adoption.</p>
           </div>
         </div>
-        <a href="/contact?service=GTM%20%26%20Product%20Marketing" class="btn btn-primary btn-sm">Discuss a launch or market-entry decision</a>
+        <div class="svc-card-links">
+          <a href="/services/go-to-market-product-marketing" class="btn btn-primary btn-sm">Read the full brief</a>
+          <a href="/contact?service=GTM%20%26%20Product%20Marketing" class="btn btn-ghost btn-sm">Discuss a launch or market-entry decision</a>
+        </div>
       </div>
 
-      <div class="service-card reveal" id="b2b-growth-abm">
+      <div class="service-card reveal">
         <div class="svc-num">Service 03</div>
-        <h2>B2B Growth, ABM &amp; Executive Engagement</h2>
+        <h2><a href="/services/b2b-growth-abm">B2B Growth, ABM &amp; Executive Engagement</a></h2>
         <p class="svc-desc">Identify priority accounts, reach the right decision-makers and progress credible commercial conversations through audience intelligence, relevant messaging and structured follow-through.</p>
         <div class="svc-insight">
           <p>Account selection begins with mutual fit: where the organisation has a credible problem to solve, the buyer has a meaningful reason to engage and the proposed next step can create standalone value.</p>
@@ -416,12 +427,15 @@
             <p>A B2B organisation that wants higher-quality account engagement, executive access or event-led pipeline.</p>
           </div>
         </div>
-        <a href="/contact?service=B2B%20Growth%2C%20ABM%20%26%20Executive%20Engagement" class="btn btn-primary btn-sm">Discuss your priority accounts</a>
+        <div class="svc-card-links">
+          <a href="/services/b2b-growth-abm" class="btn btn-primary btn-sm">Read the full brief</a>
+          <a href="/contact?service=B2B%20Growth%20%26%20ABM" class="btn btn-ghost btn-sm">Discuss your priority accounts</a>
+        </div>
       </div>
 
-      <div class="service-card reveal" id="marketing-sales-alignment">
+      <div class="service-card reveal">
         <div class="svc-num">Service 04</div>
-        <h2>Marketing &amp; Sales Alignment</h2>
+        <h2><a href="/services/marketing-sales-alignment">Marketing &amp; Sales Alignment</a></h2>
         <p class="svc-desc">Connect audience strategy, qualification, messaging, handover and measurement so marketing activity supports pipeline and sales retains the context required to convert interest.</p>
         <div class="svc-insight"><p>Handover should preserve the customer's context, expectations and agency — not merely transfer a lead status.</p></div>
         <div class="svc-meta">
@@ -434,12 +448,15 @@
             <p>Leadership seeing weak handover, disputed lead quality or limited revenue accountability.</p>
           </div>
         </div>
-        <a href="/contact?service=Marketing%20%26%20Sales%20Alignment" class="btn btn-primary btn-sm">Align marketing and sales</a>
+        <div class="svc-card-links">
+          <a href="/services/marketing-sales-alignment" class="btn btn-primary btn-sm">Read the full brief</a>
+          <a href="/contact?service=Marketing%20%26%20Sales%20Alignment" class="btn btn-ghost btn-sm">Discuss where the handoff is breaking down</a>
+        </div>
       </div>
 
-      <div class="service-card reveal" id="ai-search-visibility">
+      <div class="service-card reveal">
         <div class="svc-num">Service 05</div>
-        <h2>AI Search Visibility Consulting</h2>
+        <h2><a href="/services/ai-search-visibility">AI Search Visibility Consulting</a></h2>
         <p class="svc-desc">Strengthen the clarity, content structure and external authority required for search engines and AI tools to understand, cite and recommend your business.</p>
         <div class="svc-insight"><p>Being found is not the final objective. The information an AI system retrieves must help someone understand the offer, assess its suitability and make a better-informed decision.</p></div>
         <div class="svc-meta">
@@ -452,12 +469,15 @@
             <p>A brand that wants to understand or improve how AI tools discover, describe, cite and recommend it.</p>
           </div>
         </div>
-        <a href="/ai-visibility-audit?tool=visibility" class="btn btn-primary btn-sm">Take the AI Visibility Diagnostic</a>
+        <div class="svc-card-links">
+          <a href="/services/ai-search-visibility" class="btn btn-primary btn-sm">Read the full brief</a>
+          <a href="/diagnostics/ai-visibility" class="btn btn-ghost btn-sm">Take the AI Visibility Diagnostic</a>
+        </div>
       </div>
 
-      <div class="service-card reveal" id="fractional-cmo">
+      <div class="service-card reveal">
         <div class="svc-num">Service 06</div>
-        <h2>Fractional CMO &amp; Strategic Advisory</h2>
+        <h2><a href="/services/fractional-cmo">Marketing Leadership &amp; Strategic Advisory</a></h2>
         <p class="svc-desc">Bring senior marketing direction into the organisation without immediately adding a full-time executive role. Establish priorities, guide delivery partners and strengthen internal capability.</p>
         <div class="svc-insight"><p>Senior marketing leadership should improve the quality of the organisation's decisions — not increase the number of activities it can approve.</p></div>
         <div class="svc-meta">
@@ -470,7 +490,10 @@
             <p>A growing or established organisation that needs senior marketing direction without an immediate full-time appointment.</p>
           </div>
         </div>
-        <a href="/contact?service=Fractional%20CMO%20%26%20Advisory" class="btn btn-primary btn-sm">Discuss fractional marketing leadership</a>
+        <div class="svc-card-links">
+          <a href="/services/fractional-cmo" class="btn btn-primary btn-sm">Read the full brief</a>
+          <a href="/contact?service=Marketing%20Leadership%20%26%20Strategic%20Advisory" class="btn btn-ghost btn-sm">Discuss your leadership gap</a>
+        </div>
       </div>
 
     </div>
@@ -490,7 +513,7 @@
       </div>
       <div class="faq-item">
         <h3>What unique advantage does XL bring to brands operating across the UAE and the broader MEA region?</h3>
-        <p>We offer regional expertise combined with multi-geographical agility, meaning clients do not have to switch teams or agencies to scale cross-border. Backed by our Head of Partnerships' networks in the UAE and our CMO's history leading brands across MEA, we understand the market dynamics, regulatory landscape and cultural nuance required to drive enterprise adoption in this region.</p>
+        <p>We offer regional expertise combined with multi-geographical agility, meaning clients do not have to switch teams or agencies to scale cross-border. Backed by our Head of Business Development and Partnerships' networks in the UAE and our founder's history leading brands across MEA, we understand the market dynamics, regulatory landscape and cultural nuance required to drive enterprise adoption in this region.</p>
       </div>
       <div class="faq-item">
         <h3>How does XL explicitly connect marketing activity to measurable business outcomes?</h3>
@@ -501,8 +524,8 @@
         <p>Traditional agency networks often require clients to change account teams or contract separate regional offices when expanding between the UAE and wider MEA markets. XL eliminates this fragmentation — our leadership manages strategy cohesively across borders, so positioning stays consistent while local execution stays relevant.</p>
       </div>
       <div class="faq-item">
-        <h3>What is the benefit of a Fractional CMO over hiring a full-time marketing executive?</h3>
-        <p>A Fractional CMO delivers senior strategic leadership, commercial governance and partner oversight without the immediate structural overhead of a full-time executive placement — allowing growing or established organisations to inject high-level decision-making capability into their current execution layer.</p>
+        <h3>What is the benefit of fractional marketing leadership over hiring a full-time executive?</h3>
+        <p>Fractional marketing leadership delivers senior strategic direction, commercial governance and partner oversight without the immediate structural overhead of a full-time executive placement — allowing growing or established organisations to inject high-level decision-making capability into their current execution layer.</p>
       </div>
       <div class="faq-item">
         <h3>How does AI Search Visibility Consulting impact a brand's discoverability?</h3>
@@ -510,7 +533,7 @@
       </div>
       <div class="faq-item">
         <h3>How do we determine which strategic service fits our organisation's current timeline?</h3>
-        <p>Every engagement begins with an analysis of the immediate friction points in your market entry, pipeline or positioning. You can evaluate your current operational alignment using our <a href="/ai-visibility-audit?tool=readiness" style="color:var(--forest);text-decoration-color:var(--border-mid)">Marketing Readiness Diagnostic</a>, or book a direct strategy call to map out an action-oriented path.</p>
+        <p>Every engagement begins with an analysis of the immediate friction points in your market entry, pipeline or positioning. You can evaluate your current operational alignment using our <a href="/diagnostics/marketing-readiness" style="color:var(--forest);text-decoration-color:var(--border-mid)">Marketing Readiness Diagnostic</a>, or book a direct strategy call to map out an action-oriented path.</p>
       </div>
     </div>
 
@@ -521,7 +544,7 @@
         <p>Start with the Marketing Readiness Diagnostic, or book a call and we'll help you find the right route.</p>
         <div class="cta-btn-row">
           <a href="/contact" class="btn btn-gold">Book a strategy call</a>
-          <a href="/ai-visibility-audit?tool=readiness" class="btn btn-ghost">Take the readiness diagnostic</a>
+          <a href="/diagnostics/marketing-readiness" class="btn btn-ghost">Take the readiness diagnostic</a>
         </div>
       </div>
     </div>

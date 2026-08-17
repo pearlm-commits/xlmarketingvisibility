@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Free Marketing Diagnostics — XL Marketing Services</title>
-  <meta name="description" content="Two free 12-question diagnostics: find out where AI can — and cannot — find your business, and whether your marketing setup is ready to DIY or needs expert help." />
+  <title>AI Visibility Audit — Free Diagnostic | XL Marketing</title>
+  <meta name="description" content="A free 12-question diagnostic that shows where AI systems can — and cannot — accurately find, cite and recommend your business." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://xluxemarketing.com/ai-visibility-audit" />
-  <link rel="icon" href="images/favicon.ico" sizes="any" />
-  <link rel="icon" type="image/png" href="images/favicon-32.png" sizes="32x32" />
-  <link rel="icon" type="image/png" href="images/favicon-192.png" sizes="192x192" />
-  <link rel="apple-touch-icon" href="images/favicon-180.png" />
+  <link rel="canonical" href="https://xluxemarketing.com/diagnostics/ai-visibility" />
+  <link rel="icon" href="../images/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="../images/favicon-32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="../images/favicon-192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="../images/favicon-180.png" />
 
   <!-- Open Graph / Twitter — DEVELOPER: add a real og:image once a brand share-image asset exists -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="XL Marketing Services" />
-  <meta property="og:title" content="Free Marketing Diagnostics — XL Marketing Services" />
-  <meta property="og:description" content="Two free 12-question diagnostics: find out where AI can — and cannot — find your business, and whether your marketing setup is ready to DIY or needs expert help." />
-  <meta property="og:url" content="https://xluxemarketing.com/ai-visibility-audit" />
+  <meta property="og:title" content="AI Visibility Audit — Free Diagnostic | XL Marketing" />
+  <meta property="og:description" content="A free 12-question diagnostic that shows where AI systems can — and cannot — accurately find, cite and recommend your business." />
+  <meta property="og:url" content="https://xluxemarketing.com/diagnostics/ai-visibility" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Free Marketing Diagnostics — XL Marketing Services" />
-  <meta name="twitter:description" content="Two free 12-question diagnostics: find out where AI can — and cannot — find your business, and whether your marketing setup is ready to DIY or needs expert help." />
+  <meta name="twitter:title" content="AI Visibility Audit — Free Diagnostic | XL Marketing" />
+  <meta name="twitter:description" content="A free 12-question diagnostic that shows where AI systems can — and cannot — accurately find, cite and recommend your business." />
 
   <!-- =====================================================================
     DEVELOPER NOTES
@@ -1347,16 +1347,28 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Free Marketing Diagnostics — XL Marketing Services",
-    "description": "Two free 12-question diagnostics for B2B enterprise and lifestyle leaders across the UAE, South Africa and MEA: find out where AI can — and cannot — find your business, and whether your marketing setup is ready to DIY or needs expert help.",
-    "url": "https://xluxemarketing.com/ai-visibility-audit",
-    "isPartOf": {
-      "@type": "Organization",
-      "@id": "https://xluxemarketing.com/#organization",
-      "name": "XL Marketing Services",
-      "url": "https://xluxemarketing.com/"
-    }
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "AI Visibility Audit — Free Diagnostic",
+        "description": "A free 12-question diagnostic for B2B enterprise and lifestyle leaders across the UAE, South Africa and MEA, showing where AI systems can and cannot accurately find, cite and recommend a business.",
+        "url": "https://xluxemarketing.com/diagnostics/ai-visibility",
+        "isPartOf": {
+          "@type": "Organization",
+          "@id": "https://xluxemarketing.com/#organization",
+          "name": "XL Marketing Services",
+          "url": "https://xluxemarketing.com/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://xluxemarketing.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Diagnostics", "item": "https://xluxemarketing.com/diagnostics" },
+          { "@type": "ListItem", "position": 3, "name": "AI Visibility Audit", "item": "https://xluxemarketing.com/diagnostics/ai-visibility" }
+        ]
+      }
+    ]
   }
   </script>
 </head>
@@ -1366,14 +1378,15 @@
 
     <!-- ── Navigation ─────────────────────────────────────────── -->
     <nav class="site-nav">
-      <a href="/" class="site-logo"><img src="images/xl-mark-forest.png" alt="" width="32" height="32"><span class="site-logo-text">XL Marketing</span></a>
+      <a href="/" class="site-logo"><img src="../images/xl-mark-forest.png" alt="" width="32" height="32"><span class="site-logo-text">XL Marketing</span></a>
       <div class="nav-links">
         <a href="/services">Services</a>
         <a href="/decision-led-growth">Marketing Decision-Led Growth</a>
         <a href="/about">About</a>
         <a href="/journal">Meridian Insights</a>
+        <a href="/diagnostics">Diagnostics</a>
         <a href="/contact" class="nav-cta" id="nav-book-btn">Book a strategy call</a>
-        <button class="nav-cta" id="nav-back-btn" onclick="goToModeSelect()" style="display:none">&larr; All diagnostics</button>
+        <button class="nav-cta" id="nav-back-btn" onclick="location.href='/diagnostics'">&larr; All diagnostics</button>
       </div>
     </nav>
 
@@ -1899,7 +1912,7 @@
         <a href="/decision-led-growth">Marketing Decision-Led Growth</a>
         <a href="/about">About</a>
         <a href="/journal">Meridian Insights</a>
-        <a href="/ai-visibility-audit">Diagnostics</a>
+        <a href="/diagnostics">Diagnostics</a>
         <a href="/contact">Contact</a>
       </div>
     </footer>
@@ -2812,7 +2825,7 @@
     function showScreen(name) {
       document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
       document.getElementById(`screen-${name}`).classList.add('active');
-      document.getElementById('nav-back-btn').style.display = name === 'mode-select' ? 'none' : 'inline-flex';
+      document.getElementById('nav-back-btn').style.display = 'inline-flex';
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -2892,15 +2905,10 @@
     }
 
     /* ================================================================
-      DEEP LINK — ?tool=visibility or ?tool=readiness jumps straight
-      to that diagnostic's intro screen (used by index.html's cards)
+      DEDICATED DIAGNOSTIC PAGE — always opens directly to the
+      visibility diagnostic; the mode-select screen is unused here.
     ================================================================ */
-    (function () {
-      const requestedTool = new URLSearchParams(window.location.search).get('tool');
-      if (requestedTool === 'visibility' || requestedTool === 'readiness') {
-        selectMode(requestedTool);
-      }
-    })();
+    selectMode('visibility');
   </script>
 
   <!-- ================================================================

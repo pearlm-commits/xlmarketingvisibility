@@ -523,6 +523,18 @@
 
     .proof-table .pt-cell.demo { color: var(--muted); font-weight: 400; }
 
+    .proof-table .pt-category {
+      grid-column: 1 / -1;
+      background: var(--white);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mustard);
+      font-weight: 700;
+      padding: 14px 16px 6px;
+    }
+
     @media (max-width: 640px) {
       .proof-table { grid-template-columns: 1fr; }
       .proof-table .pt-head:nth-child(2) { display: none; }
@@ -729,7 +741,7 @@
         <a href="/decision-led-growth">Marketing Decision-Led Growth</a>
         <a href="/about">About</a>
         <a href="/journal">Meridian Insights</a>
-        <a href="/ai-visibility-audit">Diagnostics</a>
+        <a href="/diagnostics">Diagnostics</a>
         <a href="/contact" class="nav-cta">Book a strategy call</a>
       </div>
     </nav>
@@ -745,7 +757,7 @@
         <p class="hero-sub">From brand positioning and product marketing to B2B growth, account-based engagement and AI search visibility, we connect market intelligence, behavioural understanding and commercial strategy in one coherent direction.</p>
         <div class="hero-btn-row">
           <a href="/contact" class="btn btn-gold">Book a strategy call</a>
-          <a href="/ai-visibility-audit" class="btn btn-ghost">Take the free diagnostic</a>
+          <a href="/diagnostics" class="btn btn-ghost">Take the free diagnostic</a>
         </div>
         <p class="brand-line">Decisions That Compound.</p>
       </div>
@@ -768,7 +780,7 @@
       <div class="home-ev-grid">
         <div class="home-ev-item"><p class="home-ev-num">01</p><p class="home-ev-body">Marketing-generated pipeline contributed to 30% year-on-year gross-profit growth for Vodacom Business Africa.</p></div>
         <div class="home-ev-item"><p class="home-ev-num">02</p><p class="home-ev-body">Xplora Luxe's partner network was built from zero to more than 100 partners.</p></div>
-        <div class="home-ev-item"><p class="home-ev-num">03</p><p class="home-ev-body">Selected among the top 33 start-ups from approximately 500 Eureka GCC submissions.</p></div>
+        <div class="home-ev-item"><p class="home-ev-num">03</p><p class="home-ev-body">Selected among the top 33 from approximately 500 entries to Eureka GCC's 12-week investor-pitch and business-management incubator.</p></div>
       </div>
     </div>
 
@@ -877,44 +889,44 @@
       <h2>Six ways we help you compete</h2>
       <p class="lead center">XL supports the decisions that shape market relevance, customer demand and commercial growth. Each engagement begins by defining the problem properly, establishing the evidence and identifying the change the organisation needs to make.</p>
       <div class="service-grid" style="margin-top:28px">
-        <a href="/services#brand-positioning" class="service-row">
+        <a href="/services/brand-positioning" class="service-row">
           <div class="sr-text">
             <h3>Brand Positioning &amp; Messaging</h3>
             <p>Clarify who you serve, why the offer matters and what makes it meaningfully different. Build a positioning and messaging system that leadership, marketing and sales can use consistently.</p>
           </div>
           <span class="sr-arrow">&rarr;</span>
         </a>
-        <a href="/services#gtm-product-marketing" class="service-row">
+        <a href="/services/go-to-market-product-marketing" class="service-row">
           <div class="sr-text">
             <h3>Go-to-Market &amp; Product Marketing</h3>
             <p>Create a connected route from market opportunity to customer understanding, product adoption and measurable growth — particularly when the offer is complex, unfamiliar or entering a new market.</p>
           </div>
           <span class="sr-arrow">&rarr;</span>
         </a>
-        <a href="/services#b2b-growth-abm" class="service-row">
+        <a href="/services/b2b-growth-abm" class="service-row">
           <div class="sr-text">
             <h3>B2B Growth, ABM &amp; Executive Engagement</h3>
             <p>Identify priority accounts, reach the right decision-makers and progress credible commercial conversations through audience intelligence, relevant messaging and structured follow-through.</p>
           </div>
           <span class="sr-arrow">&rarr;</span>
         </a>
-        <a href="/services#marketing-sales-alignment" class="service-row">
+        <a href="/services/marketing-sales-alignment" class="service-row">
           <div class="sr-text">
             <h3>Marketing &amp; Sales Alignment</h3>
             <p>Connect audience strategy, qualification, messaging, handover and measurement so marketing activity supports pipeline and sales retains the context required to convert interest.</p>
           </div>
           <span class="sr-arrow">&rarr;</span>
         </a>
-        <a href="/services#ai-search-visibility" class="service-row">
+        <a href="/services/ai-search-visibility" class="service-row">
           <div class="sr-text">
             <h3>AI Search Visibility</h3>
             <p>Strengthen the clarity, content structure and external authority required for search engines and AI tools to understand, cite and recommend your business.</p>
           </div>
           <span class="sr-arrow">&rarr;</span>
         </a>
-        <a href="/services#fractional-cmo" class="service-row">
+        <a href="/services/fractional-cmo" class="service-row">
           <div class="sr-text">
-            <h3>Fractional CMO &amp; Strategic Advisory</h3>
+            <h3>Marketing Leadership &amp; Strategic Advisory</h3>
             <p>Bring senior marketing direction into the organisation without immediately adding a full-time executive role. Establish priorities, guide delivery partners and strengthen internal capability.</p>
           </div>
           <span class="sr-arrow">&rarr;</span>
@@ -960,7 +972,7 @@
         <p>Market intelligence &rarr; Positioning &rarr; Account selection &rarr; Personalised engagement &rarr; Commercial conversation &rarr; Pipeline learning</p>
       </div>
       <div style="text-align:center; margin-top:20px">
-        <a href="/services#b2b-growth-abm" class="btn btn-ghost">Explore B2B Growth, ABM &amp; Executive Engagement</a>
+        <a href="/services/b2b-growth-abm" class="btn btn-ghost">Explore B2B Growth, ABM &amp; Executive Engagement</a>
       </div>
     </div>
 
@@ -988,18 +1000,30 @@
       <div class="proof-table">
         <div class="pt-head">Proof</div>
         <div class="pt-head">What it demonstrates</div>
-        <div class="pt-cell">25+ years across telecommunications, fintech, enterprise ICT, infrastructure, luxury services and emerging technology</div>
+
+        <div class="pt-category">Leadership scale</div>
+        <div class="pt-cell">25+ years across telecommunications, fintech, enterprise ICT, infrastructure, luxury services and emerging technology, including senior marketing leadership roles at Vodacom, PayU, Dimension Data/NTT, Openserve, Altron and Alcatel-Lucent</div>
         <div class="pt-cell demo">Strategic depth across different markets, products and stakeholder environments</div>
         <div class="pt-cell">Marketing lead on Vodacom's South African M-Pesa launch project team</div>
         <div class="pt-cell demo">Product marketing, proposition translation and behaviour-change communications</div>
+
+        <div class="pt-category">Geographic complexity</div>
         <div class="pt-cell">B2B marketing responsibility across 54 African markets</div>
         <div class="pt-cell demo">Pan-African strategy, localisation and enterprise demand generation</div>
-        <div class="pt-cell">Marketing-generated pipeline contributed to 30% gross-profit growth at Vodacom Business Africa</div>
+        <div class="pt-cell">Saudi market and stakeholder experience developed through Pearl M's Dimension Data regional responsibilities</div>
+        <div class="pt-cell demo">Cross-border commercial complexity beyond a single home market</div>
+
+        <div class="pt-category">Commercial contribution</div>
+        <div class="pt-cell">Marketing-generated pipeline contributed to 30% year-on-year gross-profit growth at Vodacom Business Africa</div>
         <div class="pt-cell demo">Connection between marketing activity, pipeline and commercial performance</div>
         <div class="pt-cell">Xplora Luxe partner network built from zero to more than 100 partners</div>
         <div class="pt-cell demo">Partnership development and relationship-led market access</div>
-        <div class="pt-cell">Selected among the top 33 start-ups from approximately 500 Eureka GCC submissions</div>
+
+        <div class="pt-category">Entrepreneurial execution</div>
+        <div class="pt-cell">Selected among the top 33 from approximately 500 entries to Eureka GCC's 12-week investor-pitch and business-management incubator; one mentor from the programme later joined the board of Xplora Luxe as fractional CFO</div>
         <div class="pt-cell demo">Entrepreneurial positioning and disciplined business storytelling</div>
+        <div class="pt-cell">Founding and running Xplora Luxe from zero, with full commercial and marketing accountability</div>
+        <div class="pt-cell demo">Direct ownership of the decisions this site's frameworks are built on</div>
       </div>
       <p class="lead center" style="margin-top:24px; font-size:14px">Pearl M's leadership experience includes Vodacom, PayU, Dimension Data/NTT, Openserve, Altron and Alcatel-Lucent. Tameka works with clients in the UAE/GCC, South Africa, the UK, Germany and the Netherlands on English-language campaigns.</p>
       <div style="text-align:center; margin-top:24px">
@@ -1013,13 +1037,13 @@
       <h2>Start with a diagnostic</h2>
       <p class="section-sub">Twelve questions. Approximately four minutes. A practical assessment showing where your current approach is strong, where it is vulnerable and what deserves attention first.</p>
       <div class="mode-grid">
-        <a href="/ai-visibility-audit?tool=visibility" class="mode-card">
+        <a href="/diagnostics/ai-visibility" class="mode-card">
           <div class="mc-eyebrow">Diagnostic 01</div>
           <h3>How visible is your business to AI?</h3>
           <p>Assess the clarity, positioning, content structure, off-site presence, buyer-intent coverage and measurement shaping whether AI tools can find, understand and cite your business.</p>
           <div class="mc-meta"><span>12 questions &middot; ~4 min</span><span class="mc-arrow">Start &rarr;</span></div>
         </a>
-        <a href="/ai-visibility-audit?tool=readiness" class="mode-card">
+        <a href="/diagnostics/marketing-readiness" class="mode-card">
           <div class="mc-eyebrow">Diagnostic 02</div>
           <h3>Should you manage marketing internally — or bring in expert support?</h3>
           <p>Assess whether your positioning, content, demand generation and marketing operations are creating compounding value or consuming resources without a connected system.</p>
@@ -1050,7 +1074,7 @@
         <p>It begins with a clearer view of the market, the customer and the choices that will move the business forward. Every XL engagement is designed to leave your organisation with stronger direction, more useful evidence and greater internal capability than it had before.</p>
         <div class="cta-btn-row">
           <a href="/contact" class="btn btn-gold">Book a strategy call</a>
-          <a href="/ai-visibility-audit" class="btn btn-ghost">Take the free diagnostic</a>
+          <a href="/diagnostics" class="btn btn-ghost">Take the free diagnostic</a>
         </div>
         <p style="font-size:12px; color:var(--muted); margin-top:20px; margin-bottom:0">Prefer email? Write to <a href="mailto:support@xploraluxe.com" style="color:var(--mustard)">support@xploraluxe.com</a>. Pearl M may also be contacted directly at <a href="mailto:pearl.m@xploraluxe.com" style="color:var(--mustard)">pearl.m@xploraluxe.com</a>.</p>
       </div>
@@ -1067,7 +1091,7 @@
         <a href="/decision-led-growth">Marketing Decision-Led Growth</a>
         <a href="/about">About</a>
         <a href="/journal">Meridian Insights</a>
-        <a href="/ai-visibility-audit">Diagnostics</a>
+        <a href="/diagnostics">Diagnostics</a>
         <a href="/contact">Contact</a>
       </div>
     </footer>
