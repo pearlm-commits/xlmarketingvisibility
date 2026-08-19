@@ -147,12 +147,32 @@
     }
 
     .service-card .svc-num {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-size: 11px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--mustard);
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 14px;
+    }
+
+    .pillar-icon { display: block; margin-bottom: 12px; }
+
+    .num-badge {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--forest);
+      color: var(--mustard-lt);
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
     }
 
     .service-card h2 {
@@ -275,7 +295,7 @@
         "name": "How does XL align strategic marketing with actual commercial outcomes?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We eliminate fragmented, output-driven activity by anchoring every engagement in a core business decision. By connecting customer intelligence, positioning and structured sales enablement, we ensure your marketing investment directly drives qualified commercial conversations and sustainable pipeline growth."
+          "text": "Every engagement starts with a business decision, not a marketing output. Customer intelligence, positioning and sales enablement all connect back to that decision — which is what keeps the work pointed at commercial conversations, not another campaign for its own sake."
         }
       },
       {
@@ -283,7 +303,7 @@
         "name": "Can a single advisory serve both B2B enterprise technology and luxury lifestyle brands?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. While the end-user varies, both sectors depend heavily on non-linear customer journeys, mental availability and the preservation of premium brand value. Our strategic frameworks focus on positioning and audience relevance — principles that apply equally to corporate buyers and high-net-worth individuals."
+          "text": "Yes. The buyers look different, but the underlying decisions aren't — both depend on being remembered at the right moment and mattering enough to consider. The same positioning and audience work applies to a corporate buyer and a high-net-worth individual; only the evidence changes."
         }
       },
       {
@@ -291,7 +311,7 @@
         "name": "What unique advantage does XL bring to brands operating across the UAE and the broader MEA region?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We offer regional expertise combined with multi-geographical agility, meaning clients do not have to switch teams or agencies to scale cross-border. Backed by our Head of Business Development and Partnerships' networks in the UAE and our founder's history leading brands across MEA, we understand the market dynamics, regulatory landscape and cultural nuance required to drive enterprise adoption in this region."
+          "text": "XL doesn't split strategy and execution across separate regional teams. Tameka's partnership network in the UAE and Pearl's leadership experience across MEA sit inside one advisory, so a client expanding from South Africa to the UAE isn't starting over with a new agency relationship."
         }
       },
       {
@@ -299,7 +319,7 @@
         "name": "How does XL explicitly connect marketing activity to measurable business outcomes?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We use Marketing Decision-Led Growth, our method for moving past superficial marketing metrics to analyse where human progress and business ambition align. By anchoring strategy in the commercial decisions that directly affect revenue, pipeline and market share, we connect marketing execution to measurable business health."
+          "text": "Marketing Decision-Led Growth is the method: work backward from the commercial decision that revenue, pipeline or market share actually depend on, then measure against that decision — not against activity that doesn't tie back to it."
         }
       },
       {
@@ -307,7 +327,7 @@
         "name": "Why is a multi-geographical delivery model better for expanding enterprises?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Traditional agency networks often require clients to change account teams or contract separate regional offices when expanding between the UAE and wider MEA markets. XL eliminates this fragmentation — our leadership manages strategy cohesively across borders, so positioning stays consistent while local execution stays relevant."
+          "text": "Expanding between the UAE and wider MEA markets usually means handing strategy to a new regional team each time. XL keeps one leadership team across borders, so positioning stays consistent while local execution still reflects the market."
         }
       },
       {
@@ -315,7 +335,7 @@
         "name": "What is the benefit of fractional marketing leadership over hiring a full-time executive?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Fractional marketing leadership delivers senior strategic direction, commercial governance and partner oversight without the immediate structural overhead of a full-time executive placement — allowing growing or established organisations to inject high-level decision-making capability into their current execution layer."
+          "text": "It puts senior judgement in the room — strategy, governance, oversight of delivery partners — without the cost or commitment of a full-time executive hire. Useful for a business that has outgrown ad hoc marketing but isn't ready to make that appointment yet."
         }
       },
       {
@@ -323,7 +343,7 @@
         "name": "How does AI Search Visibility Consulting impact a brand's discoverability?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "As conversational AI engines shift from serving links to providing direct answers, clear online authority becomes vital. We audit and structure your digital footprint so search engines and AI tools can accurately find, synthesise, cite and recommend your business to high-intent users."
+          "text": "AI tools increasingly answer questions directly instead of returning a list of links. If a business isn't structured clearly enough for those systems to read and cite accurately, it becomes harder to find at exactly the moment someone was ready to."
         }
       },
       {
@@ -331,7 +351,7 @@
         "name": "How do we determine which strategic service fits our organisation's current timeline?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Every engagement begins with an analysis of the immediate friction points in your market entry, pipeline or positioning. You can evaluate your current operational alignment using our Marketing Readiness Diagnostic, or book a direct strategy call to map out an action-oriented path."
+          "text": "Start with whichever friction point is most immediate — market entry, pipeline or positioning. The Marketing Readiness Diagnostic gives a quick read on where things stand, or a strategy call can map the next move directly."
         }
       }
     ]
@@ -368,7 +388,8 @@
     <div class="services-list">
 
       <div class="service-card reveal">
-        <div class="svc-num">Service 01</div>
+        <svg class="pillar-icon" viewBox="42.00 -20.00 136 136" width="56" height="56" aria-hidden="true"><g transform="translate(110 110) rotate(0)"><path d="M-50,-58 C-50,-30 -30,-6 -3,-4 C-1,-4 2,-6 4,-10 C8,-4 12,-4 14,-6 C40,-10 50,-32 50,-58 C50,-92 28,-110 0,-110 C-28,-110 -50,-92 -50,-58 Z" style="fill:var(--forest)"/></g><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(45 110 110)"/><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(-45 110 110)"/><circle cx="110" cy="110" r="9" style="fill:var(--mustard)"/></svg>
+        <div class="svc-num"><span class="num-badge">1</span>Service 01</div>
         <h2><a href="/services/brand-positioning">Brand Positioning &amp; Messaging Strategy</a></h2>
         <p class="svc-desc">Clarify who you serve, why the offer matters and what makes it meaningfully different. Build a positioning and messaging system that leadership, marketing and sales can use consistently.</p>
         <div class="svc-insight"><p>Positioning identifies the useful role a brand can credibly earn in the progress people are already pursuing.</p></div>
@@ -389,7 +410,8 @@
       </div>
 
       <div class="service-card reveal">
-        <div class="svc-num">Service 02</div>
+        <svg class="pillar-icon" viewBox="85.84 -1.84 136 136" width="56" height="56" aria-hidden="true"><g transform="translate(110 110) rotate(45)"><path d="M-50,-58 C-50,-30 -30,-6 -3,-4 C-1,-4 2,-6 4,-10 C8,-4 12,-4 14,-6 C40,-10 50,-32 50,-58 C50,-92 28,-110 0,-110 C-28,-110 -50,-92 -50,-58 Z" style="fill:var(--forest)"/></g><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(90 110 110)"/><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(0 110 110)"/><circle cx="110" cy="110" r="9" style="fill:var(--mustard)"/></svg>
+        <div class="svc-num"><span class="num-badge">2</span>Service 02</div>
         <h2><a href="/services/go-to-market-product-marketing">Go-to-Market &amp; Product Marketing Strategy</a></h2>
         <p class="svc-desc">Create a connected route from market opportunity to customer understanding, product adoption and measurable growth — particularly when the offer is complex, unfamiliar or entering a new market.</p>
         <div class="svc-insight"><p>We do not treat adoption as a communications problem by default. We examine whether the proposition is understood, credible, accessible, suitable and supported by an experience capable of fulfilling its promise.</p></div>
@@ -410,7 +432,8 @@
       </div>
 
       <div class="service-card reveal">
-        <div class="svc-num">Service 03</div>
+        <svg class="pillar-icon" viewBox="104.00 42.00 136 136" width="56" height="56" aria-hidden="true"><g transform="translate(110 110) rotate(90)"><path d="M-50,-58 C-50,-30 -30,-6 -3,-4 C-1,-4 2,-6 4,-10 C8,-4 12,-4 14,-6 C40,-10 50,-32 50,-58 C50,-92 28,-110 0,-110 C-28,-110 -50,-92 -50,-58 Z" style="fill:var(--forest)"/></g><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(135 110 110)"/><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(45 110 110)"/><circle cx="110" cy="110" r="9" style="fill:var(--mustard)"/></svg>
+        <div class="svc-num"><span class="num-badge">3</span>Service 03</div>
         <h2><a href="/services/b2b-growth-abm">B2B Growth, ABM &amp; Executive Engagement</a></h2>
         <p class="svc-desc">Identify priority accounts, reach the right decision-makers and progress credible commercial conversations through audience intelligence, relevant messaging and structured follow-through.</p>
         <div class="svc-insight">
@@ -434,7 +457,8 @@
       </div>
 
       <div class="service-card reveal">
-        <div class="svc-num">Service 04</div>
+        <svg class="pillar-icon" viewBox="85.84 85.84 136 136" width="56" height="56" aria-hidden="true"><g transform="translate(110 110) rotate(135)"><path d="M-50,-58 C-50,-30 -30,-6 -3,-4 C-1,-4 2,-6 4,-10 C8,-4 12,-4 14,-6 C40,-10 50,-32 50,-58 C50,-92 28,-110 0,-110 C-28,-110 -50,-92 -50,-58 Z" style="fill:var(--forest)"/></g><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(180 110 110)"/><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(90 110 110)"/><circle cx="110" cy="110" r="9" style="fill:var(--mustard)"/></svg>
+        <div class="svc-num"><span class="num-badge">4</span>Service 04</div>
         <h2><a href="/services/marketing-sales-alignment">Marketing &amp; Sales Alignment</a></h2>
         <p class="svc-desc">Connect audience strategy, qualification, messaging, handover and measurement so marketing activity supports pipeline and sales retains the context required to convert interest.</p>
         <div class="svc-insight"><p>Handover should preserve the customer's context, expectations and agency — not merely transfer a lead status.</p></div>
@@ -455,7 +479,8 @@
       </div>
 
       <div class="service-card reveal">
-        <div class="svc-num">Service 05</div>
+        <svg class="pillar-icon" viewBox="42.00 104.00 136 136" width="56" height="56" aria-hidden="true"><g transform="translate(110 110) rotate(180)"><path d="M-50,-58 C-50,-30 -30,-6 -3,-4 C-1,-4 2,-6 4,-10 C8,-4 12,-4 14,-6 C40,-10 50,-32 50,-58 C50,-92 28,-110 0,-110 C-28,-110 -50,-92 -50,-58 Z" style="fill:var(--forest)"/></g><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(225 110 110)"/><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(135 110 110)"/><circle cx="110" cy="110" r="9" style="fill:var(--mustard)"/></svg>
+        <div class="svc-num"><span class="num-badge">5</span>Service 05</div>
         <h2><a href="/services/ai-search-visibility">AI Search Visibility Consulting</a></h2>
         <p class="svc-desc">Strengthen the clarity, content structure and external authority required for search engines and AI tools to understand, cite and recommend your business.</p>
         <div class="svc-insight"><p>Being found is not the final objective. The information an AI system retrieves must help someone understand the offer, assess its suitability and make a better-informed decision.</p></div>
@@ -476,7 +501,8 @@
       </div>
 
       <div class="service-card reveal">
-        <div class="svc-num">Service 06</div>
+        <svg class="pillar-icon" viewBox="-1.84 85.84 136 136" width="56" height="56" aria-hidden="true"><g transform="translate(110 110) rotate(225)"><path d="M-50,-58 C-50,-30 -30,-6 -3,-4 C-1,-4 2,-6 4,-10 C8,-4 12,-4 14,-6 C40,-10 50,-32 50,-58 C50,-92 28,-110 0,-110 C-28,-110 -50,-92 -50,-58 Z" style="fill:var(--forest)"/></g><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(270 110 110)"/><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(180 110 110)"/><circle cx="110" cy="110" r="9" style="fill:var(--mustard)"/></svg>
+        <div class="svc-num"><span class="num-badge">6</span>Service 06</div>
         <h2><a href="/services/fractional-cmo">Marketing Leadership &amp; Strategic Advisory</a></h2>
         <p class="svc-desc">Bring senior marketing direction into the organisation without immediately adding a full-time executive role. Establish priorities, guide delivery partners and strengthen internal capability.</p>
         <div class="svc-insight"><p>Senior marketing leadership should improve the quality of the organisation's decisions — not increase the number of activities it can approve.</p></div>
@@ -505,35 +531,35 @@
 
       <div class="faq-item">
         <h3>How does XL align strategic marketing with actual commercial outcomes?</h3>
-        <p>We eliminate fragmented, output-driven activity by anchoring every engagement in a core business decision. By connecting customer intelligence, positioning and structured sales enablement, we ensure your marketing investment directly drives qualified commercial conversations and sustainable pipeline growth.</p>
+        <p>Every engagement starts with a business decision, not a marketing output. Customer intelligence, positioning and sales enablement all connect back to that decision — which is what keeps the work pointed at commercial conversations, not another campaign for its own sake.</p>
       </div>
       <div class="faq-item">
         <h3>Can a single advisory serve both B2B enterprise technology and luxury lifestyle brands?</h3>
-        <p>Yes. While the end-user varies, both sectors depend heavily on non-linear customer journeys, mental availability and the preservation of premium brand value. Our strategic frameworks focus on positioning and audience relevance — principles that apply equally to corporate buyers and high-net-worth individuals.</p>
+        <p>Yes. The buyers look different, but the underlying decisions aren't — both depend on being remembered at the right moment and mattering enough to consider. The same positioning and audience work applies to a corporate buyer and a high-net-worth individual; only the evidence changes.</p>
       </div>
       <div class="faq-item">
         <h3>What unique advantage does XL bring to brands operating across the UAE and the broader MEA region?</h3>
-        <p>We offer regional expertise combined with multi-geographical agility, meaning clients do not have to switch teams or agencies to scale cross-border. Backed by our Head of Business Development and Partnerships' networks in the UAE and our founder's history leading brands across MEA, we understand the market dynamics, regulatory landscape and cultural nuance required to drive enterprise adoption in this region.</p>
+        <p>XL doesn't split strategy and execution across separate regional teams. Tameka's partnership network in the UAE and Pearl's leadership experience across MEA sit inside one advisory, so a client expanding from South Africa to the UAE isn't starting over with a new agency relationship.</p>
       </div>
       <div class="faq-item">
         <h3>How does XL explicitly connect marketing activity to measurable business outcomes?</h3>
-        <p>We use Marketing Decision-Led Growth, our method for moving past superficial marketing metrics to analyse where human progress and business ambition align. By anchoring strategy in the commercial decisions that directly affect revenue, pipeline and market share, we connect marketing execution to measurable business health.</p>
+        <p>Marketing Decision-Led Growth is the method: work backward from the commercial decision that revenue, pipeline or market share actually depend on, then measure against that decision — not against activity that doesn't tie back to it.</p>
       </div>
       <div class="faq-item">
         <h3>Why is a multi-geographical delivery model better for expanding enterprises?</h3>
-        <p>Traditional agency networks often require clients to change account teams or contract separate regional offices when expanding between the UAE and wider MEA markets. XL eliminates this fragmentation — our leadership manages strategy cohesively across borders, so positioning stays consistent while local execution stays relevant.</p>
+        <p>Expanding between the UAE and wider MEA markets usually means handing strategy to a new regional team each time. XL keeps one leadership team across borders, so positioning stays consistent while local execution still reflects the market.</p>
       </div>
       <div class="faq-item">
         <h3>What is the benefit of fractional marketing leadership over hiring a full-time executive?</h3>
-        <p>Fractional marketing leadership delivers senior strategic direction, commercial governance and partner oversight without the immediate structural overhead of a full-time executive placement — allowing growing or established organisations to inject high-level decision-making capability into their current execution layer.</p>
+        <p>It puts senior judgement in the room — strategy, governance, oversight of delivery partners — without the cost or commitment of a full-time executive hire. Useful for a business that has outgrown ad hoc marketing but isn't ready to make that appointment yet.</p>
       </div>
       <div class="faq-item">
         <h3>How does AI Search Visibility Consulting impact a brand's discoverability?</h3>
-        <p>As conversational AI engines shift from serving links to providing direct answers, clear online authority becomes vital. We audit and structure your digital footprint so search engines and AI tools can accurately find, synthesise, cite and recommend your business to high-intent users.</p>
+        <p>AI tools increasingly answer questions directly instead of returning a list of links. If a business isn't structured clearly enough for those systems to read and cite accurately, it becomes harder to find at exactly the moment someone was ready to.</p>
       </div>
       <div class="faq-item">
         <h3>How do we determine which strategic service fits our organisation's current timeline?</h3>
-        <p>Every engagement begins with an analysis of the immediate friction points in your market entry, pipeline or positioning. You can evaluate your current operational alignment using our <a href="/diagnostics/marketing-readiness" style="color:var(--forest);text-decoration-color:var(--border-mid)">Marketing Readiness Diagnostic</a>, or book a direct strategy call to map out an action-oriented path.</p>
+        <p>Start with whichever friction point is most immediate — market entry, pipeline or positioning. The <a href="/diagnostics/marketing-readiness" style="color:var(--forest);text-decoration-color:var(--border-mid)">Marketing Readiness Diagnostic</a> gives a quick read on where things stand, or a strategy call can map the next move directly.</p>
       </div>
     </div>
 
@@ -557,9 +583,11 @@
       <div class="footer-address">Dubai, UAE &middot; <a href="tel:+971521489618">+971 52 148 9618</a></div>
       <div class="footer-links">
         <a href="/">Home</a>
+        <a href="/services">Services</a>
         <a href="/decision-led-growth">Marketing Decision-Led Growth</a>
         <a href="/about">About</a>
         <a href="/journal">Meridian Insights</a>
+        <a href="/diagnostics">Diagnostics</a>
         <a href="/contact">Contact</a>
       </div>
     </footer>

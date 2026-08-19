@@ -64,7 +64,8 @@
     .breadcrumb span.current { color: var(--forest); font-weight: 600; }
 
     .svc-head { background: var(--paper); padding: 20px 0 32px; border-bottom: 1px solid var(--border-mid); }
-    .svc-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mustard); font-weight: 700; margin-bottom: 16px; }
+    .svc-eyebrow { display: flex; align-items: center; gap: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mustard); font-weight: 700; margin-bottom: 16px; }
+    .num-badge { width: 26px; height: 26px; border-radius: 50%; background: var(--forest); color: var(--mustard-lt); font-family: 'Inter', sans-serif; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .svc-head h1 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(32px, 5vw, 44px); line-height: 1.18; color: var(--forest); margin-bottom: 18px; letter-spacing: -0.01em; max-width: 15ch; }
 
     .direct-answer { background: var(--grey); border-left: 3px solid var(--mustard); padding: 18px 22px; margin-bottom: 8px; }
@@ -195,7 +196,7 @@
     </nav>
 
     <div class="svc-head">
-      <div class="svc-eyebrow">Service 01 of 06</div>
+      <div class="svc-eyebrow"><span class="num-badge">1</span>Service 01 of 06</div>
       <h1>Brand Positioning &amp; Messaging Strategy</h1>
       <div class="direct-answer">
         <p><strong>Direct answer</strong>Brand positioning strategy defines the distinctive place a business should occupy in the minds of its priority customers. XL helps leadership teams turn market evidence, customer needs and commercial ambition into a defensible position, value proposition and messaging system that marketing, sales and leadership can use consistently.</p>
@@ -320,7 +321,9 @@
         <a href="/">Home</a>
         <a href="/services">Services</a>
         <a href="/decision-led-growth">Marketing Decision-Led Growth</a>
+        <a href="/about">About</a>
         <a href="/journal">Meridian Insights</a>
+        <a href="/diagnostics">Diagnostics</a>
         <a href="/contact">Contact</a>
       </div>
     </footer>

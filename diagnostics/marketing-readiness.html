@@ -220,13 +220,9 @@
       letter-spacing: -0.01em;
     }
 
-    .hero-title em {
-      font-family: 'Fraunces', Georgia, serif;
-      font-style: italic;
-      color: var(--mustard);
-    }
-
+    
     .hero-sub {
+      font-family: 'Fraunces', Georgia, serif;
       font-size: 16px;
       color: var(--muted);
       line-height: 1.7;
@@ -1398,7 +1394,7 @@
     <div id="screen-mode-select" class="screen active">
       <div class="hero">
         <div class="hero-eyebrow">XL Marketing Services</div>
-        <h1 class="hero-title">Two free diagnostics.<br/>One clearer path <em>forward</em>.</h1>
+        <h1 class="hero-title">Two free diagnostics.<br/>One clearer path forward.</h1>
         <p class="hero-sub">
           Choose the assessment that matches where you're stuck. Built for B2B enterprise
           and lifestyle leaders navigating the UAE, South Africa and the wider MEA
@@ -1436,12 +1432,13 @@
 
       <div class="hero">
         <div class="hero-eyebrow">XL Marketing Services</div>
-        <h2 class="hero-title">How visible is your<br/>business to <em>AI</em>?</h2>
+        <h2 class="hero-title">How visible is your<br/>business to AI?</h2>
         <p class="hero-sub">
           Twelve questions. Six diagnostic levers. A scored report that tells you
           exactly where AI can — and cannot — find your business, and what to fix first.
         </p>
 
+        <!-- ── Proof Module: stat callout (reusable pattern — num + qualifier + source) ── -->
         <div class="hero-stats">
           <div class="hero-stat">
             <div class="hs-num">23×</div>
@@ -1450,12 +1447,12 @@
           <div class="divider"></div>
           <div class="hero-stat">
             <div class="hs-num">58%</div>
-            <div class="hs-label">Of Google queries now show<br/>an AI Overview at the top</div>
+            <div class="hs-label">Growth in AI Overview presence across tracked queries<br/><span style="font-size:10px">(BrightEdge)</span></div>
           </div>
           <div class="divider"></div>
           <div class="hero-stat">
             <div class="hs-num">85%</div>
-            <div class="hs-label">Of AI brand mentions come from<br/>third-party sources, not your site</div>
+            <div class="hs-label">Of AI brand mentions come from<br/>third-party sources, not your site<!-- TODO: source needed before this stat can carry a citation like the other two --></div>
           </div>
         </div>
       </div>
@@ -1570,7 +1567,7 @@
 
       <div class="hero">
         <div class="hero-eyebrow">XL Marketing Services</div>
-        <h2 class="hero-title">Marketing is a <em>foundation</em>,<br/>not a launch.</h2>
+        <h2 class="hero-title">Marketing is a foundation,<br/>not a launch.</h2>
         <p class="hero-sub">
           Twelve honest questions across four pillars. A scored read on whether your
           current approach is compounding — or quietly draining the time and budget
@@ -1908,6 +1905,7 @@
       <div class="footer-logo">XL Marketing Services</div>
       <div class="footer-address">Dubai, UAE &middot; <a href="tel:+971521489618">+971 52 148 9618</a></div>
       <div class="footer-links">
+        <a href="/">Home</a>
         <a href="/services">Services</a>
         <a href="/decision-led-growth">Marketing Decision-Led Growth</a>
         <a href="/about">About</a>
