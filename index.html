@@ -58,6 +58,8 @@
       --bordeaux:    #5C1220;
       --stone:       #8B8479;
       --paper:       #FFFFFF;
+      --lemon:       #F2E14D;
+      --lemon-dk:    #C9B520;
     }
 
     /* ── Reset ────────────────────────────────────────────────── */
@@ -228,17 +230,16 @@
     /* ── Evidence grid ─────────────────────────────────────────── */
     .home-evidence-wrap { padding: 44px 0 0; }
     .home-ev-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--mustard); text-transform: uppercase; margin-bottom: 22px; }
-    .home-ev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--border-mid); }
-    .home-ev-item { padding: 24px 24px 24px 0; border-right: 1px solid var(--border-mid); }
-    .home-ev-item:last-child { border-right: none; }
-    .home-ev-num { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 16px; color: var(--bordeaux); margin-bottom: 10px; }
-    .home-ev-body { font-size: 13.5px; line-height: 1.6; color: var(--ink); }
+    .home-ev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .home-ev-item { background: var(--forest); border-radius: var(--radius); padding: 26px 22px; }
+    .home-ev-num { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(30px, 3.6vw, 38px); color: var(--ivory); line-height: 1; margin-bottom: 12px; }
+    .home-ev-accent { height: 3px; width: 32px; background: var(--lemon); margin-bottom: 14px; }
+    .home-ev-body { font-size: 13.5px; line-height: 1.6; color: rgba(255,255,255,0.75); }
 
     @media (max-width: 760px) {
       .hero { grid-template-columns: 1fr; gap: 36px; }
       .brief { border-left: none; padding-left: 0; border-top: 1px solid var(--border-mid); padding-top: 28px; }
       .home-ev-grid { grid-template-columns: 1fr; }
-      .home-ev-item { border-right: none; border-bottom: 1px solid var(--border-mid); }
       .home-cross span { margin-right: 12px; }
       .home-cross span:not(:last-child)::after { right: -16px; }
     }
@@ -433,6 +434,24 @@
     }
 
     .service-row .sr-arrow { color: var(--mustard); font-weight: 700; flex-shrink: 0; }
+
+    .service-row.sr-flagship {
+      border-left: 4px solid var(--lemon);
+      padding-left: 21px;
+    }
+
+    .service-row.sr-flagship:hover { border-color: var(--border-mid); border-left-color: var(--lemon); }
+
+    .service-row.sr-flagship .sr-label {
+      display: block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--lemon-dk);
+      margin-bottom: 6px;
+    }
 
     @media (max-width: 560px) {
       .service-row { flex-direction: column; align-items: flex-start; gap: 10px; }
@@ -769,6 +788,11 @@
       </div>
     </div>
 
+    <!-- ── Cycle bridge ─────────────────────────────────────────── -->
+    <div style="padding:28px 0 0">
+      <p class="lead center">Most brands run more campaigns and assets than their growth actually needs. XL helps you understand what's really going on, decide what to cut so the noise drops and the impact goes up, design the work that fits the right market, and learn from what happens — so each round builds on the last instead of repeating what everyone else gets wrong.</p>
+    </div>
+
     <!-- ── Crosspoint state line ──────────────────────────────── -->
     <div class="home-cross">
       <span class="on">Understand</span><span>Decide</span><span>Design</span><span>Learn</span>
@@ -778,9 +802,21 @@
     <div class="home-evidence-wrap">
       <p class="home-ev-label">Commercial evidence</p>
       <div class="home-ev-grid">
-        <div class="home-ev-item"><p class="home-ev-num">01</p><p class="home-ev-body">Marketing-generated pipeline contributed to 30% year-on-year gross-profit growth for Vodacom Business Africa.</p></div>
-        <div class="home-ev-item"><p class="home-ev-num">02</p><p class="home-ev-body">Xplora Luxe's partner network was built from zero to more than 100 partners.</p></div>
-        <div class="home-ev-item"><p class="home-ev-num">03</p><p class="home-ev-body">Selected among the top 33 from approximately 500 entries to Eureka GCC's 12-week investor-pitch and business-management incubator.</p></div>
+        <div class="home-ev-item">
+          <p class="home-ev-num">30%</p>
+          <div class="home-ev-accent"></div>
+          <p class="home-ev-body">Contribution to year-on-year gross-profit growth in marketing-generated pipeline for Vodacom Business Africa.</p>
+        </div>
+        <div class="home-ev-item">
+          <p class="home-ev-num">100+</p>
+          <div class="home-ev-accent"></div>
+          <p class="home-ev-body">Partners in Xplora Luxe's network, built from zero.</p>
+        </div>
+        <div class="home-ev-item">
+          <p class="home-ev-num">Top 33</p>
+          <div class="home-ev-accent"></div>
+          <p class="home-ev-body">Of approximately 500 entries to Eureka GCC's 12-week investor-pitch and business-management incubator.</p>
+        </div>
       </div>
     </div>
 
@@ -917,10 +953,11 @@
           </div>
           <span class="sr-arrow">&rarr;</span>
         </a>
-        <a href="/services/ai-search-visibility" class="service-row">
+        <a href="/services/ai-search-visibility" class="service-row sr-flagship">
           <div class="sr-text">
+            <span class="sr-label">Recommended starting point</span>
             <h3>AI Search Visibility</h3>
-            <p>Strengthen the clarity, content structure and external authority required for search engines and AI tools to understand, cite and recommend your business.</p>
+            <p>Strengthen the clarity, content structure and external authority required for search engines and AI tools to understand, cite and recommend your business. There's more beneath the surface than most audits show.</p>
           </div>
           <span class="sr-arrow">&rarr;</span>
         </a>
@@ -944,6 +981,7 @@
       </div>
       <p class="lead center" style="margin-top:22px">We connect market evidence, human understanding, organisational reality and commercial ambition to identify the decision that matters most.</p>
       <p class="lead center" style="margin-top:18px">The XL Crosspoint helps us find where the progress people are seeking can meet a credible opportunity for the business to create value. From there, we design the brand, experience, communications and commercial activity required to support movement — and measure what should change next.</p>
+      <p class="lead center" style="margin-top:18px">In practice, that means deciding what to let go of — the campaigns and assets that add noise without adding impact — so what's left is sharper and easier to act on.</p>
       <div class="method-tagline">Understand <span>&rarr;</span> Decide <span>&rarr;</span> Design <span>&rarr;</span> Learn</div>
       <div style="text-align:center; margin-top:24px">
         <a href="/decision-led-growth" class="btn btn-ghost">Explore Marketing Decision-Led Growth</a>
@@ -954,7 +992,7 @@
     <div class="section reveal">
       <div class="pullquote-block">
         <div class="pq-label">Governing principle</div>
-        <p>The quality of decisions cannot consistently exceed the quality of the information, questions and assumptions from which they are made.</p>
+        <p>You can't make better decisions than the information you start with. The clearer your facts, the better your choices.</p>
       </div>
       <div style="text-align:center; margin-top:20px">
         <a href="/decision-led-growth" class="btn btn-ghost">See how Marketing Decision-Led Growth works</a>
