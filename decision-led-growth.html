@@ -160,44 +160,18 @@
     .question-block p { font-family: 'Inter', sans-serif; font-weight: 800; font-size: clamp(21px, 3.2vw, 28px); line-height: 1.35; color: var(--forest); max-width: 680px; margin: 0 auto; }
 
     /* ── The XL Crosspoint diagram ─────────────────────────────── */
-    .crosspoint-wrap { max-width: 640px; margin: 0 auto; position: relative; }
-    .cp-accent { position: absolute; inset: -46px; z-index: 0; pointer-events: none; }
-    .cp-grid { z-index: 1; }
     .hero-accent { position: absolute; top: 18px; right: max(2vw, calc(50% - 380px)); width: 96px; height: 96px; opacity: 0.5; pointer-events: none; }
     .hero { position: relative; overflow: hidden; }
     @media (max-width: 720px) { .hero-accent { display: none; } }
-    .cp-grid {
-      position: relative;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin: 0;
-    }
-    .cp-card {
-      background: var(--grey); border: 0.5px solid var(--border-mid); border-radius: var(--radius);
-      padding: 24px 20px 22px; text-align: center;
-    }
-    .cp-card .cp-label { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 14px; color: var(--forest); margin: 0 0 8px; }
-    .cp-card dd { font-family: 'Fraunces', Georgia, serif; font-size: 14px; line-height: 1.5; color: var(--forest-mid); margin: 0; }
-    .cp-card.cp-tl { border-top: 3px solid var(--mustard); }
-    .cp-card.cp-tr { border-top: 3px solid var(--forest); }
-    .cp-card.cp-bl { border-top: 3px solid var(--forest); }
-    .cp-card.cp-br { border-top: 3px solid var(--mustard); }
-    .cp-center {
-      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-      width: 108px; height: 108px; border-radius: 50%;
-      background: var(--forest); color: var(--ivory);
-      display: flex; align-items: center; justify-content: center; text-align: center;
-      font-family: 'Inter', sans-serif; font-weight: 800; font-size: 12px; line-height: 1.3;
-      box-shadow: var(--shadow-lg); padding: 8px; z-index: 2;
-    }
-    @media (max-width: 560px) {
-      .cp-grid { grid-template-columns: 1fr; gap: 16px; }
-      .cp-center {
-        position: static; transform: none; margin: 4px auto;
-        width: 92px; height: 92px; font-size: 11px;
-      }
-    }
+    .crosspoint-figure { max-width: 720px; margin-left: auto; margin-right: auto; }
+
+    /* Crawlable text pairing for the Crosspoint figure — same four conditions the
+       image shows, kept as real markup for accessibility and machine readers. */
+    .cp-list { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 20px; max-width: 640px; margin: 24px auto 0; }
+    .cp-list-item { border-top: 2px solid var(--mustard); padding-top: 10px; }
+    .cp-list-item dt { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 13px; color: var(--forest); margin: 0 0 4px; }
+    .cp-list-item dd { font-family: 'Fraunces', Georgia, serif; font-size: 14px; line-height: 1.5; color: var(--forest-mid); margin: 0; }
+    @media (max-width: 560px) { .cp-list { grid-template-columns: 1fr; } }
 
     .crosspoint-line { text-align: center; margin-top: 8px; }
     .crosspoint-line p { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: clamp(19px, 2.6vw, 23px); color: var(--forest); line-height: 1.5; max-width: 620px; margin: 0 auto; }
@@ -278,7 +252,7 @@
       <div class="hero-eyebrow">XL's Growth Methodology</div>
       <h1>Find exactly what needs to change for your buyers — and your business — to move forward.</h1>
       <p class="hero-sub"><strong>Marketing Decision-Led Growth is XL's evidence-based method for improving the decisions, conditions and experiences that shape real commercial progress.</strong></p>
-      <p class="hero-sub" style="margin-top:16px">It combines credible evidence with human understanding to locate the XL Crosspoint: the productive point at which human progress, business ambition, credible brand contribution and the conditions for movement create mutual value.</p>
+      <p class="hero-sub" style="margin-top:16px">It combines credible evidence with human understanding to locate the XL Crosspoint: the productive point at which human progress, business ambition, credible brand contribution and the conditions for breakthrough create mutual value.</p>
     </div>
 
     <!-- ── Governing belief ──────────────────────────────────────── -->
@@ -319,28 +293,27 @@
       <div class="section-label">Our signature tool</div>
       <h2>The XL Crosspoint</h2>
       <p class="lead">The Crosspoint is where your business goals and your buyers' needs meet to create mutual value — found by aligning four conditions:</p>
-      <div class="crosspoint-wrap" style="margin-top:28px">
-        <div class="cp-accent" id="cpAccent" aria-hidden="true"></div>
-        <dl class="cp-grid">
-          <div class="cp-card cp-tl">
-            <dt class="cp-label">Human progress</dt>
-            <dd>What are people trying to achieve?</dd>
-          </div>
-          <div class="cp-card cp-tr">
-            <dt class="cp-label">Business ambition</dt>
-            <dd>What sustainable growth does the organisation need?</dd>
-          </div>
-          <div class="cp-card cp-bl">
-            <dt class="cp-label">Brand contribution</dt>
-            <dd>What useful role can the brand credibly earn?</dd>
-          </div>
-          <div class="cp-card cp-br">
-            <dt class="cp-label">Conditions for movement</dt>
-            <dd>What must change to make progress possible?</dd>
-          </div>
-          <div class="cp-center">Mutual<br>value</div>
-        </dl>
-      </div>
+      <figure class="method-figure crosspoint-figure" style="margin-top:28px">
+        <img src="images/xl-crosspoint-diagram.png" width="1672" height="941" alt="The XL Crosspoint diagram: four conditions align at a central point of mutual value — human progress (what are people trying to achieve), business ambition (what sustainable growth does the organisation need), brand contribution (what useful role can the brand credibly earn) and conditions for breakthrough (what must change to make progress possible)." loading="lazy" decoding="async">
+      </figure>
+      <dl class="cp-list">
+        <div class="cp-list-item">
+          <dt>Human progress</dt>
+          <dd>What are people trying to achieve?</dd>
+        </div>
+        <div class="cp-list-item">
+          <dt>Business ambition</dt>
+          <dd>What sustainable growth does the organisation need?</dd>
+        </div>
+        <div class="cp-list-item">
+          <dt>Brand contribution</dt>
+          <dd>What useful role can the brand credibly earn?</dd>
+        </div>
+        <div class="cp-list-item">
+          <dt>Conditions for breakthrough</dt>
+          <dd>What must change to make progress possible?</dd>
+        </div>
+      </dl>
       <div class="crosspoint-line" style="margin-top:30px">
         <p>This cannot be manufactured through clever messaging. It has to be earned.</p>
       </div>
@@ -473,19 +446,6 @@
           '<circle cx="' + nx2 + '" cy="' + ny2 + '" r="4.5" fill="none" style="stroke:var(--muted-light)" stroke-width="2"/>'
         );
       }
-      var cpAccent = document.getElementById('cpAccent');
-      if (cpAccent) {
-        cpAccent.innerHTML = '<svg viewBox="0 0 400 400" width="100%" height="100%" aria-hidden="true" style="opacity:0.28">' +
-          [[-168,-168],[168,-168],[-168,168],[168,168]].map(function(c){
-            var x1 = 200 + c[0], y1 = 200 + c[1];
-            var x2 = 200 + c[0]*0.52, y2 = 200 + c[1]*0.72;
-            return '<line x1="' + x1 + '" y1="' + y1 + '" x2="' + x2 + '" y2="' + y2 + '" style="stroke:var(--forest-mid)" stroke-width="1.5"/>' +
-              '<rect x="' + (x1-5) + '" y="' + (y1-5) + '" width="10" height="10" fill="none" style="stroke:var(--forest-mid)" stroke-width="1.5"/>' +
-              '<circle cx="' + x2 + '" cy="' + y2 + '" r="4" style="fill:var(--mustard)"/>';
-          }).join('') +
-        '</svg>';
-      }
-
       var heroAccent = document.getElementById('heroAccent');
       if (heroAccent) {
         heroAccent.innerHTML = petalPiece(0, scatterAccent(0), 0).replace('width="76" height="76"', 'width="96" height="96"');
