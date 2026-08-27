@@ -163,9 +163,9 @@
 
     /* ── The XL Crosspoint diagram ─────────────────────────────── */
     .hero { position: relative; overflow: hidden; }
-    .hero-banner-grid { display: flex; align-items: center; gap: 40px; }
+    .hero-banner-grid { display: flex; align-items: flex-start; gap: 40px; }
     .hero-banner-text { flex: 1.3; min-width: 0; }
-    .hero-banner-photo { position: relative; flex: 1; max-width: 240px; margin: 0 auto; }
+    .hero-banner-photo { position: relative; flex: 1; max-width: 240px; margin: 44px auto 0; }
     .hero-photo-blob { position: absolute; top: -20px; right: -26px; width: 72%; height: 78%; background: var(--lemon); border-radius: 58% 42% 61% 39% / 47% 53% 47% 53%; z-index: 0; }
     .hero-photo-dots { position: absolute; top: -28px; left: -28px; width: 84px; height: 56px; background-image: radial-gradient(var(--ember) 1.6px, transparent 1.6px); background-size: 12px 12px; opacity: 0.55; z-index: 0; }
     .hero-photo-img { position: relative; z-index: 1; display: block; width: 100%; height: auto; border-radius: 50%; border: 5px solid var(--paper); box-shadow: 0 0 0 1px var(--border-mid); }
@@ -173,7 +173,7 @@
       .hero-banner-grid { flex-direction: column-reverse; gap: 28px; }
       .hero-banner-text { text-align: center; }
       .hero-banner-text .hero-sub { margin-left: auto; margin-right: auto; }
-      .hero-banner-photo { max-width: 180px; }
+      .hero-banner-photo { max-width: 180px; margin-top: 0; }
       .hero-photo-dots { display: none; }
     }
     .crosspoint-figure { max-width: 720px; margin-left: auto; margin-right: auto; }
