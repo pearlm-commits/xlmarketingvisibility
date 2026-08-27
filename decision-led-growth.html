@@ -48,6 +48,8 @@
       --bordeaux:    #5C1220;
       --stone:       #8B8479;
       --paper:       #FFFFFF;
+      --lemon:       #F2E14D;
+      --lemon-dk:    #C9B520;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -103,10 +105,10 @@
     }
     .nav-cta:hover { background: var(--forest); color: #fff; }
 
-    .hero { background: var(--paper); padding: 64px 0 8px; text-align: center; border-bottom: 1px solid var(--border-mid);}
+    .hero { background: var(--paper); padding: 56px 0 40px; text-align: left; border-bottom: 1px solid var(--border-mid);}
     .hero-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mustard); font-weight: 700; margin-bottom: 18px; }
-    .hero h1 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(42px, 6.4vw, 64px); line-height: 1.12; color: var(--forest); margin-bottom: 20px; }
-    .hero-sub { font-family: 'Fraunces', Georgia, serif; font-size: clamp(21px, 2.4vw, 23px); color: var(--forest-mid); line-height: 1.7; max-width: 620px; margin: 0 auto; }
+    .hero h1 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(38px, 5.6vw, 56px); line-height: 1.14; color: var(--forest); margin-bottom: 20px; }
+    .hero-sub { font-family: 'Fraunces', Georgia, serif; font-size: clamp(19px, 2.1vw, 21px); color: var(--forest-mid); line-height: 1.7; max-width: 560px; }
 
     .btn {
       display: inline-flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-size: 15px;
@@ -160,9 +162,20 @@
     .question-block p { font-family: 'Inter', sans-serif; font-weight: 800; font-size: clamp(21px, 3.2vw, 28px); line-height: 1.35; color: var(--forest); max-width: 680px; margin: 0 auto; }
 
     /* ── The XL Crosspoint diagram ─────────────────────────────── */
-    .hero-accent { position: absolute; top: 18px; right: max(2vw, calc(50% - 380px)); width: 96px; height: 96px; opacity: 0.5; pointer-events: none; }
     .hero { position: relative; overflow: hidden; }
-    @media (max-width: 720px) { .hero-accent { display: none; } }
+    .hero-banner-grid { display: flex; align-items: center; gap: 40px; }
+    .hero-banner-text { flex: 1.3; min-width: 0; }
+    .hero-banner-photo { position: relative; flex: 1; max-width: 240px; margin: 0 auto; }
+    .hero-photo-blob { position: absolute; top: -20px; right: -26px; width: 72%; height: 78%; background: var(--lemon); border-radius: 58% 42% 61% 39% / 47% 53% 47% 53%; z-index: 0; }
+    .hero-photo-dots { position: absolute; top: -28px; left: -28px; width: 84px; height: 56px; background-image: radial-gradient(var(--ember) 1.6px, transparent 1.6px); background-size: 12px 12px; opacity: 0.55; z-index: 0; }
+    .hero-photo-img { position: relative; z-index: 1; display: block; width: 100%; height: auto; border-radius: 50%; border: 5px solid var(--paper); box-shadow: 0 0 0 1px var(--border-mid); }
+    @media (max-width: 680px) {
+      .hero-banner-grid { flex-direction: column-reverse; gap: 28px; }
+      .hero-banner-text { text-align: center; }
+      .hero-banner-text .hero-sub { margin-left: auto; margin-right: auto; }
+      .hero-banner-photo { max-width: 180px; }
+      .hero-photo-dots { display: none; }
+    }
     .crosspoint-figure { max-width: 720px; margin-left: auto; margin-right: auto; }
 
     /* Crawlable text pairing for the Crosspoint figure — same four conditions the
@@ -172,9 +185,6 @@
     .cp-list-item dt { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 13px; color: var(--forest); margin: 0 0 4px; }
     .cp-list-item dd { font-family: 'Fraunces', Georgia, serif; font-size: 14px; line-height: 1.5; color: var(--forest-mid); margin: 0; }
     @media (max-width: 560px) { .cp-list { grid-template-columns: 1fr; } }
-
-    .crosspoint-line { text-align: center; margin-top: 8px; }
-    .crosspoint-line p { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: clamp(19px, 2.6vw, 23px); color: var(--forest); line-height: 1.5; max-width: 620px; margin: 0 auto; }
 
     /* ── Understand → Decide → Design → Learn ─────────────────── */
     .method-figure { margin: 0; }
@@ -248,11 +258,19 @@
     <main>
 
     <div class="hero">
-      <div class="hero-accent" id="heroAccent" aria-hidden="true"></div>
-      <div class="hero-eyebrow">XL's Growth Methodology</div>
-      <h1>Find exactly what needs to change for your buyers — and your business — to move forward.</h1>
-      <p class="hero-sub"><strong>Marketing Decision-Led Growth is XL's evidence-based method for improving the decisions, conditions and experiences that shape real commercial progress.</strong></p>
-      <p class="hero-sub" style="margin-top:16px">It combines credible evidence with human understanding to locate the XL Crosspoint: the productive point at which human progress, business ambition, credible brand contribution and the conditions for breakthrough create mutual value.</p>
+      <div class="hero-banner-grid">
+        <div class="hero-banner-text">
+          <div class="hero-eyebrow">XL's Growth Methodology</div>
+          <h1>Find exactly what needs to change for your buyers — and your business — to move forward.</h1>
+          <p class="hero-sub"><strong>Marketing Decision-Led Growth is XL's evidence-based method for improving the decisions, conditions and experiences that shape real commercial progress.</strong></p>
+          <p class="hero-sub" style="margin-top:16px">It combines credible evidence with human understanding to locate the XL Crosspoint: the productive point at which human progress, business ambition, credible brand contribution and the conditions for breakthrough create mutual value.</p>
+        </div>
+        <div class="hero-banner-photo">
+          <div class="hero-photo-dots" aria-hidden="true"></div>
+          <div class="hero-photo-blob" aria-hidden="true"></div>
+          <img class="hero-photo-img" src="images/decision-led-growth-banner-photo.jpg" width="630" height="630" alt="Two colleagues working through a decision together, building understanding piece by piece." loading="eager" decoding="async">
+        </div>
+      </div>
     </div>
 
     <!-- ── Governing belief ──────────────────────────────────────── -->
@@ -288,15 +306,28 @@
       <p class="lead" style="margin-top:22px">The result is a clear, defensible basis for action, execution and learning — not another document that sits on a shelf.</p>
     </div>
 
-    <!-- ── The XL Crosspoint ─────────────────────────────────────── -->
+    <!-- ── Understand → Decide → Design → Learn ─────────────────── -->
+    <div class="section reveal">
+      <div class="section-label">Marketing Decision-Led Growth</div>
+      <h2>One method, four disciplines</h2>
+      <p class="lead" style="margin-bottom:24px">We turn uncertainty into clear, confident decisions for your business. Make sense of what is changing, decide what matters, design the right response and learn what moves people and the business forward.</p>
+      <figure class="method-figure">
+        <img src="images/decision-led-growth-journey.jpg" width="2816" height="1536" alt="XL's four-stage Marketing Decision-Led Growth journey: Understand, connecting with human need through direct research; Decide, making data-informed choices about channel and message; Design, testing ideas with real people in real conditions; Learn, measuring results and scaling what works." loading="lazy" decoding="async">
+        <figcaption>The same four-stage discipline behind every XL engagement, from first conversation to what happens next.</figcaption>
+      </figure>
+      <ul class="framework-list" style="margin-top:28px; text-align:left; max-width:640px;">
+        <li><strong>Understand</strong> — map the progress people are pursuing, and what stands in their way.</li>
+        <li><strong>Decide</strong> — locate the Crosspoint and identify the single decision that matters most.</li>
+        <li><strong>Design</strong> — build the brand, experience, communications and commercial activity required to support that movement.</li>
+        <li><strong>Learn</strong> — measure what changed, what didn't, and what should happen next.</li>
+      </ul>
+    </div>
+
     <div class="section reveal">
       <div class="section-label">Our signature tool</div>
       <h2>The XL Crosspoint</h2>
-      <p class="lead">The Crosspoint is where your business goals and your buyers' needs meet to create mutual value — found by aligning four conditions:</p>
-      <figure class="method-figure crosspoint-figure" style="margin-top:28px">
-        <img src="images/xl-crosspoint-diagram.png" width="1672" height="941" alt="The XL Crosspoint diagram: four conditions align at a central point of mutual value — human progress (what are people trying to achieve), business ambition (what sustainable growth does the organisation need), brand contribution (what useful role can the brand credibly earn) and conditions for breakthrough (what must change to make progress possible)." loading="lazy" decoding="async">
-      </figure>
-      <dl class="cp-list">
+      <p class="lead">The sweet spot where your business goals and your customers' needs align to create value for everyone.</p>
+      <dl class="cp-list" style="margin-top:24px">
         <div class="cp-list-item">
           <dt>Human progress</dt>
           <dd>What are people trying to achieve?</dd>
@@ -314,34 +345,21 @@
           <dd>What must change to make progress possible?</dd>
         </div>
       </dl>
-      <div class="crosspoint-line" style="margin-top:30px">
-        <p>This cannot be manufactured through clever messaging. It has to be earned.</p>
-      </div>
-    </div>
-
-    <!-- ── Understand → Decide → Design → Learn ─────────────────── -->
-    <div class="section reveal">
-      <div class="section-label">How value is created</div>
-      <h2>One method, four disciplines</h2>
-      <p class="lead" style="margin-bottom:24px">Every XL engagement follows the same shape to turn evidence into execution.</p>
-      <figure class="method-figure">
-        <img src="images/decision-led-growth-journey.jpg" width="2816" height="1536" alt="XL's four-stage Marketing Decision-Led Growth journey: Understand, connecting with human need through direct research; Decide, making data-informed choices about channel and message; Design, testing ideas with real people in real conditions; Learn, measuring results and scaling what works." loading="lazy" decoding="async">
-        <figcaption>The same four-stage discipline behind every XL engagement, from first conversation to what happens next.</figcaption>
-      </figure>
-      <ul class="framework-list" style="margin-top:28px; text-align:left; max-width:640px;">
-        <li><strong>Understand</strong> — map the progress people are pursuing, and what stands in their way.</li>
-        <li><strong>Decide</strong> — locate the Crosspoint and identify the single decision that matters most.</li>
-        <li><strong>Design</strong> — build the brand, experience, communications and commercial activity required to support that movement.</li>
-        <li><strong>Learn</strong> — measure what changed, what didn't, and what should happen next.</li>
-      </ul>
     </div>
 
     <!-- ── Governing principle ──────────────────────────────────── -->
     <div class="section reveal">
       <div class="pullquote-block">
         <div class="pq-label">What governs the work</div>
-        <p>The quality of decisions cannot consistently exceed the quality of the information, questions and assumptions from which they are made.</p>
+        <p>Better decisions start with better data — if your information is flawed, your strategy will be, too.</p>
       </div>
+    </div>
+
+    <!-- ── The XL Crosspoint, visualised ────────────────────────── -->
+    <div class="section reveal">
+      <figure class="method-figure crosspoint-figure">
+        <img src="images/xl-crosspoint-diagram.png" width="1672" height="941" alt="The XL Crosspoint diagram: four conditions align at a central point of mutual value — human progress (what are people trying to achieve), business ambition (what sustainable growth does the organisation need), brand contribution (what useful role can the brand credibly earn) and conditions for breakthrough (what must change to make progress possible)." loading="lazy" decoding="async">
+      </figure>
     </div>
 
     <!-- ── Accountability principle ─────────────────────────────── -->
@@ -404,54 +422,6 @@
   </div><!-- /page-wrap -->
 
   <script>
-    (function(){
-      var CX = 110, CY = 110, VB = 220;
-      var PETAL_D = "M-50,-58 C-50,-30 -30,-6 -3,-4 C-1,-4 2,-6 4,-10 C8,-4 12,-4 14,-6 C40,-10 50,-32 50,-58 C50,-92 28,-110 0,-110 C-28,-110 -50,-92 -50,-58 Z";
-
-      // dir(theta): unit vector this petal points toward, matching the rotate() convention
-      // used by the full mark (0deg = up, 90deg = right, 180deg = down, 270deg = left).
-      function dir(theta) {
-        var r = theta * Math.PI / 180;
-        return [Math.sin(r), -Math.cos(r)];
-      }
-
-      // One petal, tightly cropped so the four cards read as adjoining quarters of
-      // the same mark rather than four repeats of the whole symbol.
-      function petalPiece(theta, accentSVG, centerOp) {
-        var d = dir(theta);
-        var cropOffset = 62, cropHalf = 68;
-        var vx = CX + d[0] * cropOffset - cropHalf;
-        var vy = CY + d[1] * cropOffset - cropHalf;
-        var petal = '<g transform="translate(' + CX + ' ' + CY + ') rotate(' + theta + ')"><path d="' + PETAL_D + '" style="fill:var(--forest)"/></g>';
-        // The same diagonal X-gap construction as the full mark, so the cut edge
-        // reads as "continues into the whole symbol" rather than an arbitrary crop.
-        var gapW = 22;
-        var edgeCut = '<rect x="' + (CX-gapW/2) + '" y="' + (CY-160) + '" width="' + gapW + '" height="320" style="fill:var(--grey)" transform="rotate(' + (theta+45) + ' ' + CX + ' ' + CY + ')"/>' +
-          '<rect x="' + (CX-gapW/2) + '" y="' + (CY-160) + '" width="' + gapW + '" height="320" style="fill:var(--grey)" transform="rotate(' + (theta-45) + ' ' + CX + ' ' + CY + ')"/>';
-        var centerDot = '<circle cx="' + CX + '" cy="' + CY + '" r="9" style="fill:var(--mustard)" opacity="' + centerOp + '"/>';
-        return '<svg viewBox="' + vx + ' ' + vy + ' ' + (cropHalf*2) + ' ' + (cropHalf*2) + '" width="76" height="76" aria-hidden="true">' +
-          petal + edgeCut + accentSVG + centerDot +
-        '</svg>';
-      }
-
-      // Understand: a couple of small nodes still outside the piece, evidence not yet in.
-      function scatterAccent(theta) {
-        var d = dir(theta), p = [-d[1], d[0]];
-        var nx = CX + d[0]*124 + p[0]*14, ny = CY + d[1]*124 + p[1]*14;
-        var lx = CX + d[0]*104, ly = CY + d[1]*104;
-        var nx2 = CX + d[0]*118 - p[0]*18, ny2 = CY + d[1]*118 - p[1]*18;
-        return (
-          '<line x1="' + nx + '" y1="' + ny + '" x2="' + lx + '" y2="' + ly + '" style="stroke:var(--muted-light)" stroke-width="2"/>' +
-          '<rect x="' + (nx-5) + '" y="' + (ny-5) + '" width="10" height="10" style="fill:var(--mustard)"/>' +
-          '<circle cx="' + nx2 + '" cy="' + ny2 + '" r="4.5" fill="none" style="stroke:var(--muted-light)" stroke-width="2"/>'
-        );
-      }
-      var heroAccent = document.getElementById('heroAccent');
-      if (heroAccent) {
-        heroAccent.innerHTML = petalPiece(0, scatterAccent(0), 0).replace('width="76" height="76"', 'width="96" height="96"');
-      }
-    })();
-
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
