@@ -29,9 +29,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" /></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" /></noscript>
 
   <style>
     /* ── Brand tokens ─────────────────────────────────────────── */
@@ -76,7 +76,7 @@
 
     :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 
-    .serif { font-family: 'Fraunces', Georgia, serif; }
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
 
     /* ── Layout ───────────────────────────────────────────────── */
     .page-wrap { max-width: 680px; margin: 0 auto; padding: 0 24px; }
@@ -90,7 +90,7 @@
     .site-logo { display: inline-flex; align-items: center; text-decoration: none; }
     .site-logo img { height: 32px; width: auto; display: block; }
     .site-logo-text {
-      font-family: 'Fraunces', Georgia, serif;
+      font-family: 'Playfair Display', Georgia, serif;
       font-weight: 600;
       font-size: 21px;
       letter-spacing: -0.01em;
@@ -136,18 +136,18 @@
     }
     .article-date { font-size: 12px; color: var(--muted); font-weight: 500; }
     .article-head h1 {
-      font-family: 'Fraunces', Georgia, serif; font-size: clamp(28px, 4.6vw, 40px); font-weight: 500;
+      font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, 4.6vw, 40px); font-weight: 500;
       line-height: 1.22; color: var(--forest); margin-bottom: 14px; letter-spacing: -0.01em;
     }
     .article-dek {
-      font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: clamp(17px, 2.1vw, 19px);
+      font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(17px, 2.1vw, 19px);
       color: var(--forest-mid); line-height: 1.6; max-width: 580px; margin: 0 auto 18px;
     }
     .article-byline { font-size: 13px; color: var(--muted); font-weight: 600; }
 
     /* ── Direct answer ────────────────────────────────────────── */
     .direct-answer { background: var(--grey); border-left: 3px solid var(--mustard); border-radius: 0 var(--radius) var(--radius) 0; padding: 18px 22px; margin-bottom: 24px; }
-    .direct-answer p { font-family: 'Fraunces', Georgia, serif; font-size: 17px; line-height: 1.7; color: var(--ink); }
+    .direct-answer p { font-family: 'Playfair Display', Georgia, serif; font-size: 17px; line-height: 1.7; color: var(--ink); }
     .direct-answer strong { color: var(--forest); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
 
     /* ── TL;DR ────────────────────────────────────────────────── */
@@ -158,7 +158,7 @@
     .tldr li::before { content: ''; position: absolute; left: 2px; top: 8px; width: 6px; height: 6px; border-radius: 50%; background: var(--mustard); }
 
     /* ── CEP journey map intro line ───────────────────────────── */
-    .map-intro { font-family: 'Fraunces', Georgia, serif; font-size: 16px; color: var(--forest-mid); line-height: 1.7; margin-bottom: 8px; }
+    .map-intro { font-family: 'Playfair Display', Georgia, serif; font-size: 16px; color: var(--forest-mid); line-height: 1.7; margin-bottom: 8px; }
 
     /* ── Buttons ──────────────────────────────────────────────── */
     .btn {
@@ -180,7 +180,7 @@
       border-radius: var(--radius); padding: 56px 40px; text-align: center; margin-bottom: 8px;
     }
     .hero-placeholder .hp-label { font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mustard-lt); margin-bottom: 18px; }
-    .hero-placeholder p { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: clamp(19px, 2.8vw, 25px); color: var(--ivory); line-height: 1.55; max-width: 720px; margin: 0 auto; }
+    .hero-placeholder p { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(19px, 2.8vw, 25px); color: var(--ivory); line-height: 1.55; max-width: 720px; margin: 0 auto; }
     @media (max-width: 600px) {
       .site-nav { flex-wrap: wrap; row-gap: 14px; }
       .nav-links { width: 100%; justify-content: flex-start; }
@@ -188,16 +188,16 @@
 
     /* ── Article body ─────────────────────────────────────────── */
     .article-body { padding: 8px 0 12px; }
-    .article-body p { font-family: 'Fraunces', Georgia, serif; font-size: 18px; line-height: 1.85; color: var(--ink); margin-bottom: 22px; }
+    .article-body p { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; line-height: 1.85; color: var(--ink); margin-bottom: 22px; }
     .article-body p.lede { font-size: 20px; line-height: 1.75; color: var(--forest-mid); }
     .article-body strong { font-weight: 600; color: var(--forest); }
     .article-body p a { color: var(--mustard); font-weight: 600; text-decoration: underline; text-decoration-color: var(--border-mid); text-underline-offset: 2px; }
     .article-body p a:hover { text-decoration-color: var(--mustard); }
-    .article-body h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(24px, 3.4vw, 29px); color: var(--forest); line-height: 1.3; margin: 44px 0 18px; }
+    .article-body h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: clamp(24px, 3.4vw, 29px); color: var(--forest); line-height: 1.3; margin: 44px 0 18px; }
     .article-body h3 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 19px; color: var(--forest); line-height: 1.35; margin: 28px 0 12px; }
 
     .article-body ul, .article-body ol.plain-list { list-style: none; margin-bottom: 22px; display: flex; flex-direction: column; gap: 14px; }
-    .article-body ul li, .article-body ol.plain-list li { font-family: 'Fraunces', Georgia, serif; font-size: 17px; line-height: 1.7; color: var(--ink); padding-left: 22px; position: relative; }
+    .article-body ul li, .article-body ol.plain-list li { font-family: 'Playfair Display', Georgia, serif; font-size: 17px; line-height: 1.7; color: var(--ink); padding-left: 22px; position: relative; }
     .article-body ul li::before { content: '→'; position: absolute; left: 0; color: var(--mustard); font-weight: 700; font-family: 'Inter', sans-serif; }
 
     .article-body ol.numbered-list { list-style: none; counter-reset: dec; margin-bottom: 22px; display: flex; flex-direction: column; gap: 18px; }
@@ -208,22 +208,22 @@
       display: flex; align-items: center; justify-content: center;
     }
     .article-body ol.numbered-list .li-title { font-family: 'Inter', sans-serif; font-weight: 700; color: var(--forest); font-size: 16px; display: block; margin-bottom: 6px; }
-    .article-body ol.numbered-list p { font-family: 'Fraunces', Georgia, serif; font-size: 16px; color: var(--ink); line-height: 1.65; margin: 0; }
+    .article-body ol.numbered-list p { font-family: 'Playfair Display', Georgia, serif; font-size: 16px; color: var(--ink); line-height: 1.65; margin: 0; }
 
     /* ── Callouts ─────────────────────────────────────────────── */
     .xl-definition { background: var(--forest); border-radius: var(--radius); padding: 26px 28px; margin-bottom: 22px; }
-    .xl-definition p { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: clamp(17px, 2.2vw, 20px); color: var(--ivory); line-height: 1.6; margin: 0; }
+    .xl-definition p { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(17px, 2.2vw, 20px); color: var(--ivory); line-height: 1.6; margin: 0; }
     .xl-definition .def-label { font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mustard-lt); margin-bottom: 10px; display: block; }
 
     .central-proposition { background: var(--grey); border-radius: var(--radius); padding: 30px 28px; margin: 8px 0 28px; text-align: center; }
-    .central-proposition p { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: clamp(19px, 2.8vw, 23px); color: var(--forest); line-height: 1.5; margin: 0; }
+    .central-proposition p { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(19px, 2.8vw, 23px); color: var(--forest); line-height: 1.5; margin: 0; }
 
     .closing-provocation { background: var(--forest); border-radius: var(--radius); padding: 32px 30px; margin: 8px 0 28px; text-align: center; }
-    .closing-provocation p { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: clamp(18px, 2.4vw, 21px); color: var(--ivory); line-height: 1.6; margin: 0; }
+    .closing-provocation p { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(18px, 2.4vw, 21px); color: var(--ivory); line-height: 1.6; margin: 0; }
 
     /* ── Checklist ────────────────────────────────────────────── */
     .checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px; }
-    .checklist li { font-family: 'Fraunces', Georgia, serif; font-size: 16px; line-height: 1.6; color: var(--ink); padding: 12px 16px 12px 42px; position: relative; background: var(--grey); border-radius: var(--radius); }
+    .checklist li { font-family: 'Playfair Display', Georgia, serif; font-size: 16px; line-height: 1.6; color: var(--ink); padding: 12px 16px 12px 42px; position: relative; background: var(--grey); border-radius: var(--radius); }
     .checklist li::before { content: '?'; position: absolute; left: 14px; top: 12px; width: 20px; height: 20px; border-radius: 50%; background: var(--mustard); color: var(--forest); font-family: 'Inter', sans-serif; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center; }
 
     /* ── FAQ ──────────────────────────────────────────────────── */
@@ -232,7 +232,7 @@
     .faq-item { border-top: 0.5px solid var(--border); padding: 20px 0; }
     .faq-item:last-child { border-bottom: 0.5px solid var(--border); }
     .faq-item h3 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 17px; color: var(--forest); margin-bottom: 8px; line-height: 1.4; }
-    .faq-item p { font-family: 'Fraunces', Georgia, serif; font-size: 16px; line-height: 1.7; color: var(--ink); }
+    .faq-item p { font-family: 'Playfair Display', Georgia, serif; font-size: 16px; line-height: 1.7; color: var(--ink); }
 
     /* ── Sources ──────────────────────────────────────────────── */
     .sources-section { margin: 40px 0 8px; }
@@ -247,7 +247,7 @@
     .author-bio img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 3px solid var(--white); box-shadow: 0 2px 24px rgba(23,63,53,0.08); }
     .author-bio .author-name { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 16px; color: var(--forest); margin-bottom: 2px; }
     .author-bio .author-role { font-size: 12px; color: var(--mustard); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 10px; }
-    .author-bio p.author-text { font-family: 'Fraunces', Georgia, serif; font-size: 15px; color: var(--forest-mid); line-height: 1.65; margin: 0; }
+    .author-bio p.author-text { font-family: 'Playfair Display', Georgia, serif; font-size: 15px; color: var(--forest-mid); line-height: 1.65; margin: 0; }
 
     .about-xl { margin: 20px 0 8px; }
     .about-xl p { font-size: 13px; color: var(--muted); line-height: 1.65; }
@@ -256,8 +256,8 @@
     /* ── End conversion panel ─────────────────────────────────── */
     .end-cta-panel { background: var(--paper); border-radius: 0; padding: 40px 32px; text-align: center; margin: 44px 0 8px; border-top: 1px solid var(--border-mid);}
     .end-cta-panel .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--mustard); margin-bottom: 14px; }
-    .end-cta-panel h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(22px, 3.4vw, 28px); color: var(--forest); margin-bottom: 12px; line-height: 1.3; }
-    .end-cta-panel > p { font-family: 'Fraunces', Georgia, serif; font-size: 16px; color: var(--forest-mid); line-height: 1.6; max-width: 480px; margin: 0 auto 28px; }
+    .end-cta-panel h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: clamp(22px, 3.4vw, 28px); color: var(--forest); margin-bottom: 12px; line-height: 1.3; }
+    .end-cta-panel > p { font-family: 'Playfair Display', Georgia, serif; font-size: 16px; color: var(--forest-mid); line-height: 1.6; max-width: 480px; margin: 0 auto 28px; }
     .end-cta-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
     .end-cta-btn-group { display: flex; flex-direction: column; align-items: center; gap: 8px; }
     .end-cta-btn-group .btn-micro { font-size: 12px; color: var(--muted); font-weight: 500; }
@@ -350,7 +350,7 @@
         <a href="/about">About</a>
         <a href="/journal" class="current">Meridian Insights</a>
         <a href="/diagnostics">Diagnostics</a>
-        <a href="/contact" class="nav-cta">Book a strategy call</a>
+        <a href="/contact" class="nav-cta">Secure Your Diagnostic Brief</a>
       </div>
     </nav>
 
@@ -781,10 +781,10 @@
     <div class="end-cta-panel">
       <div class="section-label">What is activating demand for you?</div>
       <h2>XL works with founders, CEOs, CMOs, product leaders and marketing teams who need to understand what is activating demand and which marketing choices deserve priority.</h2>
-      <p>Book a strategy call to examine the decision behind your next growth challenge, or take the Marketing Readiness Diagnostic to identify where positioning, content, demand generation or marketing operations may be losing coherence.</p>
+      <p>Secure a strategy briefing to examine the decision behind your next growth challenge, or take the Marketing Readiness Diagnostic to identify where positioning, content, demand generation or marketing operations may be losing coherence.</p>
       <div class="end-cta-buttons">
         <div class="end-cta-btn-group">
-          <a href="/contact" class="btn btn-outline-forest">Book a strategy call</a>
+          <a href="/contact" class="btn btn-outline-forest">Secure Your Diagnostic Brief</a>
           <span class="btn-micro">For positioning, segmentation and growth decisions</span>
         </div>
         <div class="end-cta-btn-group">

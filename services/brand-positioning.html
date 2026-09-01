@@ -23,9 +23,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" /></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" /></noscript>
 
   <style>
     :root {
@@ -43,13 +43,13 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--ink); min-height: 100vh; -webkit-font-smoothing: antialiased; }
     :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
-    .serif { font-family: 'Fraunces', Georgia, serif; }
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
     .page-wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
 
     .site-nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; border-bottom: 1px solid var(--border-mid); }
     .site-logo { display: inline-flex; align-items: center; text-decoration: none; }
     .site-logo img { height: 32px; width: auto; display: block; }
-    .site-logo-text { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 21px; letter-spacing: -0.01em; color: var(--forest); margin-left: 10px; white-space: nowrap; }
+    .site-logo-text { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; font-size: 21px; letter-spacing: -0.01em; color: var(--forest); margin-left: 10px; white-space: nowrap; }
     .nav-links { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 10px 22px; }
     .nav-links > a { font-size: 13px; color: var(--muted); text-decoration: none; font-weight: 500; letter-spacing: 0.01em; transition: color 0.15s; }
     .nav-links > a.current { color: var(--forest); }
@@ -66,10 +66,10 @@
     .svc-head { background: var(--paper); padding: 20px 0 32px; border-bottom: 1px solid var(--border-mid); }
     .svc-eyebrow { display: flex; align-items: center; gap: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mustard); font-weight: 700; margin-bottom: 16px; }
     .num-badge { width: 26px; height: 26px; border-radius: 50%; background: var(--forest); color: var(--mustard-lt); font-family: 'Inter', sans-serif; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .svc-head h1 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(32px, 5vw, 44px); line-height: 1.18; color: var(--forest); margin-bottom: 18px; letter-spacing: -0.01em; max-width: 15ch; }
+    .svc-head h1 { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: clamp(32px, 5vw, 44px); line-height: 1.18; color: var(--forest); margin-bottom: 18px; letter-spacing: -0.01em; max-width: 15ch; }
 
     .direct-answer { background: var(--grey); border-left: 3px solid var(--mustard); padding: 18px 22px; margin-bottom: 8px; }
-    .direct-answer p { font-family: 'Fraunces', Georgia, serif; font-size: 18px; line-height: 1.7; color: var(--ink); }
+    .direct-answer p { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; line-height: 1.7; color: var(--ink); }
     .direct-answer strong { color: var(--forest); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 8px; }
 
     .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 24px 0 8px; }
@@ -85,28 +85,28 @@
 
     .section { padding: 40px 0; border-top: 0.5px solid var(--border); }
     .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mustard); font-weight: 700; margin-bottom: 14px; }
-    .section h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(24px, 3.4vw, 30px); color: var(--forest); line-height: 1.3; margin-bottom: 16px; }
+    .section h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: clamp(24px, 3.4vw, 30px); color: var(--forest); line-height: 1.3; margin-bottom: 16px; }
 
     .signal-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-    .signal-list li { font-family: 'Fraunces', Georgia, serif; font-size: 17px; line-height: 1.65; color: var(--ink); padding-left: 22px; position: relative; }
+    .signal-list li { font-family: 'Playfair Display', Georgia, serif; font-size: 17px; line-height: 1.65; color: var(--ink); padding-left: 22px; position: relative; }
     .signal-list li::before { content: '→'; position: absolute; left: 0; color: var(--mustard); font-weight: 700; font-family: 'Inter', sans-serif; }
 
     .argument-item { margin-bottom: 26px; }
     .argument-item:last-child { margin-bottom: 0; }
-    .argument-item .arg-num { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 16px; color: var(--bordeaux); margin-bottom: 6px; }
+    .argument-item .arg-num { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 16px; color: var(--bordeaux); margin-bottom: 6px; }
     .argument-item h3 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 18px; color: var(--forest); margin-bottom: 8px; line-height: 1.35; }
-    .argument-item p { font-family: 'Fraunces', Georgia, serif; font-size: 16px; line-height: 1.7; color: var(--ink); }
+    .argument-item p { font-family: 'Playfair Display', Georgia, serif; font-size: 16px; line-height: 1.7; color: var(--ink); }
 
     .proof-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--border-mid); margin-top: 8px; }
     .proof-item { padding: 20px 20px 20px 0; border-right: 1px solid var(--border-mid); border-bottom: 1px solid var(--border-mid); }
     .proof-item:nth-child(2n) { border-right: none; padding-left: 20px; }
-    .proof-item p { font-family: 'Fraunces', Georgia, serif; font-size: 15px; line-height: 1.6; color: var(--ink); }
+    .proof-item p { font-family: 'Playfair Display', Georgia, serif; font-size: 15px; line-height: 1.6; color: var(--ink); }
     @media (max-width: 560px) { .proof-grid { grid-template-columns: 1fr; } .proof-item { border-right: none !important; padding-left: 0 !important; } }
 
     .faq-item { border-top: 0.5px solid var(--border); padding: 20px 0; }
     .faq-item:last-child { border-bottom: 0.5px solid var(--border); }
     .faq-item h3 { font-size: 16px; font-weight: 700; color: var(--forest); margin-bottom: 8px; line-height: 1.4; }
-    .faq-item p { font-family: 'Fraunces', Georgia, serif; font-size: 16px; line-height: 1.7; color: var(--ink); }
+    .faq-item p { font-family: 'Playfair Display', Georgia, serif; font-size: 16px; line-height: 1.7; color: var(--ink); }
 
     .related-links { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
     .related-links a { display: block; background: var(--grey); border: 0.5px solid var(--border-mid); padding: 14px 18px; font-size: 14px; font-weight: 700; color: var(--forest); text-decoration: none; transition: border-color 0.15s; }
@@ -114,8 +114,8 @@
     .related-links a span { color: var(--mustard); }
 
     .end-cta-panel { background: var(--paper); padding: 40px 0 8px; text-align: center; border-top: 1px solid var(--border-mid); }
-    .end-cta-panel h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(22px, 3.4vw, 28px); color: var(--forest); margin-bottom: 12px; line-height: 1.3; }
-    .end-cta-panel > p { font-family: 'Fraunces', Georgia, serif; font-size: 16px; color: var(--forest-mid); line-height: 1.6; max-width: 460px; margin: 0 auto 28px; }
+    .end-cta-panel h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: clamp(22px, 3.4vw, 28px); color: var(--forest); margin-bottom: 12px; line-height: 1.3; }
+    .end-cta-panel > p { font-family: 'Playfair Display', Georgia, serif; font-size: 16px; color: var(--forest-mid); line-height: 1.6; max-width: 460px; margin: 0 auto 28px; }
     .end-cta-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
     .end-cta-btn-group { display: flex; flex-direction: column; align-items: center; gap: 8px; }
     .btn-micro { font-size: 12px; color: var(--muted); font-weight: 500; }
@@ -183,7 +183,7 @@
         <a href="/about">About</a>
         <a href="/journal">Meridian Insights</a>
         <a href="/diagnostics">Diagnostics</a>
-        <a href="/contact" class="nav-cta">Book a strategy call</a>
+        <a href="/contact" class="nav-cta">Secure Your Diagnostic Brief</a>
       </div>
     </nav>
 
