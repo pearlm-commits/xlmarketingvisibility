@@ -123,6 +123,12 @@
 
     .section { padding: 52px 0; border-top: 0.5px solid var(--border); }
     .section:first-of-type { border-top: none; }
+    .proof-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    @media (max-width: 620px) { .proof-strip { grid-template-columns: 1fr; } }
+    .proof-strip-item { text-align: center; }
+    .proof-strip-item .ps-num { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(28px, 4vw, 36px); color: var(--forest); margin-bottom: 8px; }
+    .proof-strip-item .ps-label { font-size: 13px; line-height: 1.5; color: var(--muted); max-width: 220px; margin: 0 auto; }
+    .proof-strip-line { text-align: center; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 15px; color: var(--forest-mid); margin-top: 28px; }
     .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mustard); font-weight: 700; margin-bottom: 14px; text-align: center; }
     .section h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: clamp(34px, 4.2vw, 44px); color: var(--forest); text-align: center; margin-bottom: 18px; line-height: 1.2; }
 
@@ -203,6 +209,9 @@
     .cta-block { background: var(--paper); border: 0.5px solid var(--border-mid); border-radius: 0; padding: 40px 32px; text-align: center; }
     .cta-block h3 { font-size: 27px; font-weight: 700; color: var(--forest); margin-bottom: 10px; }
     .cta-block p { font-family: 'Playfair Display', Georgia, serif; font-size: 17px; color: var(--forest-mid); line-height: 1.6; margin-bottom: 24px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-block .cta-soft-note { font-size: 14px; font-style: italic; color: var(--muted); margin: 18px 0 0; }
+    .cta-block .cta-soft-note a { color: var(--forest-mid); font-weight: 600; }
+    .cta-block .cta-soft-note a:hover { color: var(--mustard-dk); }
     .cta-btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
     .site-footer { border-top: 0.5px solid var(--border); margin-top: 8px; padding: 24px 0 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
@@ -261,8 +270,8 @@
         <div class="hero-banner-text">
           <div class="hero-eyebrow">XL's Growth Methodology</div>
           <h1>Stop running strong creative on infrastructure that can't carry it.</h1>
-          <p class="hero-sub"><strong>Marketing Decision-Led Growth is XL's method for finding the exact decisions, conditions and technical gaps holding good marketing back.</strong></p>
-          <p class="hero-sub" style="margin-top:16px">It combines credible evidence with human understanding to locate the XL Crosspoint: the productive point at which human progress, business ambition, credible brand contribution and the conditions for breakthrough create mutual value.</p>
+          <p class="hero-sub"><strong>Marketing Decision-Led Growth is XL's method for finding the decision behind the underperformance — the one that sits upstream of the campaign, the budget and the agency brief.</strong></p>
+          <p class="hero-sub" style="margin-top:16px">We look at the progress your buyers are trying to make, what your systems actually show them on the way, and where those two things come apart. What we find is the Crosspoint: the point at which human progress, commercial ambition, a role your brand can credibly claim and the conditions to make it work all meet.</p>
         </div>
         <div class="hero-banner-photo">
           <div class="hero-photo-dots" aria-hidden="true"></div>
@@ -270,6 +279,25 @@
           <img class="hero-photo-img" src="images/decision-led-growth-banner-photo.jpg" width="630" height="630" alt="Two colleagues applying Marketing Decision-Led Growth: building a shared decision from evidence, piece by piece, rather than from assumption." loading="eager" decoding="async">
         </div>
       </div>
+    </div>
+
+    <!-- ── Proof strip ───────────────────────────────────────────── -->
+    <div class="section reveal">
+      <div class="proof-strip">
+        <div class="proof-strip-item">
+          <div class="ps-num">30%</div>
+          <div class="ps-label">Contribution to year-on-year gross-profit growth in marketing-generated pipeline, Vodacom Business Africa</div>
+        </div>
+        <div class="proof-strip-item">
+          <div class="ps-num">54</div>
+          <div class="ps-label">African markets covered under a single B2B marketing remit</div>
+        </div>
+        <div class="proof-strip-item">
+          <div class="ps-num">25 years</div>
+          <div class="ps-label">Senior marketing leadership across telecommunications, fintech, enterprise technology and emerging technology</div>
+        </div>
+      </div>
+      <p class="proof-strip-line">A method is only worth the record behind it.</p>
     </div>
 
     <!-- ── Governing belief ──────────────────────────────────────── -->
@@ -285,16 +313,16 @@
     <div class="section reveal">
       <div class="section-label">Marketing Decision-Led Growth</div>
       <h2>One method, four disciplines</h2>
-      <p class="lead" style="margin-bottom:24px">We turn uncertainty into clear, confident decisions for your business. Make sense of what is changing, decide what matters, design the right response and learn what moves people and the business forward.</p>
+      <p class="lead" style="margin-bottom:24px">Every engagement runs the same four stages, whatever the deliverable turns out to be. Understand what is changing. Decide what matters most. Build the response. Learn what actually grew, and what didn't.</p>
       <figure class="method-figure">
         <img src="images/decision-led-growth-journey.jpg" width="2816" height="1536" alt="XL's four-stage Marketing Decision-Led Growth journey: Understand, connecting with human need through direct research; Decide, making data-informed choices about channel and message; Design, testing ideas with real people in real conditions; Learn, measuring results and scaling what works." loading="lazy" decoding="async">
         <figcaption>The same four-stage discipline behind every XL engagement, from first conversation to what happens next.</figcaption>
       </figure>
       <ul class="framework-list" style="margin-top:28px; text-align:left; max-width:640px;">
-        <li><strong>Understand</strong> — map the progress people are pursuing, and what stands in their way.</li>
-        <li><strong>Decide</strong> — locate the Crosspoint and identify the single decision that matters most.</li>
-        <li><strong>Design</strong> — build the brand, experience, communications and commercial activity required to support that movement.</li>
-        <li><strong>Learn</strong> — measure what changed, what didn't, and what should happen next.</li>
+        <li><strong>Understand</strong> — map the progress your buyers are pursuing, and what stands in the way of it.</li>
+        <li><strong>Decide</strong> — locate the Crosspoint and name the single decision that will change the most.</li>
+        <li><strong>Design</strong> — build the brand, experience, communications and commercial activity that decision requires.</li>
+        <li><strong>Learn</strong> — measure what changed, what held, and what should happen next.</li>
       </ul>
     </div>
 
@@ -310,22 +338,21 @@
     <div class="section reveal">
       <div class="section-label">How it works</div>
       <h2>A more disciplined way to grow</h2>
-      <p class="lead">Campaigns fail when they run on assumption instead of evidence. We cut past the fluff and run a rigorous assessment across your positioning, content and technical structure before recommending anything.</p>
-      <p class="lead" style="margin-top:18px">We look past the surface to identify:</p>
+      <p class="lead">Campaigns fail when they run on assumption. Before recommending anything, we assess your positioning, your content and your technical structure against what the market and your buyers are actually doing.</p>
+      <p class="lead" style="margin-top:18px">We look past the surface to find:</p>
       <ul class="framework-list">
-        <li>What progress your buyers are actually trying to make</li>
-        <li>What makes their buying decision difficult today</li>
-        <li>Where AI and search systems are failing to find or cite your brand</li>
-        <li>The most valuable role your brand can legitimately earn</li>
-        <li>The metrics that will prove whether we are actually making progress</li>
+        <li>The progress your buyers are trying to make, and what makes the decision hard for them today</li>
+        <li>Where search and AI systems fail to find, understand or cite your business</li>
+        <li>The role your brand can legitimately earn, rather than the one it would like to claim</li>
+        <li>The measures that will show whether any of this is growing revenue, retention or share</li>
       </ul>
-      <p class="lead" style="margin-top:22px">The result is a clear, defensible basis for action, execution and learning — not another document that sits on a shelf.</p>
+      <p class="lead" style="margin-top:22px">What you get is a defensible basis for action — and the evidence to defend it in a room where the budget is decided.</p>
     </div>
 
     <div class="section reveal">
       <div class="section-label">Our signature tool</div>
       <h2>The XL Crosspoint</h2>
-      <p class="lead">The sweet spot where your business goals and your customers' needs align to create value for everyone.</p>
+      <p class="lead">The point where what your customers are trying to do and what the business needs to achieve meet, and both come out ahead.</p>
       <dl class="cp-list" style="margin-top:24px">
         <div class="cp-list-item">
           <dt>Human progress</dt>
@@ -333,15 +360,15 @@
         </div>
         <div class="cp-list-item">
           <dt>Business ambition</dt>
-          <dd>What sustainable growth does the organisation need?</dd>
+          <dd>What growth does the organisation need, and over what period?</dd>
         </div>
         <div class="cp-list-item">
           <dt>Brand contribution</dt>
-          <dd>What useful role can the brand credibly earn?</dd>
+          <dd>What useful role can this brand credibly earn?</dd>
         </div>
         <div class="cp-list-item">
           <dt>Conditions for breakthrough</dt>
-          <dd>What must change to make progress possible?</dd>
+          <dd>What has to change before any of it can work?</dd>
         </div>
       </dl>
     </div>
@@ -350,7 +377,7 @@
     <div class="section reveal">
       <div class="pullquote-block">
         <div class="pq-label">What governs the work</div>
-        <p>Better decisions start with better data — if your information is flawed, your strategy will be, too.</p>
+        <p>Better decisions start with better information. Where the facts are thin, the strategy will be too.</p>
       </div>
     </div>
 
@@ -358,12 +385,12 @@
     <div class="section reveal">
       <div class="principle-block">
         <div class="pq-label">How we enforce accountability</div>
-        <p>Authority comes with accountability. We define the exact contribution marketing is expected to make, and we accept responsibility for the work within our control.</p>
+        <p><strong>Authority comes with accountability.</strong> We define what marketing is expected to contribute, and we take responsibility for the part of it within our control.</p>
         <ul class="guardrail-list">
-          <li><strong>We rely on evidence.</strong> We distinguish hard market evidence from assumptions and internal interpretation.</li>
-          <li><strong>We measure progress, not just activity.</strong> We track customer value and commercial outcomes, not vanity metrics.</li>
-          <li><strong>We respect boundaries.</strong> We identify exactly what marketing can influence, and what depends on product, pricing, sales or market conditions.</li>
-          <li><strong>We build trust.</strong> We do not use communication to disguise an unsuitable product or treat human limitations as vulnerabilities to exploit, and we design for informed, voluntary decisions.</li>
+          <li><strong>We work from evidence, not from the room.</strong> Internal conviction is not a market signal, and we will say so when the two disagree.</li>
+          <li><strong>We measure growth, not activity.</strong> Pipeline, retention, revenue and how often your brand is recommended by search and answer engines. Clicks and impressions tell you almost nothing about any of them.</li>
+          <li><strong>We mark where marketing ends.</strong> Product, pricing, sales and market conditions carry what they carry. Your board is entitled to know which one is the problem.</li>
+          <li><strong>We won't use language to cover for a system that isn't built.</strong> If the infrastructure is the issue, that is what the report will say. We design for informed, voluntary decisions, and we do not treat human limitations as something to exploit.</li>
         </ul>
       </div>
     </div>
@@ -371,7 +398,7 @@
     <!-- ── Applied across every service ─────────────────────────── -->
     <div class="section reveal">
       <div class="section-label">Applied across every service</div>
-      <h2>The same method, adapted to different decisions</h2>
+      <h2>The same method, adapted to the decision in front of you</h2>
       <p class="lead" style="margin-bottom:24px">The same evidence-led method, adapted to the specific growth decisions you need to make today.</p>
       <div class="link-grid">
         <a href="/services/brand-positioning" class="link-card">Brand Positioning &amp; Messaging <span>&rarr;</span></a>
@@ -387,11 +414,11 @@
     <div class="section reveal">
       <div class="cta-block">
         <h3>Is your marketing built to compound, or does it reset every quarter?</h3>
-        <p>Stop leaving the next campaign to chance. The first conversation is a structured discussion about the decision, the evidence and the next move — not an immediate proposal.</p>
+        <p>Twelve questions, about four minutes, and a directional answer you can act on. It is the cheapest way to find out whether the problem you are looking at is the one worth solving.</p>
         <div class="cta-btn-row">
-          <a href="/contact" class="btn btn-gold">Secure Executive Briefing</a>
-          <a href="/diagnostics" class="btn btn-ghost">Take the free diagnostic</a>
+          <a href="/diagnostics" class="btn btn-gold">Take the free diagnostic</a>
         </div>
+        <p class="cta-soft-note">Then, if it's useful: <a href="/contact">book a results call</a> to go through what it found.</p>
       </div>
     </div>
 
