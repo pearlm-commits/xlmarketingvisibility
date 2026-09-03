@@ -38,6 +38,8 @@
       --focus: #A08F5C; --focus-offset: #FFFBF1;
       --shadow: 0 0 0 1px var(--stone); --shadow-lg: 0 0 0 1px var(--stone); --radius: 0;
       --grey: #F4F5F6; --bordeaux: #5C1220; --stone: #8B8479; --paper: #FFFFFF;
+      --lemon:       #F2E14D;
+      --lemon-dk:    #C9B520;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -64,6 +66,17 @@
     .breadcrumb span.current { color: var(--forest); font-weight: 600; }
 
     .svc-head { background: var(--paper); padding: 20px 0 32px; border-bottom: 1px solid var(--border-mid); }
+    .hero-banner-grid { display: flex; align-items: flex-start; gap: 32px; }
+    .hero-banner-text { flex: 1.3; min-width: 0; }
+    .hero-banner-photo { position: relative; flex: 1; max-width: 190px; margin: 36px auto 0; }
+    .hero-photo-blob { position: absolute; top: -18px; right: -22px; width: 72%; height: 78%; background: var(--lemon); border-radius: 58% 42% 61% 39% / 47% 53% 47% 53%; z-index: 0; }
+    .hero-photo-dots { position: absolute; top: -24px; left: -24px; width: 70px; height: 48px; background-image: radial-gradient(var(--ember) 1.4px, transparent 1.4px); background-size: 10px 10px; opacity: 0.55; z-index: 0; }
+    .hero-photo-img { position: relative; z-index: 1; display: block; width: 100%; height: auto; border-radius: 50%; border: 4px solid var(--paper); box-shadow: 0 0 0 1px var(--border-mid); }
+    @media (max-width: 640px) {
+      .hero-banner-grid { flex-direction: column-reverse; gap: 20px; }
+      .hero-banner-photo { max-width: 160px; margin-top: 0; }
+      .hero-photo-dots { display: none; }
+    }
     .svc-eyebrow { display: flex; align-items: center; gap: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mustard-dk); font-weight: 700; margin-bottom: 16px; }
     .num-badge { width: 26px; height: 26px; border-radius: 50%; background: var(--forest); color: var(--mustard-lt); font-family: 'Inter', sans-serif; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .svc-head h1 { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: clamp(32px, 5vw, 44px); line-height: 1.18; color: var(--forest); margin-bottom: 18px; letter-spacing: -0.01em; max-width: 17ch; }
@@ -197,14 +210,23 @@
     </nav>
 
     <div class="svc-head">
-      <div class="svc-eyebrow"><span class="num-badge">2</span>Service 02 of 06</div>
-      <h1>Go-to-Market &amp; Product Marketing Strategy</h1>
-      <div class="direct-answer">
-        <p><strong>Direct answer</strong>A go-to-market strategy connects a defined market opportunity to the customers, proposition, channels, sales support and measures required to create adoption. XL helps organisations make complex or unfamiliar offers easier to understand, evaluate and act on — from pre-launch evidence to post-launch learning.</p>
-      </div>
-      <div class="cta-row">
-        <a href="/contact?service=GTM%20%26%20Product%20Marketing" class="btn btn-gold">Discuss a launch or market-entry decision</a>
-        <a href="/decision-led-growth" class="btn btn-ghost">See how Decision-Led Growth works</a>
+      <div class="hero-banner-grid">
+        <div class="hero-banner-text">
+          <div class="svc-eyebrow"><span class="num-badge">2</span>Service 02 of 06</div>
+          <h1>Go-to-Market &amp; Product Marketing Strategy</h1>
+          <div class="direct-answer">
+            <p><strong>Direct answer</strong>A go-to-market strategy connects a defined market opportunity to the customers, proposition, channels, sales support and measures required to create adoption. XL helps organisations make complex or unfamiliar offers easier to understand, evaluate and act on — from pre-launch evidence to post-launch learning.</p>
+          </div>
+          <div class="cta-row">
+            <a href="/contact?service=GTM%20%26%20Product%20Marketing" class="btn btn-gold">Discuss a launch or market-entry decision</a>
+            <a href="/decision-led-growth" class="btn btn-ghost">See how Decision-Led Growth works</a>
+          </div>
+        </div>
+        <div class="hero-banner-photo">
+          <div class="hero-photo-dots" aria-hidden="true"></div>
+          <div class="hero-photo-blob" aria-hidden="true"></div>
+          <img class="hero-photo-img" src="../images/service-gtm-product-marketing-hero.jpg" width="630" height="630" alt="A miniature diorama of a branching path network leading toward a lit destination, representing the routes a go-to-market plan must map from opportunity to adoption." loading="eager" decoding="async">
+        </div>
       </div>
     </div>
 
