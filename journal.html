@@ -58,6 +58,8 @@
       --bordeaux:    #5C1220;
       --stone:       #8B8479;
       --paper:       #FFFFFF;
+      --lemon:       #F2E14D;
+      --lemon-dk:    #C9B520;
     }
 
     /* ── Reset ────────────────────────────────────────────────── */
@@ -148,27 +150,32 @@
     .nav-cta:hover { background: var(--forest); color: #fff; }
 
     /* ── Masthead ─────────────────────────────────────────────── */
-    .masthead { text-align: center; padding: 60px 0 8px; background: var(--paper); border-bottom: 1px solid var(--border-mid);}
+    .masthead { text-align: left; padding: 60px 0 8px; background: var(--paper); border-bottom: 1px solid var(--border-mid);}
+    .hero-banner-grid { display: flex; align-items: flex-start; gap: 40px; }
+    .hero-banner-text { flex: 1.3; min-width: 0; }
+    .hero-banner-photo { position: relative; flex: 1; max-width: 240px; margin: 44px auto 0; }
+    .hero-photo-blob { position: absolute; top: -20px; right: -26px; width: 72%; height: 78%; background: var(--lemon); border-radius: 58% 42% 61% 39% / 47% 53% 47% 53%; z-index: 0; }
+    .hero-photo-dots { position: absolute; top: -28px; left: -28px; width: 84px; height: 56px; background-image: radial-gradient(var(--ember) 1.6px, transparent 1.6px); background-size: 12px 12px; opacity: 0.55; z-index: 0; }
+    .hero-photo-img { position: relative; z-index: 1; display: block; width: 100%; height: auto; border-radius: 50%; border: 5px solid var(--paper); box-shadow: 0 0 0 1px var(--border-mid); }
+    @media (max-width: 680px) {
+      .hero-banner-grid { flex-direction: column-reverse; gap: 24px; }
+      .hero-banner-text { text-align: center; }
+      .hero-banner-photo { max-width: 180px; margin-top: 0; }
+      .hero-photo-dots { display: none; }
+    }
 
     .masthead-eyebrow { font-family: 'IBM Plex Mono', monospace;
       font-size: 13px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--mustard);
+      color: var(--mustard-dk);
       font-weight: 700;
       margin-bottom: 18px;
     }
 
-    .masthead-rule {
-      height: 1px;
-      background: var(--border-mid);
-      max-width: 220px;
-      margin: 0 auto 22px;
-    }
-
     .masthead h1 {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(42px, 7vw, 68px);
+      font-size: clamp(38px, 5.6vw, 56px);
       font-weight: 500;
       line-height: 1.12;
       color: var(--forest);
@@ -179,20 +186,18 @@
       font-family: 'Playfair Display', Georgia, serif;
       font-style: italic;
       font-size: 20px;
-      color: var(--mustard);
+      color: var(--mustard-dk);
       margin-top: 10px;
     }
 
-    .masthead-rule.bottom { margin: 22px auto 0; }
-
     .masthead-intro {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(18px, 2.2vw, 20px);
+      font-size: clamp(17px, 2vw, 19px);
       color: var(--forest-mid);
       line-height: 1.75;
       max-width: 520px;
-      margin: 26px auto 0;
-      text-align: center;
+      margin: 22px 0 0;
+      text-align: left;
     }
 
     /* ── Entry list ───────────────────────────────────────────── */
@@ -334,18 +339,25 @@
 
     <!-- ── Masthead ─────────────────────────────────────────────── -->
     <div class="masthead">
-      <div class="masthead-eyebrow">XL Marketing Services</div>
-      <div class="masthead-rule"></div>
-      <h1>Meridian Insights</h1>
-      <div class="tagline">Clear thinking for the decisions worth paying attention to.</div>
-      <div class="masthead-rule bottom"></div>
-      <p class="masthead-intro">
-        Meridian Insights brings together evidence, practical tools and clear opinions on
-        positioning, customer behaviour, B2B growth, product marketing and AI visibility.
-        It is not a content calendar. It is a growing record of the market shifts, buyer
-        questions and strategic choices that deserve closer examination.
-      </p>
-      <p class="masthead-intro" style="margin-top:12px; font-style:italic">Return when the market changes — or when the decision does.</p>
+      <div class="hero-banner-grid">
+        <div class="hero-banner-text">
+          <div class="masthead-eyebrow">XL Marketing Services</div>
+          <h1>Meridian Insights</h1>
+          <div class="tagline">Clear thinking for the decisions worth paying attention to.</div>
+          <p class="masthead-intro">
+            Meridian Insights brings together evidence, practical tools and clear opinions on
+            positioning, customer behaviour, B2B growth, product marketing and AI visibility.
+            It is not a content calendar. It is a growing record of the market shifts, buyer
+            questions and strategic choices that deserve closer examination.
+          </p>
+          <p class="masthead-intro" style="margin-top:12px; font-style:italic">Return when the market changes — or when the decision does.</p>
+        </div>
+        <div class="hero-banner-photo">
+          <div class="hero-photo-dots" aria-hidden="true"></div>
+          <div class="hero-photo-blob" aria-hidden="true"></div>
+          <img class="hero-photo-img" src="images/journal-index-hero-photo.jpg" width="630" height="630" alt="An illustration of a figure at a writing desk in a circular study, surrounded by maps, charts and instruments, mapping out a decision." loading="eager" decoding="async">
+        </div>
+      </div>
     </div>
 
     <!-- ── Entries ──────────────────────────────────────────────── -->

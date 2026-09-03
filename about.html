@@ -58,6 +58,8 @@
       --bordeaux:    #5C1220;
       --stone:       #8B8479;
       --paper:       #FFFFFF;
+      --lemon:       #F2E14D;
+      --lemon-dk:    #C9B520;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -140,6 +142,18 @@
 
     /* ── Hero ─────────────────────────────────────────────────── */
     .hero { background: var(--paper); padding: 64px 0 8px; text-align: center; border-bottom: 1px solid var(--border-mid);}
+    .hero-banner-grid { display: flex; align-items: flex-start; gap: 40px; text-align: left; }
+    .hero-banner-text { flex: 1.3; min-width: 0; }
+    .hero-banner-photo { position: relative; flex: 1; max-width: 240px; margin: 44px auto 0; }
+    .hero-photo-blob { position: absolute; top: -20px; right: -26px; width: 72%; height: 78%; background: var(--lemon); border-radius: 58% 42% 61% 39% / 47% 53% 47% 53%; z-index: 0; }
+    .hero-photo-dots { position: absolute; top: -28px; left: -28px; width: 84px; height: 56px; background-image: radial-gradient(var(--ember) 1.6px, transparent 1.6px); background-size: 12px 12px; opacity: 0.55; z-index: 0; }
+    .hero-photo-img { position: relative; z-index: 1; display: block; width: 100%; height: auto; border-radius: 50%; border: 5px solid var(--paper); box-shadow: 0 0 0 1px var(--border-mid); }
+    @media (max-width: 680px) {
+      .hero-banner-grid { flex-direction: column-reverse; gap: 24px; }
+      .hero-banner-text { text-align: center; }
+      .hero-banner-photo { max-width: 180px; margin-top: 0; }
+      .hero-photo-dots { display: none; }
+    }
 
     .hero-eyebrow { font-family: 'IBM Plex Mono', monospace;
       font-size: 13px;
@@ -461,17 +475,26 @@
 
     <!-- ── Hero ───────────────────────────────────────────────── -->
     <div class="hero">
-      <div class="hero-eyebrow">About XL</div>
-      <h1>About XL Marketing Services</h1>
-      <div class="hero-body">
-        <p>XL Marketing Services is a strategic marketing and growth consultancy helping founders, CEOs, CMOs and marketing leaders improve the evidence, choices and systems behind commercial action.</p>
-        <p>We work across brand positioning, go-to-market and product marketing, B2B growth and account-based marketing, marketing-sales alignment, AI search visibility, and fractional CMO advisory. Our role is to help organisations decide what deserves attention, translate that decision into coherent execution and learn from the market without losing strategic consistency.</p>
+      <div class="hero-banner-grid">
+        <div class="hero-banner-text">
+          <div class="hero-eyebrow">About XL</div>
+          <h1>About XL Marketing Services</h1>
+          <div class="hero-body">
+            <p>XL Marketing Services is a strategic marketing and growth consultancy helping founders, CEOs, CMOs and marketing leaders improve the evidence, choices and systems behind commercial action.</p>
+            <p>We work across brand positioning, go-to-market and product marketing, B2B growth and account-based marketing, marketing-sales alignment, AI search visibility, and fractional CMO advisory. Our role is to help organisations decide what deserves attention, translate that decision into coherent execution and learn from the market without losing strategic consistency.</p>
+          </div>
+          <div class="promise-block">
+            <div class="pb-label">Core promise</div>
+            <p>Better marketing decisions that create credible positioning, customer value and sustainable commercial progress.</p>
+          </div>
+          <p class="brand-line">Decisions That Compound.</p>
+        </div>
+        <div class="hero-banner-photo">
+          <div class="hero-photo-dots" aria-hidden="true"></div>
+          <div class="hero-photo-blob" aria-hidden="true"></div>
+          <img class="hero-photo-img" src="images/about-hero-photo.jpg" width="630" height="630" alt="Two members of the XL team, smiling, with a market map and network overlay behind them." loading="eager" decoding="async">
+        </div>
       </div>
-      <div class="promise-block">
-        <div class="pb-label">Core promise</div>
-        <p>Better marketing decisions that create credible positioning, customer value and sustainable commercial progress.</p>
-      </div>
-      <p class="brand-line">Decisions That Compound.</p>
     </div>
 
     <!-- ── Marketing can be busy while the decision remains unresolved ── -->
