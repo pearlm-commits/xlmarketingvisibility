@@ -92,9 +92,15 @@
   </url>
   <url>
     <loc>https://xluxemarketing.com/journal</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xluxemarketing.com/journal/what-is-marketing-decision-led-growth</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://xluxemarketing.com/journal/should-we-rebrand-or-refresh</loc>
