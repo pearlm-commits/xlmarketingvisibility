@@ -48,7 +48,7 @@
     .serif { font-family: 'Playfair Display', Georgia, serif; }
     .page-wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
 
-    .site-nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; border-bottom: 1px solid var(--border-mid); }
+    .site-nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; border-bottom: 1px solid var(--border-mid); position: sticky; top: 0; z-index: 500; background: var(--white); }
     .site-logo { display: inline-flex; align-items: center; text-decoration: none; }
     .site-logo img { height: 32px; width: auto; display: block; }
     .site-logo-text { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; font-size: 21px; letter-spacing: -0.01em; color: var(--forest); margin-left: 10px; white-space: nowrap; }
@@ -123,6 +123,58 @@
       .nav-links { width: 100%; justify-content: flex-start; }
       .btn { white-space: normal; text-align: center; }
       .hero { padding: 44px 0 8px; }
+    }
+  
+    /* ── Sticky bottom CTA bar ────────────────────────────────── */
+    .sticky-cta {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: var(--forest);
+      padding: 14px 44px;
+      padding-bottom: calc(14px + env(safe-area-inset-bottom));
+      box-shadow: 0 -2px 16px rgba(0,0,0,0.14);
+      transform: translateY(100%);
+      transition: transform 0.25s ease;
+    }
+    .sticky-cta.is-visible { transform: translateY(0); }
+    .sticky-cta a {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 999px;
+      white-space: nowrap;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .sticky-cta-primary { background: var(--ember); color: #fff; }
+    .sticky-cta-primary:hover { background: var(--ember-dark); }
+    .sticky-cta-secondary { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.6); }
+    .sticky-cta-secondary:hover { background: rgba(255,255,255,0.12); }
+    .sticky-cta-close {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: rgba(255,255,255,0.7);
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      padding: 6px 10px;
+    }
+    .sticky-cta-close:hover { color: #fff; }
+    @media (max-width: 540px) {
+      .sticky-cta { gap: 8px; padding: 12px 40px 12px 12px; }
+      .sticky-cta a { font-size: 13px; padding: 9px 15px; }
     }
   </style>
 
@@ -199,7 +251,7 @@
       <p style="font-family:'Playfair Display',Georgia,serif;font-size:16px;line-height:1.75;color:var(--forest-mid);max-width:680px;">XL Marketing Services is a strategic marketing and growth consultancy based in Dubai. We work with founders, CEOs, CMOs and marketing leaders in technology, lifestyle and luxury, and health, wellness and biohacking, across the UAE, South Africa and the wider MEA corridor. Every engagement begins with the business decision that needs resolving — positioning, go-to-market, B2B growth, marketing and sales alignment, AI search visibility or senior marketing leadership — so the work that follows is built on evidence rather than activity.</p>
     </div>
 
-    <div class="mode-grid">
+    <div class="mode-grid" id="mode-grid">
       <div class="mode-card">
         <svg class="pillar-icon" viewBox="-20.00 42.00 136 136" width="56" height="56" aria-hidden="true"><g transform="translate(110 110) rotate(270)"><path d="M-50,-58 C-50,-30 -30,-6 -3,-4 C-1,-4 2,-6 4,-10 C8,-4 12,-4 14,-6 C40,-10 50,-32 50,-58 C50,-92 28,-110 0,-110 C-28,-110 -50,-92 -50,-58 Z" style="fill:var(--forest)"/></g><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(315 110 110)"/><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(225 110 110)"/><circle cx="110" cy="110" r="9" style="fill:var(--mustard)"/></svg>
         <div class="mc-eyebrow"><span class="num-badge">1</span>Diagnostic 01</div>
@@ -248,5 +300,39 @@
     </footer>
 
   </div>
+  <div class="sticky-cta" id="sticky-cta" role="complementary" aria-label="Quick actions">
+    <button class="sticky-cta-close" id="sticky-cta-close" aria-label="Dismiss">&times;</button>
+    <a href="#mode-grid" class="sticky-cta-primary">Choose a diagnostic</a>
+    <a href="/contact" class="sticky-cta-secondary">Talk to us</a>
+  </div>
+
+  <script>
+    (function () {
+      var bar = document.getElementById('sticky-cta');
+      var closeBtn = document.getElementById('sticky-cta-close');
+      if (!bar) return;
+      if (sessionStorage.getItem('xl_sticky_cta_dismissed') === '1') return;
+
+      var hero = document.querySelector('.hero');
+      var threshold = hero ? (hero.offsetTop + hero.offsetHeight) : 480;
+
+      function onScroll() {
+        if (window.scrollY > threshold) {
+          bar.classList.add('is-visible');
+        } else {
+          bar.classList.remove('is-visible');
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      closeBtn.addEventListener('click', function () {
+        bar.classList.remove('is-visible');
+        sessionStorage.setItem('xl_sticky_cta_dismissed', '1');
+        window.removeEventListener('scroll', onScroll);
+      });
+    })();
+  </script>
+
 </body>
 </html>
