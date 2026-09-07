@@ -2733,8 +2733,12 @@
 
       fetch('https://formspree.io/f/mlgkeyqp', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(resultsPayload)
+      }).then((response) => {
+        if (!response.ok) {
+          console.warn('Formspree results-email submission failed:', response.status);
+        }
       }).catch(() => {
         /* Silently ignore — do not interrupt the user experience */
       });
@@ -2848,8 +2852,12 @@
 
       fetch('https://formspree.io/f/mlgkeyqp', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(resultsPayload)
+      }).then((response) => {
+        if (!response.ok) {
+          console.warn('Formspree results-email submission failed:', response.status);
+        }
       }).catch(() => {
         /* Silently ignore — do not interrupt the user experience */
       });
