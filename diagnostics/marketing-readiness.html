@@ -2719,6 +2719,8 @@
         - A Notion database entry via Notion API
       ================================================================ */
       const resultsPayload = {
+        _subject:    'AI Visibility Diagnostic report' + (state.client.company ? ' — ' + state.client.company : (state.client.name ? ' — ' + state.client.name : '')),
+        service_type: 'AI Visibility Diagnostic',
         event:       'audit_completed',
         timestamp:   new Date().toISOString(),
         client:      state.client,
@@ -2838,6 +2840,8 @@
 
       /* DEVELOPER: submit completed readiness results to your endpoint */
       const resultsPayload = {
+        _subject:    'Marketing Readiness Diagnostic report' + (state.client.company ? ' — ' + state.client.company : (state.client.name ? ' — ' + state.client.name : '')),
+        service_type: 'Marketing Readiness Diagnostic',
         event:       'readiness_completed',
         timestamp:   new Date().toISOString(),
         client:      state.client,
