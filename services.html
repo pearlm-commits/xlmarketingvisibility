@@ -163,10 +163,19 @@
       scroll-margin-top: 24px;
       background: var(--grey);
       border: 0.5px solid var(--border-mid);
+      border-left: 3px solid var(--sc-accent, var(--forest));
       border-radius: var(--radius);
       padding: 32px;
       margin-bottom: 20px;
     }
+    .service-card .num-badge { background: var(--sc-accent, var(--forest)); color: #fff; }
+    /* Colour-coded rhythm across the six pillars — one brand tone each. */
+    .services-list > .service-card:nth-of-type(1) { --sc-accent: var(--forest); }
+    .services-list > .service-card:nth-of-type(2) { --sc-accent: var(--forest-mid); }
+    .services-list > .service-card:nth-of-type(3) { --sc-accent: var(--mustard-dk); }
+    .services-list > .service-card:nth-of-type(4) { --sc-accent: var(--ember); }
+    .services-list > .service-card:nth-of-type(5) { --sc-accent: var(--bordeaux); }
+    .services-list > .service-card:nth-of-type(6) { --sc-accent: var(--ink); }
 
     .service-card .svc-num {
       display: flex;
@@ -491,7 +500,7 @@
     <div class="services-list">
 
       <div class="service-card reveal">
-        <svg class="pillar-icon" viewBox="42.00 -20.00 136 136" width="56" height="56" aria-hidden="true"><g transform="translate(110 110) rotate(0)"><path d="M-50,-58 C-50,-30 -30,-6 -3,-4 C-1,-4 2,-6 4,-10 C8,-4 12,-4 14,-6 C40,-10 50,-32 50,-58 C50,-92 28,-110 0,-110 C-28,-110 -50,-92 -50,-58 Z" style="fill:var(--forest)"/></g><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(45 110 110)"/><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(-45 110 110)"/><circle cx="110" cy="110" r="9" style="fill:var(--mustard)"/></svg>
+        <svg class="pillar-icon" viewBox="42.00 -20.00 136 136" width="56" height="56" aria-hidden="true"><g transform="translate(110 110) rotate(0)"><path d="M-50,-58 C-50,-30 -30,-6 -3,-4 C-1,-4 2,-6 4,-10 C8,-4 12,-4 14,-6 C40,-10 50,-32 50,-58 C50,-92 28,-110 0,-110 C-28,-110 -50,-92 -50,-58 Z" style="fill:var(--sc-accent, var(--forest))"/></g><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(45 110 110)"/><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(-45 110 110)"/><circle cx="110" cy="110" r="9" style="fill:var(--mustard)"/></svg>
         <div class="svc-num"><span class="num-badge">1</span>Service 01</div>
         <h2><a href="/services/brand-positioning">Brand Positioning &amp; Messaging Strategy</a></h2>
         <p class="svc-desc">Clarify who you serve, why the offer matters and what makes it meaningfully different. Build a positioning and messaging system that leadership, marketing and sales can use consistently.</p>
@@ -513,7 +522,7 @@
       </div>
 
       <div class="service-card reveal">
-        <svg class="pillar-icon" viewBox="85.84 -1.84 136 136" width="56" height="56" aria-hidden="true"><g transform="translate(110 110) rotate(45)"><path d="M-50,-58 C-50,-30 -30,-6 -3,-4 C-1,-4 2,-6 4,-10 C8,-4 12,-4 14,-6 C40,-10 50,-32 50,-58 C50,-92 28,-110 0,-110 C-28,-110 -50,-92 -50,-58 Z" style="fill:var(--forest)"/></g><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(90 110 110)"/><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(0 110 110)"/><circle cx="110" cy="110" r="9" style="fill:var(--mustard)"/></svg>
+        <svg class="pillar-icon" viewBox="85.84 -1.84 136 136" width="56" height="56" aria-hidden="true"><g transform="translate(110 110) rotate(45)"><path d="M-50,-58 C-50,-30 -30,-6 -3,-4 C-1,-4 2,-6 4,-10 C8,-4 12,-4 14,-6 C40,-10 50,-32 50,-58 C50,-92 28,-110 0,-110 C-28,-110 -50,-92 -50,-58 Z" style="fill:var(--sc-accent, var(--forest))"/></g><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(90 110 110)"/><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(0 110 110)"/><circle cx="110" cy="110" r="9" style="fill:var(--mustard)"/></svg>
         <div class="svc-num"><span class="num-badge">2</span>Service 02</div>
         <h2><a href="/services/go-to-market-product-marketing">Go-to-Market &amp; Product Marketing Strategy</a></h2>
         <p class="svc-desc">Create a connected route from market opportunity to customer understanding, product adoption and measurable growth — particularly when the offer is complex, unfamiliar or entering a new market.</p>
@@ -535,7 +544,7 @@
       </div>
 
       <div class="service-card reveal">
-        <svg class="pillar-icon" viewBox="104.00 42.00 136 136" width="56" height="56" aria-hidden="true"><g transform="translate(110 110) rotate(90)"><path d="M-50,-58 C-50,-30 -30,-6 -3,-4 C-1,-4 2,-6 4,-10 C8,-4 12,-4 14,-6 C40,-10 50,-32 50,-58 C50,-92 28,-110 0,-110 C-28,-110 -50,-92 -50,-58 Z" style="fill:var(--forest)"/></g><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(135 110 110)"/><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(45 110 110)"/><circle cx="110" cy="110" r="9" style="fill:var(--mustard)"/></svg>
+        <svg class="pillar-icon" viewBox="104.00 42.00 136 136" width="56" height="56" aria-hidden="true"><g transform="translate(110 110) rotate(90)"><path d="M-50,-58 C-50,-30 -30,-6 -3,-4 C-1,-4 2,-6 4,-10 C8,-4 12,-4 14,-6 C40,-10 50,-32 50,-58 C50,-92 28,-110 0,-110 C-28,-110 -50,-92 -50,-58 Z" style="fill:var(--sc-accent, var(--forest))"/></g><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(135 110 110)"/><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(45 110 110)"/><circle cx="110" cy="110" r="9" style="fill:var(--mustard)"/></svg>
         <div class="svc-num"><span class="num-badge">3</span>Service 03</div>
         <h2><a href="/services/b2b-growth-abm">B2B Growth, ABM &amp; Executive Engagement</a></h2>
         <p class="svc-desc">Identify priority accounts, reach the right decision-makers and progress credible commercial conversations through audience intelligence, relevant messaging and structured follow-through.</p>
@@ -560,7 +569,7 @@
       </div>
 
       <div class="service-card reveal">
-        <svg class="pillar-icon" viewBox="85.84 85.84 136 136" width="56" height="56" aria-hidden="true"><g transform="translate(110 110) rotate(135)"><path d="M-50,-58 C-50,-30 -30,-6 -3,-4 C-1,-4 2,-6 4,-10 C8,-4 12,-4 14,-6 C40,-10 50,-32 50,-58 C50,-92 28,-110 0,-110 C-28,-110 -50,-92 -50,-58 Z" style="fill:var(--forest)"/></g><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(180 110 110)"/><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(90 110 110)"/><circle cx="110" cy="110" r="9" style="fill:var(--mustard)"/></svg>
+        <svg class="pillar-icon" viewBox="85.84 85.84 136 136" width="56" height="56" aria-hidden="true"><g transform="translate(110 110) rotate(135)"><path d="M-50,-58 C-50,-30 -30,-6 -3,-4 C-1,-4 2,-6 4,-10 C8,-4 12,-4 14,-6 C40,-10 50,-32 50,-58 C50,-92 28,-110 0,-110 C-28,-110 -50,-92 -50,-58 Z" style="fill:var(--sc-accent, var(--forest))"/></g><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(180 110 110)"/><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(90 110 110)"/><circle cx="110" cy="110" r="9" style="fill:var(--mustard)"/></svg>
         <div class="svc-num"><span class="num-badge">4</span>Service 04</div>
         <h2><a href="/services/marketing-sales-alignment">Marketing &amp; Sales Alignment</a></h2>
         <p class="svc-desc">Connect audience strategy, qualification, messaging, handover and measurement so marketing activity supports pipeline and sales retains the context required to convert interest.</p>
@@ -582,7 +591,7 @@
       </div>
 
       <div class="service-card reveal">
-        <svg class="pillar-icon" viewBox="42.00 104.00 136 136" width="56" height="56" aria-hidden="true"><g transform="translate(110 110) rotate(180)"><path d="M-50,-58 C-50,-30 -30,-6 -3,-4 C-1,-4 2,-6 4,-10 C8,-4 12,-4 14,-6 C40,-10 50,-32 50,-58 C50,-92 28,-110 0,-110 C-28,-110 -50,-92 -50,-58 Z" style="fill:var(--forest)"/></g><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(225 110 110)"/><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(135 110 110)"/><circle cx="110" cy="110" r="9" style="fill:var(--mustard)"/></svg>
+        <svg class="pillar-icon" viewBox="42.00 104.00 136 136" width="56" height="56" aria-hidden="true"><g transform="translate(110 110) rotate(180)"><path d="M-50,-58 C-50,-30 -30,-6 -3,-4 C-1,-4 2,-6 4,-10 C8,-4 12,-4 14,-6 C40,-10 50,-32 50,-58 C50,-92 28,-110 0,-110 C-28,-110 -50,-92 -50,-58 Z" style="fill:var(--sc-accent, var(--forest))"/></g><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(225 110 110)"/><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(135 110 110)"/><circle cx="110" cy="110" r="9" style="fill:var(--mustard)"/></svg>
         <div class="svc-num"><span class="num-badge">5</span>Service 05</div>
         <h2><a href="/services/ai-search-visibility">AI Search Visibility Consulting</a></h2>
         <p class="svc-desc">Strengthen the clarity, content structure and external authority required for search engines and AI tools to understand, cite and recommend your business.</p>
@@ -604,7 +613,7 @@
       </div>
 
       <div class="service-card reveal">
-        <svg class="pillar-icon" viewBox="-1.84 85.84 136 136" width="56" height="56" aria-hidden="true"><g transform="translate(110 110) rotate(225)"><path d="M-50,-58 C-50,-30 -30,-6 -3,-4 C-1,-4 2,-6 4,-10 C8,-4 12,-4 14,-6 C40,-10 50,-32 50,-58 C50,-92 28,-110 0,-110 C-28,-110 -50,-92 -50,-58 Z" style="fill:var(--forest)"/></g><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(270 110 110)"/><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(180 110 110)"/><circle cx="110" cy="110" r="9" style="fill:var(--mustard)"/></svg>
+        <svg class="pillar-icon" viewBox="-1.84 85.84 136 136" width="56" height="56" aria-hidden="true"><g transform="translate(110 110) rotate(225)"><path d="M-50,-58 C-50,-30 -30,-6 -3,-4 C-1,-4 2,-6 4,-10 C8,-4 12,-4 14,-6 C40,-10 50,-32 50,-58 C50,-92 28,-110 0,-110 C-28,-110 -50,-92 -50,-58 Z" style="fill:var(--sc-accent, var(--forest))"/></g><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(270 110 110)"/><rect x="99.0" y="-50" width="22" height="320" style="fill:var(--grey)" transform="rotate(180 110 110)"/><circle cx="110" cy="110" r="9" style="fill:var(--mustard)"/></svg>
         <div class="svc-num"><span class="num-badge">6</span>Service 06</div>
         <h2><a href="/services/fractional-cmo">Marketing Leadership &amp; Strategic Advisory</a></h2>
         <p class="svc-desc">Bring senior marketing direction into the organisation without immediately adding a full-time executive role. Establish priorities, guide delivery partners and strengthen internal capability.</p>

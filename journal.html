@@ -224,13 +224,14 @@
       display: block;
       background: var(--grey);
       border: 0.5px solid var(--border-mid);
+      border-left: 3px solid var(--ec-accent, var(--forest));
       border-radius: var(--radius);
       padding: 28px 30px;
       text-decoration: none;
       transition: border-color 0.15s, box-shadow 0.15s, transform 0.1s;
     }
 
-    .entry-card:hover { border-color: var(--mustard); box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+    .entry-card:hover { border-color: var(--mustard); border-left-color: var(--ec-accent, var(--forest)); box-shadow: var(--shadow-lg); transform: translateY(-2px); }
 
     .entry-meta-row {
       display: flex;
@@ -245,8 +246,9 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       font-weight: 700;
-      color: var(--mustard);
-      border: 0.5px solid var(--border-mid);
+      color: #fff;
+      background: var(--ec-accent, var(--forest));
+      border: none;
       padding: 4px 10px;
       border-radius: 100px;
     }
@@ -517,8 +519,14 @@
     if (ENTRIES.length === 0) {
       list.innerHTML = '<div class="entry-empty">The first entry is coming soon.</div>';
     } else {
+      // Colour-code each entry by format family for a scannable rhythm.
+      const accentFor = (fmt) => {
+        if (/^Decision Series/i.test(fmt)) return 'var(--forest)';
+        if (/^Analysis/i.test(fmt))       return 'var(--bordeaux)';
+        return 'var(--mustard-dk)'; // Article, and anything else
+      };
       list.innerHTML = ENTRIES.map(e => `
-        <a class="entry-card reveal" href="${e.slug}">
+        <a class="entry-card reveal" href="${e.slug}" style="--ec-accent:${accentFor(e.format)}">
           <div class="entry-meta-row">
             <span class="format-badge">${e.format}</span>
             <span class="entry-date">${e.date}</span>
