@@ -1,0 +1,179 @@
+{
+  "pages": [
+    {
+      "title": "XL Marketing Services",
+      "url": "/",
+      "section": "Home",
+      "summary": "Strategic marketing and growth consultancy — the evidence that changes minds in the boardroom, and the structure that gets your work found by AI search.",
+      "keywords": "xl marketing, home, strategic marketing, growth consultancy, dubai"
+    },
+    {
+      "title": "Services",
+      "url": "/services",
+      "section": "Services",
+      "summary": "Six ways XL helps founders, CEOs and marketing leaders compete: positioning, go-to-market, B2B growth, sales alignment, AI visibility and marketing leadership.",
+      "keywords": "services, what we do, capabilities, overview, six pillars"
+    },
+    {
+      "title": "Brand Positioning & Messaging",
+      "url": "/services/brand-positioning",
+      "section": "Services",
+      "summary": "Brand positioning strategy defines the distinctive place your business should occupy in customers' minds, built from market evidence and commercial ambition.",
+      "keywords": "positioning, messaging, differentiation, value proposition, brand strategy, category"
+    },
+    {
+      "title": "Go-to-Market & Product Marketing",
+      "url": "/services/go-to-market-product-marketing",
+      "section": "Services",
+      "summary": "A go-to-market strategy connects a defined market opportunity to the customers, proposition, channels and measures required to create adoption.",
+      "keywords": "gtm, go to market, product marketing, launch, market entry, adoption, enablement"
+    },
+    {
+      "title": "B2B Growth, ABM & Executive Engagement",
+      "url": "/services/b2b-growth-abm",
+      "section": "Services",
+      "summary": "B2B growth in complex sales depends on identifying the accounts that matter and aligning marketing, sales and executive engagement around them.",
+      "keywords": "abm, account based marketing, b2b growth, pipeline, buying committee, executive engagement, demand"
+    },
+    {
+      "title": "Marketing & Sales Alignment",
+      "url": "/services/marketing-sales-alignment",
+      "section": "Services",
+      "summary": "Marketing and sales alignment means both functions work from a shared definition of the customer, the pipeline and what counts as progress.",
+      "keywords": "sales alignment, revenue, handover, mql sql, lead quality, service level agreement"
+    },
+    {
+      "title": "AI Search Visibility",
+      "url": "/services/ai-search-visibility",
+      "section": "Services",
+      "summary": "Whether a business is accurately represented, cited and recommended by AI systems such as ChatGPT, Perplexity and Gemini — not just ranked in traditional search.",
+      "keywords": "ai seo, geo, aeo, generative engine optimisation, answer engine, llm visibility, chatgpt, perplexity, gemini, entity"
+    },
+    {
+      "title": "Fractional CMO & Strategic Advisory",
+      "url": "/services/fractional-cmo",
+      "section": "Services",
+      "summary": "A fractional CMO gives a business senior marketing leadership and strategic advisory without the cost or commitment of a full-time executive hire.",
+      "keywords": "fractional cmo, interim cmo, part time cmo, marketing leadership, advisory, governance"
+    },
+    {
+      "title": "Marketing Decision-Led Growth",
+      "url": "/decision-led-growth",
+      "section": "Method",
+      "summary": "XL's evidence-led method for identifying what must change for people and the business to move forward — the Understand–Decide–Design–Learn cycle and the XL Crosspoint.",
+      "keywords": "methodology, method, how xl works, crosspoint, understand decide design learn, mutual value, decision led growth"
+    },
+    {
+      "title": "Free Marketing Diagnostics",
+      "url": "/diagnostics",
+      "section": "Diagnostics",
+      "summary": "Two free 12-question diagnostics: where AI can and cannot find your business, and whether your marketing setup is ready to run in-house or needs expert help.",
+      "keywords": "free assessment, diagnostics, quiz, self assessment, scorecard, both diagnostics"
+    },
+    {
+      "title": "AI Visibility Audit",
+      "url": "/diagnostics/ai-visibility",
+      "section": "Diagnostics",
+      "summary": "A free 12-question diagnostic with a scored report showing where AI systems can — and cannot — accurately find, cite and recommend your business.",
+      "keywords": "my ai visibility report, ai visibility report, ai visibility score, ai visibility audit, get found by ai, ai audit, diagnostic 01, chatgpt perplexity gemini, scored report"
+    },
+    {
+      "title": "Marketing Readiness Diagnostic",
+      "url": "/diagnostics/marketing-readiness",
+      "section": "Diagnostics",
+      "summary": "A free 12-question diagnostic showing whether your marketing setup is ready to run in-house or needs expert support, across six commercial pillars.",
+      "keywords": "marketing readiness, diy or hire, should i hire an agency, consultant vs agency, in-house, diagnostic 02, readiness score"
+    },
+    {
+      "title": "Working With Us — Pricing & Engagements",
+      "url": "/working-with-us",
+      "section": "Company",
+      "summary": "Four ways to work with XL, from a $950 Strategic Blueprint Workshop to Studio Partnerships from $5,500 a month. Sprints, Growth Audit and Partnerships.",
+      "keywords": "pricing, cost, price, packages, sprints, retainer, workshop, blueprint, growth audit, studio partnership, engagement, how much"
+    },
+    {
+      "title": "About XL Marketing Services",
+      "url": "/about",
+      "section": "Company",
+      "summary": "A strategic marketing and growth consultancy led by Pearl M and Tameka Hendrikz, based in Dubai and working across the UAE, South Africa and the wider MEA corridor.",
+      "keywords": "about, team, pearl m, tameka hendrikz, leadership, who we are, dubai, company"
+    },
+    {
+      "title": "Contact — Book a Strategy Call",
+      "url": "/contact",
+      "section": "Company",
+      "summary": "Request a strategy call — a structured discussion about your decision, evidence and next move, not an immediate proposal.",
+      "keywords": "contact, book a call, strategy call, get in touch, talk to us, enquiry, email, phone"
+    },
+    {
+      "title": "Meridian Insights",
+      "url": "/journal",
+      "section": "Insights",
+      "summary": "Evidence, practical tools and clear opinions on positioning, B2B growth, product marketing and AI visibility from XL Marketing Services.",
+      "keywords": "journal, blog, articles, insights, meridian, reading, resources"
+    },
+    {
+      "title": "The 58% Shift: When Search Results Become Answers",
+      "url": "/journal/the-58-percent-problem",
+      "section": "Insights",
+      "summary": "AI Overview presence grew 58% in a year. The uncomfortable part isn't the statistic — it's the decision most businesses keep deferring.",
+      "keywords": "ai overviews, brightedge, 58 percent, search to answers, zero click, deferring decisions"
+    },
+    {
+      "title": "Why AI Content Is Harder to Differentiate",
+      "url": "/journal/why-ai-content-is-harder-to-differentiate",
+      "section": "Insights",
+      "summary": "AI makes content faster to produce but harder to distinguish. The 2026 evidence and XL's five-part standard for decision-led content quality.",
+      "keywords": "ai content, differentiation, content sameness, content quality, generative content"
+    },
+    {
+      "title": "Category Entry Points Explained",
+      "url": "/journal/category-entry-points-luxury-b2b-tech",
+      "section": "Insights",
+      "summary": "Category Entry Points reveal when a category becomes relevant to a buyer — how segmentation, mental availability and behavioural science work together.",
+      "keywords": "ceps, category entry points, mental availability, ehrenberg-bass, demand, buying situations"
+    },
+    {
+      "title": "Building Visibility When Buyers No Longer Click",
+      "url": "/journal/build-visibility-when-buyers-no-longer-click",
+      "section": "Insights",
+      "summary": "How search, AI answers, social media and public proof shape buyer choices — and how to build visibility beyond web traffic.",
+      "keywords": "zero click, dark social, visibility, buyer journey, public proof, off-site"
+    },
+    {
+      "title": "Better Marketing Decisions for Sustainable Growth",
+      "url": "/journal/better-marketing-decisions-sustainable-growth",
+      "section": "Insights",
+      "summary": "How better marketing decisions make a brand easier to recognise, think of, find and buy — and support sustainable growth.",
+      "keywords": "marketing decisions, sustainable growth, brand memory, recognise recall"
+    },
+    {
+      "title": "Fractional CMO vs Consultant vs Agency",
+      "url": "/journal/fractional-cmo-vs-marketing-consultant-vs-agency",
+      "section": "Insights",
+      "summary": "Compare a fractional CMO, marketing consultant and agency by problem, authority, duration and execution — then choose the support your business needs.",
+      "keywords": "fractional cmo vs agency, consultant vs agency, which to hire, marketing support, comparison"
+    },
+    {
+      "title": "Should We Rebrand or Refresh?",
+      "url": "/journal/should-we-rebrand-or-refresh",
+      "section": "Insights",
+      "summary": "Rebrand, reposition, refresh or just execute better? A decision guide before replacing valuable brand memory.",
+      "keywords": "rebrand, refresh, repositioning, brand refresh, identity, redesign, decision guide"
+    },
+    {
+      "title": "The CMO Did Not Build the Brand Alone",
+      "url": "/journal/cmo-did-not-build-the-brand-alone",
+      "section": "Insights",
+      "summary": "Forbes' 2026 Most Influential CMOs list measures marketing influence, not causation — what inherited brand equity and organisational capability reveal about real CMO contribution.",
+      "keywords": "influential cmos, forbes, brand equity, attribution, causation, cmo tenure"
+    },
+    {
+      "title": "What Is Marketing Decision-Led Growth?",
+      "url": "/journal/what-is-marketing-decision-led-growth",
+      "section": "Insights",
+      "summary": "How XL's Understand–Decide–Design–Learn cycle turns commercial evidence into clearer choices, better customer journeys and marketing that compounds.",
+      "keywords": "decision led growth explained, understand decide design learn, methodology, compounding, method"
+    }
+  ]
+}
