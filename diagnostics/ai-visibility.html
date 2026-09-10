@@ -106,6 +106,8 @@
       --bordeaux:    #5C1220;
       --stone:       #8B8479;
       --paper:       #FFFFFF;
+      --lemon:       #F2E14D;
+      --lemon-dk:    #C9B520;
     }
 
     /* ── Reset ────────────────────────────────────────────────── */
@@ -439,8 +441,20 @@
       margin-bottom: 8px;
     }
 
+    .progress-done {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: var(--forest-mid);
+      margin-bottom: 8px;
+    }
+    .progress-done svg { flex-shrink: 0; }
+
     .progress-track {
-      height: 2px;
+      height: 5px;
       background: var(--grey);
       border-radius: var(--radius);
       overflow: hidden;
@@ -448,9 +462,9 @@
 
     .progress-fill {
       height: 100%;
-      background: var(--mustard);
+      background: var(--lemon);
       border-radius: var(--radius);
-      transition: width 0.4s ease;
+      transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     /* ── Lever pill ───────────────────────────────────────────── */
@@ -1744,12 +1758,16 @@
     <div id="screen-quiz" class="screen">
       <div style="padding-top:32px;">
         <div class="progress-wrap">
+          <div class="progress-done">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Your details are saved
+          </div>
           <div class="progress-meta">
             <span id="q-counter">Question 1 of 12</span>
-            <span id="q-pct">0% complete</span>
+            <span id="q-pct">19% complete</span>
           </div>
           <div class="progress-track">
-            <div class="progress-fill" id="q-progress" style="width:0%"></div>
+            <div class="progress-fill" id="q-progress" style="width:19%"></div>
           </div>
         </div>
 
@@ -2537,9 +2555,13 @@
       const tool   = TOOLS[state.mode];
       const q      = tool.questions[state.current];
       const lever  = tool.levers.find(l => l.id === q.lever);
-      const pct    = Math.round((state.current / tool.questions.length) * 100);
+      // Goal-gradient: the completed intake form is a real head start, so
+      // progress never begins at 0 and the last question lands on 100%.
+      const total      = tool.questions.length;
+      const HEAD_START  = 12;
+      const pct        = Math.round(HEAD_START + ((state.current + 1) / total) * (100 - HEAD_START));
 
-      document.getElementById('q-counter').textContent  = `Question ${state.current + 1} of ${tool.questions.length}`;
+      document.getElementById('q-counter').textContent  = `Question ${state.current + 1} of ${total}`;
       document.getElementById('q-pct').textContent      = `${pct}% complete`;
       document.getElementById('q-progress').style.width = `${pct}%`;
       document.getElementById('q-lever-num').textContent = lever.id;
@@ -3041,5 +3063,6 @@
     .cta-block { page-break-before: always; }
   </style>
 
+  <script src="/search.js" defer></script>
 </body>
 </html>
