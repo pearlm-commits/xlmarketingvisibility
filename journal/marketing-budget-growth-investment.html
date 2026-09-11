@@ -72,6 +72,7 @@
       --bordeaux:    #5C1220;
       --stone:       #8B8479;
       --paper:       #FFFFFF;
+      --lemon:       #F2E14D;
     }
 
     /* ── Reset ────────────────────────────────────────────────── */
@@ -430,6 +431,10 @@
       line-height: 1.6;
       margin: 0;
     }
+
+    .xl-definition.xl-definition-lemon { background: var(--lemon); }
+    .xl-definition.xl-definition-lemon p { color: var(--forest); }
+    .xl-definition.xl-definition-lemon .def-label { color: var(--forest-mid); }
 
     .xl-definition .def-label {
       font-family: 'IBM Plex Mono', monospace;
@@ -1029,7 +1034,7 @@
 
       <p>The answer is not an unlimited budget. Nor is it a campaign calendar padded with more activity. It is an investment model that respects how buyers actually buy.</p>
 
-      <div class="xl-definition">
+      <div class="xl-definition xl-definition-lemon">
         <span class="def-label">The real test</span>
         <p>The stand may come down on Friday. The real test is whether the memory, evidence and customer context it created are still working when the buyer is finally ready.</p>
       </div>
