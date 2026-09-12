@@ -144,7 +144,7 @@
     .lead + .lead { margin-top: 18px; }
 
     .framework-list { list-style: none; display: flex; flex-direction: column; gap: 10px; max-width: 600px; margin: 24px auto 0; }
-    .framework-list li { font-size: 15px; color: var(--forest); line-height: 1.6; padding-left: 22px; position: relative; font-weight: 500; }
+    .framework-list li { font-size: 15px; color: var(--forest); line-height: 1.6; padding-left: 22px; position: relative; font-weight: 500; scroll-margin-top: 90px; }
     .framework-list li::before { content: ''; position: absolute; left: 2px; top: 8px; width: 6px; height: 6px; border-radius: 50%; background: var(--mustard); }
 
     /* ── Flow chain ───────────────────────────────────────────── */
@@ -379,10 +379,10 @@
         <figcaption>The same four-stage discipline behind every XL engagement, from first conversation to what happens next.</figcaption>
       </figure>
       <ul class="framework-list" style="margin-top:28px; text-align:left; max-width:640px;">
-        <li><strong>Understand</strong> — map the progress your buyers are pursuing, and what stands in the way of it.</li>
-        <li><strong>Decide</strong> — locate the Crosspoint and name the single decision that will change the most.</li>
-        <li><strong>Design</strong> — build the brand, experience, communications and commercial activity that decision requires.</li>
-        <li><strong>Learn</strong> — measure what changed, what held, and what should happen next.</li>
+        <li id="understand"><strong>Understand</strong> — map the progress your buyers are pursuing, and what stands in the way of it.</li>
+        <li id="decide"><strong>Decide</strong> — locate the Crosspoint and name the single decision that will change the most.</li>
+        <li id="design"><strong>Design</strong> — build the brand, experience, communications and commercial activity that decision requires.</li>
+        <li id="learn"><strong>Learn</strong> — measure what changed, what held, and what should happen next.</li>
       </ul>
     </div>
 
@@ -515,6 +515,19 @@
     } else {
       document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
     }
+  </script>
+  <script>
+    // The browser's native scroll-to-fragment on load is unreliable once
+    // scroll-behavior:smooth is set on <html> (a known cross-browser
+    // inconsistency) -- so a link like /decision-led-growth#decide can land
+    // at the top of the page instead. Scroll to it manually once everything,
+    // including images, has finished loading and settled.
+    window.addEventListener('load', function () {
+      if (location.hash) {
+        var target = document.querySelector(location.hash);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
   </script>
   <div class="sticky-cta" id="sticky-cta" role="complementary" aria-label="Quick actions">
     <button class="sticky-cta-close" id="sticky-cta-close" aria-label="Dismiss">&times;</button>

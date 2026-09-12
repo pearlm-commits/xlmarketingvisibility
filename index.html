@@ -254,9 +254,9 @@
       font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.05em; color: var(--muted);
       overflow-x: auto; -webkit-overflow-scrolling: touch;
     }
-    .home-cross span { padding: 0 18px 0 0; margin-right: 18px; position: relative; text-transform: uppercase; white-space: nowrap; }
-    .home-cross span.on { color: var(--ink); font-weight: 600; }
-    .home-cross span:not(:last-child)::after { content: '\2192'; position: absolute; right: -22px; color: var(--border-mid); }
+    .home-cross a { padding: 0 18px 0 0; margin-right: 18px; position: relative; text-transform: uppercase; white-space: nowrap; color: var(--muted); text-decoration: none; transition: color 0.15s; }
+    .home-cross a:hover, .home-cross a:focus-visible { color: var(--forest); }
+    .home-cross a:not(:last-child)::after { content: '\2192'; position: absolute; right: -22px; color: var(--border-mid); }
 
     /* ── Evidence grid ─────────────────────────────────────────── */
     .home-evidence-wrap { padding: 44px 0 0; }
@@ -272,8 +272,8 @@
       .hero { grid-template-columns: 1fr; gap: 36px; }
       .brief { border-left: none; padding-left: 0; border-top: 1px solid var(--border-mid); padding-top: 28px; }
       .home-ev-grid { grid-template-columns: 1fr; }
-      .home-cross span { margin-right: 12px; }
-      .home-cross span:not(:last-child)::after { right: -16px; }
+      .home-cross a { margin-right: 12px; }
+      .home-cross a:not(:last-child)::after { right: -16px; }
     }
 
     /* ── Buttons ──────────────────────────────────────────────── */
@@ -926,7 +926,7 @@
 
     <!-- ── Crosspoint state line ──────────────────────────────── -->
     <div class="home-cross">
-      <span class="on">Understand</span><span>Decide</span><span>Design</span><span>Learn</span>
+      <a href="/decision-led-growth#understand">Understand</a><a href="/decision-led-growth#decide">Decide</a><a href="/decision-led-growth#design">Design</a><a href="/decision-led-growth#learn">Learn</a>
     </div>
 
     <!-- ── Commercial evidence ──────────────────────────────────── -->
