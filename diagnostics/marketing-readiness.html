@@ -698,6 +698,23 @@
       border-radius: var(--radius);
     }
 
+    /* ── Stage-aware framing (reflects the visitor's own maturity answer) ── */
+    .stage-framing {
+      background: var(--grey);
+      border-left: 3px solid var(--mustard);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px;
+      margin: 20px 0 0;
+    }
+    .stage-framing .sf-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--mustard-dk); font-weight: 700; margin-bottom: 8px;
+    }
+    .stage-framing p {
+      font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.65; color: var(--ink); margin: 0;
+    }
+
     /* ── Governing question ───────────────────────────────────── */
     .governing-question {
       background: var(--grey);
@@ -1813,6 +1830,8 @@
             <div class="score-desc" id="r-desc"></div>
           </div>
 
+          <div class="stage-framing" id="r-stage-framing"></div>
+
           <div class="governing-question">
             <div class="gq-label">The question behind this score</div>
             <p>What needs to change for people and the business to move forward?</p>
@@ -1994,6 +2013,23 @@
       4: 'Evidence',           // Content Structure
       5: 'Human understanding',// Buyer Intent
       6: 'Measurement and learning' // Measurement
+    };
+
+    // Reflects the visitor's own 'marketing maturity' answer back as a
+    // genuinely different framing sentence, not a mail-merged label —
+    // this is the thing their specific input actually changes.
+    const MATURITY_LABELS = {
+      early: 'Early stage — building the foundations',
+      growing: 'Growing — building reach on an existing presence',
+      established: 'Established — optimising what already works',
+      scaling: 'Scaling — staying ahead while growing quickly'
+    };
+
+    const MATURITY_FRAMING = {
+      early: "At an early stage, the highest-leverage work usually isn't refining what's already live — it's making sure the basic artefacts AI systems read (a clear one-line description of what you do, structured content, a public track record) exist in the first place.",
+      growing: "With a growing presence, the constraint is rarely visibility itself — it's precision. AI systems have started to notice you; the question is whether they're citing you accurately, and for the right things.",
+      established: "At an established stage, most of the foundational work is usually already done. The remaining gains tend to come from incremental levers — structured data, freshness, independent corroboration — rather than a rebuild.",
+      scaling: "Scaling quickly raises a specific risk: AI systems can keep citing information that described the business six months ago. The faster things change, the more often the public record needs revisiting."
     };
 
     const QUESTIONS = [
@@ -2688,11 +2724,12 @@
       /* Client summary */
       const initials = (state.client.name || 'XX').split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase();
       const printDate = new Date().toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
+      const siteLabel = (state.client.website || '').replace(/^https?:\/\//, '').replace(/\/$/, '');
       document.getElementById('results-client').innerHTML = `
         <div class="cs-avatar">${initials}</div>
         <div class="cs-body">
           <div class="cs-name">${state.client.name}${state.client.company ? ' · ' + state.client.company : ''}</div>
-          <div class="cs-company">AI Visibility Score: ${overall.pct} / 100 · ${printDate}</div>
+          <div class="cs-company">${siteLabel ? siteLabel + ' · ' : ''}AI Visibility Score: ${overall.pct} / 100 · ${printDate}</div>
         </div>
       `;
 
@@ -2701,12 +2738,26 @@
       document.getElementById('print-cover').innerHTML = `
         <div class="pc-eyebrow">XL Marketing Services</div>
         <p class="pc-title">AI Visibility Brief</p>
-        <p class="pc-prepared">Prepared for ${state.client.name}${state.client.company ? ', ' + state.client.company : ''}</p>
+        <p class="pc-prepared">Prepared for ${state.client.name}${state.client.company ? ', ' + state.client.company : ''}${siteLabel ? ' (' + siteLabel + ')' : ''}</p>
         <div class="pc-date">${printDate}</div>
       `;
       document.getElementById('print-summary').innerHTML = `
         <p>AI systems now decide who gets cited before a person ever sees a search result. This brief shows exactly where ${state.client.company || 'your business'} earns that trust today, and where it doesn't yet.</p>
       `;
+
+      /* Stage framing — reflects the visitor's own 'maturity' answer back
+         as genuinely different guidance, not just a repeated label */
+      const stageFrame = document.getElementById('r-stage-framing');
+      if (state.client.maturity && MATURITY_FRAMING[state.client.maturity]) {
+        stageFrame.innerHTML = `
+          <div class="sf-label">Because you told us: ${MATURITY_LABELS[state.client.maturity]}</div>
+          <p>${MATURITY_FRAMING[state.client.maturity]}</p>
+        `;
+        stageFrame.style.display = '';
+      } else {
+        stageFrame.innerHTML = '';
+        stageFrame.style.display = 'none';
+      }
 
       /* Overall score */
       document.getElementById('r-score').textContent  = overall.pct;
