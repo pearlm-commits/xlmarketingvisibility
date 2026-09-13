@@ -738,6 +738,16 @@
       .sticky-cta { gap: 8px; padding: 12px 40px 12px 12px; }
       .sticky-cta a { font-size: 13px; padding: 9px 15px; }
     }
+  
+    /* ── Share bar ────────────────────────────────────────────── */
+    .share-bar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 8px 0 36px; padding-top: 24px; border-top: 0.5px solid var(--border); position: relative; }
+    .share-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mustard-dk); font-weight: 700; margin-right: 4px; }
+    .share-icons { display: flex; gap: 8px; flex-wrap: wrap; }
+    .share-icon { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: var(--grey); color: var(--forest); transition: background 0.15s, color 0.15s; text-decoration: none; border: none; cursor: pointer; padding: 0; }
+    .share-icon:hover, .share-icon:focus-visible { background: var(--forest); color: #fff; }
+    .share-icon svg { width: 16px; height: 16px; fill: currentColor; }
+    .share-copied-note { font-size: 12px; color: var(--muted); font-style: italic; opacity: 0; transition: opacity 0.2s; }
+    .share-copied-note.show { opacity: 1; }
   </style>
 
   <script type="application/ld+json">
@@ -1039,6 +1049,30 @@
         <p>The stand may come down on Friday. The real test is whether the memory, evidence and customer context it created are still working when the buyer is finally ready.</p>
       </div>
     </div>
+
+    <!-- ── Share bar ────────────────────────────────────────────── -->
+    <div class="share-bar">
+      <span class="share-label">Share this article</span>
+      <div class="share-icons">
+        <a class="share-icon" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fxluxemarketing.com%2Fjournal%2Fmarketing-budget-growth-investment" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 5a2 2 0 11-4-.002 2 2 0 014 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-3.96 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.68-2.91V8.48z"/></svg></a>
+        <a class="share-icon" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fxluxemarketing.com%2Fjournal%2Fmarketing-budget-growth-investment&text=A%20Marketing%20Budget%20Is%20a%20Growth%20Investment%2C%20Not%20a%20Campaign%20Treadmill" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.146 2h3.05l-6.66 7.61L22.5 22h-6.12l-4.79-6.27L6.08 22H3.02l7.12-8.14L2 2h6.27l4.33 5.73L18.146 2zm-1.07 18.13h1.69L7.02 3.77H5.2l11.88 16.36z"/></svg></a>
+        <a class="share-icon" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fxluxemarketing.com%2Fjournal%2Fmarketing-budget-growth-investment" target="_blank" rel="noopener" aria-label="Share on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 10-11.56 9.87v-6.98H7.9V12h2.54V9.8c0-2.5 1.5-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.98A10 10 0 0022 12z"/></svg></a>
+        <a class="share-icon" href="https://wa.me/?text=A%20Marketing%20Budget%20Is%20a%20Growth%20Investment%2C%20Not%20a%20Campaign%20Treadmill%20-%20https%3A%2F%2Fxluxemarketing.com%2Fjournal%2Fmarketing-budget-growth-investment" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22l5.2-1.36a9.94 9.94 0 004.84 1.23h.004c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2zm5.84 14.24c-.25.7-1.45 1.34-2 1.42-.51.08-1.15.11-1.86-.12-.43-.14-.98-.32-1.68-.63-2.96-1.28-4.9-4.26-5.05-4.46-.15-.2-1.2-1.6-1.2-3.05 0-1.45.76-2.16 1.03-2.46.27-.3.59-.37.79-.37.2 0 .4 0 .57.01.18.01.43-.07.67.51.25.6.85 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.31.4-.44.53-.15.15-.3.32-.13.62.17.3.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.36 1.46.3.15.48.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.7-.17 1.4z"/></svg></a>
+        <button type="button" class="share-icon" aria-label="Copy link for Instagram" onclick="shareInstagram(this)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.24 2.23.41.56.21.96.47 1.38.89.42.42.68.82.89 1.38.17.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.8-.41 2.23-.21.56-.47.96-.89 1.38-.42.42-.82.68-1.38.89-.42.17-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.24-2.23-.41a3.72 3.72 0 01-1.38-.89 3.72 3.72 0 01-.89-1.38c-.17-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.24-1.8.41-2.23.21-.56.47-.96.89-1.38.42-.42.82-.68 1.38-.89.42-.17 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.39C1.35 2.68.94 3.35.63 4.14c-.3.76-.5 1.64-.56 2.91C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.39 2.13.67.67 1.34 1.08 2.13 1.39.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.39.67-.67 1.08-1.34 1.39-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.85 5.85 0 00-1.39-2.13A5.85 5.85 0 0019.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1018.16 12 6.16 6.16 0 0012 5.84zm0 10.16A4 4 0 1116 12a4 4 0 01-4 4zm6.41-10.44a1.44 1.44 0 11-1.44-1.44 1.44 1.44 0 011.44 1.44z"/></svg></button>
+        <a class="share-icon" href="mailto:?subject=A%20Marketing%20Budget%20Is%20a%20Growth%20Investment%2C%20Not%20a%20Campaign%20Treadmill&body=Thought%20this%20was%20worth%20a%20read%3A%20A%20Marketing%20Budget%20Is%20a%20Growth%20Investment%2C%20Not%20a%20Campaign%20Treadmill%0A%0Ahttps%3A%2F%2Fxluxemarketing.com%2Fjournal%2Fmarketing-budget-growth-investment" aria-label="Share by email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A2.5 2.5 0 014.5 3h15A2.5 2.5 0 0122 5.5v13a2.5 2.5 0 01-2.5 2.5h-15A2.5 2.5 0 012 18.5v-13zm2.2.5l7.8 6.24L19.8 6H4.2zM20 8.16l-7.4 5.92a1 1 0 01-1.2 0L4 8.16V18.5a.5.5 0 00.5.5h15a.5.5 0 00.5-.5V8.16z"/></svg></a>
+      </div>
+      <span class="share-copied-note" id="share-copied-note" role="status" aria-live="polite">Link copied — paste into your Instagram bio or story</span>
+    </div>
+    <script>
+      function shareInstagram(btn) {
+        var url = 'https://xluxemarketing.com/journal/marketing-budget-growth-investment';
+        navigator.clipboard.writeText(url).then(function () {
+          var note = document.getElementById('share-copied-note');
+          note.classList.add('show');
+          setTimeout(function () { note.classList.remove('show'); }, 3500);
+        });
+      }
+    </script>
 
     <!-- ── FAQ ─────────────────────────────────────────────────── -->
     <div class="faq-section">
