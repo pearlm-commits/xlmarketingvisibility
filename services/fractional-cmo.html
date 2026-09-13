@@ -461,6 +461,19 @@
     })();
   </script>
 
+  <script>
+    // The browser's native scroll-to-fragment on load is unreliable once
+    // scroll-behavior:smooth is set on <html> (a known cross-browser
+    // inconsistency) -- so a link like page.html#some-id can land at the
+    // top of the page instead. Scroll to it manually once everything,
+    // including images, has finished loading and settled.
+    window.addEventListener('load', function () {
+      if (location.hash) {
+        var target = document.querySelector(location.hash);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  </script>
   <script src="/search.js" defer></script>
 </body>
 </html>
