@@ -192,17 +192,17 @@
     .btn-primary { background: var(--forest); color: #fff; }
     .btn-primary:hover { background: var(--forest-mid); }
 
-    /* ── Hero placeholder (no photography yet) ────────────────── */
-    .hero-placeholder {
+    /* ── Central proposition band ─────────────────────────────── */
+    .proposition-band {
       background: linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 100%);
       border-radius: var(--radius); padding: 56px 40px; text-align: center; margin-bottom: 8px;
     }
-    .hero-placeholder .hp-label { font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mustard-lt); margin-bottom: 18px; }
-    .hero-placeholder p { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(19px, 2.8vw, 25px); color: var(--ivory); line-height: 1.55; max-width: 720px; margin: 0 auto; }
+    .proposition-band .pb-label { font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mustard-lt); margin-bottom: 18px; }
+    .proposition-band p { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(19px, 2.8vw, 25px); color: var(--ivory); line-height: 1.55; max-width: 720px; margin: 0 auto; }
     @media (max-width: 600px) {
       .site-nav { flex-wrap: wrap; row-gap: 14px; }
       .nav-links { width: 100%; justify-content: flex-start; }
-      .btn { white-space: normal; text-align: center; } .hero-placeholder { padding: 40px 24px; } }
+      .btn { white-space: normal; text-align: center; } .proposition-band { padding: 40px 24px; } }
 
     /* ── Article body ─────────────────────────────────────────── */
     .article-body { padding: 8px 0 12px; }
@@ -592,10 +592,10 @@
     </script>
   </div><!-- /page-wrap (narrow) -->
 
-  <!-- ── Hero placeholder (wide) ───────────────────────────────── -->
+  <!-- ── Central proposition band (wide) ─────────────────────── -->
   <div class="wide-wrap">
-    <div class="hero-placeholder">
-      <div class="hp-label">Central proposition</div>
+    <div class="proposition-band">
+      <div class="pb-label">Central proposition</div>
       <p>Segmentation helps a business decide whose needs it must understand. Category Entry Points reveal the situations in which those needs become active. Behavioural science helps execution reduce friction while preserving the customer's freedom to choose.</p>
     </div>
   </div>

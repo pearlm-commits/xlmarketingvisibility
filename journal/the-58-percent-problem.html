@@ -358,6 +358,29 @@
     .footer-address a { color: var(--muted); text-decoration: none; }
     .footer-address a:hover { color: var(--forest); }
 
+    /* ── Author bio ───────────────────────────────────────────── */
+    .author-bio {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      margin: 36px 0 8px;
+      padding: 24px;
+      background: var(--grey);
+      border-radius: var(--radius);
+    }
+    .author-bio img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 3px solid var(--white);
+      box-shadow: 0 2px 24px rgba(23,63,53,0.08);
+    }
+    .author-bio .author-name { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 16px; color: var(--forest); margin-bottom: 2px; }
+    .author-bio .author-role { font-size: 12px; color: var(--mustard-dk); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 10px; }
+    .author-bio p.author-text { font-family: 'Playfair Display', Georgia, serif; font-size: 15px; color: var(--forest-mid); line-height: 1.65; margin: 0; }
+
     @media (max-width: 600px) {
       .site-nav { flex-wrap: wrap; row-gap: 14px; }
       .nav-links { width: 100%; justify-content: flex-start; }
@@ -365,6 +388,7 @@
       .article-head { padding: 16px 0 28px; }
       .inline-cta { padding: 24px 20px; }
       .pullquote-block { padding: 26px 22px; }
+      .author-bio { flex-direction: column; text-align: center; align-items: center; }
     }
   
     /* ── Sticky bottom CTA bar ────────────────────────────────── */
@@ -546,6 +570,16 @@
 
     <p class="sign-off">— Pearl M, XL Marketing Services</p>
     <p class="source-note">Figures cited: <a href="https://www.brightedge.com/resources/weekly-ai-search-insights/ai-overviews-one-year-presence-size-citing" target="_blank" rel="noopener">BrightEdge, AI Overviews: One Year of Presence, Size and Citing, 2026</a>; <a href="https://www.semrush.com/blog/semrush-ai-overviews-study/" target="_blank" rel="noopener">Semrush AI Overviews Study, 2025</a>.</p>
+
+    <!-- ── Author bio ───────────────────────────────────────────── -->
+    <div class="author-bio">
+      <img src="../images/pearl-m.jpg" alt="Pearl M" width="64" height="64" loading="lazy" decoding="async">
+      <div>
+        <div class="author-name">Pearl M</div>
+        <div class="author-role">Chief Marketing Officer and Strategic Marketing Lead, XL Marketing Services</div>
+        <p class="author-text">Pearl M is a marketing leader and brand strategist with more than 25 years of experience across telecommunications, fintech, enterprise technology, infrastructure, luxury services and emerging technology, including leadership experience with Vodacom, PayU and Dimension Data/NTT. At XL, she leads the strategic architecture behind Decision-Led Growth: defining market opportunities, clarifying propositions and connecting marketing choices to customer and commercial outcomes.</p>
+      </div>
+    </div>
 
     <!-- ── Footer ───────────────────────────────────────────────── -->
         </main>
