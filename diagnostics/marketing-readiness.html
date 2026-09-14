@@ -22,54 +22,46 @@
   <link rel="icon" type="image/png" href="../images/favicon-192.png" sizes="192x192" />
   <link rel="apple-touch-icon" href="../images/favicon-180.png" />
 
-  <!-- Open Graph / Twitter — DEVELOPER: add a real og:image once a brand share-image asset exists -->
+  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="XL Marketing Services" />
   <meta property="og:title" content="Marketing Readiness Diagnostic — Free Assessment | XL Marketing" />
   <meta property="og:description" content="A free 12-question diagnostic that shows whether your marketing setup is ready to run in-house or needs expert support, across six commercial pillars." />
   <meta property="og:url" content="https://xluxemarketing.com/diagnostics/marketing-readiness" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="https://xluxemarketing.com/images/homepage-hero-photo-v2.jpg" />
+  <meta property="og:image:width" content="630" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Marketing Readiness Diagnostic — Free Assessment | XL Marketing" />
   <meta name="twitter:description" content="A free 12-question diagnostic that shows whether your marketing setup is ready to run in-house or needs expert support, across six commercial pillars." />
+  <meta name="twitter:image" content="https://xluxemarketing.com/images/homepage-hero-photo-v2.jpg" />
 
   <!-- =====================================================================
-    DEVELOPER NOTES
+    IMPLEMENTATION NOTES
     =====================================================================
-    This is a self-contained single-file tool hosting TWO diagnostics.
-    No framework required. Hosted as a static HTML file on any platform
-    (Netlify, Vercel, GitHub Pages).
+    Self-contained single-file tool hosting TWO diagnostics. No framework
+    required.
 
-      Diagnostic 1 — "AI Visibility Audit"       (mode: visibility)
+      Diagnostic 1 — "AI Visibility Audit"        (mode: visibility)
       Diagnostic 2 — "Consultant vs DIY Readiness" (mode: readiness)
 
     Visitors land on a mode-select screen and pick one. Both share the
     same quiz/scoring/print engine (see the TOOLS registry in <script>)
     but have separate intake forms and separate results screens.
 
-    INTEGRATION POINTS — search for "DEVELOPER:" to find all of them:
+    Lead capture: both intake forms POST to /.netlify/functions/subscribe
+    (adds the visitor to MailerLite — key stays server-side). The
+    "your free guide will land in your inbox" follow-up is a MailerLite
+    automation, configured on their platform, not in this file.
 
-    1. FORM SUBMISSION (function startAudit / startReadiness)
-       Both intake forms POST to the same placeholder endpoint. Replace
-       with your webhook URL.
-       Recommended: Zapier Webhook → Google Sheets / Notion / your CRM
-       Alternative: Formspree (formspree.io) for zero-backend email delivery
+    Results email: both results screens POST the scored results to
+    Formspree (formspree.io/f/mlgkeyqp). Not CC'd to hello@/enquiries@ —
+    that's configured on the contact form only (see contact.html).
 
-    2. EMAIL DELIVERY
-       Optional: fire a second POST to your email service (Mailchimp, SendGrid)
-       to trigger an automated follow-up sequence on form submit — for the
-       readiness tool this should be the "Marketing Efficiency & Effectiveness"
-       tips sequence referenced in its guide-notice and tips-note copy.
+    Analytics: Google Analytics (gtag.js) is wired in <head>.
 
-    3. RESULTS EMAIL (function buildResults / buildResultsReadiness)
-       Optional: POST the scored results JSON to your backend so the
-       client receives a formatted email copy of their report.
-
-    4. ANALYTICS
-       Drop your Google Analytics / GTM snippet here.
-
-    5. BRANDING
-       All colours are CSS variables at the top of the <style> block.
-       Swap the logo wordmark in the .site-logo div if needed.
+    Branding: all colours are CSS variables at the top of the <style>
+    block. Swap the logo wordmark in the .site-logo div if needed.
   ===================================================================== -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -2493,29 +2485,10 @@
         maturity: document.getElementById('f-maturity').value
       };
 
-      /* ================================================================
-        DEVELOPER: SUBMIT LEAD DATA TO YOUR ENDPOINT
-        Replace the URL below with your Zapier webhook, Formspree
-        endpoint, or custom API route.
-
-        Example Zapier webhook:
-        fetch('https://hooks.zapier.com/hooks/catch/YOUR_HOOK_ID/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ ...state.client, timestamp: new Date().toISOString() })
-        });
-
-        Example Formspree (formspree.io — free tier available):
-        fetch('https://formspree.io/f/YOUR_FORM_ID', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(state.client)
-        });
-
-        This fires immediately on form submit, before the quiz begins.
-        That way you capture the lead even if they do not complete the audit.
-      ================================================================ */
-      /* Add to MailerLite via Netlify serverless function — key stays server-side */
+      /* Captures the lead immediately on form submit, before the quiz
+         begins, so it's saved even if the visitor doesn't finish.
+         Add to MailerLite via Netlify serverless function — key stays
+         server-side. */
       fetch('/.netlify/functions/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -2793,16 +2766,8 @@
         </div>
       `).join('');
 
-      /* ================================================================
-        DEVELOPER: SUBMIT COMPLETED RESULTS TO YOUR ENDPOINT
-        This fires when the audit is complete. Send the full scored
-        results so you can personalise your follow-up sequence.
-
-        You might trigger:
-        - A branded email with their report (SendGrid / Mailchimp)
-        - A CRM record update (via Zapier → HubSpot / Zoho Bigin)
-        - A Notion database entry via Notion API
-      ================================================================ */
+      /* Sends the full scored results to Formspree on completion, which
+         emails the team a copy of the report. */
       const resultsPayload = {
         _subject:    'AI Visibility Diagnostic report' + (state.client.company ? ' — ' + state.client.company : (state.client.name ? ' — ' + state.client.name : '')),
         service_type: 'AI Visibility Diagnostic',
@@ -2923,7 +2888,8 @@
         </div>
       `).join('');
 
-      /* DEVELOPER: submit completed readiness results to your endpoint */
+      /* Sends the full scored results to Formspree on completion, which
+         emails the team a copy of the report. */
       const resultsPayload = {
         _subject:    'Marketing Readiness Diagnostic report' + (state.client.company ? ' — ' + state.client.company : (state.client.name ? ' — ' + state.client.name : '')),
         service_type: 'Marketing Readiness Diagnostic',
