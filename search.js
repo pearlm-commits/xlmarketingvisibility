@@ -24,7 +24,7 @@
     '/services'
   ];
 
-  var SECTION_ORDER = ['Diagnostics', 'Services', 'Method', 'Insights', 'Company', 'Home'];
+  var SECTION_ORDER = ['Diagnostics', 'Services', 'Sectors', 'Method', 'Insights', 'Company', 'Home'];
 
   // Filler words stripped before matching, so a natural question like
   // "what is CEP" or "how can I be found online" is judged on its meaningful
