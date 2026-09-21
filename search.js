@@ -26,6 +26,23 @@
 
   var SECTION_ORDER = ['Diagnostics', 'Services', 'Method', 'Insights', 'Company', 'Home'];
 
+  // Filler words stripped before matching, so a natural question like
+  // "what is CEP" or "how can I be found online" is judged on its meaningful
+  // terms (cep / found / online) rather than failing because a page's index
+  // text happens not to contain the literal word "is" or "how".
+  var STOPWORDS = {
+    'a': 1, 'am': 1, 'an': 1, 'and': 1, 'are': 1, 'as': 1, 'at': 1, 'be': 1,
+    'been': 1, 'being': 1, 'but': 1, 'by': 1, 'can': 1, 'could': 1, 'did': 1,
+    'do': 1, 'does': 1, 'doing': 1, 'for': 1, 'from': 1, 'get': 1, 'had': 1,
+    'has': 1, 'have': 1, 'how': 1, 'i': 1, 'if': 1, 'in': 1, 'into': 1,
+    'is': 1, 'it': 1, 'its': 1, 'just': 1, 'me': 1, 'my': 1, 'of': 1, 'on': 1,
+    'or': 1, 'our': 1, 'should': 1, 'that': 1, 'the': 1, 'their': 1,
+    'them': 1, 'then': 1, 'there': 1, 'these': 1, 'they': 1, 'this': 1,
+    'to': 1, 'was': 1, 'we': 1, 'were': 1, 'what': 1, 'when': 1, 'where': 1,
+    'which': 1, 'who': 1, 'why': 1, 'will': 1, 'with': 1, 'would': 1,
+    'you': 1, 'your': 1, 'yours': 1
+  };
+
   var index = null;
   var indexPromise = null;
   var overlay = null;
@@ -102,17 +119,58 @@
     return score;
   }
 
+  // Partial-match fallback for when no page contains every remaining token —
+  // e.g. a natural question that mentions one meaningful word (say "online")
+  // a page doesn't literally use. Scores by how many tokens matched instead
+  // of requiring all of them, so a searcher still gets the closest pages
+  // rather than an empty state.
+  function partialScorePage(page, tokens, rawQuery) {
+    var title = norm(page.title);
+    var kw = norm(page.keywords);
+    var sum = norm(page.summary);
+    var hay = title + ' • ' + kw + ' • ' + sum;
+    var rq = norm(rawQuery).trim();
+
+    var matched = 0;
+    var score = 0;
+    tokens.forEach(function (t) {
+      if (hay.indexOf(t) === -1) return;
+      matched++;
+      if (title.indexOf(t) === 0 || title.indexOf(' ' + t) !== -1) score += 12;
+      else if (title.indexOf(t) !== -1) score += 8;
+      if (kw.indexOf(t) !== -1) score += 5;
+      if (sum.indexOf(t) !== -1) score += 2;
+    });
+    if (!matched) return 0;
+    if (rq && kw.indexOf(rq) !== -1) score += 100;
+    if (rq && title.indexOf(rq) !== -1) score += 30;
+
+    // require at least a third of the meaningful tokens to line up, so a
+    // single stray word doesn't drag in unrelated pages
+    var ratio = matched / tokens.length;
+    return ratio >= 0.34 ? score + matched * 3 : 0;
+  }
+
   function search(query) {
     if (!index) return [];
     var rq = query.trim();
     if (!rq) return [];
-    var tokens = norm(rq).split(/\s+/).filter(Boolean);
-    if (!tokens.length) return [];
-    return index
+    var allTokens = norm(rq).split(/\s+/).filter(Boolean);
+    if (!allTokens.length) return [];
+    var tokens = allTokens.filter(function (t) { return !STOPWORDS[t]; });
+    if (!tokens.length) tokens = allTokens;
+
+    var strict = index
       .map(function (p) { return { page: p, score: scorePage(p, tokens, rq) }; })
       .filter(function (x) { return x.score > 0; })
-      .sort(function (a, b) { return b.score - a.score; })
-      .map(function (x) { return x.page; });
+      .sort(function (a, b) { return b.score - a.score; });
+    if (strict.length) return strict.map(function (x) { return x.page; });
+
+    var partial = index
+      .map(function (p) { return { page: p, score: partialScorePage(p, tokens, rq) }; })
+      .filter(function (x) { return x.score > 0; })
+      .sort(function (a, b) { return b.score - a.score; });
+    return partial.slice(0, 6).map(function (x) { return x.page; });
   }
 
   function byUrl(url) {
