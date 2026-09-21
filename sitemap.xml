@@ -73,6 +73,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://xluxemarketing.com/privacy</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://xluxemarketing.com/diagnostics</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
