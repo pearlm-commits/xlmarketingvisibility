@@ -22,6 +22,20 @@
       "keywords": "positioning, messaging, differentiation, value proposition, brand strategy, category, how to position a brand, position your brand, positioning a brand, brand position"
     },
     {
+      "title": "Sectors We Work In",
+      "url": "/sectors",
+      "section": "Sectors",
+      "summary": "XL Marketing Services works with founders, CEOs and marketing leaders in technology, lifestyle and luxury, and health, wellness and biohacking, across the UAE, South Africa and the wider MEA region.",
+      "keywords": "sectors, industries, verticals, who we work with, technology, luxury, lifestyle, wellness, biohacking"
+    },
+    {
+      "title": "Luxury Brand Marketing & Growth Strategy",
+      "url": "/sectors/luxury",
+      "section": "Sectors",
+      "summary": "Decision-Led Growth for luxury travel, concierge, fashion and personal-luxury brands across the UAE, South Africa and the wider MEA region.",
+      "keywords": "luxury marketing, luxury brand strategy, luxury travel marketing, concierge brand marketing, high net worth, uhnwi, luxury positioning, luxury growth"
+    },
+    {
       "title": "Go-to-Market & Product Marketing",
       "url": "/services/go-to-market-product-marketing",
       "section": "Services",
@@ -54,7 +68,7 @@
       "url": "/services/fractional-cmo",
       "section": "Services",
       "summary": "A fractional CMO gives a business senior marketing leadership and strategic advisory without the cost or commitment of a full-time executive hire.",
-      "keywords": "fractional cmo, interim cmo, part time cmo, marketing leadership, advisory, governance"
+      "keywords": "fractional cmo, interim cmo, part time cmo, outsourced cmo, marketing leadership, advisory, governance, startup, scale-up, founder led marketing"
     },
     {
       "title": "Marketing Decision-Led Growth",
@@ -85,6 +99,13 @@
       "keywords": "marketing readiness, diy or hire, should i hire an agency, consultant vs agency, in-house, diagnostic 02, readiness score"
     },
     {
+      "title": "Wellness & Biohacking Growth Diagnostic",
+      "url": "/diagnostics/wellness-growth",
+      "section": "Diagnostics",
+      "summary": "A four-minute diagnostic for clinic owners, aesthetics partnerships and performance-health practitioners across the UAE, South Africa and the wider MEA region — a clearer view of what's getting in the way of growth, and what to do next.",
+      "keywords": "wellness marketing, clinic marketing, biohacking marketing, aesthetics marketing, dha, hpcsa, medspa marketing, longevity clinic, functional medicine marketing, diagnostic 03"
+    },
+    {
       "title": "Working With Us — Pricing & Engagements",
       "url": "/working-with-us",
       "section": "Company",
@@ -95,7 +116,7 @@
       "title": "About XL Marketing Services",
       "url": "/about",
       "section": "Company",
-      "summary": "A strategic marketing and growth consultancy led by Pearl M and Tameka Hendrikz, based in Dubai and working across the UAE, South Africa and the wider MEA corridor.",
+      "summary": "A strategic marketing and growth consultancy led by Pearl M and Tameka Hendrikz, based in Dubai and working across the UAE, South Africa and the wider MEA region.",
       "keywords": "about, team, pearl m, tameka hendrikz, leadership, who we are, dubai, company"
     },
     {

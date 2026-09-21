@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Cookie consent + gated analytics/pixel loader (see /consent.js) -->
+  <script src="/consent.js" defer></script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wellness &amp; Biohacking Growth Diagnostic | XL Marketing</title>
+  <meta name="description" content="A four-minute diagnostic for clinic owners, aesthetics partnerships and performance-health practitioners across the UAE, South Africa and the wider MEA region — a clearer view of what's getting in the way of growth, and what to do next." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://xluxemarketing.com/diagnostics/wellness-growth" />
+  <link rel="icon" href="../images/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="../images/favicon-32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="../images/favicon-192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="../images/favicon-180.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="XL Marketing Services" />
+  <meta property="og:title" content="Wellness &amp; Biohacking Growth Diagnostic | XL Marketing" />
+  <meta property="og:description" content="A four-minute diagnostic for clinic owners, aesthetics partnerships and performance-health practitioners across the UAE, South Africa and the wider MEA region — a clearer view of what's getting in the way of growth, and what to do next." />
+  <meta property="og:url" content="https://xluxemarketing.com/diagnostics/wellness-growth" />
+  <meta property="og:image" content="https://xluxemarketing.com/images/diagnostics-hero-photo.jpg" />
+  <meta property="og:image:width" content="630" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Wellness &amp; Biohacking Growth Diagnostic | XL Marketing" />
+  <meta name="twitter:description" content="A four-minute diagnostic for clinic owners, aesthetics partnerships and performance-health practitioners across the UAE, South Africa and the wider MEA region — a clearer view of what's getting in the way of growth, and what to do next." />
+  <meta name="twitter:image" content="https://xluxemarketing.com/images/diagnostics-hero-photo.jpg" />
+
+  <!-- =====================================================================
+    IMPLEMENTATION NOTES
+    =====================================================================
+    Self-contained single-file tool. Static marketing copy (hero, "why the
+    usual advice misses the mark", "what you'll get", audience, FAQ) sits
+    above the fold and is always in the DOM — crawlable for SEO/AEO — with
+    the interactive diagnostic embedded below it, reached via the CTA
+    anchors.
+
+    Funnel: the routing questions (track, stage) are answered before the
+    quiz starts — no contact details required to begin. The 12-question
+    quiz follows (4 dimensions, 3 questions each). Results render
+    immediately from track/stage + quiz answers alone, with no name or
+    email needed to see them — the diagnostic itself is the value
+    exchange. A short, optional capture form appears AFTER the result
+    ("Talk to us about your next step"): only submitting that form fires
+    the MailerLite subscribe + Formspree lead email. This matches the
+    brief's funnel requirement (3.4, items 5 and 7): capture details
+    after the result, not before it.
+
+    No overall score: results show the strongest dimension, the weakest
+    ("primary constraint"), and one recommended next move keyed to that
+    constraint — see DIMENSION_RECS. Track/stage produce short framing
+    notes, not different question sets (see TRACK_FRAMING / STAGE_FRAMING).
+
+    Lead capture: the post-result form POSTs to
+    /.netlify/functions/subscribe (adds the visitor to MailerLite — key
+    stays server-side), same endpoint the other two diagnostics use,
+    tagged tool: 'wellness-growth'. Results + contact details are also
+    POSTed to Formspree (formspree.io/f/mlgkeyqp), same as the other two
+    diagnostics — only once the form is submitted, not on every result
+    view.
+
+    Wellness marketing-spend FAQ: cited to AmSpa (American Med Spa
+    Association) reporting — see the FAQ answer and its linked source.
+
+    OPEN ITEMS FLAGGED IN THE SOURCE BRIEF — see the brief document, not
+    resolved here:
+      - DHA/DOH/MOHAP/HPCSA compliance language needs a legal/compliance
+        read before this page goes live (see the FAQ and audience section).
+      - Diagnostic result logic / exact post-result CTA: implemented per
+        the brief's suggested copy ("Talk to us about your next step"),
+        flagged in the brief as needing final confirmation regardless.
+
+    Analytics: gated behind /consent.js, same as every other page.
+    Branding: CSS variables at the top of the <style> block.
+  ===================================================================== -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" /></noscript>
+
+  <style>
+    :root {
+      --white: #FFFFFF; --ivory: #FFFBF1; --ivory-mid: #F6EEDD; --sage: #DCE8DD;
+      --mustard: #A08F5C; --mustard-lt: #F3E6B8; --mustard-dk: #8A6500;
+      --ember: #C1442A; --ember-dark: #922A20;
+      --forest: #1E3D2B; --forest-mid: #245847; --ink: #14110F;
+      --muted: #5B625D; --muted-light: #94988D;
+      --border: rgba(216,205,184,0.4); --border-mid: #D8CDB8;
+      --focus: #A08F5C; --focus-offset: #FFFBF1;
+      --shadow: 0 0 0 1px var(--stone); --shadow-lg: 0 0 0 1px var(--stone); --radius: 0;
+      --grey: #F4F5F6; --bordeaux: #5C1220; --stone: #8B8479; --paper: #FFFFFF;
+      --lemon: #F2E14D; --lemon-dk: #C9B520;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--ink); min-height: 100vh; -webkit-font-smoothing: antialiased; }
+    :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
+    .page-wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+    .site-nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; border-bottom: 1px solid var(--border-mid); position: sticky; top: 0; z-index: 500; background: var(--white); }
+    .site-logo { display: inline-flex; align-items: center; text-decoration: none; }
+    .site-logo img { height: 32px; width: auto; display: block; }
+    .site-logo-text { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; font-size: 21px; letter-spacing: -0.01em; color: var(--forest); margin-left: 10px; white-space: nowrap; }
+    .nav-links { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 10px 22px; }
+    .nav-links > a { font-size: 13px; color: var(--muted); text-decoration: none; font-weight: 500; letter-spacing: 0.01em; transition: color 0.15s; }
+    .nav-links > a.current { color: var(--forest); }
+    .nav-links > a:hover { color: var(--forest); }
+    a.nav-cta { font-size: 14px; font-weight: 600; letter-spacing: 0.01em; color: var(--forest); background: transparent; border: 1.5px solid var(--forest); padding: 8px 19px; border-radius: 999px; white-space: nowrap; cursor: pointer; text-decoration: none; font-family: 'Inter', sans-serif; transition: background 0.15s, color 0.15s; display: inline-block; }
+    .nav-cta:hover { background: var(--forest); color: #fff; }
+
+    .breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); margin: 28px 0 0; }
+    .breadcrumb a { color: var(--muted); text-decoration: none; font-weight: 600; }
+    .breadcrumb a:hover { color: var(--forest); }
+    .breadcrumb span.sep { color: var(--muted-light); }
+    .breadcrumb span.current { color: var(--forest); font-weight: 600; }
+
+    .svc-head { background: var(--paper); padding: 20px 0 32px; border-bottom: 1px solid var(--border-mid); }
+    .svc-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mustard-dk); font-weight: 700; margin-bottom: 16px; }
+    .svc-head h1 { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: clamp(30px, 4.6vw, 42px); line-height: 1.2; color: var(--forest); margin-bottom: 18px; letter-spacing: -0.01em; max-width: 22ch; }
+    .svc-sub { font-family: 'Playfair Display', Georgia, serif; font-size: 17px; line-height: 1.75; color: var(--forest-mid); max-width: 58ch; margin-bottom: 10px; }
+    .svc-tagline { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: var(--forest); margin-bottom: 20px; }
+
+    .intro-copy { margin-bottom: 8px; }
+    .intro-copy p { font-family: 'Playfair Display', Georgia, serif; font-size: 16px; line-height: 1.75; color: var(--ink); margin-bottom: 14px; }
+    .intro-copy p:last-child { margin-bottom: 0; }
+
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 24px 0 8px; }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 0.01em; padding: 13px 28px; border-radius: 999px; white-space: nowrap; cursor: pointer; transition: opacity 0.15s, transform 0.1s, background 0.15s; border: none; text-decoration: none; }
+    .btn:active { transform: scale(0.98); }
+    .btn-gold { background: var(--ember); color: #fff; }
+    .btn-gold:hover { background: var(--ember-dark); }
+    .btn-primary { background: var(--forest); color: #fff; }
+    .btn-primary:hover { background: var(--forest-mid); }
+    .btn-ghost { background: transparent; color: var(--muted); border: 0.5px solid var(--border-mid); }
+    .btn-ghost:hover { border-color: var(--mustard); color: var(--forest); }
+    .btn-full { width: 100%; justify-content: center; }
+    .btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+    .section { padding: 40px 0; border-top: 0.5px solid var(--border); }
+    .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mustard-dk); font-weight: 700; margin-bottom: 14px; }
+    .section h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: clamp(24px, 3.4vw, 30px); color: var(--forest); line-height: 1.3; margin-bottom: 16px; }
+
+    .signal-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 8px; }
+    .signal-list li { font-family: 'Playfair Display', Georgia, serif; font-size: 17px; line-height: 1.65; color: var(--ink); padding-left: 22px; position: relative; }
+    .signal-list li::before { content: '→'; position: absolute; left: 0; color: var(--mustard); font-weight: 700; font-family: 'Inter', sans-serif; }
+    .signal-list li strong { color: var(--forest); font-weight: 600; }
+
+    /* ── Audience cards (built for two kinds of wellness business) ── */
+    .audience-grid { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
+    .audience-card { background: var(--grey); border: 0.5px solid var(--border-mid); padding: 20px 22px; }
+    .audience-card h3 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; color: var(--forest); margin-bottom: 8px; }
+    .audience-card p { font-family: 'Playfair Display', Georgia, serif; font-size: 15px; line-height: 1.65; color: var(--ink); }
+
+    /* ── Dimension list (what you'll get from the diagnostic) ────── */
+    .dim-list { display: flex; flex-direction: column; gap: 14px; margin: 8px 0 20px; }
+    .dim-item { display: flex; gap: 16px; align-items: flex-start; background: var(--grey); border: 0.5px solid var(--border-mid); padding: 16px 18px; }
+    .dim-num { width: 28px; height: 28px; border-radius: 50%; background: var(--forest); color: var(--mustard-lt); font-family: 'Inter', sans-serif; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .dim-item h4 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px; color: var(--forest); margin-bottom: 4px; }
+    .dim-item p { font-size: 13px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+
+    .faq-item { border-top: 0.5px solid var(--border); padding: 20px 0; }
+    .faq-item:last-child { border-bottom: 0.5px solid var(--border); }
+    .faq-item h3 { font-size: 16px; font-weight: 700; color: var(--forest); margin-bottom: 8px; line-height: 1.4; }
+    .faq-item p { font-family: 'Playfair Display', Georgia, serif; font-size: 16px; line-height: 1.7; color: var(--ink); }
+    .faq-item p + p { margin-top: 12px; }
+    .faq-item a { color: var(--forest); }
+
+    .end-cta-panel { background: var(--paper); padding: 40px 0 8px; text-align: center; border-top: 1px solid var(--border-mid); }
+    .end-cta-panel h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: clamp(22px, 3.4vw, 28px); color: var(--forest); margin-bottom: 12px; line-height: 1.3; }
+    .end-cta-panel > p { font-family: 'Playfair Display', Georgia, serif; font-size: 16px; color: var(--forest-mid); line-height: 1.6; max-width: 460px; margin: 0 auto 28px; }
+
+    .site-footer { border-top: 0.5px solid var(--border); margin-top: 8px; padding: 24px 0 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-logo { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px; color: var(--muted); }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--forest); }
+    .footer-address { font-size: 12px; color: var(--muted); }
+    .footer-address a { color: var(--muted); text-decoration: none; }
+    .footer-address a:hover { color: var(--forest); }
+
+    /* ── Cards / screens (embedded diagnostic) ───────────────────── */
+    .card { background: var(--grey); border: 0.5px solid var(--border-mid); border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow); }
+    .card + .card { margin-top: 16px; }
+    .screen { display: none; }
+    .screen.active { display: block; }
+
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    @media (max-width: 520px) { .form-grid { grid-template-columns: 1fr; } }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group.full { grid-column: 1 / -1; }
+    label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+    input, select { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--forest); background: var(--white); border: 0.5px solid var(--border-mid); border-radius: var(--radius); padding: 10px 14px; outline: none; transition: border-color 0.15s; width: 100%; }
+    input:focus, select:focus { border-color: var(--mustard); }
+    input::placeholder { color: var(--muted-light); }
+    select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235B625D' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; cursor: pointer; }
+
+    .consent-row { display: flex; align-items: flex-start; gap: 10px; margin: 18px 0 24px; }
+    .consent-row input[type="checkbox"] { width: 16px; height: 16px; flex-shrink: 0; margin-top: 1px; accent-color: var(--mustard); cursor: pointer; }
+    .consent-text { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+    .progress-wrap { margin-bottom: 28px; }
+    .progress-meta { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+    .progress-track { height: 5px; background: var(--white); border-radius: var(--radius); overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--lemon); border-radius: var(--radius); transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1); }
+
+    .lever-pill { display: inline-flex; align-items: center; gap: 8px; background: var(--white); border: 0.5px solid var(--border-mid); border-radius: 100px; padding: 5px 14px 5px 5px; margin-bottom: 20px; }
+    .lever-dot { width: 26px; height: 26px; border-radius: 50%; background: var(--forest); color: var(--mustard); font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: 'Inter', sans-serif; }
+    .lever-pill span { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+
+    .question-text { font-family: 'Inter', sans-serif; font-size: 21px; font-weight: 700; color: var(--forest); line-height: 1.35; margin-bottom: 10px; }
+    .question-hint { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 24px; padding-left: 14px; border-left: 2px solid var(--mustard-lt); font-weight: 300; }
+
+    .options-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+    .opt-btn { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: var(--white); border: 0.5px solid var(--border-mid); border-radius: var(--radius); cursor: pointer; text-align: left; font-family: 'Inter', sans-serif; font-size: 14px; color: var(--forest); line-height: 1.5; transition: border-color 0.15s, background 0.15s; width: 100%; }
+    .opt-btn:hover { border-color: var(--mustard); }
+    .opt-btn.selected { border-color: var(--mustard); background: #fff; }
+    .opt-indicator { width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid var(--border-mid); flex-shrink: 0; margin-top: 1px; display: flex; align-items: center; justify-content: center; transition: border-color 0.15s, background 0.15s; }
+    .opt-btn.selected .opt-indicator { background: var(--mustard); border-color: var(--mustard); }
+    .opt-btn.selected .opt-indicator::after { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #fff; }
+
+    .nav-row { display: flex; justify-content: space-between; align-items: center; }
+
+    .results-hero { text-align: center; padding: 8px 0 24px; border-bottom: 0.5px solid var(--border); margin-bottom: 28px; }
+    .results-hero h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 26px; color: var(--forest); margin-bottom: 10px; }
+    .results-hero p { font-size: 14px; color: var(--muted); line-height: 1.6; max-width: 460px; margin: 0 auto; font-weight: 300; }
+
+    .stage-framing { background: var(--white); border-left: 3px solid var(--mustard); border-radius: 0 var(--radius) var(--radius) 0; padding: 18px 22px; margin: 0 0 14px; }
+    .stage-framing .sf-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mustard-dk); font-weight: 700; margin-bottom: 8px; }
+    .stage-framing p { font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.65; color: var(--ink); margin: 0; }
+
+    .dim-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 20px 0 28px; }
+    @media (max-width: 560px) { .dim-grid { grid-template-columns: 1fr 1fr; } }
+    .dim-card { background: var(--white); border: 0.5px solid var(--border-mid); border-radius: var(--radius); padding: 14px; }
+    .dim-card .dc-name { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; font-weight: 500; line-height: 1.4; min-height: 26px; }
+    .dim-card .dc-score { font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 700; color: var(--forest); margin-bottom: 6px; }
+    .dim-bar { height: 3px; background: var(--grey); border-radius: var(--radius); overflow: hidden; }
+    .dim-bar-fill { height: 100%; border-radius: var(--radius); background: var(--mustard); }
+    .dim-card.is-strongest .dc-score { color: var(--forest-mid); }
+    .dim-card.is-strongest .dim-bar-fill { background: var(--forest-mid); }
+    .dim-card.is-constraint .dim-bar-fill { background: var(--ember); }
+
+    .priority-item { padding: 18px 20px; background: var(--white); border: 0.5px solid var(--border-mid); border-left: 3px solid var(--mustard); border-radius: 0 var(--radius) var(--radius) 0; margin-bottom: 12px; }
+    .priority-item.is-strength { border-left-color: var(--forest-mid); }
+    .pi-meta { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mustard); font-weight: 500; margin-bottom: 6px; }
+    .priority-item.is-strength .pi-meta { color: var(--forest-mid); }
+    .pi-title { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 700; color: var(--forest); margin-bottom: 6px; }
+    .pi-rec { font-size: 13px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+
+    .cta-block { background: var(--paper); border: 0.5px solid var(--border-mid); border-radius: 0; padding: 28px 32px; text-align: center; margin-top: 24px; }
+    .cta-block h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 500; color: var(--forest); margin-bottom: 8px; }
+    .cta-block p { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 20px; font-weight: 300; }
+    .cta-block .form-grid { text-align: left; }
+    .cta-btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    .capture-success { display: none; align-items: center; gap: 10px; background: #f0faf4; border: 0.5px solid #a8d5b5; border-radius: var(--radius); padding: 14px 16px; font-size: 14px; color: #2d6a4f; font-weight: 400; line-height: 1.5; text-align: left; }
+    .capture-success.show { display: flex; }
+
+    .guide-notice { display: none; align-items: center; gap: 10px; background: #f0faf4; border: 0.5px solid #a8d5b5; border-radius: var(--radius); padding: 11px 14px; margin-top: 12px; font-size: 13px; color: #2d6a4f; font-weight: 400; line-height: 1.5; }
+    .guide-notice.show { display: flex; }
+    .guide-notice-icon { font-size: 16px; flex-shrink: 0; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .screen.active { animation: fadeUp 0.35s ease both; }
+
+    @media (max-width: 600px) {
+      .site-nav { flex-wrap: wrap; row-gap: 14px; }
+      .nav-links { width: 100%; justify-content: flex-start; }
+      .btn { white-space: normal; text-align: center; }
+      .card { padding: 22px 18px; }
+    }
+
+    /* ── Sticky bottom CTA bar ────────────────────────────────── */
+    .sticky-cta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 600; display: flex; align-items: center; justify-content: center; gap: 12px; background: var(--forest); padding: 14px 44px; padding-bottom: calc(14px + env(safe-area-inset-bottom)); box-shadow: 0 -2px 16px rgba(0,0,0,0.14); transform: translateY(100%); transition: transform 0.25s ease; }
+    .sticky-cta.is-visible { transform: translateY(0); }
+    .sticky-cta a { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; padding: 10px 22px; border-radius: 999px; white-space: nowrap; text-decoration: none; cursor: pointer; }
+    .sticky-cta-primary { background: var(--ember); color: #fff; }
+    .sticky-cta-primary:hover { background: var(--ember-dark); }
+    .sticky-cta-secondary { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.6); }
+    .sticky-cta-secondary:hover { background: rgba(255,255,255,0.12); }
+    .sticky-cta-close { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: transparent; border: none; color: rgba(255,255,255,0.7); font-size: 22px; line-height: 1; cursor: pointer; padding: 6px 10px; }
+    .sticky-cta-close:hover { color: #fff; }
+    @media (max-width: 540px) { .sticky-cta { gap: 8px; padding: 12px 40px 12px 12px; } .sticky-cta a { font-size: 13px; padding: 9px 15px; } }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://xluxemarketing.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Diagnostics", "item": "https://xluxemarketing.com/diagnostics" },
+          { "@type": "ListItem", "position": 3, "name": "Wellness & Biohacking Growth Diagnostic", "item": "https://xluxemarketing.com/diagnostics/wellness-growth" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "How much should a wellness clinic spend on marketing?", "acceptedAnswer": { "@type": "Answer", "text": "AmSpa (the American Med Spa Association) reports that medical spas invest an average of about 7% of revenue in marketing, with most practices somewhere between 2% and 15% depending on size, competition and growth ambitions. Developing practices still building a client base tend to sit lower, around 4-6%, while higher-performing, established practices often invest 8-12%. That figure comes from medical spa data specifically - a chiropractic, biohacking or longevity practice may sit elsewhere on that range. There is no single percentage that works for every business. The right level depends on factors such as client lifetime value, local competition and how much demand already exists, which is exactly what the diagnostic helps clarify." } },
+          { "@type": "Question", "name": "Does XL Marketing understand DHA and HPCSA requirements?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Marketing clinical and aesthetic services in the UAE and South Africa comes with specific regulatory considerations, including facility licensing, advertising rules, claims and testimonials. Those requirements need to be considered from the start of a campaign, not checked after the work is finished." } },
+          { "@type": "Question", "name": "Is the diagnostic only for clinics?", "acceptedAnswer": { "@type": "Answer", "text": "No. It also applies to biohacking, longevity and performance-health businesses. The questions cover customer needs, trust, evidence, the client experience and commercial priorities. The opening questions then adapt the results to the business model." } },
+          { "@type": "Question", "name": "What happens after I complete it?", "acceptedAnswer": { "@type": "Answer", "text": "You will see your strongest area, the main constraint affecting growth and the next step worth taking before you spend more on marketing." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <div class="page-wrap">
+
+    <nav class="site-nav">
+      <a href="/" class="site-logo"><img src="../images/xl-mark-forest.png" alt="" width="32" height="32"><span class="site-logo-text">XL Marketing</span></a>
+      <div class="nav-links">
+        <a href="/services">Services</a>
+        <a href="/working-with-us">Working With Us</a>
+        <a href="/decision-led-growth">Marketing Decision-Led Growth</a>
+        <a href="/about">About</a>
+        <a href="/journal">Meridian Insights</a>
+        <a href="/diagnostics" class="current">Diagnostics</a>
+        <a href="/diagnostics" class="nav-cta">Take the free diagnostic</a>
+      </div>
+    </nav>
+
+    <main>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a><span class="sep">/</span>
+      <a href="/diagnostics">Diagnostics</a><span class="sep">/</span>
+      <span class="current">Wellness &amp; Biohacking Growth</span>
+    </nav>
+
+    <div class="svc-head">
+      <div class="svc-eyebrow">For wellness, aesthetics and biohacking founders</div>
+      <h1>What's really holding your wellness business back?</h1>
+      <p class="svc-sub">A four-minute diagnostic for clinic owners, aesthetics partnerships and performance-health practitioners across the UAE, South Africa and the wider MEA region.</p>
+      <p class="svc-tagline">No vanity score. No vague advice. Just a clearer view of what is getting in the way of growth — and what to do next.</p>
+
+      <div class="intro-copy">
+        <p>Most marketing advice is written for consumer brands. It assumes that people already understand the product, trust the company and are ready to buy.</p>
+        <p>That is rarely how wellness works.</p>
+        <p>A chiropractic and aesthetics partnership may need to work within DHA or HPCSA requirements. A biohacking or functional-medicine practice may need to prove that its promises are credible before someone will book. A clinic may have plenty of interest but still struggle to turn enquiries into appointments.</p>
+        <p>In each case, the problem is usually more specific than "we need better marketing".</p>
+        <p>This diagnostic helps you find the real constraint.</p>
+      </div>
+
+      <div class="cta-row">
+        <a href="#diagnostic-start" class="btn btn-gold">Take the four-minute diagnostic</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Why this is different</div>
+      <h2>Why the usual marketing advice often misses the mark</h2>
+      <ul class="signal-list">
+        <li>Clinical, aesthetic and wellness services can be subject to different licensing and advertising rules. A campaign that works for a beauty brand may create problems for a clinic.</li>
+        <li>The more ambitious the health or performance claim, the more evidence people expect to see before they trust it.</li>
+        <li>People rarely search for a broad category. They search for a specific problem, such as "plantar fasciitis specialist" or "IV therapy for fatigue in Dubai".</li>
+        <li>More traffic will not fix a business if the offer, proof or follow-up experience is the real problem.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-label">What it covers</div>
+      <h2>What you'll get from the diagnostic</h2>
+      <p style="font-family:'Playfair Display',Georgia,serif;font-size:16px;line-height:1.7;color:var(--ink);margin-bottom:20px;">The diagnostic starts with two simple questions: who needs to trust you before they buy, and what stage your business is at. It then looks at four areas:</p>
+      <div class="dim-list">
+        <div class="dim-item"><div class="dim-num">1</div><div><h4>Customer progress</h4><p>Do you understand what prompts someone to start looking for help? Can they see why choosing you is better than waiting, searching elsewhere or doing nothing?</p></div></div>
+        <div class="dim-item"><div class="dim-num">2</div><div><h4>Trust and evidence</h4><p>Are your claims supported by evidence that matches the strength of your promise? Do credible external sources support what you are saying?</p></div></div>
+        <div class="dim-item"><div class="dim-num">3</div><div><h4>Adoption and experience</h4><p>Where do interested people lose momentum? What makes clients come back, recommend you or continue with the service?</p></div></div>
+        <div class="dim-item"><div class="dim-num">4</div><div><h4>Commercial growth</h4><p>Do you have one clear audience and one clear priority, or are you trying to speak to everyone at once?</p></div></div>
+      </div>
+      <p style="font-family:'Playfair Display',Georgia,serif;font-size:16px;line-height:1.7;color:var(--ink);margin-bottom:10px;">You will not receive a meaningless overall score.</p>
+      <p style="font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:6px;">Instead, you will see:</p>
+      <ul class="signal-list" style="margin-bottom:20px;">
+        <li>The area where your business is strongest</li>
+        <li>The constraint most likely to be slowing growth</li>
+        <li>The smallest practical step worth taking next</li>
+      </ul>
+      <a href="#diagnostic-start" class="btn btn-gold">Take the four-minute diagnostic</a>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Who it's for</div>
+      <h2>Built for two kinds of wellness business</h2>
+      <div class="audience-grid">
+        <div class="audience-card">
+          <h3>Clinical and aesthetics partnerships</h3>
+          <p>For chiropractic, physiotherapy, medspa and longevity clinics balancing commercial growth with DHA, DOH, MOHAP or HPCSA requirements.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Biohacking and performance health</h3>
+          <p>For functional-medicine, neurofeedback, IV therapy and flow-state practitioners who need to turn scepticism into informed, evidence-backed trust.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Frequently asked</div>
+      <h2>Questions worth answering directly</h2>
+
+      <div class="faq-item">
+        <h3>How much should a wellness clinic spend on marketing?</h3>
+        <p><a href="https://americanmedspa.org/blog/industry-experts-weigh-in-to-help-answer-how-much-should-i-spend-on-med-spa-marketing" target="_blank" rel="noopener">AmSpa (the American Med Spa Association)</a> reports that medical spas invest an average of about 7% of revenue in marketing, with most practices somewhere between 2% and 15% depending on size, competition and growth ambitions. Developing practices still building a client base tend to sit lower, around 4–6%, while higher-performing, established practices often invest 8–12%.</p>
+        <p>That figure comes from medical spa data specifically — a chiropractic, biohacking or longevity practice may sit elsewhere on that range. There is no single percentage that works for every business. The right level depends on factors such as client lifetime value, local competition and how much demand already exists, which is exactly what the diagnostic helps clarify.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Does XL Marketing understand DHA and HPCSA requirements?</h3>
+        <p>Yes. Marketing clinical and aesthetic services in the UAE and South Africa comes with specific regulatory considerations, including facility licensing, advertising rules, claims and testimonials.</p>
+        <p>Those requirements need to be considered from the start of a campaign, not checked after the work is finished.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Is the diagnostic only for clinics?</h3>
+        <p>No. It also applies to biohacking, longevity and performance-health businesses.</p>
+        <p>The questions cover customer needs, trust, evidence, the client experience and commercial priorities. The opening questions then adapt the results to the business model.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What happens after I complete it?</h3>
+        <p>You will see your strongest area, the main constraint affecting growth and the next step worth taking before you spend more on marketing.</p>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+      EMBEDDED DIAGNOSTIC
+    ══════════════════════════════════════════════════════════════ -->
+    <div class="section" id="diagnostic-start">
+      <div class="section-label">Free diagnostic</div>
+      <h2>Start your diagnostic</h2>
+
+      <div id="screen-intake" class="screen active">
+        <div class="card">
+          <div class="lever-pill"><span class="lever-dot">4m</span><span>12 questions &middot; about 4 minutes</span></div>
+          <p style="font-family:'Playfair Display',Georgia,serif;font-size:15px;line-height:1.7;color:var(--ink);margin-bottom:18px;">Two quick questions so the result speaks to your business, then straight into the diagnostic — no contact details needed to see your result.</p>
+
+          <div class="form-grid">
+            <div class="form-group full">
+              <label for="w-track">Who needs to trust you before they buy?</label>
+              <select id="w-track">
+                <option value="" selected disabled>Choose one</option>
+                <option value="clinical">Clinical / aesthetics partnership (DHA, DOH, MOHAP or HPCSA regulated)</option>
+                <option value="biohacking">Biohacking, longevity or performance health</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label for="w-stage">What stage is your business at?</label>
+              <select id="w-stage">
+                <option value="" selected disabled>Choose one</option>
+                <option value="starting">Just starting — building initial trust and client base</option>
+                <option value="scaling">Established — scaling past word-of-mouth</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-gold btn-full" onclick="startDiagnostic()">Take the four-minute diagnostic</button>
+        </div>
+      </div>
+
+      <div id="screen-quiz" class="screen">
+        <div class="card">
+          <div class="lever-pill"><span class="lever-dot" id="q-dim-num">1</span><span id="q-dim-name">Customer progress</span></div>
+          <div class="progress-wrap">
+            <div class="progress-meta"><span id="q-counter">Question 1 of 12</span><span id="q-pct">8%</span></div>
+            <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:8%"></div></div>
+          </div>
+          <div class="question-text" id="q-text"></div>
+          <div class="question-hint" id="q-hint"></div>
+          <div class="options-list" id="q-options"></div>
+          <div class="nav-row">
+            <button type="button" class="btn btn-ghost" id="q-back" onclick="goBack()">&larr; Back</button>
+            <button type="button" class="btn btn-primary" id="q-next" onclick="goNext()" disabled>Next &rarr;</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="screen-results" class="screen">
+        <div class="card" id="results-container"></div>
+      </div>
+    </div>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-logo">XL Marketing Services</div>
+      <div class="footer-address">Dubai, UAE &middot; <a href="tel:+971521489618">+971 52 148 9618</a></div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/services">Services</a>
+        <a href="/working-with-us">Working With Us</a>
+        <a href="/decision-led-growth">Marketing Decision-Led Growth</a>
+        <a href="/about">About</a>
+        <a href="/journal">Meridian Insights</a>
+        <a href="/diagnostics">Diagnostics</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy</a>
+        <a href="#" onclick="window.XLConsent &amp;&amp; XLConsent.open(); return false;">Cookie preferences</a>
+      </div>
+    </footer>
+
+  </div>
+  <div class="sticky-cta" id="sticky-cta" role="complementary" aria-label="Quick actions">
+    <button class="sticky-cta-close" id="sticky-cta-close" aria-label="Dismiss">&times;</button>
+    <a href="#diagnostic-start" class="sticky-cta-primary">Take the diagnostic</a>
+    <a href="/contact" class="sticky-cta-secondary">Talk to us</a>
+  </div>
+
+  <script>
+    /* ══════════════════════════════════════════════════════════════
+       DATA
+    ══════════════════════════════════════════════════════════════ */
+    const DIMENSIONS = [
+      { id: 1, name: 'Customer progress' },
+      { id: 2, name: 'Trust & evidence' },
+      { id: 3, name: 'Adoption & experience' },
+      { id: 4, name: 'Commercial growth' }
+    ];
+
+    const QUESTIONS = [
+      { dim: 1, text: "What situation usually sends someone looking for a business like yours?", hint: "Think about the moment in someone's day or health journey that triggers the search — not the service itself.", options: [
+        { text: "We're not sure — people find us for a lot of different reasons.", score: 0 },
+        { text: "We have a rough idea, but we haven't put it into words anywhere.", score: 1 },
+        { text: "We know the 2–3 situations that bring people to us, but our marketing doesn't speak to them directly.", score: 2 },
+        { text: "We know exactly what triggers the search, and our marketing speaks to that situation directly.", score: 3 }
+      ]},
+      { dim: 1, text: "If someone found you today, could they tell in under a minute why you're worth booking instead of waiting or doing nothing?", hint: "", options: [
+        { text: "No — our messaging talks about our services, not why acting now matters.", score: 0 },
+        { text: "Only if they read carefully — the reason is implied, not stated.", score: 1 },
+        { text: "Mostly — it comes through in our best content, but not everywhere.", score: 2 },
+        { text: "Yes — it's stated clearly and consistently across our site and content.", score: 3 }
+      ]},
+      { dim: 1, text: "How specific is the language people encounter when they search for the exact problem you solve?", hint: "", options: [
+        { text: "Generic — our content speaks broadly about wellness or health, not the specific symptom.", score: 0 },
+        { text: "We have some specific pages, but most content is still general.", score: 1 },
+        { text: "Most of our key services have content written for the specific search.", score: 2 },
+        { text: "Every core service has content matched to exactly how people search for it.", score: 3 }
+      ]},
+      { dim: 2, text: "Is the evidence you show proportional to the promise you're making?", hint: "", options: [
+        { text: "Our promise is bold but our proof is mostly testimonials and before/afters.", score: 0 },
+        { text: "We have some credentials or data, but not tied directly to our biggest claims.", score: 1 },
+        { text: "Our strongest claims are backed by credentials, data or clinical evidence.", score: 2 },
+        { text: "Every significant claim has visible, checkable evidence behind it.", score: 3 }
+      ]},
+      { dim: 2, text: "Do independent or external sources back up what you say about yourself?", hint: "", options: [
+        { text: "No — everything a prospect sees about us comes from us.", score: 0 },
+        { text: "A little — a few reviews or mentions, nothing substantial.", score: 1 },
+        { text: "Yes — reviews, press or referral credibility, but not consistently visible.", score: 2 },
+        { text: "Yes — strong, visible third-party proof across our main channels.", score: 3 }
+      ]},
+      { dim: 2, text: 'How do you handle scepticism about claims that sound "too good to be true"?', hint: "", options: [
+        { text: "We don't address it directly — we let the results speak for themselves.", score: 0 },
+        { text: "We mention it occasionally, informally.", score: 1 },
+        { text: "We have some content addressing common doubts, but it's not prominent.", score: 2 },
+        { text: "We proactively address scepticism with evidence, mechanism explanations or third-party validation.", score: 3 }
+      ]},
+      { dim: 3, text: "Where do interested people most often stall before booking?", hint: "", options: [
+        { text: "We don't track this — we don't know where people drop off.", score: 0 },
+        { text: "We have a hunch, but no data to confirm it.", score: 1 },
+        { text: "We know roughly where it happens, from booking patterns or feedback.", score: 2 },
+        { text: "We know exactly where and why, and we've addressed the main cause.", score: 3 }
+      ]},
+      { dim: 3, text: "What actually brings clients back for a second visit or renewal?", hint: "", options: [
+        { text: "We're not sure — repeat business happens, but we couldn't explain why.", score: 0 },
+        { text: "We have a general sense, but haven't built anything around it.", score: 1 },
+        { text: "We know the main driver and mention it, but don't reinforce it systematically.", score: 2 },
+        { text: "We know the main driver and actively reinforce it through follow-up or the experience itself.", score: 3 }
+      ]},
+      { dim: 3, text: 'How easy is it for a new client to go from "interested" to "booked" right now?', hint: "", options: [
+        { text: "There are real friction points — pricing, availability or process confusion — we haven't fixed.", score: 0 },
+        { text: "It's workable but not smooth; a few unnecessary steps remain.", score: 1 },
+        { text: "It's mostly smooth, with one or two minor gaps.", score: 2 },
+        { text: "It's genuinely easy — we've removed the friction we can control.", score: 3 }
+      ]},
+      { dim: 4, text: "Do you have one clear priority audience right now, or are you marketing to everyone?", hint: "", options: [
+        { text: "We market broadly and take whoever comes.", score: 0 },
+        { text: "We have a rough priority but don't act on it consistently.", score: 1 },
+        { text: "We have a clear priority audience most of our effort goes toward.", score: 2 },
+        { text: "We have one clear priority audience and everything is built around it.", score: 3 }
+      ]},
+      { dim: 4, text: "Can you name the single biggest constraint holding back growth right now?", hint: "", options: [
+        { text: "No — it feels like everything needs attention at once.", score: 0 },
+        { text: "We have a few guesses, but haven't confirmed which one actually matters most.", score: 1 },
+        { text: "We have a good idea, but haven't done anything about it yet.", score: 2 },
+        { text: "Yes — we know exactly what it is and we're actively working on it.", score: 3 }
+      ]},
+      { dim: 4, text: "How is your marketing budget and time actually allocated relative to your priority?", hint: "", options: [
+        { text: "It's spread thin across many channels and ideas, regardless of priority.", score: 0 },
+        { text: "Mostly spread thin, with a little weighted toward priority.", score: 1 },
+        { text: "Mostly weighted toward the priority, with some spent elsewhere.", score: 2 },
+        { text: "Heavily weighted toward the one constraint that matters most.", score: 3 }
+      ]}
+    ];
+
+    const DIMENSION_RECS = {
+      1: "Write down the two or three situations that most often send someone looking for you — not your services, the moment that triggers the search. Then check whether your homepage and top pages actually speak to that moment, or just describe what you offer.",
+      2: "Pick your single boldest claim and ask: what would make a sceptical stranger believe it? Add that — a credential, a data point, a third-party source, a mechanism explanation — visibly next to the claim itself, not buried on an About page.",
+      3: "Map the actual steps between 'interested' and 'booked' for one service this week, as a stranger would. The first unnecessary step, confusing price or unclear next action you find is very likely costing you more bookings than any new campaign would win.",
+      4: "Choose one audience and one constraint to be the priority for the next 90 days, even if it means saying no to other opportunities. Redirect budget and content toward that one thing before adding anything new — spreading effort thin is usually why growth stalls, not a lack of effort."
+    };
+
+    const DIMENSION_STRENGTHS = {
+      1: "You know why people come to you — that clarity is the foundation everything else compounds on.",
+      2: "Your evidence already does real persuasive work — that's often the hardest part to build.",
+      3: "You've made it easy for interested people to become clients — many businesses lose more here than anywhere else.",
+      4: "You're not spreading yourself thin — that focus is what makes the other work compound."
+    };
+
+    const TRACK_LABELS = { clinical: "Clinical / aesthetics partnership", biohacking: "Biohacking / performance health" };
+    const TRACK_FRAMING = {
+      clinical: "Clinical and aesthetics partnerships carry a constraint most consumer brands don't: DHA/DOH/MOHAP or HPCSA rules shape what you can say and how you can say it. That makes trust and evidence work differently here — proof has to be compliant, not just persuasive.",
+      biohacking: "Biohacking and performance-health practices carry a different constraint: the promise is often ahead of what a sceptical buyer already believes. Growth here depends less on reach and more on how convincingly you can close the gap between claim and evidence."
+    };
+    const STAGE_LABELS = { starting: "Just starting", scaling: "Established, scaling" };
+    const STAGE_FRAMING = {
+      starting: "At this stage, the priority is usually proving the model works for a first real audience, not scaling reach — a smaller number of the right clients, well understood, matters more than volume right now.",
+      scaling: "At this stage, word-of-mouth alone typically stops being enough — the constraint moves from 'do people trust us' to 'can we repeat what worked systematically,' which is usually a commercial growth problem more than a trust problem."
+    };
+
+    const HEAD_START = 12; /* answering the two routing questions counts as a head start, matching the other diagnostics */
+
+    let state = { client: { track: '', stage: '' }, current: 0, answers: {}, results: null };
+
+    /* ══════════════════════════════════════════════════════════════
+       ROUTING
+    ══════════════════════════════════════════════════════════════ */
+    function startDiagnostic() {
+      const track = document.getElementById('w-track').value;
+      const stage = document.getElementById('w-stage').value;
+
+      if (!track || !stage) { alert('Please answer both questions so we can tailor your results.'); return; }
+
+      state.client = { track, stage };
+      state.current = 0;
+      state.answers = {};
+      showScreen('quiz');
+      renderQuestion();
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       QUIZ
+    ══════════════════════════════════════════════════════════════ */
+    function renderQuestion() {
+      const q = QUESTIONS[state.current];
+      const dim = DIMENSIONS.find(d => d.id === q.dim);
+      const total = QUESTIONS.length;
+      const pct = Math.round(HEAD_START + ((state.current + 1) / total) * (100 - HEAD_START));
+
+      document.getElementById('q-dim-num').textContent = q.dim;
+      document.getElementById('q-dim-name').textContent = dim.name;
+      document.getElementById('q-counter').textContent = `Question ${state.current + 1} of ${total}`;
+      document.getElementById('q-pct').textContent = `${pct}%`;
+      document.getElementById('progress-fill').style.width = `${pct}%`;
+      document.getElementById('q-text').textContent = q.text;
+      document.getElementById('q-hint').textContent = q.hint || '';
+      document.getElementById('q-hint').style.display = q.hint ? 'block' : 'none';
+
+      const optionsEl = document.getElementById('q-options');
+      optionsEl.innerHTML = q.options.map((o, i) => `
+        <button type="button" class="opt-btn${state.answers[state.current] === o.score ? ' selected' : ''}"
+          onclick="selectAnswer(${o.score}, this)" aria-pressed="${state.answers[state.current] === o.score}">
+          <span class="opt-indicator"></span><span>${o.text}</span>
+        </button>
+      `).join('');
+
+      document.getElementById('q-back').disabled = state.current === 0;
+      const nextBtn = document.getElementById('q-next');
+      nextBtn.disabled = state.answers[state.current] === undefined;
+      nextBtn.textContent = state.current === total - 1 ? 'See my results →' : 'Next →';
+    }
+
+    function selectAnswer(score, btn) {
+      state.answers[state.current] = score;
+      document.querySelectorAll('#q-options .opt-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      document.getElementById('q-next').disabled = false;
+    }
+
+    function goNext() {
+      if (state.answers[state.current] === undefined) return;
+      if (state.current === QUESTIONS.length - 1) {
+        buildResults();
+        showScreen('results');
+        return;
+      }
+      state.current++;
+      renderQuestion();
+    }
+
+    function goBack() {
+      if (state.current > 0) { state.current--; renderQuestion(); }
+      else { showScreen('intake'); }
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       SCORING + RESULTS (no contact details required to view)
+    ══════════════════════════════════════════════════════════════ */
+    function getDimensionScore(dimId) {
+      let total = 0;
+      QUESTIONS.forEach((q, i) => { if (q.dim === dimId && state.answers[i] !== undefined) total += state.answers[i]; });
+      return total; /* max 9 (3 questions x 3 points) */
+    }
+
+    function buildResults() {
+      const scores = DIMENSIONS.map(d => ({ id: d.id, name: d.name, score: getDimensionScore(d.id) }));
+      const strongest = scores.reduce((a, b) => (b.score > a.score ? b : a));
+      const constraint = scores.reduce((a, b) => (b.score < a.score ? b : a));
+      /* All four dimensions score identically only when every answer was
+         identical — reduce() then resolves both to the same dimension,
+         which would render a confusing "strongest area: X, primary
+         constraint: X" pair. Handle that case with its own message
+         instead of presenting a false split. */
+      const isBalanced = strongest.id === constraint.id;
+
+      state.results = { scores, strongestId: strongest.id, constraintId: constraint.id, isBalanced };
+
+      const container = document.getElementById('results-container');
+
+      container.innerHTML = `
+        <div class="results-hero">
+          <h3>Your strongest area and your primary constraint</h3>
+          <p>No overall score — here's what the diagnostic found, and the one move worth making next.</p>
+        </div>
+
+        <div class="stage-framing">
+          <div class="sf-label">Because you told us: ${TRACK_LABELS[state.client.track]}</div>
+          <p>${TRACK_FRAMING[state.client.track]}</p>
+        </div>
+        <div class="stage-framing">
+          <div class="sf-label">Because you told us: ${STAGE_LABELS[state.client.stage]}</div>
+          <p>${STAGE_FRAMING[state.client.stage]}</p>
+        </div>
+
+        <div class="dim-grid">
+          ${scores.map(s => `
+            <div class="dim-card${!isBalanced && s.id === strongest.id ? ' is-strongest' : ''}${!isBalanced && s.id === constraint.id ? ' is-constraint' : ''}">
+              <div class="dc-name">${s.name}</div>
+              <div class="dc-score">${s.score}/9</div>
+              <div class="dim-bar"><div class="dim-bar-fill" style="width:${Math.round((s.score / 9) * 100)}%"></div></div>
+            </div>
+          `).join('')}
+        </div>
+
+        ${isBalanced ? `
+        <div class="priority-item">
+          <div class="pi-meta">Evenly matched</div>
+          <div class="pi-title">No single area stands out yet</div>
+          <div class="pi-rec">Your four dimensions scored the same, which usually means none of them has had focused attention rather than that all four are equally strong. The move worth making is choosing one to prioritise for the next 90 days — ${DIMENSION_RECS[constraint.id]}</div>
+        </div>
+        ` : `
+        <div class="priority-item is-strength">
+          <div class="pi-meta">Your strongest area</div>
+          <div class="pi-title">${strongest.name}</div>
+          <div class="pi-rec">${DIMENSION_STRENGTHS[strongest.id]}</div>
+        </div>
+
+        <div class="priority-item">
+          <div class="pi-meta">Your primary constraint</div>
+          <div class="pi-title">${constraint.name}</div>
+          <div class="pi-rec">${DIMENSION_RECS[constraint.id]}</div>
+        </div>
+        `}
+
+        <div class="cta-block">
+          <h3>Talk to us about your next step</h3>
+          <p>Leave your details and we'll follow up on the constraint above with a short, useful reply — not a sales pitch.</p>
+          <div id="capture-form-wrap">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="w-cap-name">Your name</label>
+                <input type="text" id="w-cap-name" placeholder="Jane Smith" autocomplete="name" />
+              </div>
+              <div class="form-group">
+                <label for="w-cap-business">Clinic / practice name</label>
+                <input type="text" id="w-cap-business" placeholder="Acme Wellness" autocomplete="organization" />
+              </div>
+              <div class="form-group">
+                <label for="w-cap-email">Email</label>
+                <input type="email" id="w-cap-email" placeholder="jane@acmewellness.com" autocomplete="email" />
+              </div>
+              <div class="form-group">
+                <label for="w-cap-website">Website (optional)</label>
+                <input type="url" id="w-cap-website" placeholder="https://acmewellness.com" autocomplete="url" />
+              </div>
+            </div>
+            <div class="consent-row">
+              <input type="checkbox" id="w-cap-consent" />
+              <label class="consent-text" for="w-cap-consent">I am happy for XL Marketing Services to contact me about my results and relevant services. I understand my data will be handled in accordance with applicable privacy regulations — see our <a href="/privacy" style="color:inherit;">Privacy Policy</a>.</label>
+            </div>
+            <div class="cta-btn-row">
+              <button type="button" class="btn btn-gold" onclick="submitCapture()">Talk to us about your next step</button>
+              <button type="button" class="btn btn-ghost" onclick="restartDiagnostic()">Retake the diagnostic</button>
+            </div>
+          </div>
+          <div class="capture-success" id="capture-success"><span>✓</span><span>Thanks — that's sent. We'll follow up by email shortly.</span></div>
+        </div>
+      `;
+    }
+
+    function submitCapture() {
+      const name    = document.getElementById('w-cap-name').value.trim();
+      const email   = document.getElementById('w-cap-email').value.trim();
+      const consent = document.getElementById('w-cap-consent').checked;
+
+      if (!name || !email) { alert('Please enter your name and email address.'); return; }
+      if (!email.includes('@')) { alert('Please enter a valid email address.'); return; }
+      if (!consent) { alert('Please confirm you are happy for us to contact you.'); return; }
+
+      const contact = {
+        name,
+        business: document.getElementById('w-cap-business').value.trim(),
+        email,
+        website: document.getElementById('w-cap-website').value.trim(),
+        track: state.client.track,
+        stage: state.client.stage
+      };
+
+      const scores = state.results.scores;
+      const strongest = scores.find(s => s.id === state.results.strongestId);
+      const constraint = scores.find(s => s.id === state.results.constraintId);
+
+      /* Add to MailerLite via Netlify serverless function — key stays server-side */
+      fetch('/.netlify/functions/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...contact, tool: 'wellness-growth' })
+      }).catch(() => { /* Silently ignore — do not block the user */ });
+
+      /* Email the scored results via Formspree — same pattern as the other diagnostics */
+      fetch('https://formspree.io/f/mlgkeyqp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: 'Wellness & Biohacking Growth Diagnostic report' + (contact.business ? ' — ' + contact.business : (contact.name ? ' — ' + contact.name : '')),
+          form_type: 'Wellness & Biohacking Growth Diagnostic',
+          client: contact,
+          strongest_area: strongest.name,
+          primary_constraint: constraint.name,
+          dimension_scores: scores.reduce((obj, s) => { obj[s.name] = s.score + '/9'; return obj; }, {})
+        })
+      }).catch(() => { /* Silently ignore — the result stays visible either way */ });
+
+      document.getElementById('capture-form-wrap').style.display = 'none';
+      document.getElementById('capture-success').classList.add('show');
+    }
+
+    function restartDiagnostic() {
+      state = { client: { track: '', stage: '' }, current: 0, answers: {}, results: null };
+      document.getElementById('w-track').value = '';
+      document.getElementById('w-stage').value = '';
+      showScreen('intake');
+      document.getElementById('diagnostic-start').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function showScreen(name) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById('screen-' + name).classList.add('active');
+      document.getElementById('diagnostic-start').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  </script>
+
+  <script>
+    (function () {
+      var bar = document.getElementById('sticky-cta');
+      var closeBtn = document.getElementById('sticky-cta-close');
+      if (!bar) return;
+      if (sessionStorage.getItem('xl_sticky_cta_dismissed') === '1') return;
+
+      var threshold = 480;
+
+      function onScroll() {
+        if (window.scrollY > threshold) {
+          bar.classList.add('is-visible');
+        } else {
+          bar.classList.remove('is-visible');
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      closeBtn.addEventListener('click', function () {
+        bar.classList.remove('is-visible');
+        sessionStorage.setItem('xl_sticky_cta_dismissed', '1');
+        window.removeEventListener('scroll', onScroll);
+      });
+    })();
+  </script>
+
+  <script>
+    window.addEventListener('load', function () {
+      if (location.hash) {
+        var target = document.querySelector(location.hash);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  </script>
+  <script src="/search.js" defer></script>
+</body>
+</html>
