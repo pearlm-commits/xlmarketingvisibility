@@ -82,6 +82,11 @@
     if (!barEl) return;
     barEl.classList.remove('is-visible');
     toggleStickyCta(false);
+    /* The sticky CTA bar (see the inline script near the end of <body>)
+       only re-checks its own visibility on the next scroll event. Nudge
+       it now so it floats back immediately instead of waiting for the
+       visitor to scroll again. */
+    window.dispatchEvent(new Event('scroll'));
   }
 
   function showBanner() {
