@@ -401,6 +401,37 @@
     .author-bio .author-role { font-size: 12px; color: var(--mustard-dk); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 10px; }
     .author-bio p.author-text { font-family: 'Playfair Display', Georgia, serif; font-size: 15px; color: var(--forest-mid); line-height: 1.65; margin: 0; }
 
+    /* ── Related reading ──────────────────────────────────────── */
+    .related-reading { margin: 40px 0 8px; }
+
+    .related-reading .section-label { font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--mustard-dk);
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .related-links { display: flex; flex-direction: column; gap: 10px; }
+
+    .related-links a {
+      display: block;
+      background: var(--grey);
+      border: 0.5px solid var(--border-mid);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--forest);
+      text-decoration: none;
+      transition: border-color 0.15s;
+    }
+
+    .related-links a:hover { border-color: var(--mustard); }
+    .related-links a span { color: var(--mustard); }
+
     @media (max-width: 600px) {
       .site-nav { flex-wrap: wrap; row-gap: 14px; }
       .nav-links { width: 100%; justify-content: flex-start; }
@@ -606,6 +637,17 @@
         <div class="author-name">Pearl M</div>
         <div class="author-role">Chief Marketing Officer and Strategic Marketing Lead, XL Marketing Services</div>
         <p class="author-text">Pearl M is a marketing leader and brand strategist with more than 25 years of experience across telecommunications, fintech, enterprise technology, infrastructure, luxury services and emerging technology, including leadership experience with Vodacom, PayU and Dimension Data/NTT. At XL, she leads the strategic architecture behind Decision-Led Growth: defining market opportunities, clarifying propositions and connecting marketing choices to customer and commercial outcomes.</p>
+      </div>
+    </div>
+
+    <!-- ── Related reading ──────────────────────────────────────── -->
+    <div class="related-reading">
+      <div class="section-label">Related reading</div>
+      <div class="related-links">
+        <a href="/journal/why-ai-content-is-harder-to-differentiate">Why AI Content Is Harder to Differentiate <span>&rarr;</span></a>
+        <a href="/journal/build-visibility-when-buyers-no-longer-click">Building Visibility When Buyers No Longer Click <span>&rarr;</span></a>
+        <a href="/services/ai-search-visibility">AI Search Visibility <span>&rarr;</span></a>
+        <a href="/decision-led-growth">Marketing Decision-Led Growth <span>&rarr;</span></a>
       </div>
     </div>
 
