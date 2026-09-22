@@ -66,6 +66,33 @@
     a.nav-cta { font-size: 14px; font-weight: 600; letter-spacing: 0.01em; color: var(--forest); background: transparent; border: 1.5px solid var(--forest); padding: 8px 19px; border-radius: 999px; white-space: nowrap; cursor: pointer; text-decoration: none; font-family: 'Inter', sans-serif; transition: background 0.15s, color 0.15s; display: inline-block; }
     .nav-cta:hover { background: var(--forest); color: #fff; }
 
+    /* ── Nav dropdown (mega-nav style, e.g. Sectors) ──────────────── */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown summary {
+      list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
+      font-size: 13px; color: var(--muted); font-weight: 500; letter-spacing: 0.01em; transition: color 0.15s;
+    }
+    .nav-dropdown summary::-webkit-details-marker { display: none; }
+    .nav-dropdown summary::after { content: '\25BE'; font-size: 9px; color: var(--mustard); position: relative; top: 1px; }
+    .nav-dropdown:hover summary, .nav-dropdown[open] summary, .nav-dropdown.current summary { color: var(--forest); }
+    .nav-dropdown-panel {
+      position: absolute; top: calc(100% + 14px); left: 0; min-width: 190px;
+      background: var(--white); border: 0.5px solid var(--border-mid);
+      box-shadow: 0 10px 28px rgba(20,17,15,0.1); padding: 8px; z-index: 600;
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .nav-dropdown-panel a {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      padding: 9px 10px; font-size: 13px; color: var(--ink); text-decoration: none; transition: background 0.15s, color 0.15s;
+    }
+    .nav-dropdown-panel a:hover { background: var(--grey); color: var(--forest); }
+    .nav-dropdown-panel a span { color: var(--mustard); font-size: 11px; flex-shrink: 0; }
+    .nav-dropdown-panel .ndp-divider { border-top: 0.5px solid var(--border); margin: 4px 0; }
+    @media (max-width: 600px) {
+      .nav-dropdown { width: 100%; }
+      .nav-dropdown-panel { position: static; box-shadow: none; border: none; margin-top: 4px; padding: 4px 0 4px 14px; }
+    }
+
     .breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); margin: 28px 0 0; }
     .breadcrumb a { color: var(--muted); text-decoration: none; font-weight: 600; }
     .breadcrumb a:hover { color: var(--forest); }
@@ -421,6 +448,14 @@
       <div class="footer-links">
         <a href="/">Home</a>
         <a href="/services">Services</a>
+        <details class="nav-dropdown">
+          <summary>Sectors</summary>
+          <div class="nav-dropdown-panel">
+            <a href="/sectors/luxury">Lifestyle &amp; Luxury</a>
+            <div class="ndp-divider"></div>
+            <a href="/sectors">All sectors <span>&rarr;</span></a>
+          </div>
+        </details>
         <a href="/working-with-us">Working With Us</a>
         <a href="/decision-led-growth">Marketing Decision-Led Growth</a>
         <a href="/about">About</a>
