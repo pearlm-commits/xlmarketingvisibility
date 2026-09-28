@@ -299,6 +299,47 @@
       .sticky-cta a { font-size: 13px; padding: 9px 15px; }
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://xluxemarketing.com/#organization",
+        "name": "XL Marketing Services",
+        "alternateName": "XL",
+        "url": "https://xluxemarketing.com/",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Building A1, Dubai Digital Park, Dubai Silicon Oasis",
+          "addressLocality": "Dubai",
+          "addressCountry": "AE"
+        },
+        "areaServed": ["AE", "ZA"],
+        "contactPoint": [
+          { "@type": "ContactPoint", "telephone": "+971-52-148-9618", "contactType": "customer service", "areaServed": "AE", "availableLanguage": ["en"] },
+          { "@type": "ContactPoint", "telephone": "+27-82-561-6101", "contactType": "customer service", "areaServed": "ZA", "availableLanguage": ["en"], "description": "WhatsApp only" },
+          { "@type": "ContactPoint", "email": "pearl@xluxemarketing.com", "contactType": "customer service" }
+        ]
+      },
+      {
+        "@type": "ContactPage",
+        "url": "https://xluxemarketing.com/contact",
+        "name": "Talk to us",
+        "description": "Tell XL Marketing Services what you are working on. We come back with the route that fits, what it involves and what it would cost.",
+        "mainEntity": { "@id": "https://xluxemarketing.com/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://xluxemarketing.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://xluxemarketing.com/contact" }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
