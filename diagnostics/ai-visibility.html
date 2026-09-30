@@ -55,10 +55,13 @@
     the link.
 
     Lead capture: only when the report is unlocked, details POST to
-    /.netlify/functions/subscribe (adds the visitor to MailerLite — key
-    stays server-side). The "your free guide will land in your inbox"
-    follow-up is a MailerLite automation, configured on their platform,
-    not in this file.
+    /.netlify/functions/subscribe (netlify/functions/subscribe.mjs), which
+    adds the visitor to Sender (sender.net) — token stays server-side.
+    The "your free guide will land in your inbox" follow-up is a Sender
+    automation triggered by joining the diagnostic's group, configured
+    in Sender, not in this file. Only AI Visibility has a guide today
+    (REPORT_COPY.visibility.guide); set REPORT_COPY.readiness.guide once
+    a Readiness guide exists.
 
     Results email: on report unlock, the scored results + contact details
     POST to Formspree (formspree.io/f/mlgkeyqp). Not CC'd to hello@/
@@ -2865,7 +2868,7 @@
       RESULTS: CLIENT DETAILS + REPORT UNLOCK
       The score, breakdown and priorities show with no details needed.
       Downloading the PDF report asks for name + email + consent; only
-      then are details sent to MailerLite and results to Formspree.
+      then are details sent to Sender and results to Formspree.
     ================================================================ */
     function renderClientBits() {
       const isR     = state.mode === 'readiness';
@@ -2906,10 +2909,9 @@
         website: true
       },
       readiness: {
-        guide:   'Marketing Efficiency &amp; Effectiveness: What Actually Moves the Needle',
+        guide:   null, /* no guide exists yet: set a title here once one is in Sender */
         consent: 'I am happy for XL Marketing Services to contact me about my results and relevant services, and to send me periodic marketing efficiency and effectiveness tips. I understand my data will be handled in accordance with applicable privacy regulations.',
-        website: true,
-        tips:    'You\u2019re also on the list for our <em>Marketing Efficiency &amp; Effectiveness</em> tips: practical, no-fluff notes on where marketing time and spend actually pay off, sent every couple of weeks.'
+        website: true
       }
     };
 
@@ -2923,8 +2925,7 @@
           <div class="unlock-card">
             <div class="unlock-done">
               <div class="ud-head"><span>✓</span><span>Your report is ready</span></div>
-              <p>Your download should open now: choose <strong>Save as PDF</strong> as the destination. Your free guide, <em>${copy.guide}</em>, will land in your inbox within the hour.</p>
-              ${copy.tips ? `<p style="font-size:13px;color:var(--muted)">${copy.tips}</p>` : ''}
+              <p>Your download should open now: choose <strong>Save as PDF</strong> as the destination.${copy.guide ? ` Your free guide, <em>${copy.guide}</em>, will land in your inbox within the hour.` : ''}</p>
               <div><button type="button" class="btn btn-primary" onclick="downloadReport()">Download again</button></div>
             </div>
           </div>`;
@@ -2935,7 +2936,7 @@
         <div class="unlock-card" id="${isR ? 'unlock-card-r' : 'unlock-card'}">
           <div class="section-label">Keep your results</div>
           <h3>Download your full report</h3>
-          <p class="unlock-intro">Save this report as a PDF to keep or share with your team, and we'll send you our free guide, <em>${copy.guide}</em>.</p>
+          <p class="unlock-intro">Save this report as a PDF to keep or share with your team${copy.guide ? `, and we'll send you our free guide, <em>${copy.guide}</em>` : ''}.</p>
           <div class="form-grid">
             <div class="form-group">
               <label for="u-name-${state.mode}">Your name</label>
@@ -2997,7 +2998,7 @@
       Object.assign(state.client, { name, email, company: val('company'), website: val('website') });
       state.reportUnlocked = true;
 
-      /* Add to MailerLite via Netlify serverless function — key stays server-side */
+      /* Add to Sender via Netlify serverless function (netlify/functions/subscribe.mjs) — key stays server-side */
       fetch('/.netlify/functions/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

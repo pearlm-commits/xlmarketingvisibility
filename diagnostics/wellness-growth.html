@@ -44,7 +44,7 @@
     email needed to see them — the diagnostic itself is the value
     exchange. A short, optional capture form appears AFTER the result
     ("Talk to us about your next step"): only submitting that form fires
-    the MailerLite subscribe + Formspree lead email. This matches the
+    the Sender subscribe + Formspree lead email. This matches the
     brief's funnel requirement (3.4, items 5 and 7): capture details
     after the result, not before it.
 
@@ -54,7 +54,7 @@
     notes, not different question sets (see TRACK_FRAMING / STAGE_FRAMING).
 
     Lead capture: the post-result form POSTs to
-    /.netlify/functions/subscribe (adds the visitor to MailerLite — key
+    /.netlify/functions/subscribe (adds the visitor to Sender — token
     stays server-side), same endpoint the other two diagnostics use,
     tagged tool: 'wellness-growth'. Results + contact details are also
     POSTed to Formspree (formspree.io/f/mlgkeyqp), same as the other two
@@ -901,7 +901,7 @@
       const strongest = scores.find(s => s.id === state.results.strongestId);
       const constraint = scores.find(s => s.id === state.results.constraintId);
 
-      /* Add to MailerLite via Netlify serverless function — key stays server-side */
+      /* Add to Sender via Netlify serverless function (netlify/functions/subscribe.mjs) — key stays server-side */
       fetch('/.netlify/functions/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
