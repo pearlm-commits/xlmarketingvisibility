@@ -42,14 +42,29 @@
     same quiz/scoring/print engine (see the TOOLS registry in <script>)
     but have separate intake forms and separate results screens.
 
-    Lead capture: both intake forms POST to /.netlify/functions/subscribe
-    (adds the visitor to MailerLite — key stays server-side). The
-    "your free guide will land in your inbox" follow-up is a MailerLite
-    automation, configured on their platform, not in this file.
+    Funnel: no contact details are needed to take the diagnostic or to
+    see the score. The intro asks only the non-personal setup question(s)
+    (maturity / team, hours, budget). The score, breakdown and priorities
+    render immediately; downloading the PDF report asks for name, email
+    and consent (the "report unlock" card on the results screen).
 
-    Results email: both results screens POST the scored results to
-    Formspree (formspree.io/f/mlgkeyqp). Not CC'd to hello@/enquiries@ —
-    that's configured on the contact form only (see contact.html).
+    Save & resume: progress is saved in the visitor's browser as they
+    answer, and "Finish later" offers a resume link (copy or email to
+    yourself) that also works on another device. See
+    /diagnostics/progress.js. No personal details are saved or put in
+    the link.
+
+    Lead capture: only when the report is unlocked, details POST to
+    /.netlify/functions/subscribe (adds the visitor to MailerLite — key
+    stays server-side). The "your free guide will land in your inbox"
+    follow-up is a MailerLite automation, configured on their platform,
+    not in this file.
+
+    Results email: on report unlock, the scored results + contact details
+    POST to Formspree (formspree.io/f/mlgkeyqp). Not CC'd to hello@/
+    enquiries@ — that's configured on the contact form only (see
+    contact.html). Anonymous completions are not emailed; they show up in
+    Google Analytics as diagnostic_complete events (see progress.js).
 
     Analytics: Google Analytics (gtag.js) is wired in <head>.
 
@@ -1025,6 +1040,17 @@
     }
 
     /* ── Guide-on-its-way notice ─────────────────────────────── */
+    /* ── Report unlock card (results screen) ─────────────────── */
+    .report-unlock { margin: 28px 0 8px; }
+    .unlock-card { background: var(--ivory); border: 1px solid var(--border-mid); border-top: 3px solid var(--forest); padding: 24px 22px; }
+    .unlock-card h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 22px; color: var(--forest); margin: 0 0 8px; line-height: 1.3; }
+    .unlock-card .unlock-intro { font-size: 14px; line-height: 1.65; color: var(--ink); margin: 0 0 18px; }
+    .unlock-card .consent-text a { color: inherit; }
+    .unlock-done { display: flex; flex-direction: column; gap: 12px; }
+    .unlock-done .ud-head { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--forest); }
+    .unlock-done p { font-size: 14px; line-height: 1.6; color: var(--ink); margin: 0; }
+    @media print { .report-unlock { display: none !important; } }
+
     .guide-notice {
       display: none;
       align-items: center;
@@ -1432,6 +1458,7 @@
     ]
   }
   </script>
+  <script src="/diagnostics/progress.js"></script>
 </head>
 
 <body>
@@ -1590,25 +1617,10 @@
       </div>
 
       <div class="card" id="intake-form">
-        <div class="section-label">Before you begin: tell us about your business</div>
+        <div id="resume-slot-visibility"></div>
+        <div class="section-label">One quick question before you begin</div>
 
         <div class="form-grid">
-          <div class="form-group">
-            <label for="f-name">Your name</label>
-            <input type="text" id="f-name" placeholder="Jane Smith" autocomplete="name" />
-          </div>
-          <div class="form-group">
-            <label for="f-company">Company name</label>
-            <input type="text" id="f-company" placeholder="Acme Ltd" autocomplete="organization" />
-          </div>
-          <div class="form-group">
-            <label for="f-email">Work email</label>
-            <input type="email" id="f-email" placeholder="jane@acme.com" autocomplete="email" />
-          </div>
-          <div class="form-group">
-            <label for="f-website">Website URL</label>
-            <input type="url" id="f-website" placeholder="https://acme.com" autocomplete="url" />
-          </div>
           <div class="form-group full">
             <label for="f-maturity">How would you describe your current marketing maturity?</label>
             <select id="f-maturity">
@@ -1621,24 +1633,10 @@
           </div>
         </div>
 
-        <div class="consent-row">
-          <input type="checkbox" id="f-consent" />
-          <label class="consent-text" for="f-consent" style="text-transform:none;letter-spacing:0;font-weight:300;font-size:12px">
-            I am happy for XL Marketing Services to contact me about my audit results
-            and relevant services. I understand my data will be handled in accordance with
-            applicable privacy regulations.
-          </label>
-        </div>
-
         <button class="btn btn-primary btn-full" id="start-btn" onclick="startAudit()">
           Start my audit &rarr;
         </button>
-        <p class="text-muted text-center mt8">Takes around 4 minutes. No payment required.</p>
-
-        <div class="guide-notice" id="guide-notice">
-          <span class="guide-notice-icon">✉️</span>
-          <span>Your free guide, <em>How to Be Found Online Circa 2026</em>, will land in your inbox within the hour.</span>
-        </div>
+        <p class="text-muted text-center mt8">Takes around 4 minutes. No email needed to see your score, and your progress saves as you go.</p>
       </div>
     </div>
 
@@ -1723,25 +1721,10 @@
       </div>
 
       <div class="card" id="readiness-form">
-        <div class="section-label">Before you begin: tell us about your business</div>
+        <div id="resume-slot-readiness"></div>
+        <div class="section-label">Three quick questions before you begin</div>
 
         <div class="form-grid">
-          <div class="form-group">
-            <label for="r-name">Your name</label>
-            <input type="text" id="r-name" placeholder="Jane Smith" autocomplete="name" />
-          </div>
-          <div class="form-group">
-            <label for="r-company">Company name</label>
-            <input type="text" id="r-company" placeholder="Acme Ltd" autocomplete="organization" />
-          </div>
-          <div class="form-group">
-            <label for="r-email">Work email</label>
-            <input type="email" id="r-email" placeholder="jane@acme.com" autocomplete="email" />
-          </div>
-          <div class="form-group">
-            <label for="r-website">Website URL</label>
-            <input type="url" id="r-website" placeholder="https://acme.com" autocomplete="url" />
-          </div>
           <div class="form-group">
             <label for="r-team">Who currently owns marketing?</label>
             <select id="r-team">
@@ -1774,24 +1757,10 @@
           </div>
         </div>
 
-        <div class="consent-row">
-          <input type="checkbox" id="r-consent" />
-          <label class="consent-text" for="r-consent" style="text-transform:none;letter-spacing:0;font-weight:300;font-size:12px">
-            I am happy for XL Marketing Services to contact me about my results and relevant
-            services, and to send me periodic marketing efficiency and effectiveness tips. I understand
-            my data will be handled in accordance with applicable privacy regulations.
-          </label>
-        </div>
-
         <button class="btn btn-primary btn-full" id="start-readiness-btn" onclick="startReadiness()">
           Start my assessment &rarr;
         </button>
-        <p class="text-muted text-center mt8">Takes around 4 minutes. No payment required.</p>
-
-        <div class="guide-notice" id="guide-notice-readiness">
-          <span class="guide-notice-icon">✉️</span>
-          <span>Your free guide, <em>Marketing Efficiency &amp; Effectiveness: What Actually Moves the Needle</em>, will land in your inbox within the hour.</span>
-        </div>
+        <p class="text-muted text-center mt8">Takes around 4 minutes. No email needed to see your score, and your progress saves as you go.</p>
       </div>
 
       <div class="mt24" style="max-width:560px;margin-left:auto;margin-right:auto;">
@@ -1812,7 +1781,7 @@
         <div class="progress-wrap">
           <div class="progress-done">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Your details are saved
+            Your progress saves as you go
           </div>
           <div class="progress-meta">
             <span id="q-counter">Question 1 of 12</span>
@@ -1838,6 +1807,7 @@
             <button class="btn btn-ghost" id="q-back" onclick="goBack()">← Back</button>
             <button class="btn btn-primary" id="q-next" onclick="goNext()" disabled>Next →</button>
           </div>
+            <div id="finish-later-slot"></div>
         </div>
       </div>
     </div>
@@ -1880,6 +1850,9 @@
             <div id="r-priorities"></div>
           </div>
 
+          <div class="report-unlock" id="report-unlock"></div>
+
+
           <div class="cta-block">
             <h3>You did the work. Let's make sure it gets recognised.</h3>
             <p>
@@ -1892,9 +1865,9 @@
               <a href="/contact?service=AI%20Visibility%20Diagnostic%20results" class="btn btn-gold">
                 Secure Executive Briefing
               </a>
-              <button class="btn btn-ghost" onclick="downloadReport()">
+              <a href="#" class="btn btn-ghost" onclick="return goToReportUnlock()">
                 Download my report
-              </button>
+              </a>
             </div>
           </div>
 
@@ -1968,6 +1941,9 @@
             </div>
           </div>
 
+          <div class="report-unlock" id="report-unlock-r"></div>
+
+
           <div class="cta-block">
             <h3>The effort is real. Let's give it a system to compound in.</h3>
             <p>
@@ -1981,14 +1957,11 @@
               <a href="/contact?service=Marketing%20Readiness%20Assessment%20results" class="btn btn-gold">
                 Secure Executive Briefing
               </a>
-              <button class="btn btn-ghost" onclick="downloadReport()">
+              <a href="#" class="btn btn-ghost" onclick="return goToReportUnlock()">
                 Download my report
-              </button>
+              </a>
             </div>
-            <div class="tips-note">
-              <span>✉️</span>
-              <span>You're also on the list for our <em>Marketing Efficiency &amp; Effectiveness</em> tips: practical, no-fluff notes on where marketing time and spend actually pay off, sent every couple of weeks.</span>
-            </div>
+            
           </div>
 
           <div class="text-center mt16">
@@ -2502,104 +2475,113 @@
       INTAKE
     ================================================================ */
     function startAudit() {
-      const name    = document.getElementById('f-name').value.trim();
-      const company = document.getElementById('f-company').value.trim();
-      const email   = document.getElementById('f-email').value.trim();
-      const consent = document.getElementById('f-consent').checked;
-
-      if (!name || !email) {
-        alert('Please enter your name and email address to continue.');
-        return;
-      }
-
-      if (!email.includes('@')) {
-        alert('Please enter a valid email address.');
-        return;
-      }
-
-      if (!consent) {
-        alert('Please confirm you are happy for us to contact you before continuing.');
-        return;
-      }
-
-      state.client = {
-        name,
-        company: document.getElementById('f-company').value.trim(),
-        email,
-        website: document.getElementById('f-website').value.trim(),
-        maturity: document.getElementById('f-maturity').value
-      };
-
-      /* Captures the lead immediately on form submit, before the quiz
-         begins, so it's saved even if the visitor doesn't finish.
-         Add to MailerLite via Netlify serverless function — key stays
-         server-side. */
-      fetch('/.netlify/functions/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(state.client)
-      }).catch(() => { /* Silently ignore — do not block the user */ });
-
-      /* Show the guide-on-its-way notice briefly before transitioning */
-      const notice = document.getElementById('guide-notice');
-      notice.classList.add('show');
-      setTimeout(() => {
-        showScreen('quiz');
-        renderQuestion();
-      }, 1800);
+      state.client  = { maturity: document.getElementById('f-maturity').value };
+      state.current = 0;
+      state.answers = {};
+      XLDiag.clear(progressKey());
+      XLDiag.track('diagnostic_start', { diagnostic: state.mode });
+      saveProgress();
+      showScreen('quiz');
+      renderQuestion();
     }
 
     function startReadiness() {
-      const name    = document.getElementById('r-name').value.trim();
-      const email   = document.getElementById('r-email').value.trim();
-      const consent = document.getElementById('r-consent').checked;
-      const team    = document.getElementById('r-team').value;
-      const hours   = document.getElementById('r-hours').value;
-      const budget  = document.getElementById('r-budget').value;
-
-      if (!name || !email) {
-        alert('Please enter your name and email address to continue.');
-        return;
-      }
-
-      if (!email.includes('@')) {
-        alert('Please enter a valid email address.');
-        return;
-      }
-
-      if (!consent) {
-        alert('Please confirm you are happy for us to contact you before continuing.');
-        return;
-      }
+      const team   = document.getElementById('r-team').value;
+      const hours  = document.getElementById('r-hours').value;
+      const budget = document.getElementById('r-budget').value;
 
       if (!team || !hours || !budget) {
         alert('Please answer the three setup questions so we can tailor your results.');
         return;
       }
 
-      state.client = {
-        name,
-        company: document.getElementById('r-company').value.trim(),
-        email,
-        website: document.getElementById('r-website').value.trim(),
-        team,
-        hoursPerWeek: parseFloat(hours),
-        budget
-      };
+      state.client  = { team, hoursPerWeek: parseFloat(hours), budget };
+      state.current = 0;
+      state.answers = {};
+      XLDiag.clear(progressKey());
+      XLDiag.track('diagnostic_start', { diagnostic: state.mode });
+      saveProgress();
+      showScreen('quiz');
+      renderQuestion();
+    }
 
-      /* Add to MailerLite via Netlify serverless function — key stays server-side */
-      fetch('/.netlify/functions/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...state.client, tool: 'readiness' })
-      }).catch(() => { /* Silently ignore — do not block the user */ });
+    /* ================================================================
+      SAVE & RESUME (helpers in /diagnostics/progress.js)
+      Only answers and the non-personal setup questions are saved.
+    ================================================================ */
+    function progressKey() { return state.mode; }
 
-      const notice = document.getElementById('guide-notice-readiness');
-      notice.classList.add('show');
-      setTimeout(() => {
-        showScreen('quiz');
-        renderQuestion();
-      }, 1800);
+    function progressContext() {
+      return state.mode === 'readiness'
+        ? { team: state.client.team, hours: String(state.client.hoursPerWeek), budget: state.client.budget }
+        : { maturity: state.client.maturity || '' };
+    }
+
+    function progressData() {
+      return { current: state.current, answers: state.answers, context: progressContext() };
+    }
+
+    function saveProgress() {
+      if (state.mode) XLDiag.save(progressKey(), progressData());
+    }
+
+    function selectHas(id, value) {
+      const el = document.getElementById(id);
+      return !!el && typeof value === 'string' && value !== '' && Array.from(el.options).some(o => o.value === value);
+    }
+
+    /* Rebuilds state from saved or linked progress. Returns false if the
+       data doesn't fit this diagnostic (e.g. questions have changed). */
+    function restoreProgress(data) {
+      const questions = TOOLS[state.mode].questions;
+      const ctx = data.context || {};
+      const answers = {};
+      Object.keys(data.answers || {}).forEach(k => {
+        const i = parseInt(k, 10), v = data.answers[k];
+        if (i >= 0 && i < questions.length && questions[i].opts.some(o => o.score === v)) answers[i] = v;
+      });
+
+      if (state.mode === 'readiness') {
+        if (!selectHas('r-team', ctx.team) || !selectHas('r-hours', ctx.hours) || !selectHas('r-budget', ctx.budget)) return false;
+        state.client = { team: ctx.team, hoursPerWeek: parseFloat(ctx.hours), budget: ctx.budget };
+        document.getElementById('r-team').value   = ctx.team;
+        document.getElementById('r-hours').value  = ctx.hours;
+        document.getElementById('r-budget').value = ctx.budget;
+      } else {
+        state.client = { maturity: selectHas('f-maturity', ctx.maturity) ? ctx.maturity : '' };
+        if (state.client.maturity) document.getElementById('f-maturity').value = state.client.maturity;
+      }
+
+      state.answers = answers;
+      let cur = parseInt(data.current, 10);
+      if (!(cur >= 0 && cur < questions.length)) cur = 0;
+      const firstGap = questions.findIndex((q, i) => answers[i] === undefined);
+      state.current = firstGap === -1 ? Math.min(cur, questions.length - 1) : Math.min(cur, firstGap);
+      return true;
+    }
+
+    function resumeQuiz(source) {
+      XLDiag.track('diagnostic_resume', { diagnostic: state.mode, source, question: state.current + 1 });
+      showScreen('quiz');
+      renderQuestion();
+    }
+
+    function initResume() {
+      const linked = XLDiag.readResumeParam(progressKey());
+      if (linked && restoreProgress(linked)) { saveProgress(); resumeQuiz('link'); return; }
+
+      const saved = XLDiag.load(progressKey());
+      if (!saved || !Object.keys(saved.answers || {}).length) return;
+      const total = TOOLS[state.mode].questions.length;
+      XLDiag.mountResumeBanner(
+        document.getElementById(state.mode === 'readiness' ? 'resume-slot-readiness' : 'resume-slot-visibility'),
+        {
+          question: Math.min((parseInt(saved.current, 10) || 0) + 1, total),
+          total,
+          onContinue: () => { if (restoreProgress(saved)) resumeQuiz('saved'); else XLDiag.clear(progressKey()); },
+          onRestart:  () => { XLDiag.clear(progressKey()); XLDiag.track('diagnostic_restart', { diagnostic: state.mode }); }
+        }
+      );
     }
 
     /* ================================================================
@@ -2654,6 +2636,7 @@
       btn.setAttribute('aria-pressed', 'true');
 
       document.getElementById('q-next').disabled = false;
+      saveProgress();
     }
 
     function goNext() {
@@ -2661,6 +2644,7 @@
 
       const questions = TOOLS[state.mode].questions;
       if (state.current === questions.length - 1) {
+        XLDiag.clear(progressKey());
         if (state.mode === 'readiness') {
           buildResultsReadiness();
           showScreen('results-readiness');
@@ -2670,6 +2654,10 @@
         }
       } else {
         state.current++;
+        if (state.current === Math.floor(questions.length / 2)) {
+          XLDiag.track('diagnostic_halfway', { diagnostic: state.mode });
+        }
+        saveProgress();
         renderQuestion();
       }
     }
@@ -2677,6 +2665,7 @@
     function goBack() {
       if (state.current > 0) {
         state.current--;
+        saveProgress();
         renderQuestion();
       }
     }
@@ -2739,29 +2728,8 @@
       const overall  = getOverallScore();
       const verdict  = getVerdict(overall.pct);
 
-      /* Client summary */
-      const initials = (state.client.name || 'XX').split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase();
-      const printDate = new Date().toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
-      const siteLabel = (state.client.website || '').replace(/^https?:\/\//, '').replace(/\/$/, '');
-      document.getElementById('results-client').innerHTML = `
-        <div class="cs-avatar">${initials}</div>
-        <div class="cs-body">
-          <div class="cs-name">${state.client.name}${state.client.company ? ' · ' + state.client.company : ''}</div>
-          <div class="cs-company">${siteLabel ? siteLabel + ' · ' : ''}AI Visibility Score: ${overall.pct} / 100 · ${printDate}</div>
-        </div>
-      `;
-
-      /* Print-only cover + summary (populated here so a saved PDF always
-         reflects the latest score, regardless of when it's printed) */
-      document.getElementById('print-cover').innerHTML = `
-        <div class="pc-eyebrow">XL Marketing Services</div>
-        <p class="pc-title">AI Visibility Brief</p>
-        <p class="pc-prepared">Prepared for ${state.client.name}${state.client.company ? ', ' + state.client.company : ''}${siteLabel ? ' (' + siteLabel + ')' : ''}</p>
-        <div class="pc-date">${printDate}</div>
-      `;
-      document.getElementById('print-summary').innerHTML = `
-        <p>AI systems now decide who gets cited before a person ever sees a search result. This brief shows exactly where ${state.client.company || 'your business'} earns that trust today, and where it doesn't yet.</p>
-      `;
+      state.reportUnlocked = false;
+      renderClientBits();
 
       /* Stage framing — reflects the visitor's own 'maturity' answer back
          as genuinely different guidance, not just a repeated label */
@@ -2811,61 +2779,16 @@
         </div>
       `).join('');
 
-      /* Sends the full scored results to Formspree on completion, which
-         emails the team a copy of the report. */
-      const resultsPayload = {
-        _subject:    'AI Visibility Diagnostic report' + (state.client.company ? ' · ' + state.client.company : (state.client.name ? ' · ' + state.client.name : '')),
-        service_type: 'AI Visibility Diagnostic',
-        event:       'audit_completed',
-        timestamp:   new Date().toISOString(),
-        client:      state.client,
-        score:       overall.pct,
-        verdict:     verdict.label,
-        lever_scores: LEVERS.reduce((obj, l) => {
-          obj[l.name] = getLeverScore(l.id).pct;
-          return obj;
-        }, {}),
-        priorities:  sorted.map(p => ({ lever: p.name, score: p.pct }))
-      };
-
-      fetch('https://formspree.io/f/mlgkeyqp', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(resultsPayload)
-      }).then((response) => {
-        if (!response.ok) {
-          console.warn('Formspree results-email submission failed:', response.status);
-        }
-      }).catch(() => {
-        /* Silently ignore — do not interrupt the user experience */
-      });
+      renderUnlock();
+      XLDiag.track('diagnostic_complete', { diagnostic: state.mode, score: overall.pct });
     }
 
     function buildResultsReadiness() {
       const overall = getOverallScore();
       const tier    = getReadinessTier(overall.pct);
 
-      /* Client summary */
-      const initials = (state.client.name || 'XX').split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase();
-      const printDate = new Date().toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
-      document.getElementById('results-client-r').innerHTML = `
-        <div class="cs-avatar">${initials}</div>
-        <div class="cs-body">
-          <div class="cs-name">${state.client.name}${state.client.company ? ' · ' + state.client.company : ''}</div>
-          <div class="cs-company">Marketing Readiness Score: ${overall.pct} / 100 · ${printDate}</div>
-        </div>
-      `;
-
-      /* Print-only cover + summary */
-      document.getElementById('print-cover-r').innerHTML = `
-        <div class="pc-eyebrow">XL Marketing Services</div>
-        <p class="pc-title">Marketing Readiness Brief</p>
-        <p class="pc-prepared">Prepared for ${state.client.name}${state.client.company ? ', ' + state.client.company : ''}</p>
-        <div class="pc-date">${printDate}</div>
-      `;
-      document.getElementById('print-summary-r').innerHTML = `
-        <p>Marketing built on effort alone eventually hits its ceiling. This brief shows exactly which parts of ${state.client.company || 'your'} marketing system are compounding, and which are quietly costing you time and budget instead.</p>
-      `;
+      state.reportUnlocked = false;
+      renderClientBits();
 
       /* Overall score */
       document.getElementById('rr-score').textContent   = overall.pct;
@@ -2933,12 +2856,214 @@
         </div>
       `).join('');
 
-      /* Sends the full scored results to Formspree on completion, which
-         emails the team a copy of the report. */
+      renderUnlock();
+      XLDiag.track('diagnostic_complete', { diagnostic: state.mode, score: overall.pct });
+    }
+
+
+    /* ================================================================
+      RESULTS: CLIENT DETAILS + REPORT UNLOCK
+      The score, breakdown and priorities show with no details needed.
+      Downloading the PDF report asks for name + email + consent; only
+      then are details sent to MailerLite and results to Formspree.
+    ================================================================ */
+    function renderClientBits() {
+      const isR     = state.mode === 'readiness';
+      const overall = getOverallScore();
+      const c       = state.client;
+      const esc     = XLDiag.esc;
+      const printDate = new Date().toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
+      const siteLabel = isR ? '' : (c.website || '').replace(/^https?:\/\//, '').replace(/\/$/, '');
+      const initials  = (c.name || '').split(' ').filter(Boolean).map(w => w[0]).join('').slice(0,2).toUpperCase();
+      const scoreName = isR ? 'Marketing Readiness Score' : 'AI Visibility Score';
+
+      document.getElementById(isR ? 'results-client-r' : 'results-client').innerHTML = `
+        ${initials ? `<div class="cs-avatar">${esc(initials)}</div>` : ''}
+        <div class="cs-body">
+          <div class="cs-name">${c.name ? esc(c.name) + (c.company ? ' · ' + esc(c.company) : '') : 'Your result'}</div>
+          <div class="cs-company">${siteLabel ? esc(siteLabel) + ' · ' : ''}${scoreName}: ${overall.pct} / 100 · ${printDate}</div>
+        </div>
+      `;
+
+      /* Print-only cover + summary (populated here so a saved PDF always
+         reflects the latest score and details, regardless of when it's printed) */
+      const prepared = c.name ? esc(c.name) + (c.company ? ', ' + esc(c.company) : '') + (siteLabel ? ' (' + esc(siteLabel) + ')' : '') : '';
+      document.getElementById(isR ? 'print-cover-r' : 'print-cover').innerHTML = `
+        <div class="pc-eyebrow">XL Marketing Services</div>
+        <p class="pc-title">${isR ? 'Marketing Readiness Brief' : 'AI Visibility Brief'}</p>
+        ${prepared ? `<p class="pc-prepared">Prepared for ${prepared}</p>` : ''}
+        <div class="pc-date">${printDate}</div>
+      `;
+      document.getElementById(isR ? 'print-summary-r' : 'print-summary').innerHTML = isR
+        ? `<p>Marketing built on effort alone eventually hits its ceiling. This brief shows exactly which parts of ${esc(c.company) || 'your'} marketing system are compounding, and which are quietly costing you time and budget instead.</p>`
+        : `<p>AI systems now decide who gets cited before a person ever sees a search result. This brief shows exactly where ${esc(c.company) || 'your business'} earns that trust today, and where it doesn't yet.</p>`;
+    }
+
+    const REPORT_COPY = {
+      visibility: {
+        guide:   'How to Be Found Online Circa 2026',
+        consent: 'I am happy for XL Marketing Services to contact me about my audit results and relevant services. I understand my data will be handled in accordance with applicable privacy regulations.',
+        website: true
+      },
+      readiness: {
+        guide:   'Marketing Efficiency &amp; Effectiveness: What Actually Moves the Needle',
+        consent: 'I am happy for XL Marketing Services to contact me about my results and relevant services, and to send me periodic marketing efficiency and effectiveness tips. I understand my data will be handled in accordance with applicable privacy regulations.',
+        website: true,
+        tips:    'You\u2019re also on the list for our <em>Marketing Efficiency &amp; Effectiveness</em> tips: practical, no-fluff notes on where marketing time and spend actually pay off, sent every couple of weeks.'
+      }
+    };
+
+    function renderUnlock() {
+      const isR  = state.mode === 'readiness';
+      const slot = document.getElementById(isR ? 'report-unlock-r' : 'report-unlock');
+      const copy = REPORT_COPY[state.mode];
+
+      if (state.reportUnlocked) {
+        slot.innerHTML = `
+          <div class="unlock-card">
+            <div class="unlock-done">
+              <div class="ud-head"><span>✓</span><span>Your report is ready</span></div>
+              <p>Your download should open now: choose <strong>Save as PDF</strong> as the destination. Your free guide, <em>${copy.guide}</em>, will land in your inbox within the hour.</p>
+              ${copy.tips ? `<p style="font-size:13px;color:var(--muted)">${copy.tips}</p>` : ''}
+              <div><button type="button" class="btn btn-primary" onclick="downloadReport()">Download again</button></div>
+            </div>
+          </div>`;
+        return;
+      }
+
+      slot.innerHTML = `
+        <div class="unlock-card" id="${isR ? 'unlock-card-r' : 'unlock-card'}">
+          <div class="section-label">Keep your results</div>
+          <h3>Download your full report</h3>
+          <p class="unlock-intro">Save this report as a PDF to keep or share with your team, and we'll send you our free guide, <em>${copy.guide}</em>.</p>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="u-name-${state.mode}">Your name</label>
+              <input type="text" id="u-name-${state.mode}" placeholder="Jane Smith" autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="u-email-${state.mode}">Work email</label>
+              <input type="email" id="u-email-${state.mode}" placeholder="jane@acme.com" autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label for="u-company-${state.mode}">Company name <span style="font-weight:300;text-transform:none;letter-spacing:0">(optional)</span></label>
+              <input type="text" id="u-company-${state.mode}" placeholder="Acme Ltd" autocomplete="organization" />
+            </div>
+            <div class="form-group">
+              <label for="u-website-${state.mode}">Website URL <span style="font-weight:300;text-transform:none;letter-spacing:0">(optional)</span></label>
+              <input type="url" id="u-website-${state.mode}" placeholder="https://acme.com" autocomplete="url" />
+            </div>
+          </div>
+          <div class="consent-row">
+            <input type="checkbox" id="u-consent-${state.mode}" />
+            <label class="consent-text" for="u-consent-${state.mode}" style="text-transform:none;letter-spacing:0;font-weight:300;font-size:12px">
+              ${copy.consent} See our <a href="/privacy">Privacy Policy</a>.
+            </label>
+          </div>
+          <button type="button" class="btn btn-primary btn-full" onclick="unlockReport()">Download my report &rarr;</button>
+        </div>`;
+    }
+
+    function goToReportUnlock() {
+      if (state.reportUnlocked) { downloadReport(); return false; }
+      const card = document.getElementById(state.mode === 'readiness' ? 'unlock-card-r' : 'unlock-card');
+      if (card) {
+        card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => { const f = document.getElementById('u-name-' + state.mode); if (f) f.focus({ preventScroll: true }); }, 500);
+      }
+      XLDiag.track('diagnostic_report_cta', { diagnostic: state.mode });
+      return false;
+    }
+
+    function unlockReport() {
+      const val     = id => (document.getElementById(`u-${id}-${state.mode}`).value || '').trim();
+      const name    = val('name');
+      const email   = val('email');
+      const consent = document.getElementById(`u-consent-${state.mode}`).checked;
+
+      if (!name || !email) {
+        alert('Please enter your name and email address to download your report.');
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+      if (!consent) {
+        alert('Please confirm you are happy for us to contact you before downloading.');
+        return;
+      }
+
+      Object.assign(state.client, { name, email, company: val('company'), website: val('website') });
+      state.reportUnlocked = true;
+
+      /* Add to MailerLite via Netlify serverless function — key stays server-side */
+      fetch('/.netlify/functions/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(state.mode === 'readiness' ? { ...state.client, tool: 'readiness' } : state.client)
+      }).catch(() => { /* Silently ignore — do not block the user */ });
+
+      if (state.mode === 'readiness') sendResultsEmailReadiness(); else sendResultsEmail();
+      XLDiag.track('diagnostic_report_unlock', { diagnostic: state.mode });
+
+      renderClientBits();
+      renderUnlock();
+      setTimeout(downloadReport, 700);
+    }
+
+    function sendResultsEmail() {
+      const overall = getOverallScore();
+      const verdict = getVerdict(overall.pct);
+      const sorted  = LEVERS
+        .map(l => ({ ...l, ...getLeverScore(l.id) }))
+        .sort((a, b) => a.pct - b.pct)
+        .slice(0, 3);
+
+      /* Sends the full scored results + contact details to Formspree,
+         which emails the team a copy of the report. */
+      const resultsPayload = {
+        _subject:    'AI Visibility Diagnostic report' + (state.client.company ? ' · ' + state.client.company : (state.client.name ? ' · ' + state.client.name : '')),
+        service_type: 'AI Visibility Diagnostic',
+        event:       'report_unlocked',
+        timestamp:   new Date().toISOString(),
+        client:      state.client,
+        score:       overall.pct,
+        verdict:     verdict.label,
+        lever_scores: LEVERS.reduce((obj, l) => {
+          obj[l.name] = getLeverScore(l.id).pct;
+          return obj;
+        }, {}),
+        priorities:  sorted.map(p => ({ lever: p.name, score: p.pct }))
+      };
+
+      fetch('https://formspree.io/f/mlgkeyqp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(resultsPayload)
+      }).then((response) => {
+        if (!response.ok) {
+          console.warn('Formspree results-email submission failed:', response.status);
+        }
+      }).catch(() => {
+        /* Silently ignore — do not interrupt the user experience */
+      });
+    }
+
+    function sendResultsEmailReadiness() {
+      const overall = getOverallScore();
+      const tier    = getReadinessTier(overall.pct);
+      const sorted  = PILLARS
+        .map(l => ({ ...l, ...getLeverScore(l.id) }))
+        .sort((a, b) => a.pct - b.pct)
+        .slice(0, 3);
+
+      /* Sends the full scored results + contact details to Formspree,
+         which emails the team a copy of the report. */
       const resultsPayload = {
         _subject:    'Marketing Readiness Diagnostic report' + (state.client.company ? ' · ' + state.client.company : (state.client.name ? ' · ' + state.client.name : '')),
         service_type: 'Marketing Readiness Diagnostic',
-        event:       'readiness_completed',
+        event:       'report_unlocked',
         timestamp:   new Date().toISOString(),
         client:      state.client,
         score:       overall.pct,
@@ -2967,6 +3092,7 @@
       DOWNLOAD REPORT (print-to-PDF)
     ================================================================ */
     function downloadReport() {
+      XLDiag.track('diagnostic_report_download', { diagnostic: state.mode });
       window.print();
     }
 
@@ -2983,6 +3109,7 @@
     function restartAudit() {
       const mode = state.mode;
       state = { current: 0, answers: {}, client: {}, mode };
+      XLDiag.clear(progressKey());
       showScreen(mode === 'visibility' ? 'intro' : 'intro-readiness');
     }
 
@@ -3060,6 +3187,12 @@
       readiness diagnostic; the mode-select screen is unused here.
     ================================================================ */
     selectMode('readiness');
+    XLDiag.mountFinishLater(document.getElementById('finish-later-slot'), {
+      name:  state.mode,
+      title: 'Marketing Readiness Diagnostic',
+      getLink: () => XLDiag.resumeLink(progressKey(), progressData())
+    });
+    initResume();
   </script>
 
   <!-- ================================================================

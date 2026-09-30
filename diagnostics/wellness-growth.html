@@ -72,7 +72,14 @@
         the brief's suggested copy ("Talk to us about your next step"),
         flagged in the brief as needing final confirmation regardless.
 
-    Analytics: gated behind /consent.js, same as every other page.
+    Save & resume: answers and the two routing questions are saved in the
+    visitor's browser as they go, and "Finish later" offers a resume link
+    that also works on another device — see /diagnostics/progress.js,
+    shared with the other two diagnostics. No contact details are saved.
+
+    Analytics: gated behind /consent.js, same as every other page. Funnel
+    events (diagnostic_start / _halfway / _complete / _report_unlock /
+    _resume) are sent via XLDiag.track in progress.js.
     Branding: CSS variables at the top of the <style> block.
   ===================================================================== -->
 
@@ -347,6 +354,7 @@
     ]
   }
   </script>
+  <script src="/diagnostics/progress.js"></script>
 </head>
 
 <body>
@@ -494,6 +502,7 @@
 
       <div id="screen-intake" class="screen active">
         <div class="card">
+            <div id="resume-slot"></div>
           <div class="lever-pill"><span class="lever-dot">4m</span><span>12 questions &middot; about 4 minutes</span></div>
           <p style="font-family:'Playfair Display',Georgia,serif;font-size:15px;line-height:1.7;color:var(--ink);margin-bottom:18px;">Two quick questions so the result speaks to your business, then straight into the diagnostic: no contact details needed to see your result.</p>
 
@@ -534,6 +543,7 @@
             <button type="button" class="btn btn-ghost" id="q-back" onclick="goBack()">&larr; Back</button>
             <button type="button" class="btn btn-primary" id="q-next" onclick="goNext()" disabled>Next &rarr;</button>
           </div>
+            <div id="finish-later-slot"></div>
         </div>
       </div>
 
@@ -695,6 +705,9 @@
       state.client = { track, stage };
       state.current = 0;
       state.answers = {};
+      XLDiag.clear(PROGRESS_KEY);
+      XLDiag.track('diagnostic_start', { diagnostic: PROGRESS_KEY });
+      saveProgress();
       showScreen('quiz');
       renderQuestion();
     }
@@ -736,21 +749,28 @@
       document.querySelectorAll('#q-options .opt-btn').forEach(b => b.classList.remove('selected'));
       btn.classList.add('selected');
       document.getElementById('q-next').disabled = false;
+      saveProgress();
     }
 
     function goNext() {
       if (state.answers[state.current] === undefined) return;
       if (state.current === QUESTIONS.length - 1) {
+        XLDiag.clear(PROGRESS_KEY);
+        XLDiag.track('diagnostic_complete', { diagnostic: PROGRESS_KEY });
         buildResults();
         showScreen('results');
         return;
       }
       state.current++;
+      if (state.current === Math.floor(QUESTIONS.length / 2)) {
+        XLDiag.track('diagnostic_halfway', { diagnostic: PROGRESS_KEY });
+      }
+      saveProgress();
       renderQuestion();
     }
 
     function goBack() {
-      if (state.current > 0) { state.current--; renderQuestion(); }
+      if (state.current > 0) { state.current--; saveProgress(); renderQuestion(); }
       else { showScreen('intake'); }
     }
 
@@ -902,12 +922,14 @@
         })
       }).catch(() => { /* Silently ignore — the result stays visible either way */ });
 
+      XLDiag.track('diagnostic_report_unlock', { diagnostic: PROGRESS_KEY });
       document.getElementById('capture-form-wrap').style.display = 'none';
       document.getElementById('capture-success').classList.add('show');
     }
 
     function restartDiagnostic() {
       state = { client: { track: '', stage: '' }, current: 0, answers: {}, results: null };
+      XLDiag.clear(PROGRESS_KEY);
       document.getElementById('w-track').value = '';
       document.getElementById('w-stage').value = '';
       showScreen('intake');
@@ -919,6 +941,68 @@
       document.getElementById('screen-' + name).classList.add('active');
       document.getElementById('diagnostic-start').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+
+    /* ══════════════════════════════════════════════════════════════
+       SAVE & RESUME (helpers in /diagnostics/progress.js)
+       Only answers and the two routing questions are saved; no
+       contact details.
+    ══════════════════════════════════════════════════════════════ */
+    const PROGRESS_KEY = 'wellness';
+
+    function progressData() {
+      return { current: state.current, answers: state.answers, context: { track: state.client.track, stage: state.client.stage } };
+    }
+
+    function saveProgress() { XLDiag.save(PROGRESS_KEY, progressData()); }
+
+    function selectHas(id, value) {
+      const el = document.getElementById(id);
+      return !!el && typeof value === 'string' && value !== '' && Array.from(el.options).some(o => o.value === value);
+    }
+
+    function restoreProgress(data) {
+      const ctx = data.context || {};
+      if (!selectHas('w-track', ctx.track) || !selectHas('w-stage', ctx.stage)) return false;
+      const answers = {};
+      Object.keys(data.answers || {}).forEach(k => {
+        const i = parseInt(k, 10), v = data.answers[k];
+        if (i >= 0 && i < QUESTIONS.length && QUESTIONS[i].options.some(o => o.score === v)) answers[i] = v;
+      });
+      state.client = { track: ctx.track, stage: ctx.stage };
+      document.getElementById('w-track').value = ctx.track;
+      document.getElementById('w-stage').value = ctx.stage;
+      state.answers = answers;
+      let cur = parseInt(data.current, 10);
+      if (!(cur >= 0 && cur < QUESTIONS.length)) cur = 0;
+      const firstGap = QUESTIONS.findIndex((q, i) => answers[i] === undefined);
+      state.current = firstGap === -1 ? Math.min(cur, QUESTIONS.length - 1) : Math.min(cur, firstGap);
+      return true;
+    }
+
+    function resumeQuiz(source) {
+      XLDiag.track('diagnostic_resume', { diagnostic: PROGRESS_KEY, source, question: state.current + 1 });
+      showScreen('quiz');
+      renderQuestion();
+    }
+
+    XLDiag.mountFinishLater(document.getElementById('finish-later-slot'), {
+      name:  PROGRESS_KEY,
+      title: 'Wellness & Biohacking Growth Diagnostic',
+      getLink: () => XLDiag.resumeLink(PROGRESS_KEY, progressData())
+    });
+
+    (function initResume() {
+      const linked = XLDiag.readResumeParam(PROGRESS_KEY);
+      if (linked && restoreProgress(linked)) { saveProgress(); resumeQuiz('link'); return; }
+      const saved = XLDiag.load(PROGRESS_KEY);
+      if (!saved || !Object.keys(saved.answers || {}).length) return;
+      XLDiag.mountResumeBanner(document.getElementById('resume-slot'), {
+        question: Math.min((parseInt(saved.current, 10) || 0) + 1, QUESTIONS.length),
+        total: QUESTIONS.length,
+        onContinue: () => { if (restoreProgress(saved)) resumeQuiz('saved'); else XLDiag.clear(PROGRESS_KEY); },
+        onRestart:  () => { XLDiag.clear(PROGRESS_KEY); XLDiag.track('diagnostic_restart', { diagnostic: PROGRESS_KEY }); }
+      });
+    })();
   </script>
 
   <script>
