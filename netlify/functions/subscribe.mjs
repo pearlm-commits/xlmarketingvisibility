@@ -1,6 +1,6 @@
 /* =====================================================================
    POST /.netlify/functions/subscribe
-   Adds (or updates) a diagnostic lead in MailerLite.
+   Adds a diagnostic lead to Sender (sender.net).
 
    Called by the three diagnostics when a visitor submits their details:
      /diagnostics/ai-visibility        → tool omitted  → "visibility"
@@ -9,27 +9,29 @@
 
    Set these in Netlify → Site configuration → Environment variables
    (never in this file):
-     MAILERLITE_API_KEY           required. MailerLite → Integrations → API.
-     MAILERLITE_GROUP_VISIBILITY  optional group ID for AI Visibility leads
-     MAILERLITE_GROUP_READINESS   optional group ID for Marketing Readiness leads
-     MAILERLITE_GROUP_WELLNESS    optional group ID for Wellness leads
-     MAILERLITE_GROUP_ALL         optional group ID every lead is added to
+     SENDER_API_TOKEN           required. Sender → Settings → API access tokens.
+     SENDER_GROUP_VISIBILITY    group ID for AI Visibility leads
+     SENDER_GROUP_READINESS     group ID for Marketing Readiness leads
+     SENDER_GROUP_WELLNESS      group ID for Wellness leads
+     SENDER_GROUP_ALL           optional group ID every lead is added to
 
-   The "free guide" emails are MailerLite automations triggered by a
-   subscriber joining a group, so each diagnostic's group ID needs to be
-   set for its guide to send.
+   Delivering a guide (e.g. the AI visibility book) is a Sender
+   automation whose starting trigger is "subscriber joins group", so the
+   diagnostic's group ID must be set for it to send. A diagnostic with no
+   group configured still adds the subscriber, just without a group.
 
-   Uses the current MailerLite API (connect.mailerlite.com). The upsert
-   endpoint is non-destructive: an existing subscriber keeps their other
-   groups and data.
+   Flow: create the subscriber with their groups. If that fails (most
+   often because they are already a subscriber), add the existing
+   subscriber to each group instead, so returning visitors still get the
+   automation.
    ===================================================================== */
 
-const API_URL = 'https://connect.mailerlite.com/api/subscribers';
+const API = 'https://api.sender.net/v2';
 
 const TOOLS = {
-  visibility: 'MAILERLITE_GROUP_VISIBILITY',
-  readiness: 'MAILERLITE_GROUP_READINESS',
-  'wellness-growth': 'MAILERLITE_GROUP_WELLNESS'
+  visibility: 'SENDER_GROUP_VISIBILITY',
+  readiness: 'SENDER_GROUP_READINESS',
+  'wellness-growth': 'SENDER_GROUP_WELLNESS'
 };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -56,13 +58,27 @@ function allowedOrigin(req) {
   }
 }
 
+async function sender(path, token, body) {
+  const res = await fetch(API + path, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      Authorization: `Bearer ${token}`
+    },
+    body: JSON.stringify(body)
+  });
+  const text = await res.text().catch(() => '');
+  return { ok: res.ok, status: res.status, text: text.slice(0, 500) };
+}
+
 export default async (req) => {
   if (req.method !== 'POST') return json(405, { ok: false, error: 'Method not allowed' });
   if (!allowedOrigin(req)) return json(403, { ok: false, error: 'Forbidden' });
 
-  const apiKey = process.env.MAILERLITE_API_KEY;
-  if (!apiKey) {
-    console.error('subscribe: MAILERLITE_API_KEY is not set');
+  const token = process.env.SENDER_API_TOKEN;
+  if (!token) {
+    console.error('subscribe: SENDER_API_TOKEN is not set');
     return json(500, { ok: false, error: 'Not configured' });
   }
 
@@ -77,39 +93,38 @@ export default async (req) => {
   if (!EMAIL_RE.test(email)) return json(400, { ok: false, error: 'Invalid email' });
 
   const tool = TOOLS[data.tool] ? data.tool : 'visibility';
-  const groups = [process.env[TOOLS[tool]], process.env.MAILERLITE_GROUP_ALL].filter(Boolean);
+  const groups = [...new Set([process.env[TOOLS[tool]], process.env.SENDER_GROUP_ALL].filter(Boolean))];
 
-  /* Only MailerLite's built-in fields, so this works without creating
-     custom fields first. The diagnostic itself is identified by group. */
-  const fields = {};
-  const name = clean(data.name, 100);
-  const company = clean(data.company || data.business, 150);
-  if (name) fields.name = name;
-  if (company) fields.company = company;
-
-  const body = { email, fields };
-  if (groups.length) body.groups = groups;
+  const [firstname, ...rest] = clean(data.name, 100).split(/\s+/).filter(Boolean);
+  const subscriber = { email, trigger_automation: true };
+  if (firstname) subscriber.firstname = firstname;
+  if (rest.length) subscriber.lastname = rest.join(' ');
+  if (groups.length) subscriber.groups = groups;
 
   try {
-    const res = await fetch(API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        Authorization: `Bearer ${apiKey}`
-      },
-      body: JSON.stringify(body)
-    });
+    const created = await sender('/subscribers', token, subscriber);
+    if (created.ok) return json(200, { ok: true });
 
-    if (!res.ok) {
-      const detail = await res.text().catch(() => '');
-      console.error(`subscribe: MailerLite ${res.status} for tool=${tool}: ${detail.slice(0, 500)}`);
+    if (!groups.length) {
+      console.error(`subscribe: Sender ${created.status} creating subscriber (tool=${tool}): ${created.text}`);
       return json(502, { ok: false, error: 'Subscription failed' });
     }
 
-    return json(200, { ok: true });
+    /* Likely an existing subscriber: add them to the group(s) directly. */
+    let allOk = true;
+    for (const groupId of groups) {
+      const added = await sender(`/subscribers/groups/${encodeURIComponent(groupId)}`, token, {
+        subscribers: [email],
+        trigger_automation: true
+      });
+      if (!added.ok) {
+        allOk = false;
+        console.error(`subscribe: Sender ${added.status} adding to group ${groupId} (tool=${tool}; create returned ${created.status}: ${created.text}): ${added.text}`);
+      }
+    }
+    return allOk ? json(200, { ok: true }) : json(502, { ok: false, error: 'Subscription failed' });
   } catch (err) {
-    console.error('subscribe: request to MailerLite failed', err);
+    console.error('subscribe: request to Sender failed', err);
     return json(502, { ok: false, error: 'Subscription failed' });
   }
 };
