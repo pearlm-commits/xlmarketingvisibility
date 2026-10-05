@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Cookie consent + gated analytics/pixel loader (see /consent.js) -->
+  <script src="/consent.js" defer></script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Is Marketing Dead? What AI Actually Changes | Meridian</title>
+  <meta name="description" content="Is marketing really dead? We separate changing AI, search and discovery mechanisms from the customer behaviours and marketing fundamentals that still matter." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://xluxemarketing.com/journal/is-marketing-dead" />
+  <link rel="icon" href="../images/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="../images/favicon-32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="../images/favicon-192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="../images/favicon-180.png" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="XL Marketing Services" />
+  <meta property="og:title" content="Marketing Is Dead. Again. But Did the Customer Change?" />
+  <meta property="og:description" content="AI is changing how customers discover, evaluate and buy. The harder question is whether customer behaviour changed, or simply the mechanism." />
+  <meta property="og:url" content="https://xluxemarketing.com/journal/is-marketing-dead" />
+  <meta property="og:image" content="https://xluxemarketing.com/images/is-marketing-dead-og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="A weathered yellow boombox with a spray-painted crown on its speaker, still standing in front of a cracked wall." />
+  <meta property="article:published_time" content="2026-10-05" />
+  <meta property="article:modified_time" content="2026-10-05" />
+  <meta property="article:section" content="Marketing" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Marketing Is Dead. Again. But Did the Customer Change?" />
+  <meta name="twitter:description" content="AI is changing how customers discover, evaluate and buy. The harder question is whether customer behaviour changed, or simply the mechanism." />
+  <meta name="twitter:image" content="https://xluxemarketing.com/images/is-marketing-dead-og.jpg" />
+  <meta name="twitter:image:alt" content="A weathered yellow boombox with a spray-painted crown on its speaker, still standing in front of a cracked wall." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" /></noscript>
+
+  <style>
+    /* ── Brand tokens ─────────────────────────────────────────── */
+    :root {
+      --white:       #FFFFFF;
+      --ivory:       #FFFBF1;
+      --ivory-mid:   #F6EEDD;
+      --sage:        #DCE8DD;
+      --mustard:     #A08F5C;
+      --mustard-lt:  #F3E6B8;
+      --mustard-dk:  #8A6500;
+      --ember:       #C1442A;
+      --ember-dark:  #922A20;
+      --forest:      #1E3D2B;
+      --forest-mid:  #245847;
+      --ink:         #14110F;
+      --muted:       #5B625D;
+      --muted-light: #94988D;
+      --border:      rgba(216,205,184,0.4);
+      --border-mid:  #D8CDB8;
+      --focus:       #A08F5C;
+      --focus-offset:#FFFBF1;
+      --shadow:      0 0 0 1px var(--stone);
+      --shadow-lg:   0 0 0 1px var(--stone);
+      --radius:      0;
+      --grey:        #F4F5F6;
+      --bordeaux:    #5C1220;
+      --stone:       #8B8479;
+      --paper:       #FFFFFF;
+    }
+
+    /* ── Reset ────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
+
+    /* ── Layout ───────────────────────────────────────────────── */
+    .page-wrap { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+
+    @media (max-width: 600px) {
+      .site-nav { flex-wrap: wrap; row-gap: 14px; }
+      .nav-links { width: 100%; justify-content: flex-start; }
+      .btn { white-space: normal; text-align: center; }
+      body { font-size: 16px; }
+    }
+
+    /* ── Navigation ───────────────────────────────────────────── */
+    .site-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border-mid);
+      position: sticky;
+      top: 0;
+      z-index: 500;
+      background: var(--white);
+    }
+
+    .site-logo { display: inline-flex; align-items: center; text-decoration: none; }
+    .site-logo img { height: 32px; width: auto; display: block; }
+    .site-logo-text {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 600;
+      font-size: 21px;
+      letter-spacing: -0.01em;
+      color: var(--forest);
+      margin-left: 10px;
+      white-space: nowrap;
+    }
+
+    .nav-links { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 10px 22px; }
+
+    .nav-links > a {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.01em; transition: color 0.15s;
+    }
+
+    .nav-links > a.current { color: var(--forest); }
+    .nav-links > a:hover { color: var(--forest); }
+
+    a.nav-cta {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: var(--forest);
+      background: transparent;
+      border: 1.5px solid var(--forest);
+      padding: 8px 19px;
+      border-radius: 999px;
+      white-space: nowrap;
+      cursor: pointer;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.15s, color 0.15s;
+      display: inline-block;
+    }
+
+    .nav-cta:hover { background: var(--forest); color: #fff; }
+
+    /* ── Nav dropdown (mega-nav style, e.g. Sectors) ──────────────── */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown summary {
+      list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
+      font-size: 13px; color: var(--muted); font-weight: 500; letter-spacing: 0.01em; transition: color 0.15s;
+    }
+    .nav-dropdown summary::-webkit-details-marker { display: none; }
+    .nav-dropdown summary::after { content: '\25BE'; font-size: 9px; color: var(--mustard); position: relative; top: 1px; }
+    .nav-dropdown:hover summary, .nav-dropdown[open] summary, .nav-dropdown.current summary { color: var(--forest); }
+    .nav-dropdown-panel {
+      position: absolute; top: calc(100% + 14px); left: 0; min-width: 190px;
+      background: var(--white); border: 0.5px solid var(--border-mid);
+      box-shadow: 0 10px 28px rgba(20,17,15,0.1); padding: 8px; z-index: 600;
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .nav-dropdown-panel a {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      padding: 9px 10px; font-size: 13px; color: var(--ink); text-decoration: none; transition: background 0.15s, color 0.15s;
+    }
+    .nav-dropdown-panel a:hover { background: var(--grey); color: var(--forest); }
+    .nav-dropdown-panel a span { color: var(--mustard); font-size: 11px; flex-shrink: 0; }
+    .nav-dropdown-panel .ndp-divider { border-top: 0.5px solid var(--border); margin: 4px 0; }
+    @media (max-width: 600px) {
+      .nav-dropdown { width: 100%; }
+      .nav-dropdown-panel { position: static; box-shadow: none; border: none; margin-top: 4px; padding: 4px 0 4px 14px; }
+    }
+
+    /* ── Breadcrumb ───────────────────────────────────────────── */
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--muted);
+      margin: 28px 0 0;
+    }
+
+    .breadcrumb a { color: var(--muted); text-decoration: none; font-weight: 600; }
+    .breadcrumb a:hover { color: var(--forest); }
+    .breadcrumb span.sep { color: var(--muted-light); }
+    .breadcrumb span.current { color: var(--forest); font-weight: 600; }
+
+    /* ── Article head ─────────────────────────────────────────── */
+    .article-head { background: var(--paper); padding: 20px 0 32px; text-align: center; border-bottom: 1px solid var(--border-mid);}
+
+    .article-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .format-badge {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--mustard);
+      border: 0.5px solid var(--border-mid);
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+
+    .article-date { font-size: 12px; color: var(--muted); font-weight: 500; }
+
+    .article-head h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(32px, 5.6vw, 46px);
+      font-weight: 500;
+      line-height: 1.2;
+      color: var(--forest);
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+
+    .article-dek {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: clamp(17px, 2.1vw, 19px);
+      color: var(--forest-mid);
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto 18px;
+    }
+
+    .article-byline { font-size: 13px; color: var(--muted); font-weight: 600; }
+
+    /* ── Direct answer ────────────────────────────────────────── */
+    .direct-answer {
+      background: var(--grey);
+      border-left: 3px solid var(--mustard);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px;
+      margin-bottom: 24px;
+    }
+
+    .direct-answer p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--ink);
+    }
+
+    .direct-answer strong { color: var(--forest); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+
+    /* ── Buttons ──────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      padding: 13px 28px;
+      border-radius: 999px;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.1s, background 0.15s;
+      border: none;
+      text-decoration: none;
+    }
+
+    .btn:active { transform: scale(0.98); }
+
+    /* Diagnostic CTA — mustard fill, deep-green text (never white-on-mustard) */
+    .btn-diagnostic { background: var(--forest); color: #fff; }
+    .btn-diagnostic:hover { background: var(--forest-mid); }
+
+    /* Strategy-call CTA — deep-green outline */
+    .btn-outline-forest { background: transparent; color: var(--forest); border: 1.5px solid var(--forest); }
+    .btn-outline-forest:hover { background: var(--forest); color: #fff; }
+
+    .btn-primary { background: var(--forest); color: #fff; }
+    .btn-primary:hover { background: var(--forest-mid); }
+
+    /* ── Hero figure ──────────────────────────────────────────── */
+    .article-hero { margin-bottom: 8px; }
+    .article-hero img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      display: block;
+    }
+    .article-hero figcaption {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: 14px;
+      color: var(--muted);
+      text-align: center;
+      margin: 10px 0 32px;
+      line-height: 1.5;
+    }
+
+    /* ── Article body ─────────────────────────────────────────── */
+    .article-body { padding: 8px 0 12px; }
+
+    .article-body p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.85;
+      color: var(--ink);
+      margin-bottom: 22px;
+    }
+
+    .article-body p.lede {
+      font-size: 20px;
+      line-height: 1.75;
+      color: var(--forest-mid);
+    }
+
+    .article-body strong { font-weight: 600; color: var(--forest); }
+    .article-body p a { color: var(--mustard); font-weight: 600; text-decoration: underline; text-decoration-color: var(--border-mid); text-underline-offset: 2px; }
+    .article-body p a:hover { text-decoration-color: var(--mustard); }
+
+    .article-body h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(24px, 3.4vw, 29px);
+      color: var(--forest);
+      line-height: 1.3;
+      margin: 44px 0 18px;
+    }
+
+    .article-body h3 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 19px;
+      color: var(--forest);
+      line-height: 1.35;
+      margin: 28px 0 12px;
+    }
+
+    .article-body ul, .article-body ol.plain-list {
+      list-style: none;
+      margin-bottom: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .article-body ul li, .article-body ol.plain-list li {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--ink);
+      padding-left: 22px;
+      position: relative;
+    }
+
+    .article-body ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--mustard);
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ── Criteria list (five characteristics) ─────────────────── */
+    .criteria-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 24px;
+      counter-reset: criteria;
+    }
+
+    .criteria-list li {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--ink);
+      padding: 16px 18px 16px 52px;
+      position: relative;
+      background: var(--grey);
+      border-radius: var(--radius);
+      counter-increment: criteria;
+    }
+
+    .criteria-list li::before {
+      content: counter(criteria);
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--mustard);
+      color: var(--forest);
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .criteria-list strong { font-family: 'Inter', sans-serif; font-weight: 700; color: var(--forest); }
+
+    /* ── Comparison table ─────────────────────────────────────── */
+    .table-scroll { overflow-x: auto; margin-bottom: 22px; -webkit-overflow-scrolling: touch; }
+
+    .comparison-table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 560px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 15px;
+    }
+
+    .comparison-table th {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ivory);
+      background: var(--forest);
+      padding: 12px 16px;
+      text-align: left;
+    }
+
+    .comparison-table th:first-child { width: 18%; }
+
+    .comparison-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-mid);
+      vertical-align: top;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+
+    .comparison-table td:first-child {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      color: var(--forest);
+      font-size: 13px;
+      background: var(--grey);
+    }
+
+    .comparison-table tr:nth-child(even) td:not(:first-child) { background: var(--grey); }
+
+    /* ── Sources ──────────────────────────────────────────────── */
+    .sources-section { margin: 40px 0 8px; }
+
+    .sources-section h2 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      color: var(--forest);
+      margin-bottom: 16px;
+    }
+
+    .sources-section ol { list-style: none; counter-reset: src; display: flex; flex-direction: column; gap: 10px; }
+
+    .sources-section li {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+      padding-left: 26px;
+      position: relative;
+      counter-increment: src;
+    }
+
+    .sources-section li::before {
+      content: '[' counter(src) ']';
+      position: absolute;
+      left: 0;
+      color: var(--mustard);
+      font-weight: 700;
+    }
+
+    .sources-section a { color: var(--forest-mid); word-break: break-word; }
+
+    /* ── Editorial note ───────────────────────────────────────── */
+    .editorial-note {
+      background: var(--grey);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      margin: 24px 0;
+    }
+
+    .editorial-note h3 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--mustard);
+      margin-bottom: 8px;
+    }
+
+    .editorial-note p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+    /* ── Author bio ───────────────────────────────────────────── */
+    .author-bio {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      margin: 36px 0 8px;
+      padding: 24px;
+      background: var(--grey);
+      border-radius: var(--radius);
+    }
+
+    .author-bio img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 3px solid var(--white);
+      box-shadow: 0 2px 24px rgba(23,63,53,0.08);
+    }
+
+    .author-bio .author-name { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 16px; color: var(--forest); margin-bottom: 2px; }
+    .author-bio .author-role { font-size: 12px; color: var(--mustard-dk); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 10px; }
+    .author-bio p.author-text { font-family: 'Playfair Display', Georgia, serif; font-size: 15px; color: var(--forest-mid); line-height: 1.65; margin: 0; }
+
+    /* ── About XL blurb ───────────────────────────────────────── */
+    .about-xl { margin: 20px 0 8px; }
+    .about-xl p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+    .about-xl strong { color: var(--forest); }
+
+    /* ── End conversion panel ─────────────────────────────────── */
+    .end-cta-panel {
+      background: var(--paper);
+      border-radius: 0;
+      padding: 40px 32px;
+      text-align: center;
+      margin: 44px 0 8px; border-top: 1px solid var(--border-mid);}
+
+    .end-cta-panel .section-label { font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--mustard-dk);
+      margin-bottom: 14px;
+    }
+
+    .end-cta-panel h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(22px, 3.4vw, 28px);
+      color: var(--forest);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .end-cta-panel > p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 16px;
+      color: var(--forest-mid);
+      line-height: 1.6;
+      max-width: 460px;
+      margin: 0 auto 28px;
+    }
+
+    .end-cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .end-cta-btn-group { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .end-cta-btn-group .btn-micro { font-size: 12px; color: var(--muted); font-weight: 500; }
+
+    @media (max-width: 480px) {
+      .end-cta-buttons { flex-direction: column; }
+    }
+
+    /* ── Related reading ──────────────────────────────────────── */
+    .related-reading { margin: 40px 0 8px; }
+
+    .related-reading .section-label { font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--mustard-dk);
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .related-links { display: flex; flex-direction: column; gap: 10px; }
+
+    .related-links a {
+      display: block;
+      background: var(--grey);
+      border: 0.5px solid var(--border-mid);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--forest);
+      text-decoration: none;
+      transition: border-color 0.15s;
+    }
+
+    .related-links a:hover { border-color: var(--mustard); }
+    .related-links a span { color: var(--mustard); }
+
+    /* ── Footer ───────────────────────────────────────────────── */
+    .site-footer {
+      border-top: 0.5px solid var(--border);
+      margin-top: 40px;
+      padding: 24px 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-logo { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px; color: var(--muted); }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--forest); }
+    .footer-address { font-size: 12px; color: var(--muted); }
+    .footer-address a { color: var(--muted); text-decoration: none; }
+    .footer-address a:hover { color: var(--forest); }
+
+    @media (max-width: 600px) {
+      .btn { white-space: normal; text-align: center; }
+      .article-head { padding: 12px 0 24px; }
+      .end-cta-panel { padding: 28px 20px; }
+      .author-bio { flex-direction: column; text-align: center; align-items: center; }
+    }
+  
+    /* ── Share bar ────────────────────────────────────────────── */
+    .share-bar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 8px 0 36px; padding-top: 24px; border-top: 0.5px solid var(--border); position: relative; }
+    .share-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mustard-dk); font-weight: 700; margin-right: 4px; }
+    .share-icons { display: flex; gap: 8px; flex-wrap: wrap; }
+    .share-icon { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: var(--grey); color: var(--forest); transition: background 0.15s, color 0.15s; text-decoration: none; border: none; cursor: pointer; padding: 0; }
+    .share-icon:hover, .share-icon:focus-visible { background: var(--forest); color: #fff; }
+    .share-icon svg { width: 16px; height: 16px; fill: currentColor; }
+    .share-copied-note { font-size: 12px; color: var(--muted); font-style: italic; opacity: 0; transition: opacity 0.2s; }
+    .share-copied-note.show { opacity: 1; }
+    /* ── Article-specific refinements ─────────────────────────── */
+    .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    .format-badge { color: var(--mustard-dk); }
+    .article-dek { max-width: 620px; }
+    .article-byline a { color: var(--forest); text-decoration: underline; text-decoration-color: var(--border-mid); text-underline-offset: 2px; }
+    .article-byline a:hover { text-decoration-color: var(--forest); }
+    .article-hero { margin-bottom: 32px; }
+
+    /* Body links: darker mustard for AA contrast (5.3:1 on white), underlined so links never rely on colour alone */
+    .article-body p a, .article-body li a { color: var(--mustard-dk); font-weight: 600; text-decoration: underline; text-decoration-color: var(--mustard-dk); text-underline-offset: 2px; }
+    .article-body p a:hover, .article-body li a:hover { color: var(--forest); text-decoration-color: var(--forest); }
+    .article-body a.cite { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; text-decoration: none; margin-left: 1px; }
+    .article-body a.cite:hover { text-decoration: underline; }
+
+    /* The questions the article asks, set apart from the running text */
+    .article-body p.key-question {
+      font-size: clamp(19px, 2.6vw, 22px);
+      line-height: 1.55;
+      font-weight: 600;
+      color: var(--forest);
+      border-left: 3px solid var(--mustard);
+      padding: 4px 0 4px 20px;
+      margin: 30px 0;
+    }
+    .article-body p.list-lead { margin-bottom: 12px; }
+    .article-body ul.question-list { margin-bottom: 26px; }
+    .criteria-list { margin-bottom: 28px; }
+    .criteria-list li::before { background: var(--forest); color: #fff; }
+
+    /* Mechanism table: accessible caption + row headers */
+    .comparison-table caption { caption-side: top; text-align: left; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mustard-dk); padding: 0 0 10px; }
+    .comparison-table th:first-child { width: 26%; }
+    .comparison-table tbody th { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0; text-transform: none; color: var(--forest); background: var(--grey); padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border-mid); vertical-align: top; line-height: 1.6; }
+    .table-scroll { margin: 8px 0 30px; }
+    .comparison-table { min-width: 0; table-layout: fixed; }
+    .comparison-table th:first-child { width: 28%; }
+    @media (max-width: 600px) {
+      .comparison-table { font-size: 14px; }
+      .comparison-table thead th { padding: 10px 10px; font-size: 11px; }
+      .comparison-table td, .comparison-table tbody th { padding: 12px 10px; }
+      .comparison-table tbody th { font-size: 12px; overflow-wrap: anywhere; }
+    }
+
+    /* Sources, evidence note and author links */
+    .sources-section li::before { color: var(--mustard-dk); }
+    .sources-section a.ext::after { content: ' \2197'; font-size: 0.85em; }
+    .editorial-note h3 { color: var(--mustard-dk); }
+    .editorial-note a { color: var(--forest-mid); font-weight: 600; }
+    .author-bio .author-name a { color: var(--forest); text-decoration: none; }
+    .author-bio .author-name a:hover { text-decoration: underline; }
+    .author-bio p.author-text a { color: var(--forest-mid); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+    .about-xl a { color: var(--mustard-dk); }
+
+    /* Restrained closing prompt */
+    .end-cta-panel p.end-cta-alt { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--muted); max-width: none; margin: 22px 0 0; }
+    .end-cta-panel p.end-cta-alt a { color: var(--forest-mid); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+    .end-cta-panel p.end-cta-alt a:hover { color: var(--forest); }
+    .related-links a span { color: var(--mustard-dk); }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Marketing Is Dead. Again. But Did the Customer Change?",
+        "description": "Is marketing really dead? We separate changing AI, search and discovery mechanisms from the customer behaviours and marketing fundamentals that still matter.",
+        "image": ["https://xluxemarketing.com/images/is-marketing-dead-og.jpg", "https://xluxemarketing.com/images/is-marketing-dead-hero.jpg"],
+        "datePublished": "2026-10-05",
+        "dateModified": "2026-10-05",
+        "author": { "@type": "Person", "@id": "https://xluxemarketing.com/about#pearl-m", "name": "Pearl M", "jobTitle": "Chief Marketing Officer and Strategic Marketing Lead", "url": "https://xluxemarketing.com/about", "sameAs": ["https://www.linkedin.com/in/pearl-mngomezulu-0675b635"], "worksFor": { "@id": "https://xluxemarketing.com/#organization" } },
+        "publisher": { "@type": "Organization", "@id": "https://xluxemarketing.com/#organization", "name": "XL Marketing Services", "url": "https://xluxemarketing.com/" },
+        "mainEntityOfPage": "https://xluxemarketing.com/journal/is-marketing-dead",
+        "url": "https://xluxemarketing.com/journal/is-marketing-dead",
+        "inLanguage": "en",
+        "articleSection": "Analysis",
+        "isPartOf": { "@type": "Blog", "name": "Meridian Insights", "url": "https://xluxemarketing.com/journal" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://xluxemarketing.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Meridian Insights", "item": "https://xluxemarketing.com/journal" },
+          { "@type": "ListItem", "position": 3, "name": "Marketing Is Dead. Again. But Did the Customer Change?", "item": "https://xluxemarketing.com/journal/is-marketing-dead" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <div class="page-wrap">
+
+    <!-- ── Navigation ─────────────────────────────────────────── -->
+    <nav class="site-nav">
+      <a href="/" class="site-logo"><img src="../images/xl-mark-forest.png" alt="" width="32" height="32"><span class="site-logo-text">XL Marketing</span></a>
+      <div class="nav-links">
+        <a href="/services">Services</a>
+        <details class="nav-dropdown">
+          <summary>Sectors</summary>
+          <div class="nav-dropdown-panel">
+            <a href="/sectors/luxury">Lifestyle &amp; Luxury</a>
+            <a href="/sectors/health-wellness-biohacking">Health, Wellness &amp; Biohacking</a>
+            <div class="ndp-divider"></div>
+            <a href="/sectors">All sectors <span>&rarr;</span></a>
+          </div>
+        </details>
+        <a href="/working-with-us">Working With Us</a>
+        <a href="/decision-led-growth">Marketing Decision-Led Growth</a>
+        <a href="/about">About</a>
+        <a href="/journal" class="current">Meridian Insights</a>
+        <a href="/diagnostics">Diagnostics</a>
+        <a href="/diagnostics" class="nav-cta">Take the free diagnostic</a>
+      </div>
+    </nav>
+
+    <main>
+
+    <!-- ── Breadcrumb ─────────────────────────────────────────── -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="sep">/</span>
+      <a href="/journal">Meridian Insights</a>
+      <span class="sep">/</span>
+      <span class="current">Marketing Is Dead. Again. But Did the Customer Change?</span>
+    </nav>
+
+    <!-- ── Article head ─────────────────────────────────────────── -->
+    <div class="article-head">
+      <div class="article-meta-row">
+        <span class="format-badge">Analysis</span>
+        <span class="article-date">Published <time datetime="2026-10-05">5 October 2026</time> &middot; ~8 min read</span>
+      </div>
+      <h1>Marketing Is Dead. Again. But Did the Customer Change?</h1>
+      <p class="article-dek">AI is changing how customers discover, evaluate and buy. That doesn't mean the fundamentals of marketing have disappeared. Before rewriting your strategy, separate what's genuinely changed from what's simply acquired a new mechanism, and a new name.</p>
+      <div class="article-byline">By <a href="/about">Pearl M</a> &middot; XL Marketing Services</div>
+    </div>
+
+    <!-- ── Share bar ────────────────────────────────────────────── -->
+    <div class="share-bar">
+      <span class="share-label">Share this article</span>
+      <div class="share-icons">
+        <a class="share-icon" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fxluxemarketing.com%2Fjournal%2Fis-marketing-dead" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 5a2 2 0 11-4-.002 2 2 0 014 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-3.96 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.68-2.91V8.48z"/></svg></a>
+        <a class="share-icon" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fxluxemarketing.com%2Fjournal%2Fis-marketing-dead&text=Marketing%20Is%20Dead.%20Again.%20But%20Did%20the%20Customer%20Change%3F" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.146 2h3.05l-6.66 7.61L22.5 22h-6.12l-4.79-6.27L6.08 22H3.02l7.12-8.14L2 2h6.27l4.33 5.73L18.146 2zm-1.07 18.13h1.69L7.02 3.77H5.2l11.88 16.36z"/></svg></a>
+        <a class="share-icon" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fxluxemarketing.com%2Fjournal%2Fis-marketing-dead" target="_blank" rel="noopener" aria-label="Share on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 10-11.56 9.87v-6.98H7.9V12h2.54V9.8c0-2.5 1.5-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.98A10 10 0 0022 12z"/></svg></a>
+        <a class="share-icon" href="https://wa.me/?text=Marketing%20Is%20Dead.%20Again.%20But%20Did%20the%20Customer%20Change%3F%20-%20https%3A%2F%2Fxluxemarketing.com%2Fjournal%2Fis-marketing-dead" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22l5.2-1.36a9.94 9.94 0 004.84 1.23h.004c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2zm5.84 14.24c-.25.7-1.45 1.34-2 1.42-.51.08-1.15.11-1.86-.12-.43-.14-.98-.32-1.68-.63-2.96-1.28-4.9-4.26-5.05-4.46-.15-.2-1.2-1.6-1.2-3.05 0-1.45.76-2.16 1.03-2.46.27-.3.59-.37.79-.37.2 0 .4 0 .57.01.18.01.43-.07.67.51.25.6.85 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.31.4-.44.53-.15.15-.3.32-.13.62.17.3.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.36 1.46.3.15.48.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.7-.17 1.4z"/></svg></a>
+        <button type="button" class="share-icon" aria-label="Copy link for Instagram" onclick="shareInstagram(this)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.24 2.23.41.56.21.96.47 1.38.89.42.42.68.82.89 1.38.17.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.8-.41 2.23-.21.56-.47.96-.89 1.38-.42.42-.82.68-1.38.89-.42.17-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.24-2.23-.41a3.72 3.72 0 01-1.38-.89 3.72 3.72 0 01-.89-1.38c-.17-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.24-1.8.41-2.23.21-.56.47-.96.89-1.38.42-.42.82-.68 1.38-.89.42-.17 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.39C1.35 2.68.94 3.35.63 4.14c-.3.76-.5 1.64-.56 2.91C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.39 2.13.67.67 1.34 1.08 2.13 1.39.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.39.67-.67 1.08-1.34 1.39-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.85 5.85 0 00-1.39-2.13A5.85 5.85 0 0019.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1018.16 12 6.16 6.16 0 0012 5.84zm0 10.16A4 4 0 1116 12a4 4 0 01-4 4zm6.41-10.44a1.44 1.44 0 11-1.44-1.44 1.44 1.44 0 011.44 1.44z"/></svg></button>
+        <a class="share-icon" href="mailto:?subject=Marketing%20Is%20Dead.%20Again.%20But%20Did%20the%20Customer%20Change%3F&body=Thought%20this%20was%20worth%20a%20read%3A%20Marketing%20Is%20Dead.%20Again.%20But%20Did%20the%20Customer%20Change%3F%0A%0Ahttps%3A%2F%2Fxluxemarketing.com%2Fjournal%2Fis-marketing-dead" aria-label="Share by email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A2.5 2.5 0 014.5 3h15A2.5 2.5 0 0122 5.5v13a2.5 2.5 0 01-2.5 2.5h-15A2.5 2.5 0 012 18.5v-13zm2.2.5l7.8 6.24L19.8 6H4.2zM20 8.16l-7.4 5.92a1 1 0 01-1.2 0L4 8.16V18.5a.5.5 0 00.5.5h15a.5.5 0 00.5-.5V8.16z"/></svg></a>
+      </div>
+      <span class="share-copied-note" id="share-copied-note" role="status" aria-live="polite">Link copied. Paste it into your Instagram bio or story.</span>
+    </div>
+    <script>
+      function shareInstagram(btn) {
+        var url = 'https://xluxemarketing.com/journal/is-marketing-dead';
+        navigator.clipboard.writeText(url).then(function () {
+          var note = document.getElementById('share-copied-note');
+          note.classList.add('show');
+          setTimeout(function () { note.classList.remove('show'); }, 3500);
+        });
+      }
+    </script>
+
+    <!-- ── Key answer (kept as real HTML text, high in the article) ── -->
+    <div class="direct-answer">
+      <p><strong>Direct answer</strong>No. Marketing isn't dead. The mechanisms through which customers discover, evaluate and buy are changing faster than many of the underlying behaviours themselves. The practical task for a business is to determine which of those changes materially affect its customers.</p>
+    </div>
+
+    <!-- ── Hero image ────────────────────────────────────────────── -->
+    <figure class="article-hero">
+      <img src="../images/is-marketing-dead-hero.jpg" width="1600" height="667" alt="A weathered yellow boombox with a spray-painted crown on its speaker, still standing in front of a cracked wall: something declared obsolete that is visibly still playing." loading="eager" decoding="async">
+    </figure>
+
+    <!-- ── Article body ─────────────────────────────────────────── -->
+    <div class="article-body">
+      <p class="lede">In 2006, Nas released <em>Hip Hop Is Dead</em>.<sup><a class="cite" href="#source-1">[1]</a></sup></p>
+
+      <p>It was deliberately provocative. Hip hop hadn't literally disappeared. Nas was making a judgement about what the genre was becoming: the commercialisation, imitation and, in his view, declining substance surrounding the music.</p>
+
+      <p>Twenty years later, hip hop is very much alive.</p>
+
+      <p>Marketing has developed a similar habit of announcing its own death.</p>
+
+      <p>SEO is dead. The funnel is dead. Organic reach is dead. Traditional marketing is dead. Advertising is dead. And now, as AI changes how people search, discover and evaluate businesses, we are once again being told that the rules of marketing have changed.</p>
+
+      <p>Some of them have.</p>
+
+      <p>But before a small business tears up its marketing plan, hires another specialist or adds another platform to an already exhausting list, there is a more useful question to ask:</p>
+
+      <p class="key-question">Is the underlying customer behaviour new, or is the mechanism through which that behaviour happens new?</p>
+
+      <p>The distinction matters.</p>
+
+      <p>Because when we confuse the two, genuinely important changes in technology can make established businesses feel unnecessarily obsolete.</p>
+
+      <h2>The customer hasn't suddenly become a different species</h2>
+
+      <p>Consider discovery.</p>
+
+      <p>Twenty years ago, someone looking for an accountant might have asked a colleague for a recommendation, searched Google, noticed an advertisement or consulted a business directory.</p>
+
+      <p>Today, they might ask ChatGPT, search Google, watch a YouTube video, read Reddit discussions, check LinkedIn, look at reviews and then ask a colleague.</p>
+
+      <p>The mechanisms have multiplied.</p>
+
+      <p>But underneath them sits a familiar human need:</p>
+
+      <p class="key-question">"I have a problem. Who can help me solve it?"</p>
+
+      <p>What has changed is where that question can be asked, what influences the answer and how much of the evaluation can happen before the prospective customer ever reaches your website.</p>
+
+      <p>That matters.</p>
+
+      <p>It just doesn't mean everything that came before it is useless.</p>
+
+      <p>The same distinction can be applied elsewhere.</p>
+
+      <p>AI can produce dozens of advertising concepts in the time it once took to develop one. That changes the economics and speed of creative production.</p>
+
+      <p>It does not remove the need for <a href="/journal/why-ai-content-is-harder-to-differentiate">good judgement about what is worth saying</a>.</p>
+
+      <p>Advertising platforms can increasingly use algorithms to identify likely buyers. That changes some of the mechanics of targeting.</p>
+
+      <p>It does not remove the need to understand which customers create value for your business.</p>
+
+      <p>AI assistants can summarise products and recommend suppliers without necessarily sending someone to their websites. That changes discovery and attribution.</p>
+
+      <p>It does not remove the need to be credible, relevant and easy to buy from.</p>
+
+      <p><strong>New mechanism. Familiar customer requirement.</strong></p>
+
+      <p>That is a far less dramatic story than the death of marketing.</p>
+
+      <p>It is also much more useful.</p>
+
+      <div class="table-scroll">
+        <table class="comparison-table">
+          <caption>New mechanism, familiar customer need: four examples</caption>
+          <thead>
+            <tr>
+              <th scope="col">Change</th>
+              <th scope="col">New mechanism</th>
+              <th scope="col">What stays the same</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">AI search</th>
+              <td>A new discovery mechanism</td>
+              <td>The existing need to find useful answers and suppliers</td>
+            </tr>
+            <tr>
+              <th scope="row">AI creative</th>
+              <td>A new production mechanism</td>
+              <td>The existing need for relevant and distinctive communication</td>
+            </tr>
+            <tr>
+              <th scope="row">Algorithmic targeting</th>
+              <td>A changing media mechanism</td>
+              <td>The existing need to reach appropriate customers</td>
+            </tr>
+            <tr>
+              <th scope="row">AI-assisted experimentation</th>
+              <td>A faster learning mechanism</td>
+              <td>The existing principle of test, learn and improve</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>So what has genuinely changed?</h2>
+
+      <p>There is no value in pretending the changes are superficial.</p>
+
+      <p><a href="/journal/build-visibility-when-buyers-no-longer-click">Discovery has become more fragmented</a>. Search engines are no longer the only digital interface through which people seek answers. AI systems can increasingly mediate the relationship between a customer's question and the businesses they encounter.</p>
+
+      <p>Content has also become dramatically cheaper to produce. That creates opportunity, but it creates competition too. Producing more material is no longer particularly difficult. Deciding what deserves to exist becomes more important.</p>
+
+      <p>Advertising platforms are becoming more automated. Customer data can increasingly inform optimisation. Creative can be produced and tested faster.</p>
+
+      <p>And businesses can learn faster because research, analysis, production and experimentation that once required considerable resources can increasingly be accelerated with AI.</p>
+
+      <p>These are meaningful changes.</p>
+
+      <p>The mistake is jumping from <strong>"the environment has changed"</strong> to <strong>"everything you know about marketing is wrong."</strong></p>
+
+      <p>It isn't.</p>
+
+      <h2>Start with the business problem, not the new tool</h2>
+
+      <p>This is particularly important for smaller businesses.</p>
+
+      <p>A business with limited money, people and time cannot afford to respond to every change in marketing by adding another activity.</p>
+
+      <p>Before investing in <a href="/services/ai-search-visibility">AI visibility</a>, paid advertising, a new social platform, more content or another piece of technology, ask a more basic question:</p>
+
+      <p class="key-question">What is currently preventing more of the right customers from buying from us?</p>
+
+      <p>Perhaps not enough potential customers know the business exists. That is a discovery or availability problem.</p>
+
+      <p>Perhaps people find the business but struggle to understand why they should choose it. That may be a <a href="/services/brand-positioning">positioning problem</a>.</p>
+
+      <p>Perhaps the proposition is clear but customers remain unconvinced. That may be a trust or evidence problem.</p>
+
+      <p>Perhaps plenty of qualified prospects enquire but few become customers. That sounds more like a conversion problem.</p>
+
+      <p>Perhaps acquisition is healthy but customers rarely return. Before buying more advertising, investigate the product or customer experience.</p>
+
+      <p>And sometimes the uncomfortable answer is that the offer itself simply isn't competitive enough.</p>
+
+      <p>No marketing framework can make that problem disappear.</p>
+
+      <p><strong>The appropriate marketing response depends on the constraint.</strong></p>
+
+      <h2>Don't let somebody else's disruption automatically become yours</h2>
+
+      <p>This is where context matters.</p>
+
+      <p>At HubSpot's recent Unbound event, its marketing leaders described losing around 140 million website visits in a year (an 80% decline) while increasing leads by 20%.<sup><a class="cite" href="#source-2">[2]</a><a class="cite" href="#source-3">[3]</a></sup> Their experience led them to reconsider the relationship between traffic volume and commercial value.</p>
+
+      <p>That is worth studying.</p>
+
+      <p>But HubSpot built one of the world's most successful inbound marketing machines. Organic website traffic played an unusually important role in its model.</p>
+
+      <p>A specialist law firm winning most of its business through referrals has a different problem.</p>
+
+      <p>So does a neighbourhood restaurant.</p>
+
+      <p>So does <a href="/services/b2b-growth-abm">a manufacturer selling to 150 procurement teams</a>.</p>
+
+      <p>So does an online retailer dependent on paid acquisition.</p>
+
+      <p>A major change affecting one business model can be an early warning for another business without being evidence that every company should immediately redesign its marketing around it.</p>
+
+      <p>The useful question is:</p>
+
+      <p class="key-question">Does this change affect how our customers discover, evaluate, choose or buy from us?</p>
+
+      <p>If the answer is yes, investigate it.</p>
+
+      <p>If the answer is no, don't manufacture urgency simply because everybody else is talking about it.</p>
+
+      <h2>You don't need to be everywhere</h2>
+
+      <p>This becomes especially important when discussing modern discovery.</p>
+
+      <p>Google. ChatGPT. Instagram. TikTok. YouTube. LinkedIn. Reddit. Reviews. Marketplaces. Newsletters. WhatsApp communities.</p>
+
+      <p>Presented as a list, modern marketing can sound terrifying.</p>
+
+      <p>So don't start with the list.</p>
+
+      <p>Start with your customers.</p>
+
+      <p>Speak to ten of them.</p>
+
+      <p class="list-lead">Ask:</p>
+
+      <ul class="question-list">
+        <li>How did you first hear about us?</li>
+        <li>What did you do next?</li>
+        <li>Where did you look us up?</li>
+        <li>What alternatives did you consider?</li>
+        <li>What nearly stopped you choosing us?</li>
+        <li>What eventually convinced you?</li>
+      </ul>
+
+      <p>Then compare those answers with whatever evidence you already have: website analytics, search queries, CRM records, enquiries, reviews, sales conversations and customer-service questions.</p>
+
+      <p>You are not trying to construct the world's most sophisticated attribution model.</p>
+
+      <p>You are trying to understand <strong><a href="/journal/category-entry-points-luxury-b2b-tech">how people actually find and choose your business</a>.</strong></p>
+
+      <p>That tells you which changing mechanisms deserve your attention.</p>
+
+      <h2>Treat new marketing advice as a hypothesis</h2>
+
+      <p>The next time somebody tells you that your business needs 20 advertising creatives a month, needs to publish every day, needs an AI-search strategy or needs to abandon the funnel, resist two equally unhelpful reactions.</p>
+
+      <p>Don't dismiss it because it sounds fashionable.</p>
+
+      <p>And don't adopt it because you're afraid of falling behind.</p>
+
+      <p class="list-lead">Ask:</p>
+
+      <ul class="question-list">
+        <li>For what type of business?</li>
+        <li>Under what conditions?</li>
+        <li>What evidence supports this?</li>
+        <li>Does the underlying change affect our customers?</li>
+        <li>What would we expect to improve if we adopted it?</li>
+      </ul>
+
+      <p>Then run the smallest useful test.</p>
+
+      <p>If customers are increasingly discovering your category through AI assistants, investigate whether your business appears in relevant answers and what sources those systems rely upon.</p>
+
+      <p>If an advertising platform's automated targeting appears promising, test it against your current approach with an <a href="/journal/marketing-budget-growth-investment">appropriate budget and measurement method</a>.</p>
+
+      <p>If customers increasingly evaluate suppliers through video, test whether useful video content improves discovery or conversion before building a studio and hiring a production team.</p>
+
+      <p><strong>You do not need certainty before acting. You need a reason for the experiment.</strong></p>
+
+      <h2>Measure the change you were trying to create</h2>
+
+      <p>This also helps resolve another marketing argument: the supposed death of "vanity metrics".</p>
+
+      <p>Reach isn't inherently vanity.</p>
+
+      <p>Neither are impressions, traffic, engagement or followers.</p>
+
+      <p>They become misleading when they are presented as evidence of business success without explaining what role they were supposed to play.</p>
+
+      <p>If your problem is that too few potential customers know you exist, increased reach among the right audience may be useful evidence.</p>
+
+      <p>If your problem is poor conversion, celebrating increased reach probably misses the point.</p>
+
+      <p>If your objective is retention, website traffic might barely matter.</p>
+
+      <p>The metric should follow the problem.</p>
+
+      <p>Not the dashboard.</p>
+
+      <h2>What should a small business do now?</h2>
+
+      <p>Not everything.</p>
+
+      <p>That may be the most important advice.</p>
+
+      <p>You don't need a "new marketing playbook" every time the industry acquires a new piece of technology.</p>
+
+      <p class="list-lead">Instead, periodically examine four things:</p>
+
+      <ol class="criteria-list">
+        <li>What has changed in our customers' behaviour?</li>
+        <li>What has changed in the mechanisms through which they discover, evaluate and buy?</li>
+        <li>Which of those changes materially affects our business?</li>
+        <li>What should we test or change as a result?</li>
+      </ol>
+
+      <p class="list-lead">Then identify the most important constraint on growth and work on that first.</p>
+
+      <ul class="question-list">
+        <li>If discovery is the constraint, improve discovery.</li>
+        <li>If recognition is the constraint, build <a href="/journal/better-marketing-decisions-sustainable-growth">mental availability</a>.</li>
+        <li>If trust is the constraint, strengthen your evidence.</li>
+        <li>If conversion is the constraint, improve the buying experience.</li>
+        <li>If retention is the constraint, investigate the customer experience.</li>
+      </ul>
+
+      <p>If none of those is the constraint, don't create a marketing problem simply because the industry has found a new vocabulary for one.</p>
+
+      <h2>Marketing isn't dead</h2>
+
+      <p>Neither was hip hop.</p>
+
+      <p>What changes are the sounds, tools, distribution systems, economics and cultural contexts surrounding it.</p>
+
+      <p>Marketing is experiencing something similar.</p>
+
+      <p>AI is changing discovery. Algorithms are changing distribution. Automation is changing production. New interfaces are changing how customers research their options.</p>
+
+      <p>Those changes deserve serious attention.</p>
+
+      <p>But businesses still need to be noticed, understood, believed, chosen and remembered.</p>
+
+      <p>The mechanisms will keep changing.</p>
+
+      <p>Our job is not to chase every one of them.</p>
+
+      <p>It is to understand <strong>which changes alter the way our customers make decisions, and respond when they do.</strong></p>
+
+      <p>Because the question facing a small business in 2026 isn't:</p>
+
+      <p class="key-question">"Have the old rules of marketing died?"</p>
+
+      <p>It is much more practical:</p>
+
+      <p class="key-question">"What has actually changed for our customer, and what, therefore, should we change?"</p>
+    </div>
+
+    <!-- ── Sources ──────────────────────────────────────────────── -->
+    <div class="sources-section">
+      <h2>Sources</h2>
+      <ol>
+        <li id="source-1">Nas, <em>Hip Hop Is Dead</em> (Def Jam Recordings, released 19 December 2006). <a class="ext" href="https://en.wikipedia.org/wiki/Hip_Hop_Is_Dead" target="_blank" rel="noopener">en.wikipedia.org<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+        <li id="source-2">Everbrave, "HubSpot UNBOUND 2026 Recap: Growth Marketing in the AI Era". <a class="ext" href="https://everbrave.ca/blog-hubspot-unbound-2026-recap-growth-marketing-in-the-ai-era/" target="_blank" rel="noopener">everbrave.ca<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+        <li id="source-3">DesignRush Podcast, "HubSpot CMO Kipp Bodnar on AI Search After 140M Lost Visits", via Yahoo Finance, 24 September 2026. <a class="ext" href="https://finance.yahoo.com/technology/ai/articles/designrush-podcast-hubspot-cmo-kipp-123500542.html" target="_blank" rel="noopener">finance.yahoo.com<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+        <li id="source-4">Kipp Bodnar, HubSpot, "Did HubSpot Really Lose 80% of Blog Traffic? Here's What Actually Happened" (updated 14 July 2026). <a class="ext" href="https://blog.hubspot.com/marketing/blog-traffic-loss-explainer" target="_blank" rel="noopener">blog.hubspot.com<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+      </ol>
+    </div>
+
+    <!-- ── Editorial evidence note ──────────────────────────────── -->
+    <div class="editorial-note">
+      <h3>Editorial evidence note</h3>
+      <p>The HubSpot figures (about 140 million lost website visits over a year, an 80% decline and a 20% increase in leads) are as reported in coverage of HubSpot's UNBOUND 2026 event and in an interview with its CMO.<sup><a class="cite" href="#source-2">[2]</a><a class="cite" href="#source-3">[3]</a></sup> XL has not independently verified them. HubSpot's own published account of its traffic changes says the decline was partly by design, as its team shifted from broad informational content towards influence-focused content.<sup><a class="cite" href="#source-4">[4]</a></sup> The example is used here to illustrate why business context matters, not as evidence about all businesses.</p>
+    </div>
+
+    <!-- ── Author bio ───────────────────────────────────────────── -->
+    <div class="author-bio">
+      <img src="../images/pearl-m.jpg" alt="Pearl M" width="64" height="64" loading="lazy" decoding="async">
+      <div>
+        <div class="author-name"><a href="/about">Pearl M</a></div>
+        <div class="author-role">Chief Marketing Officer, XL Marketing Services</div>
+        <p class="author-text">Pearl is a marketing leader and brand strategist with more than 25 years of experience across telecommunications, fintech, enterprise technology, infrastructure, luxury services and emerging technology, including leadership roles at Vodacom, PayU and Dimension Data/NTT. At XL, she leads the strategic architecture behind Marketing Decision-Led Growth: defining the market opportunity, clarifying the proposition and creating the marketing system required to build demand. <a href="https://www.linkedin.com/in/pearl-mngomezulu-0675b635" target="_blank" rel="noopener">Pearl on LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a></p>
+      </div>
+    </div>
+
+    <div class="about-xl">
+      <p><strong>About XL Marketing Services.</strong> XL Marketing Services is a strategic marketing and growth consultancy helping founders, CEOs and marketing leaders improve <a href="/services/brand-positioning">positioning</a>, <a href="/services/go-to-market-product-marketing">go-to-market strategy</a>, <a href="/services/b2b-growth-abm">B2B growth</a> and <a href="/services/ai-search-visibility">AI visibility</a>. Its Marketing Decision-Led Growth method starts with the quality of the evidence, questions and assumptions shaping action.</p>
+    </div>
+
+    <!-- ── Closing prompt (deliberately restrained) ─────────────── -->
+    <div class="end-cta-panel">
+      <div class="section-label">Find the constraint</div>
+      <h2>Before adding another marketing tactic, find the constraint.</h2>
+      <p>The Marketing Readiness Diagnostic takes about four minutes and shows which of four areas (positioning, content, paid media or marketing operations) is most likely to be holding growth back.</p>
+      <div class="end-cta-buttons">
+        <div class="end-cta-btn-group">
+          <a href="/diagnostics/marketing-readiness" class="btn btn-diagnostic">Take the Marketing Readiness Diagnostic</a>
+          <span class="btn-micro">12 questions &middot; approximately four minutes</span>
+        </div>
+      </div>
+      <p class="end-cta-alt">Curious about discovery specifically? <a href="/diagnostics/ai-visibility">See how visible your business is to AI</a>.</p>
+    </div>
+
+    <!-- ── Related reading ──────────────────────────────────────── -->
+    <div class="related-reading">
+      <div class="section-label">Related reading</div>
+      <div class="related-links">
+        <a href="/journal/build-visibility-when-buyers-no-longer-click">How to Build Brand Visibility When Buyers No Longer Click <span>&rarr;</span></a>
+        <a href="/journal/why-ai-content-is-harder-to-differentiate">Why is AI making content easier to create but harder to differentiate? <span>&rarr;</span></a>
+        <a href="/journal/the-58-percent-problem">The 58% Shift: What happens when search results become answers? <span>&rarr;</span></a>
+      </div>
+    </div>
+
+    <!-- ── Footer ───────────────────────────────────────────────── -->
+        </main>
+
+    <footer class="site-footer">
+      <div class="footer-logo">XL Marketing Services</div>
+      <div class="footer-address">Dubai, UAE &middot; <a href="tel:+971521489618">+971 52 148 9618</a></div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/services">Services</a>
+        <a href="/working-with-us">Working With Us</a>
+        <a href="/decision-led-growth">Marketing Decision-Led Growth</a>
+        <a href="/about">About</a>
+        <a href="/journal">Meridian Insights</a>
+        <a href="/diagnostics">Diagnostics</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy</a>
+        <a href="#" onclick="window.XLConsent &amp;&amp; XLConsent.open(); return false;">Cookie preferences</a>
+      </div>
+    </footer>
+
+  </div><!-- /page-wrap -->
+
+  <script>
+    // The browser's native scroll-to-fragment on load is unreliable once
+    // scroll-behavior:smooth is set on <html> (a known cross-browser
+    // inconsistency) -- so a link like page.html#some-id can land at the
+    // top of the page instead. Scroll to it manually once everything,
+    // including images, has finished loading and settled.
+    window.addEventListener('load', function () {
+      if (location.hash) {
+        var target = document.querySelector(location.hash);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  </script>
+  <script src="/search.js" defer></script>
+</body>
+</html>

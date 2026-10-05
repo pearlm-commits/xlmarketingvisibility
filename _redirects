@@ -11,6 +11,7 @@
 /contact.html                            /contact                           301!
 /journal.html                            /journal                           301!
 /journal/the-58-percent-problem.html     /journal/the-58-percent-problem     301!
+/journal/is-marketing-dead.html     /journal/is-marketing-dead     301!
 /journal/why-ai-content-is-harder-to-differentiate.html     /journal/why-ai-content-is-harder-to-differentiate     301!
 /journal/better-marketing-decisions-sustainable-growth.html /journal/better-marketing-decisions-sustainable-growth 301!
 /journal/category-entry-points-luxury-b2b-tech.html          /journal/category-entry-points-luxury-b2b-tech          301!
@@ -44,3 +45,6 @@
 /ai-visibility-audit                     /diagnostics/ai-visibility          301!  Query:tool=visibility
 /ai-visibility-audit                     /diagnostics/marketing-readiness    301!  Query:tool=readiness
 /ai-visibility-audit                     /diagnostics                        301!
+
+# Publishing brief used /insights/ as the section path; the live section is /journal/.
+/insights/is-marketing-dead     /journal/is-marketing-dead     301
