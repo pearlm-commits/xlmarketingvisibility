@@ -1,12 +1,16 @@
 /* XL Marketing Services — cookie/tracking consent banner + gated analytics loader.
-   Loads Google Analytics and the Leadsy.ai visitor-ID pixel only after the
-   visitor accepts, or immediately if they've already accepted previously.
+   Loads Google Analytics, Microsoft Clarity (heatmaps and session recordings)
+   and the Leadsy.ai visitor-ID pixel only after the visitor accepts, or
+   immediately if they've already accepted previously.
    Respects the Global Privacy Control signal by treating it as a decline. */
 (function () {
   var GA_ID = 'G-SXKT6Z7P78';
+  var CLARITY_ID = 'ysymrgwzlj';
   var LEADSY_PID = 'IXhkLX0Vq0SNEFvX';
   var LEADSY_VERSION = '062024';
-  var STORAGE_KEY = 'xl_consent';
+  /* Bumped to _v2 when Clarity (session recording) was added, so everyone is
+     asked again and their consent covers the purposes now disclosed. */
+  var STORAGE_KEY = 'xl_consent_v2';
 
   function getStoredConsent() {
     try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
@@ -30,6 +34,13 @@
     ga.async = true;
     ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
     document.head.appendChild(ga);
+
+    /* Microsoft Clarity: standard install snippet */
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+      t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, 'clarity', 'script', CLARITY_ID);
 
     var leadsy = document.createElement('script');
     leadsy.id = 'vtag-ai-js';
@@ -97,7 +108,7 @@
       barEl.setAttribute('role', 'region');
       barEl.setAttribute('aria-label', 'Cookie consent');
       barEl.innerHTML =
-        '<div class="xl-consent-text">We use cookies for site analytics and a visitor-identification pixel to spot prospective business customers. See our <a href="/privacy">Privacy Policy</a>.</div>' +
+        '<div class="xl-consent-text">We use cookies for site analytics, heatmaps and session recordings, and a visitor-identification pixel to spot prospective business customers. See our <a href="/privacy">Privacy Policy</a>.</div>' +
         '<div class="xl-consent-actions">' +
           '<button type="button" class="xl-consent-btn xl-consent-decline">Decline</button>' +
           '<button type="button" class="xl-consent-btn xl-consent-accept">Accept</button>' +
