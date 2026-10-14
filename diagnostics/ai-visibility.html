@@ -6,8 +6,8 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Visibility Audit: Free Diagnostic | XL Marketing</title>
-  <meta name="description" content="A free 12-question diagnostic that shows where AI systems can and cannot accurately find, cite and recommend your business." />
+  <title>AI Discovery Readiness Assessment: Free Self-Assessment | XL Marketing</title>
+  <meta name="description" content="A free 12-question self-assessment of how ready your business is to be found, understood and chosen in AI and search, with a readiness profile and suggested next steps." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://xluxemarketing.com/diagnostics/ai-visibility" />
   <link rel="icon" href="../images/favicon.ico" sizes="any" />
@@ -18,15 +18,15 @@
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="XL Marketing Services" />
-  <meta property="og:title" content="AI Visibility Audit: Free Diagnostic | XL Marketing" />
-  <meta property="og:description" content="A free 12-question diagnostic that shows where AI systems can and cannot accurately find, cite and recommend your business." />
+  <meta property="og:title" content="AI Discovery Readiness Assessment: Free Self-Assessment | XL Marketing" />
+  <meta property="og:description" content="A free 12-question self-assessment of how ready your business is to be found, understood and chosen in AI and search, with a readiness profile and suggested next steps." />
   <meta property="og:url" content="https://xluxemarketing.com/diagnostics/ai-visibility" />
   <meta property="og:image" content="https://xluxemarketing.com/images/homepage-hero-photo-v2.jpg" />
   <meta property="og:image:width" content="630" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="AI Visibility Audit: Free Diagnostic | XL Marketing" />
-  <meta name="twitter:description" content="A free 12-question diagnostic that shows where AI systems can and cannot accurately find, cite and recommend your business." />
+  <meta name="twitter:title" content="AI Discovery Readiness Assessment: Free Self-Assessment | XL Marketing" />
+  <meta name="twitter:description" content="A free 12-question self-assessment of how ready your business is to be found, understood and chosen in AI and search, with a readiness profile and suggested next steps." />
   <meta name="twitter:image" content="https://xluxemarketing.com/images/homepage-hero-photo-v2.jpg" />
 
   <!-- =====================================================================
@@ -1440,8 +1440,8 @@
     "@graph": [
       {
         "@type": "WebPage",
-        "name": "AI Visibility Audit: Free Diagnostic",
-        "description": "A free 12-question diagnostic for B2B enterprise and lifestyle leaders across the UAE, South Africa and MEA, showing where AI systems can and cannot accurately find, cite and recommend a business.",
+        "name": "AI Discovery Readiness Assessment: Free Self-Assessment",
+        "description": "A free 12-question self-assessment for B2B enterprise and lifestyle leaders across the UAE, South Africa and MEA, showing where a business may be losing opportunities across discovery, understanding, credibility and customer choice in AI and search.",
         "url": "https://xluxemarketing.com/diagnostics/ai-visibility",
         "isPartOf": {
           "@type": "Organization",
@@ -1455,7 +1455,7 @@
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://xluxemarketing.com/" },
           { "@type": "ListItem", "position": 2, "name": "Diagnostics", "item": "https://xluxemarketing.com/diagnostics" },
-          { "@type": "ListItem", "position": 3, "name": "AI Visibility Audit", "item": "https://xluxemarketing.com/diagnostics/ai-visibility" }
+          { "@type": "ListItem", "position": 3, "name": "AI Discovery Readiness Assessment", "item": "https://xluxemarketing.com/diagnostics/ai-visibility" }
         ]
       }
     ]
@@ -1511,8 +1511,8 @@
       <div class="mode-grid">
         <div class="mode-card" onclick="selectMode('visibility')">
           <div class="mc-eyebrow">Diagnostic 01</div>
-          <h3>How visible is your business to AI?</h3>
-          <p>Twelve questions across six levers: clarity, positioning, off-site presence, content structure, buyer intent, and measurement. Each is scored against how AI tools actually read and cite businesses.</p>
+          <h3>How ready is your business to be found, understood and chosen in AI search?</h3>
+          <p>The AI Discovery Readiness Assessment: twelve questions across six levers (clarity, positioning, off-site presence, content structure, buyer intent and measurement). A self-assessment showing where you may be losing opportunities as buyers move from exploring to choosing.</p>
           <div class="mc-meta"><span>12 questions &middot; ~4 min</span><span class="mc-arrow">Start &rarr;</span></div>
         </div>
         <div class="mode-card" onclick="selectMode('readiness')">
@@ -1539,8 +1539,10 @@
         <div class="hero-eyebrow">XL Marketing Services</div>
         <h2 class="hero-title">Your work is good.<br/>Does anything AI trusts know that yet?</h2>
         <p class="hero-sub">
-          Twelve questions. Six diagnostic levers. A scored report that tells you
-          exactly where AI can and cannot find your business, and what to fix first.
+          Twelve questions. Six diagnostic levers. A scored readiness profile, based on your
+          answers, that shows where you may be losing opportunities across discovery,
+          understanding, credibility and customer choice, and which priorities are worth
+          investigating first.
         </p>
 
         <!-- ── Proof Module: stat callout (reusable pattern — num + qualifier + source) ──
@@ -1586,7 +1588,7 @@
            the interactive drawers above only populate on click. Keep this in
            sync with the QUESTIONS array below if a question ever changes. -->
       <div class="visually-hidden">
-        <h2>All AI Visibility Diagnostic questions, by lever</h2>
+        <h2>All AI Discovery Readiness Assessment questions, by lever</h2>
         <section>
           <h3>Lever 1: Clarity</h3>
           <p><strong>If someone landed on your homepage having never heard of you, could they explain what you do in one sentence within ten seconds?</strong> Think about your opening headline and the first paragraph of body copy. AI reads this block first.</p>
@@ -1637,7 +1639,7 @@
         </div>
 
         <button class="btn btn-primary btn-full" id="start-btn" onclick="startAudit()">
-          Start my audit &rarr;
+          Start the assessment &rarr;
         </button>
         <p class="text-muted text-center mt8">Takes around 4 minutes. No email needed to see your score, and your progress saves as you go.</p>
       </div>
@@ -1836,6 +1838,7 @@
             </div>
             <div class="score-verdict" id="r-verdict"></div>
             <div class="score-desc" id="r-desc"></div>
+            <p class="text-muted" style="font-size:13px;line-height:1.6;margin-top:10px">This profile reflects your own answers. It does not show how buyers or AI systems actually describe your business. That takes testing against real prompts and sources.</p>
           </div>
 
           <div class="stage-framing" id="r-stage-framing"></div>
@@ -1857,26 +1860,27 @@
 
 
           <div class="cta-block">
-            <h3>You did the work. Let's make sure it gets recognised.</h3>
+            <h3>Next: turn your readiness profile into decisions.</h3>
             <p>
-              XL Marketing Services works with brand and marketing leaders to build the
-              content architecture, off-site presence, and measurement practice that earns AI
-              recommendation. The next step is a 30-minute strategy call: no sales pitch, just
-              a clear plan for your three highest-priority levers.
+              XL Marketing Services works with brand and marketing leaders to find where buyers
+              lose sight of a business, and which changes are worth making first. The next step
+              is a 30-minute strategy call: no sales pitch, just a clear view of your three
+              highest-priority levers.
             </p>
             <div class="cta-btn-row">
-              <a href="/contact?service=AI%20Visibility%20Diagnostic%20results" class="btn btn-gold">
+              <a href="/contact?service=AI%20Discovery%20Readiness%20Assessment%20results" class="btn btn-gold">
                 Secure Executive Briefing
               </a>
               <a href="#" class="btn btn-ghost" onclick="return goToReportUnlock()">
                 Download my report
               </a>
             </div>
+            <p class="text-muted" style="font-size:13px;line-height:1.6;margin-top:16px">Want to test these findings against real prompts? <a href="/discovery-to-decision#workshops" style="color:var(--forest-mid);font-weight:600">Explore the strategy workshops</a>, from $200.</p>
           </div>
 
           <div class="text-center mt16">
             <button class="btn btn-ghost" onclick="restartAudit()" style="font-size:12px">
-              Retake the audit
+              Retake the assessment
             </button>
           </div>
         </div>
@@ -2878,7 +2882,7 @@
       const printDate = new Date().toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
       const siteLabel = isR ? '' : (c.website || '').replace(/^https?:\/\//, '').replace(/\/$/, '');
       const initials  = (c.name || '').split(' ').filter(Boolean).map(w => w[0]).join('').slice(0,2).toUpperCase();
-      const scoreName = isR ? 'Marketing Readiness Score' : 'AI Visibility Score';
+      const scoreName = isR ? 'Marketing Readiness Score' : 'AI Discovery Readiness Score';
 
       document.getElementById(isR ? 'results-client-r' : 'results-client').innerHTML = `
         ${initials ? `<div class="cs-avatar">${esc(initials)}</div>` : ''}
@@ -2893,19 +2897,19 @@
       const prepared = c.name ? esc(c.name) + (c.company ? ', ' + esc(c.company) : '') + (siteLabel ? ' (' + esc(siteLabel) + ')' : '') : '';
       document.getElementById(isR ? 'print-cover-r' : 'print-cover').innerHTML = `
         <div class="pc-eyebrow">XL Marketing Services</div>
-        <p class="pc-title">${isR ? 'Marketing Readiness Brief' : 'AI Visibility Brief'}</p>
+        <p class="pc-title">${isR ? 'Marketing Readiness Brief' : 'AI Discovery Readiness Brief'}</p>
         ${prepared ? `<p class="pc-prepared">Prepared for ${prepared}</p>` : ''}
         <div class="pc-date">${printDate}</div>
       `;
       document.getElementById(isR ? 'print-summary-r' : 'print-summary').innerHTML = isR
         ? `<p>Marketing built on effort alone eventually hits its ceiling. This brief shows exactly which parts of ${esc(c.company) || 'your'} marketing system are compounding, and which are quietly costing you time and budget instead.</p>`
-        : `<p>AI systems now decide who gets cited before a person ever sees a search result. This brief shows exactly where ${esc(c.company) || 'your business'} earns that trust today, and where it doesn't yet.</p>`;
+        : `<p>AI systems increasingly shape which businesses buyers consider before they reach a search results page. This brief summarises, based on your answers, where ${esc(c.company) || 'your business'} may be well placed and where it may be losing opportunities across discovery, understanding, credibility and customer choice. It reflects self-assessment, not tested AI or buyer behaviour.</p>`;
     }
 
     const REPORT_COPY = {
       visibility: {
         guide:   'How to Be Found Online Circa 2026',
-        consent: 'I am happy for XL Marketing Services to contact me about my audit results and relevant services. I understand my data will be handled in accordance with applicable privacy regulations.',
+        consent: 'I am happy for XL Marketing Services to contact me about my assessment results and relevant services. I understand my data will be handled in accordance with applicable privacy regulations.',
         website: true
       },
       readiness: {
@@ -3024,8 +3028,8 @@
       /* Sends the full scored results + contact details to Formspree,
          which emails the team a copy of the report. */
       const resultsPayload = {
-        _subject:    'AI Visibility Diagnostic report' + (state.client.company ? ' · ' + state.client.company : (state.client.name ? ' · ' + state.client.name : '')),
-        service_type: 'AI Visibility Diagnostic',
+        _subject:    'AI Discovery Readiness Assessment report' + (state.client.company ? ' · ' + state.client.company : (state.client.name ? ' · ' + state.client.name : '')),
+        service_type: 'AI Discovery Readiness Assessment',
         event:       'report_unlocked',
         timestamp:   new Date().toISOString(),
         client:      state.client,
@@ -3190,7 +3194,7 @@
     selectMode('visibility');
     XLDiag.mountFinishLater(document.getElementById('finish-later-slot'), {
       name:  state.mode,
-      title: 'AI Visibility Diagnostic',
+      title: 'AI Discovery Readiness Assessment',
       getLink: () => XLDiag.resumeLink(progressKey(), progressData())
     });
     initResume();
