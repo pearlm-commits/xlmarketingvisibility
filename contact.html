@@ -185,6 +185,9 @@
     .btn-gold:hover { background: var(--ember-dark); }
     .btn-full { width: 100%; justify-content: center; }
 
+    .package-note { background: var(--grey); border-left: 3px solid var(--mustard); padding: 14px 18px; margin-bottom: 22px; font-size: 14px; line-height: 1.6; color: var(--forest); }
+    .package-note[hidden], #buyer-context-group[hidden] { display: none; }
+    .package-note strong { font-weight: 700; }
     .form-note { font-size: 12px; color: var(--muted); text-align: center; margin-top: 12px; }
 
     .honeypot { position: absolute; left: -9999px; }
@@ -390,6 +393,9 @@
         <input type="hidden" name="form_type" value="Strategy call enquiry" />
         <p class="honeypot"><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
 
+        <input type="hidden" name="package_interest" id="f-package" value="" />
+        <div class="package-note" id="package-note" hidden role="status"></div>
+
         <div class="form-grid">
           <div class="form-group">
             <label for="f-name">Name</label>
@@ -414,6 +420,10 @@
           <div class="form-group full">
             <label for="f-challenge">Business challenge</label>
             <textarea id="f-challenge" name="business_challenge" placeholder="What's the decision or problem you're trying to work through?" required></textarea>
+          </div>
+          <div class="form-group full" id="buyer-context-group" hidden>
+            <label for="f-buyers">Who do you sell to, and what do they ask when choosing a provider like you? <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
+            <textarea id="f-buyers" name="buyer_questions" placeholder="For example: the kind of buyer, what they search for or ask an AI assistant, and which alternatives they compare you with."></textarea>
           </div>
           <div class="form-group">
             <label for="f-timeline">Decision timeline</label>
@@ -492,7 +502,30 @@
     (function () {
       const params = new URLSearchParams(window.location.search);
       const service = params.get('service');
-      if (service) {
+      /* Workshop enquiries (from /discovery-to-decision): the package is named in the URL.
+         We ask for context first, so the form frames the enquiry and adds one optional question. */
+      const PACKAGES = {
+        'discovery-starter':  { name: 'Discovery Starter',  price: '$200', detail: '90 minutes' },
+        'positioning-lab':    { name: 'Positioning Lab',    price: '$497', detail: '3 hours' },
+        'strategy-intensive': { name: 'Strategy Intensive', price: '$950', detail: 'full-day workshop' }
+      };
+      const pkg = PACKAGES[params.get('package')];
+      if (pkg) {
+        const label = pkg.name + ' (' + pkg.price + ', ' + pkg.detail + ')';
+        document.getElementById('f-package').value = label;
+        document.querySelector('[name="_subject"]').value = 'New workshop enquiry: ' + pkg.name + ' — XL Marketing Services website';
+        document.querySelector('[name="form_type"]').value = 'Workshop enquiry';
+        const note = document.getElementById('package-note');
+        note.innerHTML = '<strong>You are enquiring about the ' + pkg.name + '</strong> (' + pkg.price + ', ' + pkg.detail + '). Tell us a little about your business first. We reply within two working days to confirm fit, scope and timing before the session.';
+        note.hidden = false;
+        document.getElementById('buyer-context-group').hidden = false;
+        const field = document.getElementById('f-challenge');
+        field.placeholder = 'What decision are you hoping this workshop will help you make?';
+        field.value = 'Regarding: ' + label + '\n\n';
+        field.focus();
+        field.setSelectionRange(field.value.length, field.value.length);
+      }
+      if (service && !pkg) {
         const field = document.getElementById('f-challenge');
         field.value = 'Regarding: ' + service + '\n\n';
         field.focus();

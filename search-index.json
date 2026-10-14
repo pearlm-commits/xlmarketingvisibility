@@ -85,6 +85,13 @@
       "keywords": "methodology, method, how xl works, crosspoint, understand decide design learn, mutual value, decision led growth"
     },
     {
+      "title": "Discovery-to-Decision Strategy",
+      "url": "/discovery-to-decision",
+      "section": "Method",
+      "summary": "From being found to being chosen: how buyer intent, search and conversational AI discovery connect to brand strategy, with three Discovery Workshops from $200.",
+      "keywords": "discovery to decision, ai discovery strategy, conversational search, buyer intent, seo, e-e-a-t, aeo, geo, workshop, positioning lab, strategy intensive, discovery starter, ai visibility strategy"
+    },
+    {
       "title": "Free Marketing Diagnostics",
       "url": "/diagnostics",
       "section": "Diagnostics",
@@ -92,11 +99,11 @@
       "keywords": "free assessment, diagnostics, quiz, self assessment, scorecard, both diagnostics"
     },
     {
-      "title": "AI Visibility Audit",
+      "title": "AI Discovery Readiness Assessment",
       "url": "/diagnostics/ai-visibility",
       "section": "Diagnostics",
-      "summary": "A free 12-question diagnostic with a scored report showing where AI systems can — and cannot — accurately find, cite and recommend your business.",
-      "keywords": "my ai visibility report, ai visibility report, ai visibility score, ai visibility audit, get found by ai, ai audit, diagnostic 01, chatgpt perplexity gemini, scored report"
+      "summary": "A free 12-question self-assessment of how ready your business is to be found, understood and chosen in AI search, with a scored readiness profile and suggested next steps.",
+      "keywords": "ai discovery readiness assessment, ai readiness, my ai visibility report, ai visibility report, ai visibility score, ai visibility audit, get found by ai, ai audit, diagnostic 01, chatgpt perplexity gemini, scored report"
     },
     {
       "title": "Marketing Readiness Diagnostic",
@@ -116,8 +123,8 @@
       "title": "Working With Us — Pricing & Engagements",
       "url": "/working-with-us",
       "section": "Company",
-      "summary": "Four ways to work with XL, from a $950 Strategic Blueprint Workshop to Studio Partnerships from $5,500 a month. Sprints, Growth Audit and Partnerships.",
-      "keywords": "pricing, cost, price, packages, sprints, retainer, workshop, blueprint, growth audit, studio partnership, engagement, how much"
+      "summary": "Four ways to work with XL, from Discovery Workshops from $200 to Studio Partnerships from $5,500 a month. Sprints, Growth Audit and Partnerships.",
+      "keywords": "pricing, cost, price, packages, sprints, retainer, workshop, discovery workshop, growth audit, studio partnership, engagement, how much"
     },
     {
       "title": "About XL Marketing Services",
