@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Cookie consent + gated analytics/pixel loader (see /consent.js) -->
+  <script src="/consent.js" defer></script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Visibility Audit vs AI Search Strategy | Meridian</title>
+  <meta name="description" content="An AI visibility audit shows what AI says about your business. An AI search strategy explains why, and what to change. Learn which one you need." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://xluxemarketing.com/journal/ai-visibility-audit-vs-ai-search-strategy" />
+  <link rel="icon" href="../images/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="../images/favicon-32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="../images/favicon-192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="../images/favicon-180.png" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="XL Marketing Services" />
+  <meta property="og:title" content="AI Visibility Audit vs. AI Search Strategy: How to Turn Reports into Decisions" />
+  <meta property="og:description" content="An AI visibility audit shows what AI says about your business. An AI search strategy explains why, and what to change. Learn which one you need." />
+  <meta property="og:url" content="https://xluxemarketing.com/journal/ai-visibility-audit-vs-ai-search-strategy" />
+  <meta property="og:image" content="https://xluxemarketing.com/images/audit-vs-strategy-og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Title card reading: Audit or strategy? A visibility report tells you where you stand. A strategy tells you what to do next." />
+  <meta property="article:published_time" content="2026-10-14" />
+  <meta property="article:modified_time" content="2026-10-14" />
+  <meta property="article:section" content="Analysis" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Visibility Audit vs. AI Search Strategy: How to Turn Reports into Decisions" />
+  <meta name="twitter:description" content="An AI visibility audit shows what AI says about your business. An AI search strategy explains why, and what to change. Learn which one you need." />
+  <meta name="twitter:image" content="https://xluxemarketing.com/images/audit-vs-strategy-og.jpg" />
+  <meta name="twitter:image:alt" content="Title card reading: Audit or strategy? A visibility report tells you where you stand. A strategy tells you what to do next." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" /></noscript>
+
+  <style>
+    /* ── Brand tokens ─────────────────────────────────────────── */
+    :root {
+      --white:       #FFFFFF;
+      --ivory:       #FFFBF1;
+      --ivory-mid:   #F6EEDD;
+      --sage:        #DCE8DD;
+      --mustard:     #A08F5C;
+      --mustard-lt:  #F3E6B8;
+      --mustard-dk:  #8A6500;
+      --ember:       #C1442A;
+      --ember-dark:  #922A20;
+      --forest:      #1E3D2B;
+      --forest-mid:  #245847;
+      --ink:         #14110F;
+      --muted:       #5B625D;
+      --muted-light: #94988D;
+      --border:      rgba(216,205,184,0.4);
+      --border-mid:  #D8CDB8;
+      --focus:       #A08F5C;
+      --focus-offset:#FFFBF1;
+      --shadow:      0 0 0 1px var(--stone);
+      --shadow-lg:   0 0 0 1px var(--stone);
+      --radius:      0;
+      --grey:        #F4F5F6;
+      --bordeaux:    #5C1220;
+      --stone:       #8B8479;
+      --paper:       #FFFFFF;
+    }
+
+    /* ── Reset ────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
+
+    /* ── Layout ───────────────────────────────────────────────── */
+    .page-wrap { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+
+    @media (max-width: 600px) {
+      .site-nav { flex-wrap: wrap; row-gap: 14px; }
+      .nav-links { width: 100%; justify-content: flex-start; }
+      .btn { white-space: normal; text-align: center; }
+      body { font-size: 16px; }
+    }
+
+    /* ── Navigation ───────────────────────────────────────────── */
+    .site-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border-mid);
+      position: sticky;
+      top: 0;
+      z-index: 500;
+      background: var(--white);
+    }
+
+    .site-logo { display: inline-flex; align-items: center; text-decoration: none; }
+    .site-logo img { height: 32px; width: auto; display: block; }
+    .site-logo-text {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 600;
+      font-size: 21px;
+      letter-spacing: -0.01em;
+      color: var(--forest);
+      margin-left: 10px;
+      white-space: nowrap;
+    }
+
+    .nav-links { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 10px 22px; }
+
+    .nav-links > a {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.01em; transition: color 0.15s;
+    }
+
+    .nav-links > a.current { color: var(--forest); }
+    .nav-links > a:hover { color: var(--forest); }
+
+    a.nav-cta {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: var(--forest);
+      background: transparent;
+      border: 1.5px solid var(--forest);
+      padding: 8px 19px;
+      border-radius: 999px;
+      white-space: nowrap;
+      cursor: pointer;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.15s, color 0.15s;
+      display: inline-block;
+    }
+
+    .nav-cta:hover { background: var(--forest); color: #fff; }
+
+    /* ── Nav dropdown (mega-nav style, e.g. Sectors) ──────────────── */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown summary {
+      list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
+      font-size: 13px; color: var(--muted); font-weight: 500; letter-spacing: 0.01em; transition: color 0.15s;
+    }
+    .nav-dropdown summary::-webkit-details-marker { display: none; }
+    .nav-dropdown summary::after { content: '\25BE'; font-size: 9px; color: var(--mustard); position: relative; top: 1px; }
+    .nav-dropdown:hover summary, .nav-dropdown[open] summary, .nav-dropdown.current summary { color: var(--forest); }
+    .nav-dropdown-panel {
+      position: absolute; top: calc(100% + 14px); left: 0; min-width: 190px;
+      background: var(--white); border: 0.5px solid var(--border-mid);
+      box-shadow: 0 10px 28px rgba(20,17,15,0.1); padding: 8px; z-index: 600;
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .nav-dropdown-panel a {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      padding: 9px 10px; font-size: 13px; color: var(--ink); text-decoration: none; transition: background 0.15s, color 0.15s;
+    }
+    .nav-dropdown-panel a:hover { background: var(--grey); color: var(--forest); }
+    .nav-dropdown-panel a span { color: var(--mustard); font-size: 11px; flex-shrink: 0; }
+    .nav-dropdown-panel .ndp-divider { border-top: 0.5px solid var(--border); margin: 4px 0; }
+    @media (max-width: 600px) {
+      .nav-dropdown { width: 100%; }
+      .nav-dropdown-panel { position: static; box-shadow: none; border: none; margin-top: 4px; padding: 4px 0 4px 14px; }
+    }
+
+    /* ── Breadcrumb ───────────────────────────────────────────── */
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--muted);
+      margin: 28px 0 0;
+    }
+
+    .breadcrumb a { color: var(--muted); text-decoration: none; font-weight: 600; }
+    .breadcrumb a:hover { color: var(--forest); }
+    .breadcrumb span.sep { color: var(--muted-light); }
+    .breadcrumb span.current { color: var(--forest); font-weight: 600; }
+
+    /* ── Article head ─────────────────────────────────────────── */
+    .article-head { background: var(--paper); padding: 20px 0 32px; text-align: center; border-bottom: 1px solid var(--border-mid);}
+
+    .article-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .format-badge {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--mustard);
+      border: 0.5px solid var(--border-mid);
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+
+    .article-date { font-size: 12px; color: var(--muted); font-weight: 500; }
+
+    .article-head h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(32px, 5.6vw, 46px);
+      font-weight: 500;
+      line-height: 1.2;
+      color: var(--forest);
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+
+    .article-dek {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: clamp(17px, 2.1vw, 19px);
+      color: var(--forest-mid);
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto 18px;
+    }
+
+    .article-byline { font-size: 13px; color: var(--muted); font-weight: 600; }
+
+    /* ── Direct answer ────────────────────────────────────────── */
+    .direct-answer {
+      background: var(--grey);
+      border-left: 3px solid var(--mustard);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px;
+      margin-bottom: 24px;
+    }
+
+    .direct-answer p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--ink);
+    }
+
+    .direct-answer strong { color: var(--forest); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+
+    /* ── Buttons ──────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      padding: 13px 28px;
+      border-radius: 999px;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.1s, background 0.15s;
+      border: none;
+      text-decoration: none;
+    }
+
+    .btn:active { transform: scale(0.98); }
+
+    /* Diagnostic CTA — mustard fill, deep-green text (never white-on-mustard) */
+    .btn-diagnostic { background: var(--forest); color: #fff; }
+    .btn-diagnostic:hover { background: var(--forest-mid); }
+
+    /* Strategy-call CTA — deep-green outline */
+    .btn-outline-forest { background: transparent; color: var(--forest); border: 1.5px solid var(--forest); }
+    .btn-outline-forest:hover { background: var(--forest); color: #fff; }
+
+    .btn-primary { background: var(--forest); color: #fff; }
+    .btn-primary:hover { background: var(--forest-mid); }
+
+    /* ── Hero figure ──────────────────────────────────────────── */
+    .article-hero { margin-bottom: 8px; }
+    .article-hero img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      display: block;
+    }
+    .article-hero figcaption {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: 14px;
+      color: var(--muted);
+      text-align: center;
+      margin: 10px 0 32px;
+      line-height: 1.5;
+    }
+
+    /* ── Article body ─────────────────────────────────────────── */
+    .article-body { padding: 8px 0 12px; }
+
+    .article-body p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.85;
+      color: var(--ink);
+      margin-bottom: 22px;
+    }
+
+    .article-body p.lede {
+      font-size: 20px;
+      line-height: 1.75;
+      color: var(--forest-mid);
+    }
+
+    .article-body strong { font-weight: 600; color: var(--forest); }
+    .article-body p a { color: var(--mustard); font-weight: 600; text-decoration: underline; text-decoration-color: var(--border-mid); text-underline-offset: 2px; }
+    .article-body p a:hover { text-decoration-color: var(--mustard); }
+
+    .article-body h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(24px, 3.4vw, 29px);
+      color: var(--forest);
+      line-height: 1.3;
+      margin: 44px 0 18px;
+    }
+
+    .article-body h3 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 19px;
+      color: var(--forest);
+      line-height: 1.35;
+      margin: 28px 0 12px;
+    }
+
+    .article-body ul, .article-body ol.plain-list {
+      list-style: none;
+      margin-bottom: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .article-body ul li, .article-body ol.plain-list li {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--ink);
+      padding-left: 22px;
+      position: relative;
+    }
+
+    .article-body ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--mustard);
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ── Criteria list (five characteristics) ─────────────────── */
+    .criteria-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 24px;
+      counter-reset: criteria;
+    }
+
+    .criteria-list li {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--ink);
+      padding: 16px 18px 16px 52px;
+      position: relative;
+      background: var(--grey);
+      border-radius: var(--radius);
+      counter-increment: criteria;
+    }
+
+    .criteria-list li::before {
+      content: counter(criteria);
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--mustard);
+      color: var(--forest);
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .criteria-list strong { font-family: 'Inter', sans-serif; font-weight: 700; color: var(--forest); }
+
+    /* ── Comparison table ─────────────────────────────────────── */
+    .table-scroll { overflow-x: auto; margin-bottom: 22px; -webkit-overflow-scrolling: touch; }
+
+    .comparison-table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 560px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 15px;
+    }
+
+    .comparison-table th {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ivory);
+      background: var(--forest);
+      padding: 12px 16px;
+      text-align: left;
+    }
+
+    .comparison-table th:first-child { width: 18%; }
+
+    .comparison-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-mid);
+      vertical-align: top;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+
+    .comparison-table td:first-child {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      color: var(--forest);
+      font-size: 13px;
+      background: var(--grey);
+    }
+
+    .comparison-table tr:nth-child(even) td:not(:first-child) { background: var(--grey); }
+
+    /* ── Sources ──────────────────────────────────────────────── */
+    .sources-section { margin: 40px 0 8px; }
+
+    .sources-section h2 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      color: var(--forest);
+      margin-bottom: 16px;
+    }
+
+    .sources-section ol { list-style: none; counter-reset: src; display: flex; flex-direction: column; gap: 10px; }
+
+    .sources-section li {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+      padding-left: 26px;
+      position: relative;
+      counter-increment: src;
+    }
+
+    .sources-section li::before {
+      content: '[' counter(src) ']';
+      position: absolute;
+      left: 0;
+      color: var(--mustard);
+      font-weight: 700;
+    }
+
+    .sources-section a { color: var(--forest-mid); word-break: break-word; }
+
+    /* ── Editorial note ───────────────────────────────────────── */
+    .editorial-note {
+      background: var(--grey);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      margin: 24px 0;
+    }
+
+    .editorial-note h3 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--mustard);
+      margin-bottom: 8px;
+    }
+
+    .editorial-note p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+    /* ── Author bio ───────────────────────────────────────────── */
+    .author-bio {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      margin: 36px 0 8px;
+      padding: 24px;
+      background: var(--grey);
+      border-radius: var(--radius);
+    }
+
+    .author-bio img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 3px solid var(--white);
+      box-shadow: 0 2px 24px rgba(23,63,53,0.08);
+    }
+
+    .author-bio .author-name { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 16px; color: var(--forest); margin-bottom: 2px; }
+    .author-bio .author-role { font-size: 12px; color: var(--mustard-dk); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 10px; }
+    .author-bio p.author-text { font-family: 'Playfair Display', Georgia, serif; font-size: 15px; color: var(--forest-mid); line-height: 1.65; margin: 0; }
+
+    /* ── About XL blurb ───────────────────────────────────────── */
+    .about-xl { margin: 20px 0 8px; }
+    .about-xl p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+    .about-xl strong { color: var(--forest); }
+
+    /* ── End conversion panel ─────────────────────────────────── */
+    .end-cta-panel {
+      background: var(--paper);
+      border-radius: 0;
+      padding: 40px 32px;
+      text-align: center;
+      margin: 44px 0 8px; border-top: 1px solid var(--border-mid);}
+
+    .end-cta-panel .section-label { font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--mustard-dk);
+      margin-bottom: 14px;
+    }
+
+    .end-cta-panel h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(22px, 3.4vw, 28px);
+      color: var(--forest);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .end-cta-panel > p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 16px;
+      color: var(--forest-mid);
+      line-height: 1.6;
+      max-width: 460px;
+      margin: 0 auto 28px;
+    }
+
+    .end-cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .end-cta-btn-group { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .end-cta-btn-group .btn-micro { font-size: 12px; color: var(--muted); font-weight: 500; }
+
+    @media (max-width: 480px) {
+      .end-cta-buttons { flex-direction: column; }
+    }
+
+    /* ── Related reading ──────────────────────────────────────── */
+    .related-reading { margin: 40px 0 8px; }
+
+    .related-reading .section-label { font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--mustard-dk);
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .related-links { display: flex; flex-direction: column; gap: 10px; }
+
+    .related-links a {
+      display: block;
+      background: var(--grey);
+      border: 0.5px solid var(--border-mid);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--forest);
+      text-decoration: none;
+      transition: border-color 0.15s;
+    }
+
+    .related-links a:hover { border-color: var(--mustard); }
+    .related-links a span { color: var(--mustard); }
+
+    /* ── Footer ───────────────────────────────────────────────── */
+    .site-footer {
+      border-top: 0.5px solid var(--border);
+      margin-top: 40px;
+      padding: 24px 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-logo { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px; color: var(--muted); }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--forest); }
+    .footer-address { font-size: 12px; color: var(--muted); }
+    .footer-address a { color: var(--muted); text-decoration: none; }
+    .footer-address a:hover { color: var(--forest); }
+
+    @media (max-width: 600px) {
+      .btn { white-space: normal; text-align: center; }
+      .article-head { padding: 12px 0 24px; }
+      .end-cta-panel { padding: 28px 20px; }
+      .author-bio { flex-direction: column; text-align: center; align-items: center; }
+    }
+  
+    /* ── Share bar ────────────────────────────────────────────── */
+    .share-bar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 8px 0 36px; padding-top: 24px; border-top: 0.5px solid var(--border); position: relative; }
+    .share-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mustard-dk); font-weight: 700; margin-right: 4px; }
+    .share-icons { display: flex; gap: 8px; flex-wrap: wrap; }
+    .share-icon { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: var(--grey); color: var(--forest); transition: background 0.15s, color 0.15s; text-decoration: none; border: none; cursor: pointer; padding: 0; }
+    .share-icon:hover, .share-icon:focus-visible { background: var(--forest); color: #fff; }
+    .share-icon svg { width: 16px; height: 16px; fill: currentColor; }
+    .share-copied-note { font-size: 12px; color: var(--muted); font-style: italic; opacity: 0; transition: opacity 0.2s; }
+    .share-copied-note.show { opacity: 1; }
+    /* ── Article-specific refinements ─────────────────────────── */
+    .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    .format-badge { color: var(--mustard-dk); }
+    .article-dek { max-width: 620px; }
+    .article-byline a { color: var(--forest); text-decoration: underline; text-decoration-color: var(--border-mid); text-underline-offset: 2px; }
+    .article-byline a:hover { text-decoration-color: var(--forest); }
+    .article-hero { margin-bottom: 32px; }
+
+    /* Body links: darker mustard for AA contrast (5.3:1 on white), underlined so links never rely on colour alone */
+    .article-body p a, .article-body li a { color: var(--mustard-dk); font-weight: 600; text-decoration: underline; text-decoration-color: var(--mustard-dk); text-underline-offset: 2px; }
+    .article-body p a:hover, .article-body li a:hover { color: var(--forest); text-decoration-color: var(--forest); }
+    .article-body a.cite { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; text-decoration: none; margin-left: 1px; }
+    .article-body a.cite:hover { text-decoration: underline; }
+
+    /* The questions the article asks, set apart from the running text */
+    .article-body p.key-question {
+      font-size: clamp(19px, 2.6vw, 22px);
+      line-height: 1.55;
+      font-weight: 600;
+      color: var(--forest);
+      border-left: 3px solid var(--mustard);
+      padding: 4px 0 4px 20px;
+      margin: 30px 0;
+    }
+    .article-body p.list-lead { margin-bottom: 12px; }
+    .article-body ul.question-list { margin-bottom: 26px; }
+    .criteria-list { margin-bottom: 28px; }
+    .criteria-list li::before { background: var(--forest); color: #fff; }
+
+    /* Mechanism table: accessible caption + row headers */
+    .comparison-table caption { caption-side: top; text-align: left; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mustard-dk); padding: 0 0 10px; }
+    .comparison-table th:first-child { width: 26%; }
+    .comparison-table tbody th { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0; text-transform: none; color: var(--forest); background: var(--grey); padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border-mid); vertical-align: top; line-height: 1.6; }
+    .table-scroll { margin: 8px 0 30px; }
+    .comparison-table { min-width: 0; table-layout: fixed; }
+    .comparison-table th:first-child { width: 28%; }
+    @media (max-width: 600px) {
+      .comparison-table { font-size: 14px; }
+      .comparison-table thead th { padding: 10px 10px; font-size: 11px; }
+      .comparison-table td, .comparison-table tbody th { padding: 12px 10px; }
+      .comparison-table tbody th { font-size: 12px; overflow-wrap: anywhere; }
+    }
+
+    /* Sources, evidence note and author links */
+    .sources-section li::before { color: var(--mustard-dk); }
+    .sources-section a.ext::after { content: ' \2197'; font-size: 0.85em; }
+    .editorial-note h3 { color: var(--mustard-dk); }
+    .editorial-note a { color: var(--forest-mid); font-weight: 600; }
+    .author-bio .author-name a { color: var(--forest); text-decoration: none; }
+    .author-bio .author-name a:hover { text-decoration: underline; }
+    .author-bio p.author-text a { color: var(--forest-mid); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+    .about-xl a { color: var(--mustard-dk); }
+
+    /* Restrained closing prompt */
+    .end-cta-panel p.end-cta-alt { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--muted); max-width: none; margin: 22px 0 0; }
+    .end-cta-panel p.end-cta-alt a { color: var(--forest-mid); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+    .end-cta-panel p.end-cta-alt a:hover { color: var(--forest); }
+    .related-links a span { color: var(--mustard-dk); }
+
+    /* ── Article-specific additions (SME marketing role gap) ──── */
+    .direct-answer p + p { margin-top: 14px; }
+    .direct-answer strong.inline-strong { display: inline; font-family: inherit; font-size: inherit; text-transform: none; letter-spacing: 0; margin: 0; }
+    .pullquote-block { background: var(--forest); padding: 34px 32px; text-align: center; margin: 32px 0; }
+    .article-body .pullquote-block p { font-style: italic; font-size: clamp(19px, 3vw, 24px); line-height: 1.55; color: var(--ivory); max-width: 520px; margin: 0 auto; }
+    .article-figure { margin: 30px 0 34px; }
+    .article-figure img { width: 100%; height: auto; display: block; }
+    .faq-section { margin: 8px 0 8px; }
+    .faq-item { border-top: 0.5px solid var(--border); padding: 20px 0; }
+    .faq-item:last-child { border-bottom: 0.5px solid var(--border); }
+    .faq-item h3 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 17px; color: var(--forest); margin: 0 0 8px; line-height: 1.4; }
+    .article-body .faq-item p { font-size: 16px; line-height: 1.7; margin-bottom: 0; }
+    .comparison-table th:first-child { width: 22%; }
+    @media (max-width: 600px) { .comparison-table th:first-child { width: 31%; } .comparison-table tbody th { font-size: 11.5px; overflow-wrap: normal; word-break: normal; padding-left: 8px; padding-right: 8px; } }
+
+    /* ── Audit vs strategy: notes, code, chooser ──────────────── */
+    .article-body p.d2d-note { font-family: 'Inter', sans-serif; font-size: 13px; line-height: 1.65; color: var(--muted); margin: -6px 0 24px; }
+    .article-body code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; background: var(--grey); padding: 1px 5px; }
+    .comparison-table { table-layout: fixed; }
+    .fit-tool { background: var(--grey); border: 1px solid var(--border-mid); padding: 26px 26px 20px; margin: 22px 0 32px; }
+    .fit-tool .fit-title { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 19px; color: var(--forest); margin: 0 0 14px; }
+    .fit-presets { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .fit-preset { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: var(--forest); background: var(--white); border: 1.5px solid var(--border-mid); border-radius: 999px; padding: 8px 14px; cursor: pointer; }
+    .fit-preset:hover, .fit-preset[aria-pressed="true"] { border-color: var(--forest); background: var(--forest); color: #fff; }
+    .fit-sliders { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 28px; }
+    @media (max-width: 640px) { .fit-sliders { grid-template-columns: 1fr; } }
+    .fit-slider label { display: flex; justify-content: space-between; gap: 12px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; line-height: 1.4; color: var(--ink); margin-bottom: 8px; }
+    .fit-slider output { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--mustard-dk); font-weight: 700; flex-shrink: 0; }
+    .fit-slider input[type="range"] { width: 100%; accent-color: var(--forest); }
+    .fit-result { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-mid); }
+    .article-body .fit-winner { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 20px; line-height: 1.3; color: var(--forest); margin: 0 0 6px; }
+    .article-body .fit-why { font-size: 16px; line-height: 1.65; margin-bottom: 16px; }
+    .article-body ul.fit-bars { list-style: none; display: flex; flex-direction: column; gap: 12px; margin: 0 0 6px; }
+    .article-body ul.fit-bars li { padding-left: 0; font-family: 'Inter', sans-serif; font-size: 14px; }
+    .article-body ul.fit-bars li::before { content: none; }
+    .fit-row-head { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 5px; color: var(--ink); font-weight: 600; }
+    .fit-row-head .fit-label { font-weight: 700; color: var(--mustard-dk); font-size: 12px; letter-spacing: 0.03em; text-transform: uppercase; }
+    .fit-track { height: 12px; background: var(--white); border: 1px solid var(--border-mid); }
+    .fit-fill { display: block; height: 100%; background: var(--forest); transition: width 0.25s ease; }
+    li.fit-top .fit-fill { background: var(--forest); }
+    li:not(.fit-top) .fit-fill { background: var(--mustard); }
+    @media (prefers-reduced-motion: reduce) { .fit-fill { transition: none; } }
+    .article-body p.fit-note, .fit-tool p.fit-note { font-family: 'Inter', sans-serif; font-size: 12.5px; line-height: 1.6; color: var(--muted); margin: 16px 0 0; }
+    .comparison-table.wide { table-layout: fixed; min-width: 0; font-size: 14px; }
+    .comparison-table.wide th:first-child { width: 19%; }
+    .comparison-table.wide td, .comparison-table.wide tbody th { padding: 12px 10px; }
+    @media (max-width: 720px) { .comparison-table.wide { table-layout: auto; min-width: 720px; } .comparison-table.wide td { min-width: 150px; } .comparison-table.wide tbody th { min-width: 110px; } }
+    .scroll-hint { display: none; }
+    @media (max-width: 720px) { .article-body p.scroll-hint { display: block; font-family: 'Inter', sans-serif; font-size: 12px; color: var(--muted); margin: -4px 0 8px; } }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "AI Visibility Audit vs. AI Search Strategy: How to Turn Reports into Decisions",
+        "description": "An AI visibility audit shows what AI says about your business. An AI search strategy explains why, and what to change. Learn which one you need.",
+        "image": [
+          "https://xluxemarketing.com/images/audit-vs-strategy-og.jpg",
+          "https://xluxemarketing.com/images/audit-vs-strategy-hero.jpg"
+        ],
+        "datePublished": "2026-10-14",
+        "dateModified": "2026-10-14",
+        "author": {
+          "@type": "Person",
+          "@id": "https://xluxemarketing.com/about#pearl-m",
+          "name": "Pearl M",
+          "jobTitle": "Chief Marketing Officer and Strategic Marketing Lead",
+          "url": "https://xluxemarketing.com/about",
+          "sameAs": [
+            "https://www.linkedin.com/in/pearl-mngomezulu-0675b635"
+          ],
+          "worksFor": {
+            "@id": "https://xluxemarketing.com/#organization"
+          }
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://xluxemarketing.com/#organization",
+          "name": "XL Marketing Services",
+          "url": "https://xluxemarketing.com/"
+        },
+        "mainEntityOfPage": "https://xluxemarketing.com/journal/ai-visibility-audit-vs-ai-search-strategy",
+        "url": "https://xluxemarketing.com/journal/ai-visibility-audit-vs-ai-search-strategy",
+        "inLanguage": "en",
+        "articleSection": "Analysis",
+        "isPartOf": {
+          "@type": "Blog",
+          "name": "Meridian Insights",
+          "url": "https://xluxemarketing.com/journal"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is an AI visibility audit?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A measurement of what AI platforms and search results currently say about a business: whether it appears, how it is described, which sources are used and how alternatives are presented."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is an AI search strategy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A plan built on that evidence. It explains why a business is or isn't considered, prioritises what to change, assigns owners and sets up a way to test whether the changes worked."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need an audit before a strategy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You need evidence before a strategy. That can be an audit, a set of controlled prompt tests or both. What matters is that the strategy rests on something observed, not assumed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What should an AI search strategy include?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A prioritised set of changes to your technical foundations, your content and entity clarity, and your public proof; the owner and resources for each; and a plan for retesting under the same conditions to see whether anything moved."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are AEO and GEO different from SEO?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "They are overlapping industry terms, not standardised optimisation systems with guaranteed outcomes. Google's guidance says established SEO practices remain relevant for its AI features and that no separate special optimisation is required for eligibility. We treat SEO, credibility, AEO and GEO as disciplines that inform one strategy, not four products."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can anyone guarantee AI will recommend my business?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. AI systems are proprietary and change without notice. What can be improved deliberately is the clarity, structure and credibility of the information they draw on."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long do improvements take?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "There is no reliable fixed timeline. It depends on your starting point, what changes and how systems update. Early signals may appear before commercial effects, and the commercial effect may take several buying cycles to evaluate."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://xluxemarketing.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Meridian Insights",
+            "item": "https://xluxemarketing.com/journal"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "AI Visibility Audit vs. AI Search Strategy: How to Turn Reports into Decisions",
+            "item": "https://xluxemarketing.com/journal/ai-visibility-audit-vs-ai-search-strategy"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <div class="page-wrap">
+
+    <!-- ── Navigation ─────────────────────────────────────────── -->
+    <nav class="site-nav">
+      <a href="/" class="site-logo"><img src="../images/xl-mark-forest.png" alt="" width="32" height="32"><span class="site-logo-text">XL Marketing</span></a>
+      <div class="nav-links">
+        <a href="/services">Services</a>
+        <details class="nav-dropdown">
+          <summary>Sectors</summary>
+          <div class="nav-dropdown-panel">
+            <a href="/sectors/luxury">Lifestyle &amp; Luxury</a>
+            <a href="/sectors/health-wellness-biohacking">Health, Wellness &amp; Biohacking</a>
+            <div class="ndp-divider"></div>
+            <a href="/sectors">All sectors <span>&rarr;</span></a>
+          </div>
+        </details>
+        <a href="/working-with-us">Working With Us</a>
+        <a href="/decision-led-growth">Marketing Decision-Led Growth</a>
+        <a href="/about">About</a>
+        <a href="/journal" class="current">Meridian Insights</a>
+        <a href="/diagnostics">Diagnostics</a>
+        <a href="/diagnostics" class="nav-cta">Take the free diagnostic</a>
+      </div>
+    </nav>
+
+    <main>
+
+    <!-- ── Breadcrumb ─────────────────────────────────────────── -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="sep">/</span>
+      <a href="/journal">Meridian Insights</a>
+      <span class="sep">/</span>
+      <span class="current">AI Visibility Audit vs. AI Search Strategy: How to Turn Reports into Decisions</span>
+    </nav>
+
+    <!-- ── Article head ─────────────────────────────────────────── -->
+    <div class="article-head">
+      <div class="article-meta-row">
+        <span class="format-badge">Analysis</span>
+        <span class="article-date">Published <time datetime="2026-10-14">14 October 2026</time> &middot; ~11 min read</span>
+      </div>
+      <h1>AI Visibility Audit vs. AI Search Strategy: How to Turn Reports into Decisions</h1>
+      <p class="article-dek">An audit tells you what AI platforms currently say about your business. A strategy tells you what to do about it. Most buyers are asking for the first when they need the second.</p>
+      <div class="article-byline">By <a href="/about">Pearl M</a> &middot; XL Marketing Services</div>
+    </div>
+
+    <!-- ── Share bar ────────────────────────────────────────────── -->
+    <div class="share-bar">
+      <span class="share-label">Share this article</span>
+      <div class="share-icons">
+        <a class="share-icon" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fxluxemarketing.com%2Fjournal%2Fai-visibility-audit-vs-ai-search-strategy" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 5a2 2 0 11-4-.002 2 2 0 014 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-3.96 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.68-2.91V8.48z"/></svg></a>
+        <a class="share-icon" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fxluxemarketing.com%2Fjournal%2Fai-visibility-audit-vs-ai-search-strategy&text=AI%20Visibility%20Audit%20vs.%20AI%20Search%20Strategy%3A%20How%20to%20Turn%20Reports%20into%20Decisions" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.146 2h3.05l-6.66 7.61L22.5 22h-6.12l-4.79-6.27L6.08 22H3.02l7.12-8.14L2 2h6.27l4.33 5.73L18.146 2zm-1.07 18.13h1.69L7.02 3.77H5.2l11.88 16.36z"/></svg></a>
+        <a class="share-icon" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fxluxemarketing.com%2Fjournal%2Fai-visibility-audit-vs-ai-search-strategy" target="_blank" rel="noopener" aria-label="Share on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 10-11.56 9.87v-6.98H7.9V12h2.54V9.8c0-2.5 1.5-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.98A10 10 0 0022 12z"/></svg></a>
+        <a class="share-icon" href="https://wa.me/?text=AI%20Visibility%20Audit%20vs.%20AI%20Search%20Strategy%3A%20How%20to%20Turn%20Reports%20into%20Decisions%20-%20https%3A%2F%2Fxluxemarketing.com%2Fjournal%2Fai-visibility-audit-vs-ai-search-strategy" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22l5.2-1.36a9.94 9.94 0 004.84 1.23h.004c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2zm5.84 14.24c-.25.7-1.45 1.34-2 1.42-.51.08-1.15.11-1.86-.12-.43-.14-.98-.32-1.68-.63-2.96-1.28-4.9-4.26-5.05-4.46-.15-.2-1.2-1.6-1.2-3.05 0-1.45.76-2.16 1.03-2.46.27-.3.59-.37.79-.37.2 0 .4 0 .57.01.18.01.43-.07.67.51.25.6.85 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.31.4-.44.53-.15.15-.3.32-.13.62.17.3.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.36 1.46.3.15.48.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.7-.17 1.4z"/></svg></a>
+        <button type="button" class="share-icon" aria-label="Copy link for Instagram" onclick="shareInstagram(this)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.24 2.23.41.56.21.96.47 1.38.89.42.42.68.82.89 1.38.17.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.8-.41 2.23-.21.56-.47.96-.89 1.38-.42.42-.82.68-1.38.89-.42.17-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.24-2.23-.41a3.72 3.72 0 01-1.38-.89 3.72 3.72 0 01-.89-1.38c-.17-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.24-1.8.41-2.23.21-.56.47-.96.89-1.38.42-.42.82-.68 1.38-.89.42-.17 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.39C1.35 2.68.94 3.35.63 4.14c-.3.76-.5 1.64-.56 2.91C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.39 2.13.67.67 1.34 1.08 2.13 1.39.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.39.67-.67 1.08-1.34 1.39-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.85 5.85 0 00-1.39-2.13A5.85 5.85 0 0019.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1018.16 12 6.16 6.16 0 0012 5.84zm0 10.16A4 4 0 1116 12a4 4 0 01-4 4zm6.41-10.44a1.44 1.44 0 11-1.44-1.44 1.44 1.44 0 011.44 1.44z"/></svg></button>
+        <a class="share-icon" href="mailto:?subject=AI%20Visibility%20Audit%20vs.%20AI%20Search%20Strategy%3A%20How%20to%20Turn%20Reports%20into%20Decisions&body=Thought%20this%20was%20worth%20a%20read%3A%20AI%20Visibility%20Audit%20vs.%20AI%20Search%20Strategy%3A%20How%20to%20Turn%20Reports%20into%20Decisions%0A%0Ahttps%3A%2F%2Fxluxemarketing.com%2Fjournal%2Fai-visibility-audit-vs-ai-search-strategy" aria-label="Share by email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A2.5 2.5 0 014.5 3h15A2.5 2.5 0 0122 5.5v13a2.5 2.5 0 01-2.5 2.5h-15A2.5 2.5 0 012 18.5v-13zm2.2.5l7.8 6.24L19.8 6H4.2zM20 8.16l-7.4 5.92a1 1 0 01-1.2 0L4 8.16V18.5a.5.5 0 00.5.5h15a.5.5 0 00.5-.5V8.16z"/></svg></a>
+      </div>
+      <span class="share-copied-note" id="share-copied-note" role="status" aria-live="polite">Link copied. Paste it into your Instagram bio or story.</span>
+    </div>
+    <script>
+      function shareInstagram(btn) {
+        var url = 'https://xluxemarketing.com/journal/ai-visibility-audit-vs-ai-search-strategy';
+        navigator.clipboard.writeText(url).then(function () {
+          var note = document.getElementById('share-copied-note');
+          note.classList.add('show');
+          setTimeout(function () { note.classList.remove('show'); }, 3500);
+        });
+      }
+    </script>
+
+    <!-- ── Key answer (kept as real HTML text, high in the article) ── -->
+    <div class="direct-answer">
+      <p><strong>Direct answer</strong>An AI visibility audit tells you what AI platforms and search results currently say about your business. An AI search strategy investigates why your business is or isn't being considered, what influences those decisions, and which changes are worth making. If you need to know where you stand, start with an audit. If you need to decide what to do next, you need a strategy.</p>
+    </div>
+
+    <!-- ── Hero image ────────────────────────────────────────────── -->
+    <figure class="article-hero">
+      <img src="../images/audit-vs-strategy-hero.jpg" width="1600" height="900" alt="Title card reading: Audit or strategy? A visibility report tells you where you stand. A strategy tells you what to do next." loading="eager" decoding="async">
+    </figure>
+
+    <!-- ── Article body ─────────────────────────────────────────── -->
+    <div class="article-body">
+      <p class="lede">If you have an AI visibility report and still don't know what to do on Monday morning, you have met the gap this article is about.</p>
+
+      <p>Imagine a CEO asking an AI assistant to find a marketing consultancy that can build a growth strategy for a business expanding from South Africa into the UAE.</p>
+
+      <p>Three things could happen.</p>
+
+      <p>The assistant might never discover your business.</p>
+
+      <p>It might discover you but misunderstand what you offer.</p>
+
+      <p>Or it might understand your offer perfectly and still recommend someone else, because its reading of the buyer's requirements favours another provider.</p>
+
+      <p>Those are three different problems. They need three different fixes.</p>
+
+      <p>And a conventional AI visibility audit may not tell them apart.</p>
+
+      <h2>The difference: an audit measures, a strategy decides</h2>
+
+      <p>An <strong>AI visibility audit</strong> diagnoses your current baseline. It checks what AI platforms and search results say about you: whether you appear, how you are described, which sources they rely on and how competitors are presented. A thorough one also tests whether your content can be extracted as a direct answer (what the industry calls answer engine optimisation, or AEO) and whether AI systems can identify, corroborate and cite your brand from public evidence (generative engine optimisation, or GEO). It can expose blind spots, such as a page that ranks well in traditional search but is rarely or never cited in the AI answers you tested.</p>
+
+      <p>An <strong>AI search strategy</strong> is the plan for acting on what the audit finds. It works out why those blind spots exist, decides which are worth fixing first, and sets out the changes to structure, content, evidence and third-party corroboration that are most likely to help, with owners, resources and a way to test whether they worked.</p>
+
+      <p>SEO helps search engines find and understand you. A strategy asks what would make you the business worth recommending, then tests whether the changes moved anything. Nobody controls what an AI system finally says, so a credible strategy tests and adjusts. It does not promise.</p>
+
+      <h3>What an audit does well</h3>
+
+      <p>An audit is a measurement. It records what AI platforms and search results currently say about your business.</p>
+
+      <p>That is useful. You cannot improve what you have not measured, and a baseline is the first thing any serious test needs.</p>
+
+      <p>But an audit has limits worth knowing before you buy one.</p>
+
+      <ul>
+        <li><strong>It is a snapshot.</strong> AI answers vary between sessions and platforms.</li>
+        <li><strong>Coverage can be thin.</strong> A young or niche business may have little presence in existing prompt indexes. That absence does not prove you never appear in AI answers.</li>
+        <li><strong>It describes. It does not explain.</strong> &ldquo;Your brand appears in two of the ten searches we tested&rdquo; is a finding. It is not a decision.</li>
+      </ul>
+
+      <h3>What a strategy adds</h3>
+
+      <p>A strategy starts where the audit stops. It asks why.</p>
+
+      <p>Why does the business appear in broad category searches but disappear when buyers compare providers? Why does the assistant describe you as an execution agency when you sell strategy? Why are competitors cited with case studies when your evidence is harder to find?</p>
+
+      <p class="list-lead">Then it connects the answers to commercial choices:</p>
+
+      <ul>
+        <li>which barriers matter most, and which to tackle first;</li>
+        <li>what should change in the proposition, content, evidence or customer experience;</li>
+        <li>who owns each change, and what resources it needs; and</li>
+        <li>how you will test whether the change worked.</li>
+      </ul>
+
+      <p>The difference is easier to see side by side.</p>
+
+      <div class="table-scroll">
+        <table class="comparison-table">
+          <caption>AI visibility audit and AI search strategy compared</caption>
+          <thead>
+            <tr>
+              <th scope="col"><span class="visually-hidden">Dimension</span></th>
+              <th scope="col">AI visibility audit</th>
+              <th scope="col">AI search strategy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Question it answers</th><td>What do AI platforms say about us?</td><td>Why are we, or aren't we, considered, and what should we change?</td></tr>
+            <tr><th scope="row">Typical output</th><td>Scores, mentions, citations, competitor comparison</td><td>Prioritised decisions, an action plan, owners and a testing plan</td></tr>
+            <tr><th scope="row">Evidence it needs</th><td>Prompt tests and available tool data</td><td>The same, plus buyer intent, positioning, proof and competitor context</td></tr>
+            <tr><th scope="row">What it helps you decide</th><td>Whether there is a visibility problem</td><td>Where to invest next</td></tr>
+            <tr><th scope="row">Main risk</th><td>A number that nobody knows how to act on</td><td>Recommendations built on thin evidence</td></tr>
+            <tr><th scope="row">Best when</th><td>You need a baseline</td><td>You need a plan</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>The same finding, read two ways</h2>
+
+      <p>Take a hypothetical finding: a business appears in 7 of 10 broad category tests, but only 2 of 10 tests written the way a real buyer would phrase a comparison.</p>
+
+      <p>An audit reports it. A strategy interprets it. Category relevance may be stronger than relevance to a specific use case. That points to a decision: test targeted service and sector positioning.</p>
+
+      <p>Change the finding, and the decision changes. If competitors are cited using published case studies, your evidence may be less accessible or less corroborated, so the decision becomes building verifiable proof and third-party references. If AI describes you as an execution agency rather than a strategy partner, review the source language and correct verified misrepresentation. If visibility is strong but qualified enquiries are few, discovery may not be your bottleneck at all, and the investigation moves to offer clarity and conversion.</p>
+
+      <p class="d2d-note"><em>This is a hypothetical example, not a client result. None of these conclusions should be drawn from a single AI response. Good practice repeats the tests under documented conditions, compares sources and validates commercial hypotheses wherever possible.</em></p>
+
+      <h2>What a good strategy delivers</h2>
+
+      <p class="list-lead">If you are choosing who should build your strategy, look for deliverables that go beyond keyword optimisation.</p>
+
+      <ul>
+        <li><strong>Technical foundations and structured data.</strong> Your site structure, schema markup and crawlable content let search and AI systems retrieve and interpret what you publish. Files such as <code>llms.txt</code> are sometimes recommended here. They are harmless to add, but evidence that the major AI platforms rely on them is limited, so treat them as optional, not as the fix.</li>
+        <li><strong>Semantic and entity clarity.</strong> Content moves from keyword matching to answering real buyer questions in context, so that systems can tell who you are, what you do and who it is for.</li>
+        <li><strong>Public proof and citations.</strong> What other people say about a business matters, and it is the part an audit score cannot change. A strategy builds corroboration through verifiable reviews, credible directory listings, partner content and, where relevant, digital PR. It does not promise a particular citation.</li>
+      </ul>
+
+      <h3>Why off-site evidence changes the question</h3>
+
+      <p>AirOps analysed 21,311 cited brand mentions across more than 500 commercial-discovery queries on ChatGPT, Claude and Perplexity. About 85% were attributed to external domains, and about 13% to the brand's own domain.<sup><a class="cite" href="#source-1">[1]</a></sup> It is a directional finding for commercial-discovery queries, not a universal statistic. But it suggests that what others say about you can matter as much as what you say about yourself, and no audit score tells you how to change that.</p>
+
+      <h2>From being found to being chosen</h2>
+
+      <p>A business may appear in search results or AI answers without being well understood, or considered relevant, by the system answering.</p>
+
+      <p>And a buyer's intent changes as they go. They start by exploring a problem, move to defining what they need, compare providers, then decide and act. An audit gives you one moment in that journey. A strategy connects the whole of it.</p>
+
+      <p>We map this in the <a href="/discovery-to-decision#map">Discovery-to-Decision Map</a>: five intent states, how each shows up in traditional and conversational search, and what the brand needs to do at each one. It is why the three problems at the start of this piece need different answers.</p>
+
+      <h2>Choosing the right kind of help</h2>
+
+      <p>When you look for help with AI visibility, you will usually meet three kinds of provider. They solve different problems, and the mistake is buying one when you need another.</p>
+
+      <p class="scroll-hint">Scroll sideways to see all three columns.</p>
+      <div class="table-scroll">
+        <table class="comparison-table wide">
+          <caption>Three kinds of AI visibility help: typical models, not a market survey</caption>
+          <thead>
+            <tr>
+              <th scope="col"><span class="visually-hidden">Dimension</span></th>
+              <th scope="col">Visibility software</th>
+              <th scope="col">Traditional SEO agencies</th>
+              <th scope="col">Strategic consultancies (XL is one)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Primary goal</th><td>Baseline visibility tracking</td><td>Rankings and traffic from traditional search</td><td>Deciding what to change, and in what order, across discovery, positioning and proof</td></tr>
+            <tr><th scope="row">What you typically get</th><td>Dashboards, mention and citation tracking, data exports</td><td>Technical SEO, content, links</td><td>A prioritised plan and buyer-intent map; implementation where the engagement includes it</td></tr>
+            <tr><th scope="row">Main strength</th><td>Continuous measurement at low cost</td><td>Deep technical and on-page execution</td><td>Connects findings to commercial decisions</td></tr>
+            <tr><th scope="row">Main limit</th><td>Reports, but does not advise on what to do</td><td>AI citation work is often a secondary focus</td><td>Needs enough evidence, and an owner for the changes</td></tr>
+            <tr><th scope="row">Typical pricing model</th><td>Monthly subscription</td><td>Ongoing monthly retainers</td><td>XL: workshops from $200, Sprints from $6,500, Growth Audit from $9,500, Studio Partnerships from $5,500 a month</td></tr>
+            <tr><th scope="row">Best for</th><td>Teams with the in-house capacity to act on the data</td><td>Businesses whose priority is traditional website traffic</td><td>Businesses that have the data but lack the roadmap</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="d2d-note">AI implementation consultants, who help organisations adopt AI systems and automate workflows, are a different category again and not covered here. Individual providers vary across all three columns.</p>
+
+      <h3>Which kind of help fits you?</h3>
+
+      <p>Your situation decides which of these is the right starting point. Move the sliders to describe yours, or start from a common scenario.</p>
+
+      <!-- Interactive chooser. Plain HTML and JavaScript; the scoring grid is documented under the tool. -->
+      <div class="fit-tool" id="fit-tool" role="group" aria-labelledby="fit-title">
+        <h4 class="fit-title" id="fit-title">Which kind of help fits your situation?</h4>
+        <div class="fit-presets" role="group" aria-label="Start from a common scenario">
+          <button type="button" class="fit-preset" data-preset="baseline">I need a baseline</button>
+          <button type="button" class="fit-preset" data-preset="roadmap">I have data, no roadmap</button>
+          <button type="button" class="fit-preset" data-preset="fixes">I need fixes carried out</button>
+        </div>
+        <div class="fit-sliders">
+          <div class="fit-slider"><label for="fit-baseline">I need to know where I stand <output id="out-baseline" for="fit-baseline">70</output></label><input type="range" id="fit-baseline" min="0" max="100" value="70" step="5"></div>
+          <div class="fit-slider"><label for="fit-plan">I need to decide what to change, and in what order <output id="out-plan" for="fit-plan">30</output></label><input type="range" id="fit-plan" min="0" max="100" value="30" step="5"></div>
+          <div class="fit-slider"><label for="fit-delivery">I need someone to carry the changes out <output id="out-delivery" for="fit-delivery">30</output></label><input type="range" id="fit-delivery" min="0" max="100" value="30" step="5"></div>
+          <div class="fit-slider"><label for="fit-budget">My budget is tight <output id="out-budget" for="fit-budget">60</output></label><input type="range" id="fit-budget" min="0" max="100" value="60" step="5"></div>
+        </div>
+        <div class="fit-result" aria-live="polite">
+          <p class="fit-winner" id="fit-winner"></p>
+          <p class="fit-why" id="fit-why"></p>
+          <ul class="fit-bars" id="fit-bars"></ul>
+        </div>
+        <p class="fit-note">An illustrative rule of thumb built from the comparison above. The fit ratings are our judgement of typical models, not a scored assessment or market survey, and they cannot account for individual providers. Treat the result as a place to start, then use the questions below.</p>
+        <noscript><p class="fit-note">This chooser needs JavaScript. In short: choose visibility software if you need a baseline and can act on the data yourself; a traditional SEO agency if hands-on execution matters most; a strategic consultancy if you have data but need decisions.</p></noscript>
+      </div>
+
+      <h2>Six questions to ask before you buy</h2>
+
+      <ol class="criteria-list">
+        <li><strong>What will I know after this that I don't know now?</strong></li>
+        <li><strong>What decision will it help me make?</strong></li>
+        <li><strong>What evidence will it rest on, and how is success measured?</strong> Is it traditional rankings alone, or also whether your brand is included, extracted and recommended in AI answers?</li>
+        <li><strong>How transparent is the method?</strong> You should be able to see which prompts, platforms and buyer personas were tested, and under what conditions. Be wary of black boxes.</li>
+        <li><strong>What will you not promise?</strong> If the answer is nothing, be careful. Who carries out the changes, and is that included?</li>
+        <li><strong>How will we test whether anything improved?</strong></li>
+      </ol>
+
+      <p>A good provider answers all six plainly. Nobody can guarantee a citation or a recommendation from a specific AI system, because those systems are proprietary and change without notice.</p>
+
+      <p>If your buyers are concentrated in one region, add a seventh: does the provider understand how your market actually searches and asks AI for recommendations, in the languages and with the local sources that matter to it?</p>
+
+      <h2>When an audit is enough, and when you need neither</h2>
+
+      <p>An audit alone is enough when you already know your positioning and proof are strong, you have the capacity to act on the findings yourself, and what you lack is a baseline.</p>
+
+      <p>You may need neither yet if your real constraint is elsewhere. If customers find you but few become customers, the problem may be your offer, pricing or buying process, and more visibility will not fix it. Diagnose before you invest. Google's own guidance says established SEO practices remain relevant for AI features, and that no special extra optimisation is required to be eligible.<sup><a class="cite" href="#source-2">[2]</a></sup> The foundations still matter.</p>
+
+      <h2>How XL approaches it</h2>
+
+      <p>XL is a strategic marketing consultancy, not a reporting tool. We use visibility evidence to decide what to change, then test whether it worked.</p>
+
+      <p>We would rather you start small and sure than commit to a vague, open-ended retainer. So we begin with a defined workshop that ends in a plan your team can carry out, and offer Sprints, a Growth Audit and Studio Partnerships where the work needs implementing or sustained measurement.</p>
+
+      <ul>
+        <li><strong>Discovery Starter, $200.</strong> Ninety minutes to understand your visibility gaps and choose the first experiments worth running.</li>
+        <li><strong>Positioning Lab, $497.</strong> Three hours to clarify how customers and AI systems should understand your business.</li>
+        <li><strong>Strategy Intensive, $950.</strong> A full day to connect all six levers into a practical 12-week improvement strategy.</li>
+      </ul>
+
+      <p>The workshops deliver diagnosis, decisions and guidance your team can carry out. Implementation is separately scoped. You can see exactly what each includes in <a href="/discovery-to-decision#workshops">the strategy workshops</a>, or start with the free <a href="/diagnostics/ai-visibility">AI Discovery Readiness Assessment</a> (four minutes), which every workshop reviews.</p>
+
+      <p class="d2d-note"><em>Disclosure: XL sells this kind of work, so weigh this piece accordingly. We have tried to say where an audit or software alone is the right answer.</em></p>
+
+      <h2>The short answers</h2>
+
+      <div class="faq-section">
+        <div class="faq-item">
+          <h3>What is an AI visibility audit?</h3>
+          <p>A measurement of what AI platforms and search results currently say about a business: whether it appears, how it is described, which sources are used and how alternatives are presented.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What is an AI search strategy?</h3>
+          <p>A plan built on that evidence. It explains why a business is or isn't considered, prioritises what to change, assigns owners and sets up a way to test whether the changes worked.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do I need an audit before a strategy?</h3>
+          <p>You need evidence before a strategy. That can be an audit, a set of controlled prompt tests or both. What matters is that the strategy rests on something observed, not assumed.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What should an AI search strategy include?</h3>
+          <p>A prioritised set of changes to your technical foundations, your content and entity clarity, and your public proof; the owner and resources for each; and a plan for retesting under the same conditions to see whether anything moved.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Are AEO and GEO different from SEO?</h3>
+          <p>They are overlapping industry terms, not standardised optimisation systems with guaranteed outcomes. Google's guidance says established SEO practices remain relevant for its AI features and that no separate special optimisation is required for eligibility.<sup><a class="cite" href="#source-2">[2]</a></sup> We treat SEO, credibility, AEO and GEO as disciplines that inform one strategy, not four products.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Can anyone guarantee AI will recommend my business?</h3>
+          <p>No. AI systems are proprietary and change without notice. What can be improved deliberately is the clarity, structure and credibility of the information they draw on.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How long do improvements take?</h3>
+          <p>There is no reliable fixed timeline. It depends on your starting point, what changes and how systems update. Early signals may appear before commercial effects, and the commercial effect may take several buying cycles to evaluate.</p>
+        </div>
+      </div>
+
+      <h2>What this means for your next decision</h2>
+
+      <p>Search is becoming a conversation. A visibility score tells you how the conversation currently goes. A strategy tells you how to change it, and whether changing it is worth the investment.</p>
+
+      <p>The question is not whether you can see your visibility. It is whether you know what to do about it.</p>
+    </div>
+
+    <!-- ── Sources ──────────────────────────────────────────────── -->
+    <div class="sources-section">
+      <h2>Sources</h2>
+      <ol>
+        <li id="source-1">AirOps, &ldquo;The Influence of Off-Site Signals in AI Search&rdquo;. <a class="ext" href="https://www.airops.com/report/the-influence-of-offsite-signals-in-ai-search" target="_blank" rel="noopener">airops.com<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+        <li id="source-2">Google Search Central, &ldquo;AI features and your website&rdquo;. <a class="ext" href="https://developers.google.com/search/docs/appearance/ai-features" target="_blank" rel="noopener">developers.google.com<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+      </ol>
+    </div>
+
+    <!-- ── Editorial note ────────────────────────────────────────── -->
+    <div class="editorial-note">
+      <h3>Editorial evidence note</h3>
+      <p>The AirOps figures are as published in its report and apply to commercial-discovery queries on the platforms it studied; XL has not independently verified them.<sup><a class="cite" href="#source-1">[1]</a></sup> The &ldquo;same finding&rdquo; example is hypothetical. The provider comparison and the chooser describe typical models and reflect XL's judgement. They are not a market survey, and individual providers vary.</p>
+    </div>
+
+    <!-- ── Author bio ───────────────────────────────────────────── -->
+    <div class="author-bio">
+      <img src="../images/pearl-m.jpg" alt="Pearl M" width="64" height="64" loading="lazy" decoding="async">
+      <div>
+        <div class="author-name"><a href="/about">Pearl M</a></div>
+        <div class="author-role">Chief Marketing Officer, XL Marketing Services</div>
+        <p class="author-text">Pearl is a marketing leader and brand strategist with more than 25 years of experience across telecommunications, fintech, enterprise technology, infrastructure, luxury services and emerging technology, including leadership roles at Vodacom, PayU and Dimension Data/NTT. At XL, she leads the strategic architecture behind Marketing Decision-Led Growth: defining the market opportunity, clarifying the proposition and creating the marketing system required to build demand. <a href="https://www.linkedin.com/in/pearl-mngomezulu-0675b635" target="_blank" rel="noopener">Pearl on LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a></p>
+      </div>
+    </div>
+
+    <div class="about-xl">
+      <p><strong>About XL Marketing Services.</strong> XL Marketing Services is a strategic marketing and growth consultancy helping founders, CEOs and marketing leaders improve <a href="/services/brand-positioning">positioning</a>, <a href="/services/go-to-market-product-marketing">go-to-market strategy</a>, <a href="/services/b2b-growth-abm">B2B growth</a> and <a href="/services/ai-search-visibility">AI visibility</a>. Its Marketing Decision-Led Growth method starts with the quality of the evidence, questions and assumptions shaping action.</p>
+    </div>
+
+    <!-- ── Closing prompt (deliberately restrained) ─────────────── -->
+    <div class="end-cta-panel">
+      <div class="section-label">Choose your starting point</div>
+      <h2>Decide whether you need a baseline or a plan.</h2>
+      <p>The AI Discovery Readiness Assessment takes about four minutes and shows where you may be losing opportunities across discovery, understanding, credibility and customer choice.</p>
+      <div class="end-cta-buttons">
+        <div class="end-cta-btn-group">
+          <a href="/diagnostics/ai-visibility" class="btn btn-diagnostic" data-track="audit_strategy_cta_assessment" data-loc="end">Take the AI Discovery Readiness Assessment</a>
+          <span class="btn-micro">12 questions &middot; approximately four minutes</span>
+        </div>
+      </div>
+      <p class="end-cta-alt">Already know you need a plan? <a href="/discovery-to-decision#workshops" data-track="audit_strategy_cta_workshops" data-loc="end">See the strategy workshops</a> or <a href="/contact?service=AI%20visibility%20audit%20vs%20strategy" data-track="audit_strategy_cta_enquiry" data-loc="end">discuss your AI visibility gap with our team</a>.</p>
+    </div>
+
+    <!-- ── Related reading ──────────────────────────────────────── -->
+    <div class="related-reading">
+      <div class="section-label">Related reading</div>
+      <div class="related-links">
+        <a href="/discovery-to-decision">Discovery-to-Decision Strategy: From Being Found to Being Chosen <span>&rarr;</span></a>
+        <a href="/journal/build-visibility-when-buyers-no-longer-click">How to Build Brand Visibility When Buyers No Longer Click <span>&rarr;</span></a>
+        <a href="/journal/is-marketing-dead">Marketing Is Dead. Again. But Did the Customer Change? <span>&rarr;</span></a>
+      </div>
+    </div>
+
+    <!-- ── Footer ───────────────────────────────────────────────── -->
+        </main>
+
+    <footer class="site-footer">
+      <div class="footer-logo">XL Marketing Services</div>
+      <div class="footer-address">Dubai, UAE &middot; <a href="tel:+971521489618">+971 52 148 9618</a></div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/services">Services</a>
+        <a href="/working-with-us">Working With Us</a>
+        <a href="/decision-led-growth">Marketing Decision-Led Growth</a>
+        <a href="/about">About</a>
+        <a href="/journal">Meridian Insights</a>
+        <a href="/diagnostics">Diagnostics</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy</a>
+        <a href="#" onclick="window.XLConsent &amp;&amp; XLConsent.open(); return false;">Cookie preferences</a>
+      </div>
+    </footer>
+
+  </div><!-- /page-wrap -->
+
+  <script>
+    // The browser's native scroll-to-fragment on load is unreliable once
+    // scroll-behavior:smooth is set on <html> (a known cross-browser
+    // inconsistency) -- so a link like page.html#some-id can land at the
+    // top of the page instead. Scroll to it manually once everything,
+    // including images, has finished loading and settled.
+    window.addEventListener('load', function () {
+      if (location.hash) {
+        var target = document.querySelector(location.hash);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  </script>
+  <script>
+    /* Chooser: weights are the sliders (0 to 100); each kind of help has an illustrative 0 to 10 rating per driver.
+       Ratings: [baseline, plan, delivery, budget-fit]. They are editorial judgements of typical models, stated on the page. */
+    (function () {
+      var root = document.getElementById('fit-tool');
+      if (!root) return;
+      var KINDS = [
+        { key: 'software',    name: 'Visibility software',          r: [9, 2, 1, 9] },
+        { key: 'seo',         name: 'Traditional SEO agency',       r: [4, 4, 8, 4] },
+        { key: 'consultancy', name: 'Strategic consultancy',        r: [5, 9, 5, 5] }
+      ];
+      var WHY = {
+        software: 'Start with visibility software. It gives you a low-cost baseline and ongoing tracking, and works best when your team can act on the data itself.',
+        seo: 'A traditional SEO agency fits best when hands-on execution matters most. Ask how much of its work covers AI discovery, which is often a secondary focus.',
+        consultancy: 'A strategic consultancy fits best when you have, or can get, the data but need decisions: what to change, in what order, and how to test whether it worked.'
+      };
+      var PRESETS = {
+        baseline: { baseline: 90, plan: 20, delivery: 20, budget: 70 },
+        roadmap:  { baseline: 30, plan: 90, delivery: 40, budget: 40 },
+        fixes:    { baseline: 30, plan: 40, delivery: 90, budget: 30 }
+      };
+      var ids = ['baseline', 'plan', 'delivery', 'budget'];
+      var inputs = {}, outs = {};
+      ids.forEach(function (k) { inputs[k] = document.getElementById('fit-' + k); outs[k] = document.getElementById('out-' + k); });
+      var winnerEl = document.getElementById('fit-winner'), whyEl = document.getElementById('fit-why'), barsEl = document.getElementById('fit-bars');
+      var interacted = false;
+
+      function track(name, params) { try { if (typeof window.gtag === 'function') window.gtag('event', name, params || {}); } catch (e) {} }
+
+      function compute() {
+        var w = ids.map(function (k) { return +inputs[k].value; });
+        var total = w.reduce(function (a, b) { return a + b; }, 0);
+        return KINDS.map(function (kind) {
+          var s = total === 0 ? 50 : kind.r.reduce(function (a, r, i) { return a + r * w[i]; }, 0) / total * 10;
+          return { kind: kind, score: s };
+        });
+      }
+
+      function label(top, s) {
+        if (s === top) return 'Best starting point';
+        if (top - s <= 8) return 'Also a good fit';
+        if (top - s <= 20) return 'Partial fit';
+        return 'Weaker fit';
+      }
+
+      function render() {
+        ids.forEach(function (k) { outs[k].textContent = inputs[k].value; });
+        var res = compute();
+        var sorted = res.slice().sort(function (a, b) { return b.score - a.score; });
+        var top = sorted[0].score;
+        winnerEl.textContent = 'Best starting point: ' + sorted[0].kind.name;
+        var why = WHY[sorted[0].kind.key];
+        if (sorted[0].score - sorted[1].score < 5) why += ' It is a close call with ' + sorted[1].kind.name.toLowerCase() + ', so let the six questions below decide.';
+        whyEl.textContent = why;
+        barsEl.innerHTML = '';
+        sorted.forEach(function (r) {
+          var li = document.createElement('li');
+          if (r.score === top) li.className = 'fit-top';
+          var width = Math.max(4, Math.round(r.score));
+          li.innerHTML = '<div class="fit-row-head"><span>' + r.kind.name + '</span><span class="fit-label">' + label(top, r.score) + '</span></div>' +
+            '<div class="fit-track" aria-hidden="true"><span class="fit-fill" style="width:' + width + '%"></span></div>';
+          barsEl.appendChild(li);
+        });
+      }
+
+      function touched(source) {
+        if (!interacted) { interacted = true; track('audit_strategy_chooser_interaction', { source: source }); }
+      }
+
+      ids.forEach(function (k) {
+        inputs[k].addEventListener('input', function () {
+          root.querySelectorAll('.fit-preset').forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
+          touched('slider'); render();
+        });
+        inputs[k].addEventListener('change', function () { track('audit_strategy_chooser_result', { top: compute().sort(function (a, b) { return b.score - a.score; })[0].kind.key }); });
+      });
+      root.querySelectorAll('.fit-preset').forEach(function (btn) {
+        btn.setAttribute('aria-pressed', 'false');
+        btn.addEventListener('click', function () {
+          var p = PRESETS[btn.getAttribute('data-preset')];
+          ids.forEach(function (k) { inputs[k].value = p[k]; });
+          root.querySelectorAll('.fit-preset').forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+          touched('preset:' + btn.getAttribute('data-preset')); render();
+          track('audit_strategy_chooser_result', { top: compute().sort(function (a, b) { return b.score - a.score; })[0].kind.key });
+        });
+      });
+
+      /* Track clicks on the article's calls to action */
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest ? e.target.closest('[data-track]') : null;
+        if (a) track(a.getAttribute('data-track'), { location: a.getAttribute('data-loc') || '' });
+      });
+      render();
+    })();
+  </script>
+  <script src="/search.js" defer></script>
+</body>
+</html>
