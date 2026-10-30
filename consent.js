@@ -1,6 +1,6 @@
 /* XL Marketing Services — cookie/tracking consent banner + gated analytics loader.
-   Loads Google Analytics, Microsoft Clarity (heatmaps and session recordings)
-   and the Leadsy.ai visitor-ID pixel only after the visitor accepts, or
+   Loads Google Analytics, Microsoft Clarity (heatmaps and session recordings),
+   Ahrefs Web Analytics and the Leadsy.ai visitor-ID pixel only after the visitor accepts, or
    immediately if they've already accepted previously.
    Respects the Global Privacy Control signal by treating it as a decline. */
 (function () {
@@ -8,6 +8,7 @@
   var CLARITY_ID = 'ysymrgwzlj';
   var LEADSY_PID = 'IXhkLX0Vq0SNEFvX';
   var LEADSY_VERSION = '062024';
+  var AHREFS_KEY = 'y8TJDXNTPzaYYQm2zrthMA';
   /* Bumped to _v2 when Clarity (session recording) was added, so everyone is
      asked again and their consent covers the purposes now disclosed. */
   var STORAGE_KEY = 'xl_consent_v2';
@@ -49,6 +50,13 @@
     leadsy.dataset.pid = LEADSY_PID;
     leadsy.dataset.version = LEADSY_VERSION;
     document.head.appendChild(leadsy);
+
+    /* Ahrefs Web Analytics */
+    var ahrefs = document.createElement('script');
+    ahrefs.async = true;
+    ahrefs.src = 'https://analytics.ahrefs.com/analytics.js';
+    ahrefs.setAttribute('data-key', AHREFS_KEY);
+    document.head.appendChild(ahrefs);
   }
 
   var STYLE = '\
