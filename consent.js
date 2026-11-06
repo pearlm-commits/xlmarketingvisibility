@@ -72,6 +72,50 @@
     }
   };
 
+  /* GA4 events. window.gtag only exists after consent (see loadTrackers), so
+     XLTrack does nothing for visitors who have not accepted analytics. */
+  function track(name, params) {
+    try { if (typeof window.gtag === 'function') window.gtag('event', name, params || {}); } catch (e) { /* ignore */ }
+  }
+  window.XLTrack = track;
+
+  function linkLocation(el) {
+    if (el.closest('.sticky-cta')) return 'sticky_bar';
+    if (el.closest('footer')) return 'footer';
+    if (el.closest('nav, .site-nav')) return 'navigation';
+    if (el.closest('.hero')) return 'hero';
+    return 'page';
+  }
+
+  /* Clicks are tracked under their own names so they are never confused with
+     completed submissions (generate_lead on the contact form, diagnostic_complete
+     in the diagnostics). Links that carry data-track are already reported by
+     their own page script and are skipped here. */
+  function trackClicks() {
+    document.addEventListener('click', function (e) {
+      var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+      if (!a || a.hasAttribute('data-track')) return;
+      var href = a.getAttribute('href') || '';
+      var where = linkLocation(a);
+      if (href.indexOf('tel:') === 0) return track('phone_click', { link_location: where });
+      if (/^https?:\/\/(wa\.me|api\.whatsapp\.com)\//.test(href)) return track('whatsapp_click', { link_location: where });
+      if (href.indexOf('mailto:') === 0) return track('email_click', { link_location: where });
+      var u;
+      try { u = new URL(href, window.location.href); } catch (err) { return; }
+      if (u.origin !== window.location.origin) return;
+      var path = u.pathname.replace(/\.html$/, '').replace(/\/$/, '');
+      if (path === '/contact') {
+        track('enquiry_click', {
+          service_interest: u.searchParams.get('service') || u.searchParams.get('package') || (u.searchParams.get('meeting') ? 'meeting_request' : ''),
+          link_location: where
+        });
+      } else {
+        var d = path.match(/^\/diagnostics(?:\/(ai-visibility|marketing-readiness|wellness-growth))?$/);
+        if (d) track('diagnostic_link_click', { diagnostic: d[1] || 'overview', link_location: where });
+      }
+    }, true);
+  }
+
   var trackersLoaded = false;
   function loadTrackers() {
     if (trackersLoaded) return;
@@ -84,6 +128,7 @@
     window.gtag = gtag;
     gtag('js', new Date());
     gtag('config', GA_ID);
+    trackClicks();
 
     var ga = document.createElement('script');
     ga.async = true;

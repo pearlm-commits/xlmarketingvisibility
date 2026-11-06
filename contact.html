@@ -313,6 +313,7 @@
         "name": "XL Marketing Services",
         "alternateName": "XL",
         "url": "https://xluxemarketing.com/",
+        "sameAs": ["https://www.linkedin.com/company/xl-marketing-services/", "https://share.google/sLUrRbYNsAiIcU2ZF"],
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Al Khaleej Al Tejari 2 Street, Business Bay",
@@ -588,6 +589,17 @@
           headers: { 'Accept': 'application/json' }
         }).then(function (response) {
           if (response.ok) {
+            /* Completed submission, reported to GA4 as a lead (analytics
+               consent only). Kept separate from the click events. */
+            const urlParams = new URLSearchParams(window.location.search);
+            if (window.XLTrack) {
+              window.XLTrack('generate_lead', {
+                lead_type: formData.get('package_interest') ? 'workshop_enquiry' : 'contact_enquiry',
+                form_type: formData.get('form_type') || '',
+                service_interest: formData.get('package_interest') || urlParams.get('service') || '',
+                meeting_preference: formData.get('meeting_preference') || ''
+              });
+            }
             /* Also add the enquiry to the CRM (Zoho Bigin). Best-effort: the
                enquiry has already reached us through Formspree, so a CRM
                problem must never affect the visitor. */
@@ -605,6 +617,7 @@
             throw new Error('Formspree error');
           }
         }).catch(function () {
+          if (window.XLTrack) window.XLTrack('contact_form_error', { form_type: formData.get('form_type') || '' });
           submitBtn.disabled = false;
           submitBtn.textContent = 'Send this to XL';
           alert("Something went wrong sending your enquiry. Please email pearl@xluxemarketing.com directly, or try again.");
