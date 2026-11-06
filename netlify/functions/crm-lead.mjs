@@ -150,6 +150,7 @@ export default async (req) => {
     ['Organisation', clean(data.organisation, 150)],
     ['Website', clean(data.website_url, 200)],
     ['Decision timeline', clean(data.decision_timeline, 100)],
+    ['Meeting preference', clean(data.meeting_preference, 100)],
     ['Heard about us', clean(data.referral_source, 100)],
     ['Business challenge', clean(data.business_challenge, 4000)],
     ['Buyer questions', clean(data.buyer_questions, 4000)]
