@@ -304,7 +304,17 @@
       padding: 26px 28px;
       margin: 8px 0 36px;
     }
-    .policy-box h3 { margin-top: 0; }
+    /* The box title is an h2 for heading order but keeps its small label look. */
+    .article-body .policy-box h2 {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--mustard-dk);
+      line-height: normal;
+      margin: 0 0 10px;
+    }
     .policy-box dl {
       display: grid;
       grid-template-columns: max-content 1fr;
@@ -476,7 +486,7 @@
       <p class="lede">XL Marketing Services ("XL", "we", "us") respects your privacy. This policy explains what information xluxemarketing.com and its diagnostic tools collect, how we use it, and the choices you have.</p>
 
       <div class="policy-box">
-        <h3>At a glance</h3>
+        <h2>At a glance</h2>
         <dl>
           <dt>Site analytics</dt><dd>Google Analytics and Ahrefs Web Analytics (page views, traffic sources, device type)</dd>
           <dt>Heatmaps &amp; session recordings</dt><dd>Microsoft Clarity (how visitors click, scroll and move through pages)</dd>
