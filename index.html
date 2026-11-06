@@ -280,6 +280,17 @@
     .home-cross a:hover, .home-cross a:focus-visible { color: var(--forest); }
     .home-cross a:not(:last-child)::after { content: '\2192'; position: absolute; right: -22px; color: var(--border-mid); }
 
+    /* ── How we work (Advise / Enable / Deliver) ───────────────── */
+    .hwm-sub { font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.6; color: var(--muted); text-align: center; max-width: 560px; margin: 22px auto 0; }
+    .hwm-list { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin: 24px 0 28px; padding: 0; }
+    .hwm-list li { flex: 1 1 210px; max-width: 260px; display: flex; }
+    .hwm-pill { display: flex; flex-direction: column; justify-content: center; gap: 4px; width: 100%; padding: 16px 26px; border: 1.5px solid var(--border-mid); border-radius: 34px; text-align: center; text-decoration: none; background: transparent; transition: border-color 0.15s, background 0.15s; }
+    .hwm-pill:hover { border-color: var(--mustard); background: var(--ivory); }
+    .hwm-name { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 800; color: var(--forest); }
+    .hwm-name::after { content: '\2192'; margin-left: 8px; color: var(--mustard); }
+    .hwm-text { font-family: 'Inter', sans-serif; font-size: 13px; line-height: 1.45; color: var(--muted); }
+    @media (max-width: 620px) { .hwm-list li { flex-basis: 100%; max-width: none; } }
+
     /* ── Evidence grid ─────────────────────────────────────────── */
     .home-evidence-wrap { padding: 44px 0 0; }
     .home-ev-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--mustard-dk); text-transform: uppercase; margin-bottom: 22px; }
@@ -964,6 +975,20 @@
     <!-- ── Crosspoint state line ──────────────────────────────── -->
     <div class="home-cross">
       <a href="/decision-led-growth#understand">Understand</a><a href="/decision-led-growth#decide">Decide</a><a href="/decision-led-growth#design">Design</a><a href="/decision-led-growth#learn">Learn</a>
+    </div>
+
+    <!-- ── How we work: Advise / Enable / Deliver ─────────────────── -->
+    <div class="section reveal" id="how-we-work">
+      <div class="section-label">How we work</div>
+      <h2>We don't stop at recommendations.</h2>
+      <p class="lead center">We help clients make better marketing decisions and put them into practice through strategic advisory, practical workshops and done-for-you delivery. Our Sprints and Studio Partnerships bring the agreed work to life through SEO, AEO and GEO, content strategy, creative production and implementation.</p>
+      <p class="hwm-sub">Select the support your business needs. Every engagement begins with the decision and evidence, with a scope tailored to the work required.</p>
+      <ul class="hwm-list">
+        <li><a class="hwm-pill" href="/working-with-us#advise"><span class="hwm-name">Advise</span><span class="hwm-text">Strategic judgement and direction</span></a></li>
+        <li><a class="hwm-pill" href="/working-with-us#enable"><span class="hwm-name">Enable</span><span class="hwm-text">Workshops and team capability</span></a></li>
+        <li><a class="hwm-pill" href="/working-with-us#deliver"><span class="hwm-name">Deliver</span><span class="hwm-text">Agreed implementation through Sprints and Studio Partnerships</span></a></li>
+      </ul>
+      <p class="lead center">The result is marketing built on evidence, delivered with purpose and measured against the progress your business needs to make.</p>
     </div>
 
     <!-- ── Commercial evidence ──────────────────────────────────── -->
