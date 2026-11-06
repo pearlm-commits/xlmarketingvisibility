@@ -162,6 +162,14 @@
     .route-card p.rc-desc { font-size: 14px; line-height: 1.6; color: var(--ink); }
     .route-card a { display: inline-block; margin-top: 12px; font-size: 13px; font-weight: 700; color: var(--forest); text-decoration: none; }
     .route-card a:hover { color: var(--mustard-dk); }
+    .route-grid-3 { grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 760px) { .route-grid-3 { grid-template-columns: 1fr; } }
+    /* Anchor targets clear the sticky header (about 150px, or 250px on small screens) plus the 30px reveal slide. */
+    #advise, #enable, #deliver, #sprints, #workshop, #growth-audit, #partnerships { scroll-margin-top: 200px; }
+    @media (max-width: 760px) { #advise, #enable, #deliver, #sprints, #workshop, #growth-audit, #partnerships { scroll-margin-top: 310px; } }
+    .route-card .rc-links { list-style: none; margin: 12px 0 0; padding: 0; }
+    .route-card .rc-links li + li { margin-top: 6px; }
+    .route-card .rc-links a { margin-top: 0; }
     .route-card a span { color: var(--mustard); }
 
     /* ── Signal / includes list ───────────────────────────────── */
@@ -409,6 +417,40 @@
       <p style="font-family:'Playfair Display',Georgia,serif;font-size:17px;line-height:1.75;color:var(--forest-mid);max-width:680px;margin-top:14px;">Our work begins with understanding the business tensions that need resolving, identifying what matters most and deciding where marketing can make a meaningful contribution. Our expertise spans <a href="/services/brand-positioning" style="color:inherit;text-decoration:underline;text-decoration-color:var(--border);text-underline-offset:3px;">brand positioning</a>, <a href="/services/go-to-market-product-marketing" style="color:inherit;text-decoration:underline;text-decoration-color:var(--border);text-underline-offset:3px;">go-to-market strategy</a>, <a href="/services/b2b-growth-abm" style="color:inherit;text-decoration:underline;text-decoration-color:var(--border);text-underline-offset:3px;">B2B growth</a>, <a href="/services/marketing-sales-alignment" style="color:inherit;text-decoration:underline;text-decoration-color:var(--border);text-underline-offset:3px;">marketing and sales alignment</a>, <a href="/services/ai-search-visibility" style="color:inherit;text-decoration:underline;text-decoration-color:var(--border);text-underline-offset:3px;">AI search visibility</a> and <a href="/services/fractional-cmo" style="color:inherit;text-decoration:underline;text-decoration-color:var(--border);text-underline-offset:3px;">senior marketing leadership</a>.</p>
       <p style="font-family:'Playfair Display',Georgia,serif;font-size:17px;line-height:1.75;color:var(--forest-mid);max-width:680px;margin-top:14px;"><strong>We don't stop at recommendations.</strong> We help clients make better marketing decisions and put them into practice through strategic advisory, practical workshops and done-for-you delivery. Our Sprints and Studio Partnerships bring the agreed work to life through SEO, AEO and GEO, content strategy, creative production and implementation.</p>
       <p style="font-family:'Playfair Display',Georgia,serif;font-size:17px;line-height:1.75;color:var(--forest-mid);max-width:680px;margin-top:14px;">The result is marketing built on evidence, delivered with purpose and measured against the progress your business needs to make.</p>
+    </div>
+
+    <!-- ── Choose your support: Advise / Enable / Deliver ────────── -->
+    <div class="section reveal" id="choose-support">
+      <div class="section-label">Choose your support</div>
+      <h2>Advise, enable or deliver</h2>
+      <p class="lead">Choose the support your business needs. <strong>Advise</strong> provides the evidence and strategic judgement. <strong>Enable</strong> equips your team with practical methods. <strong>Deliver</strong> activates agreed decisions through defined Sprints and continuing Studio Partnerships. Each route can be commissioned on its own.</p>
+      <div class="route-grid route-grid-3">
+        <div class="route-card">
+          <h3 id="advise">Advise</h3>
+          <p class="rc-desc">Strategic direction, diagnostics and senior leadership, so the decision is clear before the work begins.</p>
+          <ul class="rc-links">
+            <li><a href="/diagnostics">The free diagnostics <span>&rarr;</span></a></li>
+            <li><a href="#growth-audit">The Growth Audit <span>&rarr;</span></a></li>
+            <li><a href="/services/fractional-cmo">Marketing leadership and strategic advisory <span>&rarr;</span></a></li>
+          </ul>
+          <p class="rc-desc" style="margin-top:12px;font-size:13px;color:var(--muted);">The Growth Audit also includes agreed priority fixes, so it is more than advice alone.</p>
+        </div>
+        <div class="route-card">
+          <h3 id="enable">Enable</h3>
+          <p class="rc-desc">Workshops, training and team capability, so your team can run the plan themselves.</p>
+          <ul class="rc-links">
+            <li><a href="#workshop">Discovery Workshops <span>&rarr;</span></a></li>
+          </ul>
+        </div>
+        <div class="route-card">
+          <h3 id="deliver">Deliver</h3>
+          <p class="rc-desc">Agreed implementation through Sprints and Studio Partnerships, from content strategy to creative production.</p>
+          <ul class="rc-links">
+            <li><a href="#sprints">Brand &amp; Content Sprints <span>&rarr;</span></a></li>
+            <li><a href="#partnerships">Studio Partnerships <span>&rarr;</span></a></li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <div class="section reveal">
