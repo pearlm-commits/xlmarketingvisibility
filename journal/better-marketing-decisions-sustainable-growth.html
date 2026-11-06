@@ -86,6 +86,8 @@
     /* ── Layout ───────────────────────────────────────────────── */
     .page-wrap { max-width: 680px; margin: 0 auto; padding: 0 24px; }
     .wide-wrap { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    /* Full-width pinned header bar: it spans the whole page, so it stays pinned all the way down. */
+    .site-header-pin { position: sticky; top: 0; z-index: 500; background: var(--white); }
 
     /* ── Navigation ───────────────────────────────────────────── */
     .site-nav {
@@ -514,8 +516,10 @@
 </head>
 
 <body>
-  <div class="page-wrap">
+  <div class="page-shell">
 
+    <div class="site-header-pin">
+    <div class="page-wrap">
     <!-- ── Navigation ─────────────────────────────────────────── -->
     <nav class="site-nav">
       <a href="/" class="site-logo"><img src="../images/xl-mark-forest.png" alt="" width="32" height="32"><span class="site-logo-text">XL Marketing</span></a>
@@ -538,8 +542,11 @@
         <a href="/diagnostics" class="nav-cta">Take the free diagnostic</a>
       </div>
     </nav>
+    </div>
+    </div>
 
     <main>
+    <div class="page-wrap">
 
     <!-- ── Breadcrumb ─────────────────────────────────────────── -->
     <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -976,8 +983,10 @@
     </div>
 
     <!-- ── Footer ───────────────────────────────────────────────── -->
-        </main>
+    </div><!-- /page-wrap (article) -->
+    </main>
 
+    <div class="page-wrap">
     <footer class="site-footer">
       <div class="footer-logo">XL Marketing Services</div>
       <div class="footer-address">Dubai, UAE &middot; <a href="tel:+971521489618">+971 52 148 9618</a> &middot; <a href="/contact?meeting=client-location#contact-form">Request a meeting at your location</a></div>
@@ -995,7 +1004,8 @@
       </div>
     </footer>
 
-  </div><!-- /page-wrap -->
+    </div><!-- /page-wrap (footer) -->
+  </div><!-- /page-shell -->
 
   <script>
     (function () {
