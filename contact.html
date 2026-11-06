@@ -449,6 +449,15 @@
           </div>
         </div>
 
+        <div class="form-group">
+          <label for="f-meeting">Would you like to meet?</label>
+          <select id="f-meeting" name="meeting_preference">
+            <option value="" selected>No preference yet</option>
+            <option value="Video call">Video call</option>
+            <option value="In person, at my location">In person, at my location</option>
+          </select>
+        </div>
+
         <button type="submit" class="btn btn-gold btn-full">Send this to XL</button>
         <p class="form-note">Enquiries route to our team at pearl@xluxemarketing.com.</p>
       </form>
@@ -460,6 +469,11 @@
       <div class="contact-direct-item">
         <span class="cd-label">Based in Dubai</span>
         <span class="cd-value">Al Khaleej Al Tejari 2 Street, Business Bay, Dubai, United Arab Emirates</span>
+      </div>
+      <div class="contact-direct-item">
+        <span class="cd-label">Meet in person</span>
+        <span class="cd-value">We can meet at your office or another location that suits you.</span>
+        <a class="cd-value" href="/contact?meeting=client-location#contact-form">Request a meeting at your location</a>
       </div>
       <div class="contact-direct-item">
         <span class="cd-label">Call or WhatsApp (UAE)</span>
@@ -479,7 +493,7 @@
 
     <footer class="site-footer">
       <div class="footer-logo">XL Marketing Services</div>
-      <div class="footer-address">Dubai, UAE &middot; <a href="tel:+971521489618">+971 52 148 9618</a></div>
+      <div class="footer-address">Dubai, UAE &middot; <a href="tel:+971521489618">+971 52 148 9618</a> &middot; <a href="/contact?meeting=client-location#contact-form">Request a meeting at your location</a></div>
       <div class="footer-links">
         <a href="/">Home</a>
         <a href="/services">Services</a>
@@ -530,6 +544,9 @@
         field.value = 'Regarding: ' + service + '\n\n';
         field.focus();
         field.setSelectionRange(field.value.length, field.value.length);
+      }
+      if (params.get('meeting') === 'client-location') {
+        document.getElementById('f-meeting').value = 'In person, at my location';
       }
       if (params.get('submitted') === 'true') {
         document.getElementById('success-banner').classList.add('show');
