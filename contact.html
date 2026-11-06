@@ -551,6 +551,20 @@
 
         const formData = new FormData(form);
 
+        /* Where the visitor came from (campaign link or referring site), if they
+           accepted cookies. Added to the email and passed on to the CRM. */
+        const attribution = window.XLAttribution ? window.XLAttribution.get() : null;
+        const describeTouch = function (t) {
+          if (!t) return '';
+          const channel = [t.utm_source, t.utm_medium, t.utm_campaign, t.utm_term, t.utm_content].filter(Boolean).join(' / ');
+          return [channel || (t.ref ? 'referral' : 'direct'), t.ref ? 'from ' + t.ref : '', t.landing ? 'landing ' + t.landing : ''].filter(Boolean).join(', ');
+        };
+        if (attribution && attribution.first) {
+          const summary = 'First visit: ' + describeTouch(attribution.first) +
+            (attribution.last && attribution.last.ts !== attribution.first.ts ? ' | Latest source: ' + describeTouch(attribution.last) : '');
+          formData.append('source_summary', summary);
+        }
+
         fetch(form.action, {
           method: 'POST',
           body: formData,
@@ -564,7 +578,7 @@
               fetch('/.netlify/functions/crm-lead', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(Object.fromEntries(formData.entries())),
+                body: JSON.stringify(Object.assign(Object.fromEntries(formData.entries()), attribution ? { attribution: attribution } : {})),
                 keepalive: true
               }).catch(function () {});
             } catch (err) { /* ignore */ }

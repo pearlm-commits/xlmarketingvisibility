@@ -20,10 +20,64 @@
     try { localStorage.setItem(STORAGE_KEY, value); } catch (e) { /* ignore */ }
   }
 
+  /* Source attribution: remembers which campaign link or external site first
+     brought a visitor here, so an enquiry can be traced back to its channel.
+     Runs only after consent (it is called from loadTrackers), keeps data on
+     the visitor's device for up to 30 days, and ignores the site's own pages
+     so internal navigation is never counted as a referral. */
+  var ATTR_KEY = 'xl_attr_v1';
+  var ATTR_DAYS = 30;
+  var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+
+  function cleanAttr(v) {
+    return typeof v === 'string' ? v.replace(/[^\x20-\x7E]|[<>]/g, '').trim().slice(0, 100) : '';
+  }
+  function readAttr() {
+    try {
+      var d = JSON.parse(localStorage.getItem(ATTR_KEY) || 'null');
+      if (d && d.exp && d.exp > Date.now()) return d;
+    } catch (e) { /* ignore */ }
+    return null;
+  }
+  function captureAttribution() {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var touch = { landing: window.location.pathname, ts: new Date().toISOString() };
+      UTM_KEYS.forEach(function (k) { var v = cleanAttr(params.get(k) || ''); if (v) touch[k] = v; });
+
+      var ref = '';
+      if (document.referrer) {
+        var host = new URL(document.referrer).hostname.replace(/^www\./, '');
+        var own = window.location.hostname.replace(/^www\./, '');
+        if (host && host !== own) ref = host;
+      }
+      if (ref) touch.ref = cleanAttr(ref);
+
+      var informative = !!(touch.utm_source || touch.utm_medium || touch.utm_campaign || touch.ref);
+      var data = readAttr();
+      if (!data) data = { exp: Date.now() + ATTR_DAYS * 86400000, first: touch, last: null };
+      else if (informative && !(data.first.utm_source || data.first.utm_medium || data.first.utm_campaign || data.first.ref)) {
+        data.first = touch; /* a first visit with no known source is replaced by the first one that has one */
+      }
+      if (informative) data.last = touch;
+      localStorage.setItem(ATTR_KEY, JSON.stringify(data));
+    } catch (e) { /* storage unavailable: attribution is simply skipped */ }
+  }
+
+  window.XLAttribution = {
+    get: function () {
+      if (getStoredConsent() !== 'granted') return null;
+      var d = readAttr();
+      return d ? { first: d.first, last: d.last } : null;
+    }
+  };
+
   var trackersLoaded = false;
   function loadTrackers() {
     if (trackersLoaded) return;
     trackersLoaded = true;
+
+    captureAttribution();
 
     window.dataLayer = window.dataLayer || [];
     function gtag() { window.dataLayer.push(arguments); }

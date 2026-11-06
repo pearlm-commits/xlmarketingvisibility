@@ -18,8 +18,9 @@
                           Defaults to "Website enquiry".
 
    Flow: exchange the refresh token for a short-lived access token, create
-   the Contact (name, email, role, and the enquiry details in the
-   description), then try to tag it.
+   the Contact (name, email, role, and the enquiry details and, when the
+   visitor accepted cookies, where they came from in the description), then
+   try to tag it ("Website enquiry" plus "Source - <channel>").
    ===================================================================== */
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -28,6 +29,38 @@ const json = (status, body) =>
   new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json' } });
 
 const clean = (v, max = 200) => (typeof v === 'string' ? v.trim().slice(0, max) : '');
+
+/* Where the visitor came from, sent by the browser only when they accepted
+   cookies. Anything client-supplied is treated as untrusted text. */
+const attrText = (v, max = 100) =>
+  typeof v === 'string' ? v.replace(/[^\x20-\x7E]|[<>]/g, '').trim().slice(0, max) : '';
+
+function cleanTouch(t) {
+  if (!t || typeof t !== 'object') return null;
+  const out = {};
+  for (const k of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'ref', 'landing', 'ts']) {
+    const v = attrText(t[k]);
+    if (v) out[k] = v;
+  }
+  return Object.keys(out).length ? out : null;
+}
+
+function describeTouch(t) {
+  const channel = [t.utm_source, t.utm_medium, t.utm_campaign, t.utm_term, t.utm_content].filter(Boolean).join(' / ');
+  return [
+    channel || (t.ref ? 'referral' : 'direct'),
+    t.ref ? `referrer ${t.ref}` : '',
+    t.landing ? `landing page ${t.landing}` : '',
+    t.ts ? `on ${t.ts.slice(0, 10)}` : ''
+  ].filter(Boolean).join(', ');
+}
+
+/* Short, tag-safe label for the channel: utm_source, else the referrer, else Direct. */
+function sourceTag(first) {
+  const raw = (first && (first.utm_source || first.ref)) || 'Direct';
+  const label = raw.replace(/[^A-Za-z0-9 .\-_]/g, '').trim().slice(0, 40) || 'Direct';
+  return `Source - ${label}`;
+}
 
 /* Only accept requests from this site's own pages (live domain, Netlify
    previews, local dev). Blocks other sites from posting leads here. */
@@ -122,11 +155,19 @@ export default async (req) => {
     ['Buyer questions', clean(data.buyer_questions, 4000)]
   ].filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`).join('\n\n');
 
+  const attr = data.attribution && typeof data.attribution === 'object' ? data.attribution : null;
+  const first = attr ? cleanTouch(attr.first) : null;
+  const last = attr ? cleanTouch(attr.last) : null;
+  const sourceLines = [];
+  if (first) sourceLines.push(`First visit: ${describeTouch(first)}`);
+  if (last && (!first || last.ts !== first.ts)) sourceLines.push(`Latest source: ${describeTouch(last)}`);
+
   const contact = { Last_Name: lastName, Email: email };
   if (firstName) contact.First_Name = firstName;
   const role = clean(data.role, 100);
   if (role) contact.Title = role;
-  if (details) contact.Description = details;
+  const description = [details, sourceLines.join('\n')].filter(Boolean).join('\n\n');
+  if (description) contact.Description = description;
 
   try {
     const auth = await getAccessToken();
@@ -145,15 +186,19 @@ export default async (req) => {
       return json(502, { ok: false, error: 'CRM sync failed' });
     }
 
-    /* Tag it so website enquiries can be told apart. Best-effort. */
+    /* Tag it so website enquiries can be told apart, and by channel when the
+       source is known. One call per tag, best-effort. */
     const id = row.details && row.details.id;
-    const tag = process.env.ZOHO_LEAD_TAG || 'Website enquiry';
+    const tags = [process.env.ZOHO_LEAD_TAG || 'Website enquiry'];
+    if (first) tags.push(sourceTag(first));
     if (id) {
-      const tagged = await bigin(auth, `/Contacts/${encodeURIComponent(id)}/actions/add_tags?tag_names=${encodeURIComponent(tag)}`, {
-        method: 'POST'
-      });
-      if (!tagged.ok) {
-        console.error(`crm-lead: Bigin ${tagged.status} tagging contact ${id}: ${JSON.stringify(tagged.body).slice(0, 300)}`);
+      for (const tag of tags) {
+        const tagged = await bigin(auth, `/Contacts/${encodeURIComponent(id)}/actions/add_tags?tag_names=${encodeURIComponent(tag)}`, {
+          method: 'POST'
+        });
+        if (!tagged.ok) {
+          console.error(`crm-lead: Bigin ${tagged.status} tagging contact ${id} with "${tag}": ${JSON.stringify(tagged.body).slice(0, 300)}`);
+        }
       }
     }
     return json(200, { ok: true });
