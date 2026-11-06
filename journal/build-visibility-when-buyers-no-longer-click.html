@@ -835,10 +835,10 @@
     ]
   }
   </script>
-  <!-- Mobile header: a slim bar with a Menu button on phones; unchanged on larger screens and without JavaScript. -->
+  <!-- Compact header: a slim bar with a Menu button on phones and tablets (up to 1199px); unchanged on desktops and without JavaScript. -->
   <style id="xl-mobile-nav">
     .nav-toggle { display: none; }
-    @media (max-width: 760px) {
+    @media (max-width: 1199px) {
       .nav-js .site-nav { flex-wrap: nowrap; row-gap: 0; padding: 10px 0; }
       .nav-js .nav-toggle { display: inline-flex; align-items: center; gap: 9px; min-height: 44px; padding: 0 16px; border: 1.5px solid var(--border-mid, #D8CDB8); border-radius: 999px; background: transparent; color: var(--forest, #1E3D2B); font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; }
       .nav-js .nav-toggle:hover { border-color: var(--mustard, #A08F5C); }
@@ -859,6 +859,10 @@
       .nav-js .nav-links .xls-trigger { align-self: flex-start; margin: 12px 0 0; padding: 8px 14px; }
       .nav-js .nav-links .xls-trigger-label { display: inline; }
       .nav-js .nav-links .xls-trigger-kbd { display: none; }
+    }
+    /* Tablets: the open menu is a card under the Menu button rather than a full-width sheet. */
+    @media (min-width: 601px) and (max-width: 1199px) {
+      .nav-js .nav-links { left: auto; right: 0; width: 400px; max-width: calc(100vw - 48px); border: 1px solid var(--border-mid, #D8CDB8); border-top: none; border-radius: 0 0 14px 14px; padding: 4px 20px 18px; }
     }
   </style>
   <script>
