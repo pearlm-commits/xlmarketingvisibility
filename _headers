@@ -1,0 +1,12 @@
+# Long-lived caching for static assets. HTML stays revalidated on every visit
+# (Netlify's default) so content changes go live immediately.
+# Image and script file names are not fingerprinted, so keep these windows
+# modest: a changed file reaches returning visitors within the window.
+/images/*
+  Cache-Control: public, max-age=604800
+/work/*
+  Cache-Control: public, max-age=604800
+/*.js
+  Cache-Control: public, max-age=3600
+/diagnostics/*.js
+  Cache-Control: public, max-age=3600
