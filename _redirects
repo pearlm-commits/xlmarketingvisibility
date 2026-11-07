@@ -52,3 +52,7 @@
 # Publishing brief used /insights/ as the section path; the live section is /journal/.
 /insights/is-marketing-dead     /journal/is-marketing-dead     301
 /insights/sme-marketing-role-gap     /journal/sme-marketing-role-gap     301
+
+# Large PNGs replaced by optimised JPEGs.
+/images/build-visibility-hero.png     /images/build-visibility-hero.jpg     301
+/images/xl-crosspoint-diagram.png     /images/xl-crosspoint-diagram.jpg     301
