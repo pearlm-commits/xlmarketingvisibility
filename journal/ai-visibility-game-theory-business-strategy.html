@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Cookie consent + gated analytics/pixel loader (see /consent.js) -->
+  <script src="/consent.js" defer></script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Visibility and Game Theory: How Smaller Brands Compete</title>
+  <meta name="description" content="What can game theory teach smaller businesses about AI visibility? Learn how to compete through customer understanding, positioning and better choices." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://xluxemarketing.com/journal/ai-visibility-game-theory-business-strategy" />
+  <link rel="icon" href="../images/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="../images/favicon-32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="../images/favicon-192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="../images/favicon-180.png" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="XL Marketing Services" />
+  <meta property="og:title" content="If Everyone Plays the Same AI Visibility Game, Who Wins?" />
+  <meta property="og:description" content="What can game theory teach smaller businesses about AI visibility? Learn how to compete through customer understanding, positioning and better choices." />
+  <meta property="og:url" content="https://xluxemarketing.com/journal/ai-visibility-game-theory-business-strategy" />
+  <meta property="og:image" content="https://xluxemarketing.com/images/ai-visibility-game-theory-og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="A golden chess king standing before white pawns, with a yellow route across the board towards a flag, beside the title: If Everyone Plays the Same AI Visibility Game, Who Wins?" />
+  <meta property="article:published_time" content="2026-11-12" />
+  <meta property="article:modified_time" content="2026-11-12" />
+  <meta property="article:section" content="Analysis" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="If Everyone Plays the Same AI Visibility Game, Who Wins?" />
+  <meta name="twitter:description" content="What can game theory teach smaller businesses about AI visibility? Learn how to compete through customer understanding, positioning and better choices." />
+  <meta name="twitter:image" content="https://xluxemarketing.com/images/ai-visibility-game-theory-og.jpg" />
+  <meta name="twitter:image:alt" content="A golden chess king standing before white pawns, with a yellow route across the board towards a flag, beside the title: If Everyone Plays the Same AI Visibility Game, Who Wins?" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" /></noscript>
+
+  <style>
+    /* ── Brand tokens ─────────────────────────────────────────── */
+    :root {
+      --white:       #FFFFFF;
+      --ivory:       #FFFBF1;
+      --ivory-mid:   #F6EEDD;
+      --sage:        #DCE8DD;
+      --mustard:     #A08F5C;
+      --mustard-lt:  #F3E6B8;
+      --mustard-dk:  #8A6500;
+      --ember:       #C1442A;
+      --ember-dark:  #922A20;
+      --forest:      #1E3D2B;
+      --forest-mid:  #245847;
+      --ink:         #14110F;
+      --muted:       #5B625D;
+      --muted-light: #94988D;
+      --border:      rgba(216,205,184,0.4);
+      --border-mid:  #D8CDB8;
+      --focus:       #A08F5C;
+      --focus-offset:#FFFBF1;
+      --shadow:      0 0 0 1px var(--stone);
+      --shadow-lg:   0 0 0 1px var(--stone);
+      --radius:      0;
+      --grey:        #F4F5F6;
+      --bordeaux:    #5C1220;
+      --stone:       #8B8479;
+      --paper:       #FFFFFF;
+    }
+
+    /* ── Reset ────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
+
+    /* ── Layout ───────────────────────────────────────────────── */
+    .page-wrap { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+
+    @media (max-width: 600px) {
+      .site-nav { flex-wrap: wrap; row-gap: 14px; }
+      .nav-links { width: 100%; justify-content: flex-start; }
+      .btn { white-space: normal; text-align: center; }
+      body { font-size: 16px; }
+    }
+
+    /* ── Navigation ───────────────────────────────────────────── */
+    .site-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border-mid);
+      position: sticky;
+      top: 0;
+      z-index: 500;
+      background: var(--white);
+    }
+
+    .site-logo { display: inline-flex; align-items: center; text-decoration: none; }
+    .site-logo img { height: 32px; width: auto; display: block; }
+    .site-logo-text {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 600;
+      font-size: 21px;
+      letter-spacing: -0.01em;
+      color: var(--forest);
+      margin-left: 10px;
+      white-space: nowrap;
+    }
+
+    .nav-links { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 10px 22px; }
+
+    .nav-links > a {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.01em; transition: color 0.15s;
+    }
+
+    .nav-links > a.current { color: var(--forest); }
+    .nav-links > a:hover { color: var(--forest); }
+
+    a.nav-cta {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: var(--forest);
+      background: transparent;
+      border: 1.5px solid var(--forest);
+      padding: 8px 19px;
+      border-radius: 999px;
+      white-space: nowrap;
+      cursor: pointer;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.15s, color 0.15s;
+      display: inline-block;
+    }
+
+    .nav-cta:hover { background: var(--forest); color: #fff; }
+
+    /* ── Nav dropdown (mega-nav style, e.g. Sectors) ──────────────── */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown summary {
+      list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
+      font-size: 13px; color: var(--muted); font-weight: 500; letter-spacing: 0.01em; transition: color 0.15s;
+    }
+    .nav-dropdown summary::-webkit-details-marker { display: none; }
+    .nav-dropdown summary::after { content: '\25BE'; font-size: 9px; color: var(--mustard); position: relative; top: 1px; }
+    .nav-dropdown:hover summary, .nav-dropdown[open] summary, .nav-dropdown.current summary { color: var(--forest); }
+    .nav-dropdown-panel {
+      position: absolute; top: calc(100% + 14px); left: 0; min-width: 190px;
+      background: var(--white); border: 0.5px solid var(--border-mid);
+      box-shadow: 0 10px 28px rgba(20,17,15,0.1); padding: 8px; z-index: 600;
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .nav-dropdown-panel a {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      padding: 9px 10px; font-size: 13px; color: var(--ink); text-decoration: none; transition: background 0.15s, color 0.15s;
+    }
+    .nav-dropdown-panel a:hover { background: var(--grey); color: var(--forest); }
+    .nav-dropdown-panel a span { color: var(--mustard); font-size: 11px; flex-shrink: 0; }
+    .nav-dropdown-panel .ndp-divider { border-top: 0.5px solid var(--border); margin: 4px 0; }
+    @media (max-width: 600px) {
+      .nav-dropdown { width: 100%; }
+      .nav-dropdown-panel { position: static; box-shadow: none; border: none; margin-top: 4px; padding: 4px 0 4px 14px; }
+    }
+
+    /* ── Breadcrumb ───────────────────────────────────────────── */
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--muted);
+      margin: 28px 0 0;
+    }
+
+    .breadcrumb a { color: var(--muted); text-decoration: none; font-weight: 600; }
+    .breadcrumb a:hover { color: var(--forest); }
+    .breadcrumb span.sep { color: var(--muted-light); }
+    .breadcrumb span.current { color: var(--forest); font-weight: 600; }
+
+    /* ── Article head ─────────────────────────────────────────── */
+    .article-head { background: var(--paper); padding: 20px 0 32px; text-align: center; border-bottom: 1px solid var(--border-mid);}
+
+    .article-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .format-badge {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--mustard-dk,#8A6500);
+      border: 0.5px solid var(--border-mid);
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+
+    .article-date { font-size: 12px; color: var(--muted); font-weight: 500; }
+
+    .article-head h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(32px, 5.6vw, 46px);
+      font-weight: 500;
+      line-height: 1.2;
+      color: var(--forest);
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+
+    .article-dek {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: clamp(17px, 2.1vw, 19px);
+      color: var(--forest-mid);
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto 18px;
+    }
+
+    .article-byline { font-size: 13px; color: var(--muted); font-weight: 600; }
+
+    /* ── Direct answer ────────────────────────────────────────── */
+    .direct-answer {
+      background: var(--grey);
+      border-left: 3px solid var(--mustard);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px;
+      margin-bottom: 24px;
+    }
+
+    .direct-answer p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--ink);
+    }
+
+    .direct-answer strong { color: var(--forest); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+
+    /* ── Buttons ──────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      padding: 13px 28px;
+      border-radius: 999px;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.1s, background 0.15s;
+      border: none;
+      text-decoration: none;
+    }
+
+    .btn:active { transform: scale(0.98); }
+
+    /* Diagnostic CTA — mustard fill, deep-green text (never white-on-mustard) */
+    .btn-diagnostic { background: var(--forest); color: #fff; }
+    .btn-diagnostic:hover { background: var(--forest-mid); }
+
+    /* Strategy-call CTA — deep-green outline */
+    .btn-outline-forest { background: transparent; color: var(--forest); border: 1.5px solid var(--forest); }
+    .btn-outline-forest:hover { background: var(--forest); color: #fff; }
+
+    .btn-primary { background: var(--forest); color: #fff; }
+    .btn-primary:hover { background: var(--forest-mid); }
+
+    /* ── Hero figure ──────────────────────────────────────────── */
+    .article-hero { margin-bottom: 8px; }
+    .article-hero img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      display: block;
+    }
+    .article-hero figcaption {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: 14px;
+      color: var(--muted);
+      text-align: center;
+      margin: 10px 0 32px;
+      line-height: 1.5;
+    }
+
+    /* ── Article body ─────────────────────────────────────────── */
+    .article-body { padding: 8px 0 12px; }
+
+    .article-body p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.85;
+      color: var(--ink);
+      margin-bottom: 22px;
+    }
+
+    .article-body p.lede {
+      font-size: 20px;
+      line-height: 1.75;
+      color: var(--forest-mid);
+    }
+
+    .article-body strong { font-weight: 600; color: var(--forest); }
+    .article-body p a { color: var(--mustard-dk,#8A6500); font-weight: 600; text-decoration: underline; text-decoration-color: var(--border-mid); text-underline-offset: 2px; }
+    .article-body p a:hover { text-decoration-color: var(--mustard); }
+
+    .article-body h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(24px, 3.4vw, 29px);
+      color: var(--forest);
+      line-height: 1.3;
+      margin: 44px 0 18px;
+    }
+
+    .article-body h3 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 19px;
+      color: var(--forest);
+      line-height: 1.35;
+      margin: 28px 0 12px;
+    }
+
+    .article-body ul, .article-body ol.plain-list {
+      list-style: none;
+      margin-bottom: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .article-body ul li, .article-body ol.plain-list li {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--ink);
+      padding-left: 22px;
+      position: relative;
+    }
+
+    .article-body ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--mustard);
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ── Criteria list (five characteristics) ─────────────────── */
+    .criteria-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 24px;
+      counter-reset: criteria;
+    }
+
+    .criteria-list li {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--ink);
+      padding: 16px 18px 16px 52px;
+      position: relative;
+      background: var(--grey);
+      border-radius: var(--radius);
+      counter-increment: criteria;
+    }
+
+    .criteria-list li::before {
+      content: counter(criteria);
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--mustard);
+      color: var(--forest);
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .criteria-list strong { font-family: 'Inter', sans-serif; font-weight: 700; color: var(--forest); }
+
+    /* ── Comparison table ─────────────────────────────────────── */
+    .table-scroll { overflow-x: auto; margin-bottom: 22px; -webkit-overflow-scrolling: touch; }
+
+    .comparison-table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 560px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 15px;
+    }
+
+    .comparison-table th {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ivory);
+      background: var(--forest);
+      padding: 12px 16px;
+      text-align: left;
+    }
+
+    .comparison-table th:first-child { width: 18%; }
+
+    .comparison-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-mid);
+      vertical-align: top;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+
+    .comparison-table td:first-child {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      color: var(--forest);
+      font-size: 13px;
+      background: var(--grey);
+    }
+
+    .comparison-table tr:nth-child(even) td:not(:first-child) { background: var(--grey); }
+
+    /* ── Sources ──────────────────────────────────────────────── */
+    .sources-section { margin: 40px 0 8px; }
+
+    .sources-section h2 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      color: var(--forest);
+      margin-bottom: 16px;
+    }
+
+    .sources-section ol { list-style: none; counter-reset: src; display: flex; flex-direction: column; gap: 10px; }
+
+    .sources-section li {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+      padding-left: 26px;
+      position: relative;
+      counter-increment: src;
+    }
+
+    .sources-section li::before {
+      content: '[' counter(src) ']';
+      position: absolute;
+      left: 0;
+      color: var(--mustard);
+      font-weight: 700;
+    }
+
+    .sources-section a { color: var(--forest-mid); word-break: break-word; }
+
+    /* ── Editorial note ───────────────────────────────────────── */
+    .editorial-note {
+      background: var(--grey);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      margin: 24px 0;
+    }
+
+    .editorial-note h3 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--mustard-dk,#8A6500);
+      margin-bottom: 8px;
+    }
+
+    .editorial-note p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+    /* ── Author bio ───────────────────────────────────────────── */
+    .author-bio {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      margin: 36px 0 8px;
+      padding: 24px;
+      background: var(--grey);
+      border-radius: var(--radius);
+    }
+
+    .author-bio img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 3px solid var(--white);
+      box-shadow: 0 2px 24px rgba(23,63,53,0.08);
+    }
+
+    .author-bio .author-name { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 16px; color: var(--forest); margin-bottom: 2px; }
+    .author-bio .author-role { font-size: 12px; color: var(--mustard-dk); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 10px; }
+    .author-bio p.author-text { font-family: 'Playfair Display', Georgia, serif; font-size: 15px; color: var(--forest-mid); line-height: 1.65; margin: 0; }
+
+    /* ── About XL blurb ───────────────────────────────────────── */
+    .about-xl { margin: 20px 0 8px; }
+    .about-xl p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+    .about-xl strong { color: var(--forest); }
+
+    /* ── End conversion panel ─────────────────────────────────── */
+    .end-cta-panel {
+      background: var(--paper);
+      border-radius: 0;
+      padding: 40px 32px;
+      text-align: center;
+      margin: 44px 0 8px; border-top: 1px solid var(--border-mid);}
+
+    .end-cta-panel .section-label { font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--mustard-dk);
+      margin-bottom: 14px;
+    }
+
+    .end-cta-panel h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(22px, 3.4vw, 28px);
+      color: var(--forest);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .end-cta-panel > p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 16px;
+      color: var(--forest-mid);
+      line-height: 1.6;
+      max-width: 460px;
+      margin: 0 auto 28px;
+    }
+
+    .end-cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .end-cta-btn-group { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .end-cta-btn-group .btn-micro { font-size: 12px; color: var(--muted); font-weight: 500; }
+
+    @media (max-width: 480px) {
+      .end-cta-buttons { flex-direction: column; }
+    }
+
+    /* ── Related reading ──────────────────────────────────────── */
+    .related-reading { margin: 40px 0 8px; }
+
+    .related-reading .section-label { font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--mustard-dk);
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .related-links { display: flex; flex-direction: column; gap: 10px; }
+
+    .related-links a {
+      display: block;
+      background: var(--grey);
+      border: 0.5px solid var(--border-mid);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--forest);
+      text-decoration: none;
+      transition: border-color 0.15s;
+    }
+
+    .related-links a:hover { border-color: var(--mustard); }
+    .related-links a span { color: var(--mustard); }
+
+    /* ── Footer ───────────────────────────────────────────────── */
+    .site-footer {
+      border-top: 0.5px solid var(--border);
+      margin-top: 40px;
+      padding: 24px 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-logo { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px; color: var(--muted); }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--forest); }
+    .footer-address { font-size: 12px; color: var(--muted); }
+    .footer-address a { color: var(--muted); text-decoration: none; }
+    .footer-address a:hover { color: var(--forest); }
+
+    @media (max-width: 600px) {
+      .btn { white-space: normal; text-align: center; }
+      .article-head { padding: 12px 0 24px; }
+      .end-cta-panel { padding: 28px 20px; }
+      .author-bio { flex-direction: column; text-align: center; align-items: center; }
+    }
+  
+    /* ── Share bar ────────────────────────────────────────────── */
+    .share-bar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 8px 0 36px; padding-top: 24px; border-top: 0.5px solid var(--border); position: relative; }
+    .share-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mustard-dk); font-weight: 700; margin-right: 4px; }
+    .share-icons { display: flex; gap: 8px; flex-wrap: wrap; }
+    .share-icon { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: var(--grey); color: var(--forest); transition: background 0.15s, color 0.15s; text-decoration: none; border: none; cursor: pointer; padding: 0; }
+    .share-icon:hover, .share-icon:focus-visible { background: var(--forest); color: #fff; }
+    .share-icon svg { width: 16px; height: 16px; fill: currentColor; }
+    .share-copied-note { font-size: 12px; color: var(--muted); font-style: italic; opacity: 0; transition: opacity 0.2s; }
+    .share-copied-note.show { opacity: 1; }
+    /* ── Article-specific refinements ─────────────────────────── */
+    .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    .format-badge { color: var(--mustard-dk); }
+    .article-dek { max-width: 620px; }
+    .article-byline a { color: var(--forest); text-decoration: underline; text-decoration-color: var(--border-mid); text-underline-offset: 2px; }
+    .article-byline a:hover { text-decoration-color: var(--forest); }
+    .article-hero { margin-bottom: 32px; }
+
+    /* Body links: darker mustard for AA contrast (5.3:1 on white), underlined so links never rely on colour alone */
+    .article-body p a, .article-body li a { color: var(--mustard-dk); font-weight: 600; text-decoration: underline; text-decoration-color: var(--mustard-dk); text-underline-offset: 2px; }
+    .article-body p a:hover, .article-body li a:hover { color: var(--forest); text-decoration-color: var(--forest); }
+    .article-body a.cite { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; text-decoration: none; margin-left: 1px; }
+    .article-body a.cite:hover { text-decoration: underline; }
+
+    /* The questions the article asks, set apart from the running text */
+    .article-body p.key-question {
+      font-size: clamp(19px, 2.6vw, 22px);
+      line-height: 1.55;
+      font-weight: 600;
+      color: var(--forest);
+      border-left: 3px solid var(--mustard);
+      padding: 4px 0 4px 20px;
+      margin: 30px 0;
+    }
+    .article-body p.list-lead { margin-bottom: 12px; }
+    .article-body ul.question-list { margin-bottom: 26px; }
+    .criteria-list { margin-bottom: 28px; }
+    .criteria-list li::before { background: var(--forest); color: #fff; }
+
+    /* Mechanism table: accessible caption + row headers */
+    .comparison-table caption { caption-side: top; text-align: left; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mustard-dk); padding: 0 0 10px; }
+    .comparison-table th:first-child { width: 26%; }
+    .comparison-table tbody th { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0; text-transform: none; color: var(--forest); background: var(--grey); padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border-mid); vertical-align: top; line-height: 1.6; }
+    .table-scroll { margin: 8px 0 30px; }
+    .comparison-table { min-width: 0; table-layout: fixed; }
+    .comparison-table th:first-child { width: 28%; }
+    @media (max-width: 600px) {
+      .comparison-table { font-size: 14px; }
+      .comparison-table thead th { padding: 10px 10px; font-size: 11px; }
+      .comparison-table td, .comparison-table tbody th { padding: 12px 10px; }
+      .comparison-table tbody th { font-size: 12px; overflow-wrap: anywhere; }
+    }
+
+    /* Sources, evidence note and author links */
+    .sources-section li::before { color: var(--mustard-dk); }
+    .sources-section a.ext::after { content: ' \2197'; font-size: 0.85em; }
+    .editorial-note h3 { color: var(--mustard-dk); }
+    .editorial-note a { color: var(--forest-mid); font-weight: 600; }
+    .author-bio .author-name a { color: var(--forest); text-decoration: none; }
+    .author-bio .author-name a:hover { text-decoration: underline; }
+    .author-bio p.author-text a { color: var(--forest-mid); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+    .about-xl a { color: var(--mustard-dk); }
+
+    /* Restrained closing prompt */
+    .end-cta-panel p.end-cta-alt { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--muted); max-width: none; margin: 22px 0 0; }
+    .end-cta-panel p.end-cta-alt a { color: var(--forest-mid); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+    .end-cta-panel p.end-cta-alt a:hover { color: var(--forest); }
+    .related-links a span { color: var(--mustard-dk); }
+
+    /* ── Article-specific additions (AI visibility and game theory) ──── */
+    .direct-answer p + p { margin-top: 14px; }
+    .direct-answer strong.inline-strong { display: inline; font-family: inherit; font-size: inherit; text-transform: none; letter-spacing: 0; margin: 0; }
+    .pullquote-block { background: var(--forest); padding: 34px 32px; text-align: center; margin: 32px 0; }
+    .article-body .pullquote-block p { font-style: italic; font-size: clamp(19px, 3vw, 24px); line-height: 1.55; color: var(--ivory); max-width: 520px; margin: 0 auto; }
+    .article-figure { margin: 30px 0 34px; }
+    .article-figure img { width: 100%; height: auto; display: block; }
+    .faq-section { margin: 8px 0 8px; }
+    .faq-item { border-top: 0.5px solid var(--border); padding: 20px 0; }
+    .faq-item:last-child { border-bottom: 0.5px solid var(--border); }
+    .faq-item h3 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 17px; color: var(--forest); margin: 0 0 8px; line-height: 1.4; }
+    .article-body .faq-item p { font-size: 16px; line-height: 1.7; margin-bottom: 0; }
+    .comparison-table th:first-child { width: 22%; }
+    @media (max-width: 600px) { .comparison-table th:first-child { width: 31%; } .comparison-table tbody th { font-size: 11.5px; overflow-wrap: normal; word-break: normal; padding-left: 8px; padding-right: 8px; } }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "If Everyone Plays the Same AI Visibility Game, Who Wins?",
+        "description": "What can game theory teach smaller businesses about AI visibility? Learn how to compete through customer understanding, positioning and better choices.",
+        "image": [
+          "https://xluxemarketing.com/images/ai-visibility-game-theory-og.jpg",
+          "https://xluxemarketing.com/images/ai-visibility-game-theory-hero.webp"
+        ],
+        "datePublished": "2026-11-12",
+        "dateModified": "2026-11-12",
+        "author": {
+          "@type": "Person",
+          "@id": "https://xluxemarketing.com/about#pearl-m",
+          "name": "Pearl M",
+          "jobTitle": "Chief Marketing Officer and Strategic Marketing Lead",
+          "url": "https://xluxemarketing.com/about",
+          "sameAs": [
+            "https://www.linkedin.com/in/pearl-mngomezulu-0675b635"
+          ],
+          "worksFor": {
+            "@id": "https://xluxemarketing.com/#organization"
+          }
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://xluxemarketing.com/#organization",
+          "name": "XL Marketing Services",
+          "url": "https://xluxemarketing.com/"
+        },
+        "mainEntityOfPage": "https://xluxemarketing.com/journal/ai-visibility-game-theory-business-strategy",
+        "url": "https://xluxemarketing.com/journal/ai-visibility-game-theory-business-strategy",
+        "inLanguage": "en",
+        "articleSection": "Analysis",
+        "isPartOf": {
+          "@type": "Blog",
+          "name": "Meridian Insights",
+          "url": "https://xluxemarketing.com/journal"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://xluxemarketing.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Meridian Insights",
+            "item": "https://xluxemarketing.com/journal"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "If Everyone Plays the Same AI Visibility Game, Who Wins?",
+            "item": "https://xluxemarketing.com/journal/ai-visibility-game-theory-business-strategy"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- Header: a slim bar with a Menu button below 1280px, one slim row of links at 1280px and wider; the menu needs JavaScript, the one-row layout does not. -->
+  <style id="xl-mobile-nav">
+    .nav-toggle { display: none; }
+    @media (max-width: 1279px) {
+      .nav-js .site-nav { flex-wrap: nowrap; row-gap: 0; padding: 10px 0; }
+      .nav-js .nav-toggle { display: inline-flex; align-items: center; gap: 9px; min-height: 44px; padding: 0 16px; border: 1.5px solid var(--border-mid, #D8CDB8); border-radius: 999px; background: transparent; color: var(--forest, #1E3D2B); font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; }
+      .nav-js .nav-toggle:hover { border-color: var(--mustard, #A08F5C); }
+      .nav-toggle-bars, .nav-toggle-bars::before, .nav-toggle-bars::after { display: block; width: 16px; height: 2px; background: currentColor; border-radius: 2px; }
+      .nav-toggle-bars { position: relative; }
+      .nav-toggle-bars::before, .nav-toggle-bars::after { content: ''; position: absolute; left: 0; transition: top .15s, transform .15s; }
+      .nav-toggle-bars::before { top: -5px; }
+      .nav-toggle-bars::after { top: 5px; }
+      .nav-js .site-nav.is-open .nav-toggle-bars { background: transparent; }
+      .nav-js .site-nav.is-open .nav-toggle-bars::before { top: 0; transform: rotate(45deg); }
+      .nav-js .site-nav.is-open .nav-toggle-bars::after { top: 0; transform: rotate(-45deg); }
+      .nav-js .nav-links { display: none; position: absolute; top: 100%; left: -24px; right: -24px; width: auto; flex-direction: column; align-items: stretch; flex-wrap: nowrap; justify-content: flex-start; gap: 0; padding: 4px 24px 18px; background: var(--white, #fff); border-bottom: 1px solid var(--border-mid, #D8CDB8); box-shadow: 0 12px 24px rgba(20, 17, 15, .10); max-height: calc(100vh - 80px); max-height: calc(100dvh - 80px); overflow-y: auto; }
+      .nav-js .site-nav.is-open .nav-links { display: flex; }
+      .nav-js .nav-links > a, .nav-js .nav-links .nav-dropdown summary { display: flex; align-items: center; min-height: 46px; font-size: 16px; border-bottom: 0.5px solid var(--border, rgba(216, 205, 184, .4)); }
+      .nav-js .nav-links .nav-dropdown { width: 100%; }
+      .nav-js .nav-links .nav-dropdown-panel { position: static; box-shadow: none; border: none; margin-top: 0; padding: 4px 0 8px 14px; }
+      .nav-js .nav-links a.nav-cta { justify-content: center; width: 100%; margin-top: 14px; border-bottom-width: 1.5px; }
+      .nav-js .nav-links .xls-trigger { align-self: flex-start; margin: 12px 0 0; padding: 8px 14px; }
+      .nav-js .nav-links .xls-trigger-label { display: inline; }
+      .nav-js .nav-links .xls-trigger-kbd { display: none; }
+    }
+    /* Tablets: the open menu is a card under the Menu button rather than a full-width sheet. */
+    @media (min-width: 601px) and (max-width: 1279px) {
+      .nav-js .nav-links { left: auto; right: 0; width: 400px; max-width: calc(100vw - 48px); border: 1px solid var(--border-mid, #D8CDB8); border-top: none; border-radius: 0 0 14px 14px; padding: 4px 20px 18px; }
+    }
+    /* Desktops: one slim row. The header may be wider than the reading column so every link fits. */
+    @media (min-width: 1280px) {
+      .site-nav { --navw: min(1240px, calc(100vw - 48px)); width: var(--navw); max-width: none; margin-left: calc(50% - var(--navw) / 2); flex-wrap: nowrap; row-gap: 0; padding: 14px 0; }
+      .site-nav .nav-links { flex-wrap: nowrap; width: auto; gap: 0 16px; }
+      .site-nav .nav-links .xls-trigger-label, .site-nav .nav-links .xls-trigger-kbd { display: none; }
+      .site-nav .nav-links .xls-trigger { padding: 8px; }
+      .site-nav .site-logo, .site-nav .nav-links { flex-shrink: 0; }
+      .site-nav .nav-links > a, .site-nav .nav-links summary { white-space: nowrap; }
+    }
+  </style>
+  <script>
+    (function () {
+      var d = document;
+      d.documentElement.classList.add('nav-js');
+      function nav() { return d.querySelector('.site-nav'); }
+      function setOpen(open) {
+        var n = nav(), b = n && n.querySelector('.nav-toggle');
+        if (!n || !b) return;
+        n.classList.toggle('is-open', open);
+        b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      d.addEventListener('click', function (e) {
+        var n = nav(), t = e.target;
+        if (!n || !t.closest) return;
+        if (t.closest('.nav-toggle')) return setOpen(!n.classList.contains('is-open'));
+        if (n.classList.contains('is-open') && !t.closest('.site-nav')) setOpen(false);
+      });
+      d.addEventListener('keydown', function (e) {
+        var n = nav();
+        if (e.key === 'Escape' && n && n.classList.contains('is-open')) { setOpen(false); n.querySelector('.nav-toggle').focus(); }
+      });
+      d.addEventListener('focusin', function (e) {
+        var n = nav();
+        if (n && n.classList.contains('is-open') && e.target.closest && !e.target.closest('.site-nav')) setOpen(false);
+      });
+    })();
+  </script>
+</head>
+
+<body>
+  <div class="page-wrap">
+
+    <!-- ── Navigation ─────────────────────────────────────────── -->
+    <nav class="site-nav">
+      <a href="/" class="site-logo"><img src="../images/xl-mark-forest.png" alt="" width="32" height="32"><span class="site-logo-text">XL Marketing</span></a>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-menu"><span class="nav-toggle-bars" aria-hidden="true"></span><span>Menu</span></button>
+      <div class="nav-links" id="site-menu">
+        <a href="/services">Services</a>
+        <details class="nav-dropdown">
+          <summary>Sectors</summary>
+          <div class="nav-dropdown-panel">
+            <a href="/sectors/luxury">Lifestyle &amp; Luxury</a>
+            <a href="/sectors/health-wellness-biohacking">Health, Wellness &amp; Biohacking</a>
+            <div class="ndp-divider"></div>
+            <a href="/sectors">All sectors <span>&rarr;</span></a>
+          </div>
+        </details>
+        <a href="/working-with-us">Working With Us</a>
+        <a href="/decision-led-growth">Marketing Decision-Led Growth</a>
+        <a href="/about">About</a>
+        <a href="/journal" class="current">Meridian Insights</a>
+        <a href="/diagnostics">Diagnostics</a>
+        <a href="/diagnostics" class="nav-cta">Take the free diagnostic</a>
+      </div>
+    </nav>
+
+    <main>
+
+    <!-- ── Breadcrumb ─────────────────────────────────────────── -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="sep">/</span>
+      <a href="/journal">Meridian Insights</a>
+      <span class="sep">/</span>
+      <span class="current">If Everyone Plays the Same AI Visibility Game, Who Wins?</span>
+    </nav>
+
+    <!-- ── Article head ─────────────────────────────────────────── -->
+    <div class="article-head">
+      <div class="article-meta-row">
+        <span class="format-badge">Analysis</span>
+        <span class="article-date">Published <time datetime="2026-11-12">12 November 2026</time> &middot; ~10 min read</span>
+      </div>
+      <h1>If Everyone Plays the Same AI Visibility Game, Who Wins?</h1>
+      <p class="article-dek">What game theory can teach smaller businesses about positioning, competition and becoming worth choosing.</p>
+      <div class="article-byline">By <a href="/about">Pearl M</a> &middot; Chief Marketing Officer and Strategic Marketing Lead, XL Marketing Services</div>
+    </div>
+
+    <!-- ── Share bar ────────────────────────────────────────────── -->
+    <div class="share-bar">
+      <span class="share-label">Share this article</span>
+      <div class="share-icons">
+        <a class="share-icon" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fxluxemarketing.com%2Fjournal%2Fai-visibility-game-theory-business-strategy" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 5a2 2 0 11-4-.002 2 2 0 014 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-3.96 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.68-2.91V8.48z"/></svg></a>
+        <a class="share-icon" href="https://x.com/intent/post?url=https%3A%2F%2Fxluxemarketing.com%2Fjournal%2Fai-visibility-game-theory-business-strategy&text=If%20Everyone%20Plays%20the%20Same%20AI%20Visibility%20Game%2C%20Who%20Wins%3F" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.146 2h3.05l-6.66 7.61L22.5 22h-6.12l-4.79-6.27L6.08 22H3.02l7.12-8.14L2 2h6.27l4.33 5.73L18.146 2zm-1.07 18.13h1.69L7.02 3.77H5.2l11.88 16.36z"/></svg></a>
+        <a class="share-icon" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fxluxemarketing.com%2Fjournal%2Fai-visibility-game-theory-business-strategy" target="_blank" rel="noopener" aria-label="Share on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 10-11.56 9.87v-6.98H7.9V12h2.54V9.8c0-2.5 1.5-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.98A10 10 0 0022 12z"/></svg></a>
+        <a class="share-icon" href="https://wa.me/?text=If%20Everyone%20Plays%20the%20Same%20AI%20Visibility%20Game%2C%20Who%20Wins%3F%20-%20https%3A%2F%2Fxluxemarketing.com%2Fjournal%2Fai-visibility-game-theory-business-strategy" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22l5.2-1.36a9.94 9.94 0 004.84 1.23h.004c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2zm5.84 14.24c-.25.7-1.45 1.34-2 1.42-.51.08-1.15.11-1.86-.12-.43-.14-.98-.32-1.68-.63-2.96-1.28-4.9-4.26-5.05-4.46-.15-.2-1.2-1.6-1.2-3.05 0-1.45.76-2.16 1.03-2.46.27-.3.59-.37.79-.37.2 0 .4 0 .57.01.18.01.43-.07.67.51.25.6.85 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.31.4-.44.53-.15.15-.3.32-.13.62.17.3.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.36 1.46.3.15.48.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.7-.17 1.4z"/></svg></a>
+        <button type="button" class="share-icon" aria-label="Copy link for Instagram" onclick="shareInstagram(this)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.24 2.23.41.56.21.96.47 1.38.89.42.42.68.82.89 1.38.17.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.8-.41 2.23-.21.56-.47.96-.89 1.38-.42.42-.82.68-1.38.89-.42.17-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.24-2.23-.41a3.72 3.72 0 01-1.38-.89 3.72 3.72 0 01-.89-1.38c-.17-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.24-1.8.41-2.23.21-.56.47-.96.89-1.38.42-.42.82-.68 1.38-.89.42-.17 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.39C1.35 2.68.94 3.35.63 4.14c-.3.76-.5 1.64-.56 2.91C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.39 2.13.67.67 1.34 1.08 2.13 1.39.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.39.67-.67 1.08-1.34 1.39-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.85 5.85 0 00-1.39-2.13A5.85 5.85 0 0019.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1018.16 12 6.16 6.16 0 0012 5.84zm0 10.16A4 4 0 1116 12a4 4 0 01-4 4zm6.41-10.44a1.44 1.44 0 11-1.44-1.44 1.44 1.44 0 011.44 1.44z"/></svg></button>
+        <a class="share-icon" href="mailto:?subject=If%20Everyone%20Plays%20the%20Same%20AI%20Visibility%20Game%2C%20Who%20Wins%3F&body=Thought%20this%20was%20worth%20a%20read%3A%20If%20Everyone%20Plays%20the%20Same%20AI%20Visibility%20Game%2C%20Who%20Wins%3F%0A%0Ahttps%3A%2F%2Fxluxemarketing.com%2Fjournal%2Fai-visibility-game-theory-business-strategy" aria-label="Share by email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A2.5 2.5 0 014.5 3h15A2.5 2.5 0 0122 5.5v13a2.5 2.5 0 01-2.5 2.5h-15A2.5 2.5 0 012 18.5v-13zm2.2.5l7.8 6.24L19.8 6H4.2zM20 8.16l-7.4 5.92a1 1 0 01-1.2 0L4 8.16V18.5a.5.5 0 00.5.5h15a.5.5 0 00.5-.5V8.16z"/></svg></a>
+      </div>
+      <span class="share-copied-note" id="share-copied-note" role="status" aria-live="polite">Link copied. Paste it into your Instagram bio or story.</span>
+    </div>
+    <script>
+      function shareInstagram(btn) {
+        var url = 'https://xluxemarketing.com/journal/ai-visibility-game-theory-business-strategy';
+        navigator.clipboard.writeText(url).then(function () {
+          var note = document.getElementById('share-copied-note');
+          note.classList.add('show');
+          setTimeout(function () { note.classList.remove('show'); }, 3500);
+        });
+      }
+    </script>
+
+    <!-- ── Key answer (kept as real HTML text, high in the article) ── -->
+    <div class="direct-answer">
+      <p><strong>Direct answer</strong>If every business follows the same AI visibility recommendations, none gains an advantage. Smaller businesses compete better by working backwards from the customer's decision: which customers they are best placed to serve, why those customers would choose them over alternatives, and how competitors are likely to respond. SEO, AEO and GEO still matter, but they should support that strategy, not substitute for it. An AI citation is a possible result, not the commercial prize.</p>
+    </div>
+
+    <!-- ── Hero image ────────────────────────────────────────────── -->
+    <figure class="article-hero">
+      <img src="../images/ai-visibility-game-theory-hero.webp" width="1600" height="800" alt="A golden chess king standing before white pawns, with a yellow route across the board towards a flag, beside the title: If Everyone Plays the Same AI Visibility Game, Who Wins?" loading="eager" decoding="async">
+    </figure>
+
+    <!-- ── Article body ─────────────────────────────────────────── -->
+    <div class="article-body">
+      <p class="lede">A small business owner sits at her desk, studying an AI visibility report.</p>
+
+      <p>Her business appeared in three of the ten searches tested. Her largest competitor appeared in nine.</p>
+
+      <p>The recommendations are familiar. Publish more content. Improve website structure. Strengthen external mentions. Build authority.</p>
+
+      <p>She could spend the next six months following that advice.</p>
+
+      <p>But suppose her competitor receives the same recommendations. And the business next door receives them too.</p>
+
+      <p>Everyone publishes more. Everyone improves their descriptions. Everyone starts answering similar questions.</p>
+
+      <p class="key-question">Has anyone actually gained a competitive advantage?</p>
+
+      <p>This is where marketing starts to resemble a game of strategy.</p>
+
+      <p>I've been reading <a href="https://wwnorton.co.uk/books/9780393337174-the-art-of-strategy-51c540ff-09aa-4ebc-afd1-20d6cfc8ed04" target="_blank" rel="noopener"><em>The Art of Strategy</em> by Avinash Dixit and Barry Nalebuff</a>.<sup><a class="cite" href="#source-1">[1]</a></sup> The authors explore how decisions change when the outcome depends on what other people do.</p>
+
+      <p>It's an interesting lens through which to examine the current enthusiasm for AI visibility.</p>
+
+      <p>Because the question isn't simply how to get AI to recommend your business.</p>
+
+      <p>It's how to make better decisions when customers, competitors, technology and the market are all influencing the outcome.</p>
+
+      <p>And for a smaller business, understanding the game could be far more valuable than trying to outspend the biggest player.</p>
+
+      <h2>First, what game are you playing?</h2>
+
+      <p>Consider two retailers.</p>
+
+      <p>One is an international fashion business with thousands of products, substantial advertising budgets and enormous distribution capabilities.</p>
+
+      <p>The other is an independent boutique specialising in swimwear.</p>
+
+      <p>If the boutique competes on assortment, advertising spend and market reach, the larger business has obvious advantages.</p>
+
+      <p>But a customer enters the category with a particular need.</p>
+
+      <p>She's preparing for a holiday. She wants a unique swimsuit that offers excellent support, feels comfortable and suits her personal style. She's tired of looking through hundreds of products and wants guidance from someone who understands fit and great taste without pandering to trends.</p>
+
+      <p>The international retailer may have exactly what she needs.</p>
+
+      <p>But the boutique might have something else to offer: specialist knowledge, carefully selected products and a more personalised experience.</p>
+
+      <p>Suddenly, the competitive picture looks different.</p>
+
+      <p>The boutique doesn't need to persuade everyone to shop there. It needs to understand which customers value its particular strengths and develop a proposition that gives those customers a credible reason to choose it.</p>
+
+      <p>Of course, the proposition must be commercially viable. A narrow audience isn't necessarily a profitable one.</p>
+
+      <p>But the point remains.</p>
+
+      <p class="key-question">You don't need to win every customer's business to establish a valuable position in the market.</p>
+
+      <p>And your competition isn't standing still. The moment your approach succeeds, someone else may decide to imitate it.</p>
+
+      <p>That's part of the game too.</p>
+
+      <h2>Look forward and reason backward</h2>
+
+      <p>One of the most useful ideas in game theory is to consider the outcome you want, then reason backwards through the decisions and conditions required to make it possible.</p>
+
+      <p>In marketing, we're sometimes inclined to do the opposite.</p>
+
+      <p>We start with an activity.</p>
+
+      <p>Let's create a new campaign. Let's improve our search rankings. Let's get mentioned by AI.</p>
+
+      <p>Then we hope the activity contributes to the result we want.</p>
+
+      <p>What happens if we reverse the thinking?</p>
+
+      <p>Suppose you're a luxury travel designer who wants to attract more families planning holidays in the Mediterranean.</p>
+
+      <p>The desired outcome isn't an AI citation.</p>
+
+      <p>It's a suitable customer deciding that your business is the right choice.</p>
+
+      <p>Work backwards.</p>
+
+      <p>What would that customer need to know before choosing you?</p>
+
+      <p>Perhaps they want confidence that you can accommodate three generations with different interests. They might be looking for quieter experiences away from crowded attractions. Perhaps they value someone who can manage changes discreetly when plans don't go as expected.</p>
+
+      <p>What evidence would help them trust you?</p>
+
+      <p>What questions would they ask during their research?</p>
+
+      <p>Where would they expect to find answers?</p>
+
+      <p>And how would your business demonstrate that it has the expertise to deliver?</p>
+
+      <p>Only after answering those questions should you investigate the channels, content and technical requirements that make the information easier to discover.</p>
+
+      <p>AI search is one possible route into that conversation.</p>
+
+      <p>It isn't the entire conversation.</p>
+
+      <h2>Your move: the small player versus the big player</h2>
+
+      <p>Let's make this practical.</p>
+
+      <p>You're running that independent swimwear boutique. Your AI visibility audit shows a large retailer appearing more frequently in broad swimwear recommendations.</p>
+
+      <p>Your resources are limited.</p>
+
+      <p class="key-question">Which move would you make?</p>
+
+      <p><strong>Move A: Outspend the competitor.</strong></p>
+
+      <p>Increase advertising and content production to compete more aggressively for the same audience.</p>
+
+      <p><strong>Move B: Follow the playbook.</strong></p>
+
+      <p>Publish more general swimwear guides, expand your product descriptions and repeat the topics competitors already cover.</p>
+
+      <p><strong>Move C: Investigate where you could be particularly valuable.</strong></p>
+
+      <p>Speak to customers, examine their questions and identify a need that your boutique has the expertise and commercial capacity to serve especially well.</p>
+
+      <p>Take a moment to choose.</p>
+
+      <p>There isn't a universally correct answer.</p>
+
+      <p>Advertising can be profitable. General content can help customers. And specialisation can fail if demand is insufficient.</p>
+
+      <p>But Move C asks a question the other two moves don't necessarily answer.</p>
+
+      <p class="key-question">Why should someone choose this business instead of another?</p>
+
+      <p>Suppose customers consistently struggle to find attractive, supportive swimwear accompanied by reliable fitting advice.</p>
+
+      <p>The boutique could test whether its knowledge and service provide a meaningful advantage.</p>
+
+      <p>That decision might influence its product selection, staff training, website, customer experience, editorial content and partnerships.</p>
+
+      <p>It could publish a practical fitting guide, demonstrate how particular designs differ and provide useful advice on choosing swimwear for different needs. Collaborate with different creators and designers to showcase fit, shape and style.</p>
+
+      <p>Now the business has something substantive to communicate.</p>
+
+      <p>And AI search platforms have more specific, relevant information available to retrieve and assess.</p>
+
+      <p>The strategy didn't begin with a content recommendation.</p>
+
+      <p>It began with a customer problem and a competitive choice.</p>
+
+      <h2>Know your customers as they know themselves</h2>
+
+      <p>There's another dimension to this game.</p>
+
+      <p>Businesses describe customers in segments, income brackets, locations and demographics.</p>
+
+      <p>Those classifications have their uses.</p>
+
+      <p>But customers don't necessarily identify themselves in the language of a marketing plan.</p>
+
+      <p>A luxury travel designer may target affluent families.</p>
+
+      <p>The customer may think of herself as a parent trying to create a memorable holiday before her children grow older.</p>
+
+      <p>A lingerie boutique may target women within a particular age group.</p>
+
+      <p>The customer may simply want to feel confident, comfortable, look elegant and find someone who understands her needs.</p>
+
+      <p>If we're going to be relevant, we need to understand the circumstances in which customers seek solutions and how they describe those circumstances.</p>
+
+      <p>This is where first-party data becomes valuable.</p>
+
+      <p>Customer conversations, enquiries, purchase patterns and feedback can reveal concerns that generic keyword tools may overlook.</p>
+
+      <p>And those insights can help us identify the questions worth answering.</p>
+
+      <p>Not because every answer will produce an AI citation.</p>
+
+      <p>Because answering the right questions is part of being useful to customers.</p>
+
+      <h3>Try the clarity test</h3>
+
+      <p>Can you explain what your business does to someone who has no knowledge of your industry?</p>
+
+      <p>Try completing these sentences:</p>
+
+      <p><strong>We help:</strong> [Describe your customer as a person.]</p>
+
+      <p><strong>To:</strong> [Explain what they want to achieve or resolve.]</p>
+
+      <p><strong>By:</strong> [Describe what you actually do for them.]</p>
+
+      <p><strong>They might choose us because:</strong> [Provide a specific, credible reason.]</p>
+
+      <p>Now read it aloud.</p>
+
+      <p>Does it sound like something a customer would understand?</p>
+
+      <p>Could someone unfamiliar with your category explain it back to you?</p>
+
+      <p>If the answer is no, more technical optimisation may simply make an unclear proposition easier to find.</p>
+
+      <p>Clarity is not the whole of positioning. You still need to establish relevance, competitive context and proof.</p>
+
+      <p>But it's a useful starting point.</p>
+
+      <h2>Your competitors get a turn too</h2>
+
+      <p>Let's return to game theory.</p>
+
+      <p>One of its central insights is that your outcome depends partly on how other people respond.</p>
+
+      <p>Suppose your specialist swimwear boutique becomes known for an excellent fitting experience.</p>
+
+      <p>Customers talk about it. Relevant publications mention it. Its reputation grows.</p>
+
+      <p>Then a larger retailer introduces a similar service.</p>
+
+      <p>What happens next?</p>
+
+      <p>You could compete on price. You could increase promotion. You could deepen the expertise and relationships that made your offer valuable in the first place.</p>
+
+      <p>The right move depends on what customers value, what competitors can deliver and what your business can sustain.</p>
+
+      <p>An effective strategy therefore needs to consider the likely response of other players.</p>
+
+      <p>It also needs to recognise the possibilities for cooperation.</p>
+
+      <p>A boutique could collaborate with a complementary resortwear designer. A travel consultant could develop useful relationships with local specialists. A business software provider might work with an industry association to help members understand a common operational challenge.</p>
+
+      <p>These relationships can create value for customers and participating businesses.</p>
+
+      <p>Not every game is zero-sum.</p>
+
+      <p>And an AI recommendation doesn't have to be winner-takes-all. Customers have different requirements, and several businesses may be relevant to the same broad category.</p>
+
+      <p class="key-question">The opportunity is to be particularly valuable to the customers you're best equipped to serve.</p>
+
+      <h2>What does this mean for AI visibility?</h2>
+
+      <p>It doesn't mean abandoning SEO, AEO or GEO.</p>
+
+      <p>Search engines and AI assistants still need accessible, accurate information to understand what businesses offer.</p>
+
+      <p>Technical accessibility, structured information, clear descriptions, useful content and credible external evidence all have a role.</p>
+
+      <p>But those activities should support the business strategy, not substitute for it.</p>
+
+      <p>Think of the chain in reverse.</p>
+
+      <p>A customer chooses your business because they recognise its relevance and trust its ability to deliver.</p>
+
+      <p>That confidence comes from what they discover, the evidence they encounter and the experience the business provides.</p>
+
+      <p>Your marketing helps make that information accessible and understandable.</p>
+
+      <p>AI systems may retrieve and present some of that information during the customer's research.</p>
+
+      <p>The business can't control the final recommendation. It can improve the quality, clarity and credibility of the information available to inform it.</p>
+
+      <p>An AI citation is a possible result, not the commercial prize.</p>
+
+      <h2>The game changes, so your moves must change too</h2>
+
+      <p>The aim of any game is to give yourself the best possible chance of winning. But to do that, you need to understand the other players, anticipate their moves and consider how your own decisions might influence what happens next.</p>
+
+      <p>Business is no different.</p>
+
+      <p>You can decide where you want to compete and what success should look like, but your customers and competitors have choices too.</p>
+
+      <p>Customers change their preferences. Competitors respond to your actions. Economic conditions change. Culture shifts. New technologies reshape how people discover and evaluate businesses.</p>
+
+      <p>A good strategy gives you a direction, but it also prepares you to respond as the game unfolds.</p>
+
+      <p class="key-question">The objective isn't to keep changing your strategy. It's to make better decisions as you learn more about the game you're playing.</p>
+
+      <p>A fashion boutique may see demand move towards different materials or purchasing experiences.</p>
+
+      <p>A luxury concierge may notice that clients increasingly want quieter, more private experiences.</p>
+
+      <p>A wellness business may encounter new questions arising from research, regulation or changing customer expectations.</p>
+
+      <p>These shifts don't automatically require a new brand positioning.</p>
+
+      <p>But they do require attention.</p>
+
+      <p>I would approach this as a continuous process.</p>
+
+      <ul>
+        <li><strong>Listen.</strong> What are customers asking now? What is the market saying?</li>
+        <li><strong>Decide.</strong> Which changes are meaningful enough to act on?</li>
+        <li><strong>Improve.</strong> What needs to change in the proposition, information, evidence or customer experience?</li>
+        <li><strong>Test.</strong> Are customers finding and understanding the business more easily?</li>
+        <li><strong>Learn.</strong> What does the evidence suggest about our next move?</li>
+      </ul>
+
+      <p>Then repeat.</p>
+
+      <p>A monthly review offers an opportunity to make incremental improvements. A more substantial periodic review can examine whether the competitive position itself needs to change.</p>
+
+      <p>This is as much a philosophy of business management as it is a marketing discipline.</p>
+
+      <p>The objective isn't constant reinvention.</p>
+
+      <p>It's remaining relevant while protecting the qualities that make the business valuable.</p>
+
+      <h2>Don't confuse playing harder with playing better</h2>
+
+      <p>Smaller businesses often face genuine constraints.</p>
+
+      <p>They have limited budgets, smaller teams and less capacity to experiment than their larger competitors.</p>
+
+      <p>But constraints can also encourage sharper choices.</p>
+
+      <p>You may not be able to produce a hundred articles. You can concentrate on answering ten genuinely important questions exceptionally well.</p>
+
+      <p>You may not have an international advertising budget. You may have strong customer relationships and expertise that a larger competitor struggles to replicate.</p>
+
+      <p>You may not appear in every AI recommendation. But you can work towards being accurately understood and credibly considered for the problems you are well placed to solve.</p>
+
+      <p>None of these advantages is automatic or permanent.</p>
+
+      <p>They require good judgement, consistency and evidence.</p>
+
+      <p class="key-question">The most valuable strategic move may be deciding what <strong>not</strong> to compete for.</p>
+
+      <h2>So, what's your next move?</h2>
+
+      <p>If you've recently received an AI visibility report, resist the temptation to act on every recommendation immediately.</p>
+
+      <p>Ask what game your business is playing.</p>
+
+      <ul class="question-list">
+        <li>Who are the customers you most want to serve?</li>
+        <li>What are they trying to achieve?</li>
+        <li>Who else is competing for their attention and trust?</li>
+        <li>What could you contribute that would be valuable, credible and difficult to imitate?</li>
+        <li>And what needs to be true for the customer to choose you?</li>
+      </ul>
+
+      <p>Once you've answered those questions, the technical work becomes easier to prioritise.</p>
+
+      <p>For a practical explanation of the next steps, read our <a href="/journal/ai-visibility-audit-vs-ai-search-strategy">guide to AI visibility audits and AI search strategy</a>.</p>
+
+      <p>You can also take XL Marketing Services' <a href="/diagnostics/ai-visibility">free AI Discovery Readiness Assessment</a> to explore where your business may need greater clarity, stronger evidence or improved discoverability.</p>
+
+      <p>If you would prefer strategic support, we can help you evaluate your position, decide which moves are worth making and implement the work.</p>
+
+      <p class="key-question">The aim isn't to become the answer to everyone's question. It's to become a credible, valuable answer to the questions that matter to the customers you're best placed to serve.</p>
+    </div>
+
+    <!-- ── Sources ──────────────────────────────────────────────── -->
+    <div class="sources-section">
+      <h2>Sources</h2>
+      <ol>
+        <li id="source-1">Avinash Dixit and Barry Nalebuff, <em>The Art of Strategy: A Game Theorist's Guide to Success in Business and Life</em>, W. W. Norton. <a class="ext" href="https://wwnorton.co.uk/books/9780393337174-the-art-of-strategy-51c540ff-09aa-4ebc-afd1-20d6cfc8ed04" target="_blank" rel="noopener">wwnorton.co.uk<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+      </ol>
+    </div>
+
+    <!-- ── Editorial note ────────────────────────────────────────── -->
+    <div class="editorial-note">
+      <h3>Editorial note</h3>
+      <p>Inspired by the strategic thinking explored in Avinash Dixit and Barry Nalebuff's <em>The Art of Strategy</em>. The business scenarios are illustrative, not claims about actual clients or AI search results.</p>
+    </div>
+
+    <!-- ── Author bio ───────────────────────────────────────────── -->
+    <div class="author-bio">
+      <img src="../images/pearl-m.jpg" alt="Pearl M" width="64" height="64" loading="lazy" decoding="async">
+      <div>
+        <div class="author-name"><a href="/about">Pearl M</a></div>
+        <div class="author-role">Chief Marketing Officer and Strategic Marketing Lead, XL Marketing Services</div>
+        <p class="author-text">Pearl is a marketing leader and brand strategist with more than 25 years of experience across telecommunications, fintech, enterprise technology, infrastructure, luxury services and emerging technology, including leadership roles at Vodacom, PayU and Dimension Data/NTT. At XL, she leads the strategic architecture behind Marketing Decision-Led Growth: defining the market opportunity, clarifying the proposition and creating the marketing system required to build demand. <a href="https://www.linkedin.com/in/pearl-mngomezulu-0675b635" target="_blank" rel="noopener">Pearl on LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a></p>
+      </div>
+    </div>
+
+    <div class="about-xl">
+      <p><strong>About XL Marketing Services.</strong> XL Marketing Services is a strategic marketing and growth consultancy based in Dubai. We work with founders, CEOs, CMOs and marketing leaders in technology, lifestyle and luxury, and health, wellness and biohacking across the UAE, South Africa and the wider MEA region. Our expertise spans <a href="/services/brand-positioning">brand positioning</a>, <a href="/services/go-to-market-product-marketing">go-to-market strategy</a>, <a href="/services/b2b-growth-abm">B2B growth</a>, <a href="/services/marketing-sales-alignment">marketing and sales alignment</a>, <a href="/services/ai-search-visibility">AI search visibility</a> and <a href="/services/fractional-cmo">senior marketing leadership</a>. Our Marketing Decision-Led Growth method starts with the quality of the evidence, questions and assumptions shaping action.</p>
+    </div>
+
+    <!-- ── Closing prompt (deliberately restrained) ─────────────── -->
+    <div class="end-cta-panel">
+      <div class="section-label">Your next move</div>
+      <h2>Ask what game your business is playing.</h2>
+      <p>The AI Discovery Readiness Assessment takes about four minutes and shows where your business may need greater clarity, stronger evidence or improved discoverability.</p>
+      <div class="end-cta-buttons">
+        <div class="end-cta-btn-group">
+          <a href="/diagnostics/ai-visibility" class="btn btn-diagnostic">Take the AI Discovery Readiness Assessment</a>
+          <span class="btn-micro">12 questions &middot; approximately four minutes</span>
+        </div>
+      </div>
+      <p class="end-cta-alt">Prefer strategic support? <a href="/contact?service=AI%20visibility%20and%20game%20theory">Talk to our team about your position</a>.</p>
+    </div>
+
+    <!-- ── Related reading ──────────────────────────────────────── -->
+    <div class="related-reading">
+      <div class="section-label">Related reading</div>
+      <div class="related-links">
+        <a href="/journal/ai-visibility-audit-vs-ai-search-strategy">AI Visibility Audit vs. AI Search Strategy: How to Turn Reports into Decisions <span>&rarr;</span></a>
+        <a href="/journal/build-visibility-when-buyers-no-longer-click">How to Build Brand Visibility When Buyers No Longer Click <span>&rarr;</span></a>
+        <a href="/journal/why-ai-content-is-harder-to-differentiate">Why Is AI Making Content Easier to Create but Harder to Differentiate? <span>&rarr;</span></a>
+      </div>
+    </div>
+
+    <!-- ── Footer ───────────────────────────────────────────────── -->
+        </main>
+
+    <footer class="site-footer">
+      <div class="footer-logo">XL Marketing Services</div>
+      <div class="footer-address">Dubai, UAE &middot; <a href="tel:+971521489618">+971 52 148 9618</a> &middot; <a href="/contact?meeting=client-location#contact-form">Request a meeting at your location</a></div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/services">Services</a>
+        <a href="/working-with-us">Working With Us</a>
+        <a href="/decision-led-growth">Marketing Decision-Led Growth</a>
+        <a href="/about">About</a>
+        <a href="/journal">Meridian Insights</a>
+        <a href="/diagnostics">Diagnostics</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy</a>
+        <a href="#" onclick="window.XLConsent &amp;&amp; XLConsent.open(); return false;">Cookie preferences</a>
+      </div>
+    </footer>
+
+  </div><!-- /page-wrap -->
+
+  <script>
+    // The browser's native scroll-to-fragment on load is unreliable once
+    // scroll-behavior:smooth is set on <html> (a known cross-browser
+    // inconsistency) -- so a link like page.html#some-id can land at the
+    // top of the page instead. Scroll to it manually once everything,
+    // including images, has finished loading and settled.
+    window.addEventListener('load', function () {
+      if (location.hash) {
+        var target = document.querySelector(location.hash);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  </script>
+  <script src="/search.js" defer></script>
+</body>
+</html>
